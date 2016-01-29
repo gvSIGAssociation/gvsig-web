@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+gvGeoportal is sponsored by the General Directorate for Information
+Technologies (DGTI) of the Regional Ministry of Finance and Public
+Administration of the Generalitat Valenciana (Valencian Community,
+Spain), managed by gvSIG Association and led by DISID Corporation.
+
+Copyright (C) 2016 DGTI - Generalitat Valenciana
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/jquery/form/fields" xmlns:spring="http://www.springframework.org/tags" xmlns:form="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/jquery/form" xmlns:page="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/datatables" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:find finderName="ByAll" id="ff_es_gva_dgti_gvgeoportal_domain_geoportal" path="/geoportales" z="user-managed">
+     <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <field:input disableFormBinding="true" field="tituloFinder" id="f_es_gva_dgti_gvgeoportal_domain_geoportal_titulo" value="${params.tituloFinder}" z="user-managed"/>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <field:input disableFormBinding="true" field="urlFinder"  id="f_es_gva_dgti_gvgeoportal_domain_geoportal_url" value="${params.urlFinder}" z="user-managed"/>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <field:select addEmptyValue="true" disableFormBinding="true" field="coordenadasFinder" id="f_es_gva_dgti_gvgeoportal_domain_geoportal_coordenadas"  items="${sistemacoordenadasitems}" path="/sistemacoordenadases" z="user-managed"/>
+            </div>
+        </div>
+     <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+        	<field:input disableFormBinding="true" field="subTituloFinder" id="f_es_gva_dgti_gvgeoportal_domain_geoportal_subtitulo" required="true" value="${params.subTituloFinder}" z="user-managed"/>
+         </div>
+         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        	<field:input disableFormBinding="true" field="descripcionFinder" id="f_es_gva_dgti_gvgeoportal_domain_geoportal_descripcion" required="true" value="${params.descripcionFinder}" z="user-managed"/>
+         </div>
+         <div class="col-xs-12 col-sm-6 col-md-2 col-lg-2">
+         	<label class="control-label" for="_geoportal_publicado_select_id">
+                        <spring:message code="label_es_gva_dgti_gvgeoportal_domain_geoportal_publicado" htmlEscape="false"/>:
+             </label>
+			<select class="controls form-control" id="f_es_gva_dgti_gvgeoportal_domain_geoportal_publicado" name="publicadoFinder">
+                        		<option value="empty"/>
+                                <option value="false">
+                                    <spring:message code="label_no" htmlEscape="false"/>
+                                </option>
+                                <option value="true">
+                                    <spring:message code="label_yes" htmlEscape="false"/>
+                                </option>
+                    </select>
+         </div>
+      </div>
+
+    </form:find>
+</div>

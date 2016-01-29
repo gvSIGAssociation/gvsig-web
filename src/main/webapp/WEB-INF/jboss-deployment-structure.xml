@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!--
+  gvGeoportal is sponsored by the General Directorate for Information
+  Technologies (DGTI) of the Regional Ministry of Finance and Public
+  Administration of the Generalitat Valenciana (Valencian Community,
+  Spain), managed by gvSIG Association and led by DISID Corporation.
+  
+  Copyright (C) 2016 DGTI - Generalitat Valenciana
+  
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU Affero General Public License as
+  published by the Free Software Foundation, either version 3 of the
+  License, or (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU Affero General Public License for more details.
+  
+  You should have received a copy of the GNU Affero General Public License
+   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<jboss-deployment-structure xmlns="urn:jboss:deployment-structure:1.2"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <deployment>
+    <exclude-subsystems>
+      <subsystem name="jpa" />
+    </exclude-subsystems>
+    <exclusions>
+      <module name="javaee.api" />
+      <module name="javax.persistence.api" />
+      <module name="org.hibernate" />
+    </exclusions>
+    <dependencies>
+      <module name="javax.activation.api" export="true" />
+      <module name="javax.annotation.api" export="true" />
+      <module name="javax.ejb.api" export="true" />
+      <module name="javax.el.api" export="true" />
+      <module name="javax.enterprise.api" export="true" />
+      <module name="javax.enterprise.deploy.api" export="true" />
+      <module name="javax.inject.api" export="true" />
+      <module name="javax.interceptor.api" export="true" />
+      <module name="javax.jms.api" export="true" />
+      <module name="javax.jws.api" export="true" />
+      <module name="javax.mail.api" export="true" />
+      <module name="javax.management.j2ee.api" export="true" />
+      <module name="com.postgresql.jdbc4" export="true" />
+      <module name="javax.resource.api" export="true" />
+      <module name="javax.rmi.api" export="true" />
+      <module name="javax.security.auth.message.api" export="true" />
+      <module name="javax.security.jacc.api" export="true" />
+      <module name="javax.servlet.api" export="true" />
+      <module name="javax.servlet.jsp.api" export="true" />
+      <module name="javax.transaction.api" export="true" />
+      <module name="javax.validation.api" export="true" />
+      <module name="javax.ws.rs.api" export="true" services="export" />
+      <module name="javax.xml.bind.api" export="true" />
+      <module name="javax.xml.registry.api" export="true" />
+      <module name="javax.xml.soap.api" export="true" />
+      <module name="javax.xml.ws.api" export="true" />
+      <module name="javax.api" export="true" />
+    </dependencies>
+  </deployment>
+</jboss-deployment-structure>

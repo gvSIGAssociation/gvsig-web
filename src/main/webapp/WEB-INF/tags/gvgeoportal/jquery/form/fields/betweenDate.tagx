@@ -1,0 +1,198 @@
+<!--
+gvGeoportal is sponsored by the General Directorate for Information
+Technologies (DGTI) of the Regional Ministry of Finance and Public
+Administration of the Generalitat Valenciana (Valencian Community,
+Spain), managed by gvSIG Association and led by DISID Corporation.
+
+Copyright (C) 2016 DGTI - Generalitat Valenciana
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<jsp:root xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:field="urn:jsptagdir:/WEB-INF/tags/jquery/form/fields" xmlns:spring="http://www.springframework.org/tags" xmlns:form="http://www.springframework.org/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+  <jsp:output omit-xml-declaration="yes" />
+
+  <jsp:directive.attribute name="id" type="java.lang.String" required="true" rtexprvalue="true" description="The identifier for this tag (do not change!)" />
+  <jsp:directive.attribute name="field" type="java.lang.String" required="true" rtexprvalue="true" description="The field exposed from the form backing object" />
+  <jsp:directive.attribute name="dateTimePattern" type="java.lang.String" required="true" rtexprvalue="true" description="The format accepted in this field" />
+  <jsp:directive.attribute name="label" type="java.lang.String" required="false" rtexprvalue="true" description="The label used for this field, will default to a message bundle if not supplied" />
+  <jsp:directive.attribute name="required" type="java.lang.Boolean" required="false" rtexprvalue="true" description="Indicates if this field is required (default false)" />
+  <jsp:directive.attribute name="disabled" type="java.lang.Boolean" required="false" rtexprvalue="true" description="Specify if this field should be enabled" />
+  <jsp:directive.attribute name="validationRegex" type="java.lang.String" required="false" rtexprvalue="true" description="Specify regular expression to be used for the validation of the input contents" />
+  <jsp:directive.attribute name="validationMessageCode" type="java.lang.String" required="false" rtexprvalue="true" description="Specify the message (message property code) to be displayed if the regular expression validation fails" />
+  <jsp:directive.attribute name="validationMessage" type="java.lang.String" required="false" rtexprvalue="true" description="Specify the message to be displayed if the regular expression validation fails" />
+  <jsp:directive.attribute name="future" type="java.lang.Boolean" required="false" rtexprvalue="true" description="Specify if the date / time should be in the future" />
+  <jsp:directive.attribute name="past" type="java.lang.Boolean" required="false" rtexprvalue="true" description="Specify if the date / time should be in the past" />
+  <jsp:directive.attribute name="disableFormBinding" type="java.lang.Boolean" required="false" rtexprvalue="true" description="Set to true to disable Spring form binding" />
+  <jsp:directive.attribute name="render" type="java.lang.Boolean" required="false" rtexprvalue="true" description="Indicate if the contents of this tag and all enclosed tags should be rendered (default 'true')" />
+  <jsp:directive.attribute name="z" type="java.lang.String" required="false" description="Used for checking if element has been modified (to recalculate simply provide empty string value)" />
+  
+  <jsp:directive.attribute name="errorWithDisabledFormBindingFrom" type="java.lang.String" required="false" rtexprvalue="true" description="Indicates if you want display errors in from field when disabledFormBinding=true." />
+  <jsp:directive.attribute name="errorWithDisabledFormBindingTo" type="java.lang.String" required="false" rtexprvalue="true" description="Indicates if you want display errors in to field when disabledFormBinding=true." />
+  <jsp:directive.attribute name="valueFrom" type="java.lang.String" required="false" rtexprvalue="true" description="Indicates the value to display in datetime field from. Default empty." />
+  <jsp:directive.attribute name="valueTo" type="java.lang.String" required="false" rtexprvalue="true" description="Indicates the value to display in datetime field to. Default empty." />
+  <jsp:directive.attribute name="copyValueToInputTo" type="java.lang.Boolean" required="false" rtexprvalue="true" description="Indicate if the value of 'input from' has to be copied to 'input to' (default 'true')." />
+
+  <c:if test="${empty render or render}">
+
+    <c:if test="${empty valueFrom}">
+      <c:set value="" var="valueFrom" />
+    </c:if>
+
+    <c:if test="${empty valueTo}">
+      <c:set value="" var="valueTo" />
+    </c:if>
+
+    <c:if test="${empty disabled}">
+      <c:set value="false" var="disabled" />
+    </c:if>
+    <c:if test="${empty label}">
+      <spring:message code="label_${fn:toLowerCase(fn:substringAfter(id,'_'))}"
+        var="label" htmlEscape="false" />
+    </c:if>
+    <c:set var="sec_field">
+      <spring:escapeBody javaScriptEscape="true">${field}</spring:escapeBody>
+    </c:set>
+
+    <c:if test="${empty required}">
+      <c:set value="false" var="required" />
+    </c:if>
+
+    <c:if test="${empty copyValueToInputTo}">
+      <c:set value="true" var="copyValueToInputTo" />
+    </c:if>
+
+    <div class="control-group form-group row">
+
+      <div id="_${fn:escapeXml(id)}_id" class="form-group form-inline">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding">
+            <label for="_${sec_field}_id"
+              class="control-label  col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <c:out value="${label}" />:
+            </label>
+          </div>
+        </div>
+
+        <spring:message arguments="${fn:escapeXml(label)}" code="field_invalid"
+          var="field_invalid" htmlEscape="false" />
+        <c:choose>
+          <c:when test="${required}">
+            <spring:message code="field_required" var="field_required"
+              htmlEscape="false" />
+            <spring:message argumentSeparator=","
+              arguments="${fn:toLowerCase(label)},(${field_required})"
+              code="field_simple_validation" var="field_validation"
+              htmlEscape="false" />
+          </c:when>
+          <c:otherwise>
+						<spring:message argumentSeparator=","
+							arguments="${fn:toLowerCase(label)}, "
+							code="field_simple_validation" var="field_validation"
+							htmlEscape="false" />
+					</c:otherwise>
+        </c:choose>
+
+        <c:set var="sec_field_validation">${field_validation}</c:set>
+        <c:set var="sec_field_invalid">
+          <spring:escapeBody javaScriptEscape="true">${field_invalid}</spring:escapeBody>
+        </c:set>
+        <c:set var="sec_dateTimePattern">
+          <spring:escapeBody javaScriptEscape="true">${dateTimePattern}</spring:escapeBody>
+        </c:set>
+
+        <div
+          class="col-xs-1 col-sm-1 col-md-1 col-lg-1 control-label between-label">
+          <spring:message code="label_between" htmlEscape="false" />
+        </div>
+
+        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 datetime">
+          <c:choose>
+            <c:when test="${disableFormBinding}">
+              <input id="${sec_field}From" name="${sec_field}From"
+                errorWithDisabledFormBinding="${errorWithDisabledFormBindingFrom}"
+                value="${valueFrom}" class="datepicker form-control"
+                title="${sec_field_validation}" data-required="${required}"
+                data-id-inputFrom="${sec_field}From"
+                data-id-inputTo="${sec_field}To"
+                data-invalid="${sec_field_invalid}"
+                data-missing="${sec_field_required}"
+                data-regex="${validationRegex}"
+                data-dateformat="${sec_dateTimePattern}"
+                data-copy-to-input-to="${copyValueToInputTo}"
+                data-mydate="true" />
+              <c:if test="${not empty errorWithDisabledFormBindingFrom}">
+                <span id="_${sec_field}_error_id"
+                  class="errors alert alert-danger">${errorWithDisabledFormBindingFrom}</span>
+              </c:if>
+            </c:when>
+            <c:otherwise>
+              <form:input id="${sec_field}From" path="${sec_field}From"
+                disabled="${disabled}" cssClass="datepicker form-control"
+                title="${sec_field_validation}" data-required="${required}"
+                data-id-inputFrom="${sec_field}From"
+                data-id-inputTo="${sec_field}To"
+                data-invalid="${sec_field_invalid}"
+                data-missing="${sec_field_required}"
+                data-regex="${validationRegex}"
+                data-dateformat="${sec_dateTimePattern}"
+                data-copy-to-input-to="${copyValueToInputTo}"
+                data-mydate="true"/>
+              <form:errors cssClass="errors alert alert-danger"
+                id="_${sec_field}_error_id" path="${sec_field}" />
+            </c:otherwise>
+          </c:choose>
+        </div>
+
+        <div
+          class="col-xs-1 col-sm-1 col-md-1 col-lg-1 control-label between-label and">
+          <spring:message code="label_and" htmlEscape="false" />
+        </div>
+
+        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 datetime second-input">
+          <c:choose>
+            <c:when test="${disableFormBinding}">
+              <input id="${sec_field}To" name="${sec_field}To"
+                errorWithDisabledFormBinding="${errorWithDisabledFormBindingTo}"
+                value="${valueTo}" class="datepicker form-control"
+                title="${sec_field_validation}" data-required="${required}"
+                data-invalid="${sec_field_invalid}"
+                data-missing="${sec_field_required}"
+                data-regex="${validationRegex}"
+                data-dateformat="${sec_dateTimePattern}" 
+                data-mydate="true" data-comparedates="${sec_field}From" />
+              <c:if test="${not empty errorWithDisabledFormBindingTo}">
+                <span id="_${sec_field}_error_id"
+                  class="errors alert alert-danger">${errorWithDisabledFormBindingTo}</span>
+              </c:if>
+            </c:when>
+            <c:otherwise>
+              <form:input id="${sec_field}To" path="${sec_field}To"
+                disabled="${disabled}" cssClass="datepicker form-control"
+                title="${sec_field_validation}" data-required="${required}"
+                data-invalid="${sec_field_invalid}"
+                data-missing="${sec_field_required}"
+                data-regex="${validationRegex}"
+                data-dateformat="${sec_dateTimePattern}"
+                data-mydate="true" />
+              <form:errors cssClass="errors alert alert-danger"
+                id="_${sec_field}_error_id" path="${sec_field}" />
+            </c:otherwise>
+          </c:choose>
+        </div>
+      </div>
+    </div>
+
+  </c:if>
+
+</jsp:root>

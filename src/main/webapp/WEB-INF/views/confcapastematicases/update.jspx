@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+gvGeoportal is sponsored by the General Directorate for Information
+Technologies (DGTI) of the Regional Ministry of Finance and Public
+Administration of the Generalitat Valenciana (Valencian Community,
+Spain), managed by gvSIG Association and led by DISID Corporation.
+
+Copyright (C) 2016 DGTI - Generalitat Valenciana
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/jquery/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/datatables" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:loupefield="urn:jsptagdir:/WEB-INF/tags/loupefield" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas" modelAttribute="confCapasTematicas" path="/confcapastematicases" versionField="Version" z="Q7G5/EGvVMI25zuEhl6YC5+69BU=">
+        <field:datetime dateTimePattern="${confCapasTematicas_auditcreation_date_format}" field="auditCreation" id="c_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_auditCreation" z="7CdgE9uuH+bdIe0kP8bPdVpwoRY="/>
+        <field:input field="auditCreatedBy" id="c_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_auditCreatedBy" z="vy1xSuJROoHezb7FDKbFhltvVoM="/>
+        <field:datetime dateTimePattern="${confCapasTematicas_auditlastupdate_date_format}" field="auditLastUpdate" id="c_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_auditLastUpdate" z="LKVrZ2FisipAApUt9jm1R0UQtZw="/>
+        <field:input field="auditLastUpdatedBy" id="c_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_auditLastUpdatedBy" z="8AIRG69Zb57Q9LwEHj1HmiYCfF8="/>
+        <field:select field="geoPortal" id="c_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_geoPortal" itemValue="id" items="${geoportales}" path="/geoportales" z="yo/CAR7rSCgC6c71SCneAfCcDy4="/>
+        <field:select field="tipo" id="c_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_tipo" items="${tipocomponentes}" path="tipocomponentes" required="true" z="L1FNmVTbQmf1Dms9qnAL9I9pbfA="/>
+        <field:input field="nombre" id="c_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_nombre" required="true" z="3UthKEMN8rOgSb20TvbrbuCpEwM="/>
+        <loupefield:loupe additionalFields="nombre" controllerPath="confcapastematicases" field="grupo" id="c_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_grupo" listPath="agrupadorcapas/list" mode="update" path="/agrupadorcapas" pkField="id" z="user-managed"/>
+    </form:update>
+</div>

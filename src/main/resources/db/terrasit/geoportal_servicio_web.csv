@@ -1,0 +1,5 @@
+id,geoportal,servicio_web,opacidad,activo,habilitado,posicion,version
+1,1,5,1,TRUE,TRUE,0,0
+2,1,84,1,TRUE,TRUE,3,0
+3,1,1,1,FALSE,TRUE,2,0
+4,1,6,1,FALSE,TRUE,1,0

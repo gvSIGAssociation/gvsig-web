@@ -1,0 +1,243 @@
+<!--
+gvGeoportal is sponsored by the General Directorate for Information
+Technologies (DGTI) of the Regional Ministry of Finance and Public
+Administration of the Generalitat Valenciana (Valencian Community,
+Spain), managed by gvSIG Association and led by DISID Corporation.
+
+Copyright (C) 2016 DGTI - Generalitat Valenciana
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<jsp:root xmlns:layer="urn:jsptagdir:/WEB-INF/tags/geo/layers" xmlns:geo="urn:jsptagdir:/WEB-INF/tags/geo" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:fmt="http://java.sun.com/jsp/jstl/fmt" xmlns:spring="http://www.springframework.org/tags" xmlns:form="http://www.springframework.org/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:gvsig-tools="http://gvsig.org/web-framework/TLD/tools" xmlns:tool="urn:jsptagdir:/WEB-INF/tags/geo/tools" version="2.0">
+  <jsp:output omit-xml-declaration="yes" />
+
+  <jsp:directive.attribute name="id" type="java.lang.String" required="true" rtexprvalue="true" description="The identifier for this tag (do not change!)" />
+  <jsp:directive.attribute name="object" type="java.lang.Object" required="true" rtexprvalue="true" description="The form backing object" />
+  <jsp:directive.attribute name="field" type="java.lang.String" required="true" rtexprvalue="true" description="The field name" />
+  <jsp:directive.attribute name="label" type="java.lang.String" required="false" rtexprvalue="true" description="The label used for this field, will default to a message bundle if not supplied" />
+  <jsp:directive.attribute name="date" type="java.lang.Boolean" required="false" rtexprvalue="true" description="Indicate that this field is of type java.util.Date" />
+  <jsp:directive.attribute name="calendar" type="java.lang.Boolean" required="false" rtexprvalue="true" description="Indicate that this field is of type java.util.Calendar" />
+  <jsp:directive.attribute name="dateTimePattern" type="java.lang.String" required="false" rtexprvalue="true" description="The date / time pattern to use if the field is a date or calendar type" />
+  <jsp:directive.attribute name="render" type="java.lang.Boolean" required="false" rtexprvalue="true" description="Indicate if the contents of this tag and all enclosed tags should be rendered (default 'true')" />
+  <jsp:directive.attribute name="z" type="java.lang.String" required="false" description="Used for checking if element has been modified (to recalculate simply provide empty string value)" />
+
+  <!-- Map Options  -->
+  <jsp:directive.attribute name="center" type="java.lang.String" required="false" description="Used for apply map view center. On update, map center position is on marker center position. Format [lat , lng]. DEFAULT: [39.470, -0.39]" />
+  <jsp:directive.attribute name="zoom" type="java.lang.String" required="false" description="Used for apply initial zoom on map." />
+  <jsp:directive.attribute name="maxZoom" type="java.lang.String" required="false" description="Used for apply max zoom on map." />
+  <jsp:directive.attribute name="minZoom" type="java.lang.Integer" required="false" rtexprvalue="true" description="The max zoom to use on the map" />
+  <jsp:directive.attribute name="panControl" type="java.lang.Boolean" required="false" rtexprvalue="true" description="Add default pan control. Default true" />
+  <jsp:directive.attribute name="attributionControl" type="java.lang.Boolean" required="false" rtexprvalue="true" description="Add attribution control. Default true" />
+  <jsp:directive.attribute name="displayToc" type="java.lang.Boolean" required="false" rtexprvalue="true" description="Set visibility of TOC control. Default false" />
+  <jsp:directive.attribute name="displayZoom" type="java.lang.Boolean" required="false" rtexprvalue="true" description="Set visibility of Zoom control. Default true" />
+  <jsp:directive.attribute name="displayToolbar" type="java.lang.Boolean" required="false" rtexprvalue="true" description="Set visibility of Toolbar control. Default true" />
+  <jsp:directive.attribute name="fixHeigth" type="java.lang.Integer" required="false" rtexprvalue="true" description="Set custom heigth to map display" />
+  <jsp:directive.attribute name="fill" type="java.lang.String" required="false" rtexprvalue="true" description="Adjust map to page or parent. Values 'PAGE': Fill map object to browser window 'PARENT': Fill map object to parent div (default 'PAGE')" />
+  <jsp:directive.attribute name="projection" type="java.lang.String" required="false" rtexprvalue="true" description="Specify the SRID to map coordenates" />
+
+  <!-- Draw Options -->
+  <jsp:directive.attribute name="color" type="java.lang.String" required="false" description="Used for display the line with an specific color. Default blue. Accepts RGB and Hex Colors" />
+  <jsp:directive.attribute name="weight" type="java.lang.String" required="false" description="Used for display the line with an specific weight. Default 6." />
+  <jsp:directive.attribute name="markerColor" type="java.lang.String" required="false" rtexprvalue="true" description="DESC: Color of the marker.| DEFAULT: 'blue' | POSSIBLE VALUES: 'red', 'darkred', 'orange', 'green', 'darkgreen', 'blue', 'purple', 'darkpuple', 'cadetblue'" />
+  <jsp:directive.attribute name="fnAjustRender" type="java.lang.String" required="false" description="Javascript-function-name to call to adjust leaftlet vectiorial layer rendering. This function will be called with params: gvnix-map-object, field-layer-id, target-field-name, feature-pk, source-geom-leaflet-layer, feature-data, is-selected. Must return a leaflet-layer" />
+  <jsp:directive.attribute name="icon" type="java.lang.String" required="false" rtexprvalue="true" description="DESC: Name of the icon.| DEFAULT: 'fa-circle' | POSSIBLE VALUES: See glyphicons or font-awesome" />
+  <jsp:directive.attribute name="radius" type="java.lang.Double" required="false" rtexprvalue="true" description="DESC: Radious (meters) of circle (only when no icon defined).| DEFAULT: 1" />
+  <jsp:directive.attribute name="clusterize" type="java.lang.Boolean" required="false" rtexprvalue="true" description="DESC: Enable cluster markers.| DEFAULT: false | only valid when 'icon' is set" />
+  <jsp:directive.attribute name="fnClusterRender" type="java.lang.String" required="false" description="Javascript-function-name to call to create the icon for a clusterized layer. This function will be called with params: cluster instance to create. Must return a L.icon or L.DivIcon instance (or similar)" />
+  <jsp:directive.attribute name="iconLibrary" type="java.lang.String" required="false" rtexprvalue="true" description="DESC: Select de icon library.| DEFAULT: 'fa' | POSSIBLE VALUES: 'fa' for font-awesome or 'glyphicon' for bootstrap 3" />
+  <jsp:directive.attribute name="pathStyle" type="java.lang.String" required="false" rtexprvalue="true" description="DESC: JSON style for geometry path| DEFAULT: '' | POSSIBLE VALUES: see http://leafletjs.com/reference.html#path" />
+  <jsp:directive.attribute name="fnPrepareInfo" type="java.lang.String" required="false" description="Function name to call to get the HTML to show in popup info panel. Parameters: sLayerId, sEntityPath, sGeoFieldName,  sFeaturePKValue, oFeature, bSelected" />
+  <jsp:directive.attribute name="path" type="java.lang.String" required="true" description="The path to related entity controller" />
+  <jsp:directive.attribute name="fnStaticGeomRender" type="java.lang.String" required="false" description="The function to render geometry into map layer" />
+
+  <!-- labeling -->
+  <jsp:directive.attribute name="fnLabeling" type="java.lang.String" required="false" description="Javascript-function-name to call for add label to every item to draw on map. Ignored if 'fnAdjustRender' is defined. This function will be called with params: gvnix-map-object, field-layer-id, target-field-name, feature-pk, source-geom-leaflet-layer, feature-data, is-selected. Must return a leaflet-layer" />
+  <jsp:directive.attribute name="fnLabelingText" type="java.lang.String" required="false" description="Javascript-function-name to call to get the HTML string to show as label of items to draw on map. Ignored if 'fnAdjustRender' or 'fnLabeling' is defined.Parameters: sLayerId, sEntityPath, sGeoFieldName,  sFeaturePKValue, oFeature, bSelected. Must return a HTML string." />
+  <jsp:directive.attribute name="labelingText" type="java.lang.String" required="false" description="Html text to use for all items draw in map. Ignored if 'fnAdjustRender', 'fnLabeling', 'fnLabelingText' or 'labelingProperty' is defined." />
+  <jsp:directive.attribute name="labelingOptions" type="java.lang.String" required="false" description="DESC: JSON style for labeling | DEFAULT: '' | POSSIBLE VALUES: see http://leafletjs.com/reference.html#divicon-options." />
+
+
+  <c:if test="${empty render or render}">
+
+    <!--  Set the default map center point -->
+    <c:if test="${empty center}">
+      <c:set var="center" value="[39.470, -0.39]" />
+    </c:if>
+
+    <!--  Set the default map zoom -->
+    <c:if test="${empty zoom}">
+      <c:set var="zoom" value="5" />
+    </c:if>
+
+    <!-- Set the max available zoom value  -->
+    <c:if test="${empty maxZoom}">
+      <c:set var="maxZoom" value="21" />
+    </c:if>
+
+    <!-- Set the max available zoom value  -->
+    <c:if test="${empty minZoom}">
+      <c:set var="minZoom" value="1" />
+    </c:if>
+
+    <!-- Set default geometry color -->
+    <c:if test="${empty color}">
+      <c:set var="color" value="#0033ff" />
+    </c:if>
+
+    <!-- Set a defualt weight to display lines -->
+    <c:if test="${empty weight}">
+      <c:set var="weight" value="6" />
+    </c:if>
+
+    <c:if test="${not empty object and empty label}">
+      <spring:message code="label_${fn:toLowerCase(fn:substringAfter(id,'_'))}"
+        var="label" htmlEscape="false" />
+    </c:if>
+
+    <c:if test="${empty dateTimePattern}">
+      <c:set value="MM/dd/yyyy" var="dateTimePattern" />
+    </c:if>
+
+    <c:if test="${empty label}">
+      <c:if test="${empty labelCode}">
+        <c:set var="labelCode" value="${fn:substringAfter(id,'_')}" />
+      </c:if>
+      <spring:message code="label_${fn:toLowerCase(labelCode)}" var="label"
+        htmlEscape="false" />
+    </c:if>
+
+    <c:if test="${empty required}">
+      <c:set value="false" var="required" />
+    </c:if>
+
+    <!-- Add pan control: true as default -->
+    <c:if test="${empty panControl}">
+      <c:set var="panControl" value="true" />
+    </c:if>
+
+    <!-- Add attributionControl control: true as default -->
+    <c:if test="${empty attributionControl}">
+      <c:set var="attributionControl" value="true" />
+    </c:if>
+
+    <!-- Add fixHeigth: -1 as default -->
+    <c:if test="${empty fixHeigth}">
+      <c:set var="fixHeigth" value="-1" />
+    </c:if>
+
+    <!-- Add display TOC control: false as default -->
+    <c:if test="${empty displayToc}">
+      <c:set var="displayToc" value="false" />
+    </c:if>
+
+    <!-- Add display Zoom control: true as default -->
+    <c:if test="${empty displayZoom}">
+      <c:set var="displayZoom" value="true" />
+    </c:if>
+
+    <!-- Add display Toolbar control: true as default -->
+    <c:if test="${empty displayToolbar}">
+      <c:set var="displayToolbar" value="true" />
+    </c:if>
+
+    <!-- Set the map icons library  -->
+    <c:if test="${empty iconLibrary}">
+      <c:set var="iconLibrary" value="fa" />
+    </c:if>
+
+    <!-- Set the icon to be displayed on the map -->
+    <c:if test="${empty icon}">
+      <c:set var="icon" value="fa-circle" />
+    </c:if>
+
+    <!-- Adjust map to parent element or window : default 'PARENT' -->
+    <c:if test="${empty fill}">
+      <c:set var="fill" value="PARENT" />
+    </c:if>
+
+    <!-- Set default coordinate reference system -->
+    <c:if test="${empty projection}">
+      <c:set var="projection" value="EPSG3857" />
+    </c:if>
+
+    <!-- Set the Leaflet marker color: default 'orange' -->
+    <c:if test="${empty markerColor}">
+      <c:set var="markerColor" value="blue" />
+    </c:if>
+
+    <!-- Set a custom function to manage the render -->
+    <c:if test="${empty fnStaticGeomRender}">
+      <c:set var="fnStaticGeomRender" value="" />
+    </c:if>
+
+
+    <div id="_${fn:escapeXml(id)}_id" class="control-group form-group">
+      <dl class="row dl-horizontal" id="_${fn:escapeXml(id)}_id">
+        <dt>
+          <c:out value="${label}" />
+          :
+        </dt>
+        <dd>
+          <div class="controls">
+
+            <div style="display: none;">
+              <input type="hidden" name="${field}_point" id="${id}_point"
+                value="${object[field]}" />
+            </div>
+            <!-- add map instance -->
+            <div id="${id}_map_control" style="height: 250px;">
+              <geo:map id="${id}" projection="${projection}"
+                maxZoom="${maxZoom}" minZoom="${minZoom}" label="${label}"
+                center="${center}" zoom="${zoom}" zoomSlider="${zoomSlider}"
+                panControl="${panControl}" displayZoom="${displayZoom}"
+                displayToolbar="${displayToolbar}"
+                attributionControl="${attributionControl}"
+                displayToc="${displayToc}" fixHeigth="${fixHeight}"
+                fill="PARENT">
+
+
+                <geo:toc id="${id}_toc">
+
+                    <!--  add static layer  -->
+                    <layer:entity-static-geom path="${path}"
+                      id="${id}_layer" color="${color}"
+                      label="geom_static_layer " pk="${object.id}"
+                      object="${object}" maxZoom="${maxZoom}"
+                      minZoom="${minZoom}" wktGeometry="${object[field]}"
+                      wktSRID="SRID=${(object[field]).SRID}"
+                      staticRequest="${fnStaticGeomRender}" showInfo="false"
+                      zoomOnStart="true" iconLibrary="${iconLibrary}"
+                      fnClusterRender="${fnClusterRender}"
+                      markerColor="${markerColor}" icon="${icon}"
+                      fnLabeling="${fnLabeling}" fnLabelingText="${fnLabelingText}"
+                      labelingText="${labelingText}" labelingOptions="${labelingOptions}"
+                      clusterize="${clusterize}"
+                      z="user-managed" />
+                    <jsp:doBody />
+
+                </geo:toc>
+                <geo:toolbar id="${id}_toolbar" z="user-managed">
+                  <gvsig-tools:zoom-select-all id="${id}_tool_zoom_all" z="user-managed"/>
+                </geo:toolbar>
+              </geo:map>
+            </div>
+          </div>
+        </dd>
+      </dl>
+
+    </div>
+  </c:if>
+
+</jsp:root>
+

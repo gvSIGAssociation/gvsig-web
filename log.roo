@@ -1,0 +1,360 @@
+// Creacion proyecto
+project --topLevelPackage es.gva.dgti.gvgeoportal --projectName gvgeoportal
+
+// Creacion conexion bbdd
+jpa setup --provider HIBERNATE --database POSTGRES --jndiDataSource java:jboss/datasources/gvGeoPortalDataSourceDev
+
+//
+//Creacion entidades
+//
+
+//Entidad AgrupadorCapa
+entity jpa --class es.gva.dgti.gvgeoportal.domain.AgrupadorCapa --identifierField id --testAutomatically
+field string --fieldName nombre --notNull
+field string --fieldName descripcion --notNull
+
+//Entidad servicio Web
+entity jpa --class ~.domain.ServicioWeb --identifierField id --testAutomatically
+field string --fieldName nombre --notNull
+field string --fieldName url --notNull
+field string --fieldName formato --notNull
+field string --fieldName epsg
+
+//Capa Web
+web mvc setup
+web mvc all --package ~.web
+
+// Creacion menu
+menu setup
+
+// Soporte para jquery
+web mvc jquery setup
+web mvc jquery all
+web mvc jquery update tags
+
+// tema bootstrap
+web mvc bootstrap setup
+web mvc bootstrap update
+
+// Aplicacion idioma
+web mvc install language --code es
+web mvc install language --code ca
+
+// Web layout (Spring MVC)
+//web mvc scaffold --class ~.web.AgrupadorCapaController --backingType ~.domain.AgrupadorCapa
+
+// Support for use JQuery
+//web mvc jquery add --type ~.web.AgrupadorCapaController
+
+// Soporte operaciones en batch
+jpa gvnix setup
+jpa batch all
+web mvc batch setup
+web mvc batch all
+
+// Soporte para DataTables
+web mvc datatables setup
+web mvc datatables add --type ~.web.AgrupadorCapaController
+web mvc datatables add --type ~.web.ServicioWebController
+web mvc datatables detail add --type ~.web.AgrupadorCapaController --property servicios
+
+//Add loupe
+web mvc loupe setup
+
+//Add service agrupadorCapa
+service type --interface ~.service.domain.AgrupadorCapaService --class ~.service.domain.impl.AgrupadorCapaServiceImpl --entity ~.domain.AgrupadorCapa
+
+jpa audit setup
+jpa audit all
+
+entity jpa --class es.gva.dgti.gvgeoportal.domain.SistemaCoordenadas --identifierField id --testAutomatically
+field string --fieldName codigo --notNull
+field string --fieldName nombre --notNull
+field string --fieldName descripcion
+jpa audit all
+
+web mvc scaffold --class ~.web.SistemaCoordenadasController --backingType ~.domain.SistemaCoordenadas
+
+web mvc jquery add --type ~.web.SistemaCoordenadasController
+web mvc datatables add --type ~.web.SistemaCoordenadasController
+service type --interface ~.service.domain.SistemaCoordenadas --class ~.service.domain.impl.SistemaCoordenadasImpl --entity ~.domain.SistemaCoordenadas
+field set  --fieldName grupoCapas --type ~.domain.AgrupadorCapa --cardinality ONE_TO_MANY --mappedBy coordenadas
+field set  --fieldName serviciosWeb --type ~.domain.ServicioWeb --cardinality ONE_TO_MANY --mappedBy coordenadas
+focus --class ~.domain.AgrupadorCapa
+field reference --fieldName coordenadas --type ~.domain.SistemaCoordenadas
+focus --class ~.domain.ServicioWeb
+field reference --fieldName coordenadas --type ~.domain.SistemaCoordenadas
+field string --fieldName versionProtocolo
+field string --fieldName tipo
+
+jpa audit all
+
+service type --interface ~.service.domain.SistemaCoordenadasService --class ~.service.domain.impl.SistemaCoordenadasServiceImpl --entity ~.domain.SistemaCoordenadas
+
+focus --class ~.domain.ServicioWeb
+field string --fieldName descripcion --notNull
+
+security provider add --name SAFE --package es.gva.dgti.gvgeoportal.security
+
+web mvc jquery update tags
+web mvc bootstrap update
+entity jpa --class ~.domain.catalogo.ResultadoCatalogo --identifierField id
+web mvc scaffold --class ~.web.catalogo.ResultadoCatalogoController --backingType ~.catalogo.ResultadoCatalogo
+web mvc scaffold --class ~.web.catalogo.ResultadoCatalogoController
+web mvc jquery add --type ~.web.catalogo.ResultadoCatalogoController
+web mvc datatables add --type ~.web.catalogo.ResultadoCatalogoController
+service type --interface ~.service.domain.catalogo.CatalogoService --class ~.service.domain.catalogo.impl.CatalogoServiceImpl --entity ~.domain.catalogo.ResultadoCatalogo
+
+entity jpa --class ~.domain.catalogo.ResultadoCatalogo --identifierField id
+web mvc scaffold --class ~.web.catalogo.CatalogoController --backingType ~.domain.catalogo.ResultadoCatalogo
+web mvc jquery add --type ~.web.catalogo.CatalogoController
+web mvc datatables add --type ~.web.catalogo.CatalogoController
+
+entity jpa --class ~.domain.ResultadoCatalogo --identifierField id
+entity jpa --class ~.domain.Catalogo --identifierField id
+web mvc scaffold --class ~.web.CatalogoController --backingType ~.domain.Catalogo
+web mvc jquery add --type ~.web.CatalogoController
+web mvc datatables add --type ~.web.CatalogoController
+service type --interface ~.service.domain.CatalogoService --class ~.service.domain.impl.CatalogoServiceImpl --entity ~.domain.ResultadoCatalogo
+
+entity jpa --class ~.domain.Catalogo --identifierField id
+web mvc scaffold --class ~.web.CatalogoController --backingType ~.domain.Catalogo
+web mvc jquery add --type ~.web.CatalogoController
+web mvc datatables add --type ~.web.CatalogoController
+service type --interface ~.service.domain.CatalogoService --class ~.service.domain.impl.CatalogoServiceImpl --entity ~.domain.Catalogo
+
+entity jpa --class ~.domain.Catalogo --identifierField id
+web mvc scaffold --class ~.web.CatalogoController --backingType ~.domain.Catalogo
+web mvc jquery add --type ~.web.CatalogoController
+web mvc datatables add --type ~.web.CatalogoController
+service type --interface ~.service.domain.CatalogoService --class ~.service.domain.impl.CatalogoServiceImpl --entity ~.domain.Catalogo
+
+
+web mvc fancytree setup
+jpa geo setup --provider HIBERNATE_SPATIAL
+web mvc geo controller --class ~.web.MapViewerController --preferredMapping mapview
+remote service class --class ~.service.OGCInfoService
+web mvc geo controller --class ~.web.MapViewerController --preferredMapping mapview
+
+web mvc batch all
+
+jpa batch add --entity ~.domain.Catalogo
+
+entity jpa --class ~.domain.GeoPortal --identifierField id --testAutomatically
+field string --fieldName titulo --notNull
+field string --fieldName descripcion
+field string --fieldName subtitulo
+field string --fieldName logo // Se cambia luego a mano a tipo byte[]
+field string --fieldName alias
+field boolean --fieldName publicado --notNull --primitive
+field string --fieldName centro
+field number --fieldName zoom --type Integer --primitive
+field date --fieldName fechaAlta --type java.util.Calendar --dateTimeFormatPattern dd/MM/yyyy
+field date --fieldName fechaBaja --type java.util.Calendar --dateTimeFormatPattern dd/MM/yyyy
+focus --class ~.domain.SistemaCoordenadas
+field set --fieldName geoPortales --type ~.domain.GeoPortal --cardinality ONE_TO_MANY --mappedBy coordenadas
+focus --class ~.domain.Capa
+field set  --fieldName geoPortales --type ~.domain.GeoPortal --cardinality ONE_TO_MANY --mappedBy capas
+web mvc scaffold --class ~.web.GeoPortalController --backingType ~.domain.GeoPortal
+web mvc jquery add --type ~.web.GeoPortalController
+web mvc datatables add --type ~.web.GeoPortalController
+
+finder list --class ~.domain.SistemaCoordenadas
+finder add --finderName findSistemaCoordenadasByCodigoEquals --class ~.domain.SistemaCoordenadas
+
+entity jpa --class ~.domain.CapasServicioWeb --identifierField id --testAutomatically
+field string --fieldName idCapaServicio --notNull
+field string --fieldName idServicio --notNull
+field string --fieldName estilo
+focus --class ~.domain.ServicioWeb
+field set --fieldName capasServicioWeb --type ~.domain.CapasServicioWeb --cardinality ONE_TO_MANY --mappedBy servicioCapas
+//
+//GestorCatalogo
+//
+entity jpa --class ~.domain.GestorCatalogo --identifierField id --testAutomatically
+field string --fieldName nombre --notNull
+field string --fieldName url --notNull
+
+web mvc scaffold --class ~.web.GestorCatalogoController --backingType ~.domain.GestorCatalogo
+web mvc jquery add --type ~.web.GestorCatalogoController
+jpa batch add --entity ~.domain.GestorCatalogo --type ~.service.batch.GestorCatalogoBatchService
+web mvc batch add --controller ~.web.GestorCatalogoController
+web mvc datatables add --type ~.web.GestorCatalogoController --inline true
+service type --interface ~.service.domain.GestorCatalogoService --class ~.service.domain.impl.GestorCatalogoServiceImpl --entity ~.domain.GestorCatalogo
+jpa audit all
+
+
+focus --class ~.domain.GeoPortal
+jpa audit all
+service type --interface ~.service.domain.GeoPortalService --class ~.service.domain.impl.GeoPortalServiceImpl --entity ~.domain.GeoPortal
+
+finder list --class ~.domain.GeoPortal
+finder add --class ~.domain.GeoPortal --finderName findGeoPortalesByTituloLike
+
+enum type --class ~.domain.enumerated.TipoServicio
+enum constant --name WMS
+enum constant --name WMTS
+enum constant --name TILES
+focus --class ~.domain.ServicioWeb
+field enum --fieldName tipo --type ~.domain.enumerated.TipoServicio --notNull --enumType STRING
+
+entity jpa --class es.gva.dgti.gvgeoportal.domain.Componentes --identifierField id --testAutomatically
+field reference --fieldName geoPortal --type ~.domain.GeoPortal
+focus --class ~.domain.GeoPortal
+field set --fieldName componentes --type ~.domain.Componentes --cardinality ONE_TO_MANY --mappedBy geoPortal
+focus --class ~.domain.Componentes
+web mvc scaffold --class ~.web.ComponentesController --backingType ~.domain.Componentes
+web mvc jquery add --type ~.web.ComponentesController
+service type --interface ~.service.domain.ComponentesService --class ~.service.domain.impl.ComponentesServiceImpl --entity ~.domain.Componentes
+jpa audit all
+enum type --class ~.domain.enumerated.TipoComponente
+enum constant --name escala_grafica
+enum constant --name leyenda
+enum constant --name norte
+enum constant --name visualizar_coordenadas
+enum constant --name herramientas_propiedades_capas
+enum constant --name callejero
+enum constant --name ayuda_buscador
+enum constant --name desplazar
+enum constant --name regla_zoom
+enum constant --name zoom_maximo
+enum constant --name zoom_acercar
+enum constant --name zoom_ventana
+enum constant --name zoom_previo
+enum constant --name zoom_siguiente
+enum constant --name pantalla_completa
+enum constant --name informacion_capas
+enum constant --name calcular_distancia
+enum constant --name calcular_area
+enum constant --name ir_coordenadas
+enum constant --name ver_coordenadas
+enum constant --name imprimir
+enum constant --name cargar_tematicos
+enum constant --name anyadir_capas_y_grupos_capas
+enum constant --name compartir_vistas
+enum constant --name informar_error
+enum constant --name enviar_sugerencia
+enum constant --name activar_herramienta_lidar
+focus --class ~.domain.Componentes
+field enum --fieldName tipo --type ~.domain.enumerated.TipoComponente --notNull --enumType STRING
+
+finder list --class ~.domain.Componentes
+finder add --finderName findComponentesesByGeoPortal --class ~.domain.Componentes
+web mvc geo controller --class ~.web.MapController --preferredMapping map
+
+focus --class ~.domain.GeoPortal
+field string --fieldName url --unique --notNull
+
+entity jpa --class ~.domain.components.ConfAyudaBuscador --extends ~.domain.Componentes --testAutomatically
+focus --class ~.domain.components.ConfAyudaBuscador
+field string --fieldName textoAyuda
+
+service type --interface ~.service.domain.ConfAyudaBuscadorService --class ~.service.domain.impl.ConfAyudaBuscadorServiceImpl --entity ~.domain.components.ConfAyudaBuscador
+jpa audit all
+finder list --class ~.domain.components.ConfAyudaBuscador
+finder add --finderName findConfAyudaBuscadorsByGeoPortal --class ~.domain.components.ConfAyudaBuscador
+finder list --class ~.domain.GeoPortal
+finder add --finderName findGeoPortalesByUrlEquals --class ~.domain.GeoPortal
+
+//
+// AgrupadorCapaServicioWeb
+//
+entity jpa --class ~.domain.AgrupadorCapaServicioWeb --identifierField id --testAutomatically
+field reference --fieldName agrupador --type ~.domain.AgrupadorCapa --cardinality MANY_TO_ONE --notNull
+field reference --fieldName servicioWeb --type ~.domain.ServicioWeb --cardinality MANY_TO_ONE --notNull
+
+focus --class ~.domain.AgrupadorCapa
+field set --fieldName servicios --type ~.domain.AgrupadorCapaServicioWeb --cardinality ONE_TO_MANY --mappedBy agrupador
+
+web mvc scaffold --class ~.web.AgrupadorCapaServicioWebController --backingType ~.domain.AgrupadorCapaServicioWeb
+web mvc jquery add --type ~.web.AgrupadorCapaServicioWebController
+web mvc datatables add --type ~.web.AgrupadorCapaServicioWebController
+jpa batch add --entity ~.domain.AgrupadorCapaServicioWeb --type ~.service.batch.AgrupadorCapaServicioWebBatchService
+
+service type --interface ~.service.domain.AgrupadorCapaServicioWebService --class ~.service.domain.impl.AgrupadorCapaServicioWebServiceImpl --entity ~.domain.AgrupadorCapaServicioWeb
+
+finder list --class ~.domain.GeoPortalCapa
+
+entity jpa --class ~.domain.components.ConfCapasTematicas --extends ~.domain.Componentes --testAutomatically
+field string --fieldName nombre --notNull
+focus --class ~.domain.AgrupadorCapa
+field set --fieldName confCapasTematicas --type ~.domain.components.ConfCapasTematicas --cardinality ONE_TO_MANY --mappedBy grupo
+entity jpa --class ~.domain.components.ConfVistasPredefinidas --extends ~.domain.Componentes --testAutomatically
+field string --fieldName nombre --notNull
+focus --class ~.domain.AgrupadorCapa
+field set --fieldName confVistasPredefinidas --type ~.domain.components.ConfVistasPredefinidas --cardinality ONE_TO_MANY --mappedBy grupo
+service type --interface ~.service.domain.ConfCapasTematicasService --class ~.service.domain.impl.ConfCapasTematicasServiceImpl --entity ~.domain.components.ConfCapasTematicas
+service type --interface ~.service.domain.ConfVistasPredefinidasService --class ~.service.domain.impl.ConfVistasPredefinidasServiceImpl --entity ~.domain.components.ConfVistasPredefinidas
+finder list --class ~.domain.components.ConfCapasTematicas
+finder add --finderName findConfCapasTematicasesByGeoPortal --class ~.domain.components.ConfCapasTematicas
+finder list --class ~.domain.components.ConfVistasPredefinidas
+finder add --finderName findConfVistasPredefinidasesByGeoPortal --class ~.domain.components.ConfVistasPredefinidas
+web mvc scaffold --class ~.web.ConfCapasTematicasController --backingType ~.domain.components.ConfCapasTematicas
+web mvc jquery add --type ~.web.ConfCapasTematicasController
+jpa audit all
+web mvc loupe field --controller ~.web.ConfCapasTematicasController --field grupo --listPath agrupadorcapas/listComponents --additionalFields nombre,descripcion
+jpa batch add --entity ~.domain.components.ConfCapasTematicas --type ~.service.batch.ConfCapasTematicasBatchService
+web mvc loupe field --controller ~.web.ConfCapasTematicasController --field grupo --listPath agrupadorcapas/listComponents --additionalFields nombre,descripcion
+web mvc loupe field --controller ~.web.ConfCapasTematicasController --field grupo --listPath agrupadorcapas/list --additionalFields nombre,descripcion
+web mvc loupe update
+web mvc datatables add --type ~.web.ConfCapasTematicasController --inline true
+web mvc datatables add --type ~.web.ConfCapasTematicasController --inline true
+web mvc loupe set --controller ~.web.ConfCapasTematicasController
+web mvc batch add --controller ~.web.ConfCapasTematicasController
+web mvc datatables add --type ~.web.ConfCapasTematicasController --inline true
+web mvc loupe set --controller ~.web.ConfCapasTematicasController
+service type --interface ~.service.domain.ConfCapasTematicasService --class ~.service.domain.impl.ConfCapasTematicasServiceImpl --entity ~.domain.components.ConfCapasTematicas
+development mode
+web mvc geo update tags
+development mode false
+web mvc geo controller --class ~.web.MapaEdicionController --preferredMapping mapaedicion
+web mvc scaffold --class ~.web.ConfVistasPredefinidasController --backingType ~.domain.components.ConfVistasPredefinidas
+web mvc jquery add --type ~.web.ConfVistasPredefinidasController
+jpa batch add --entity ~.domain.components.ConfVistasPredefinidas --type ~.service.batch.ConfVistasPredefinidasBatchService
+web mvc batch add --controller ~.web.ConfVistasPredefinidasController
+web mvc loupe field --controller ~.web.ConfVistasPredefinidasController --field grupo --listPath agrupadorcapas/list --additionalFields nombre,descripcion
+web mvc datatables add --type ~.web.ConfVistasPredefinidasController --inline true
+web mvc loupe set --controller ~.web.ConfVistasPredefinidasController
+jpa audit all
+entity jpa --class ~.domain.components.ConfMiniMapa --extends ~.domain.Componentes --testAutomatically
+field set  --fieldName serviciosWeb --type ~.domain.ServicioWeb --cardinality ONE_TO_MANY --mappedBy miniMapa
+web mvc scaffold --class ~.web.ConfMiniMapaController --backingType ~.domain.components.ConfMiniMapa --disallowedOperations create,update,delete
+web mvc jquery add --type ~.web.ConfMiniMapaController
+jpa batch add --entity ~.domain.components.ConfMiniMapa --type ~.service.batch.ConfMiniMapaBatchService
+// [failed] web mvc batch add --controller ~.web.ConfMiniMapa
+web mvc batch add --controller ~.web.ConfMiniMapaController
+web mvc loupe field --controller ~.web.ConfMiniMapaController --field servicioWeb --listPath serviciosweb/listLoupe --additionalFields nombre,url
+// [failed] web mvc loupe set --controller ~.web.ConfMiniMapaController
+web mvc datatables add --type ~.web.ConfMiniMapaController
+web mvc loupe set --controller ~.web.ConfMiniMapaController
+web mvc loupe field --controller ~.web.ConfMiniMapaController --field servicioWeb --listPath serviciosweb/listLoupe --additionalFields nombre,url
+web mvc loupe field --controller ~.web.ConfMiniMapaController --field serviciosWeb --listPath serviciosweb/listLoupe --additionalFields nombre,url
+service type --interface ~.service.domain.ConfMiniMapaService --class ~.service.domain.impl.ConfMiniMapaServiceImpl --entity ~.domain.components.ConfMiniMapa
+finder list --class ~.domain.components.ConfMiniMapa
+finder add --finderName findConfMiniMapasByGeoPortal --class ~.domain.components.ConfMiniMapa
+
+//
+// GeoportalServicioWeb
+//
+entity jpa --class ~.domain.GeoportalServicioWeb --identifierField id --testAutomatically
+field reference --fieldName geoportal --type ~.domain.GeoPortal --cardinality MANY_TO_ONE --notNull
+field reference --fieldName servicioWeb --type ~.domain.ServicioWeb --cardinality MANY_TO_ONE --notNull
+field number --fieldName opacidad --type java.math.BigDecimal --notNull
+field boolean --fieldName activo --notNull --primitive
+field boolean --fieldName habilitado --notNull --primitive
+field number --fieldName posicion --type Integer --primitive --notNull
+
+focus --class ~.domain.GeoPortal
+field set --fieldName serviciosToc --type ~.domain.GeoportalServicioWeb --cardinality ONE_TO_MANY --mappedBy geoportal
+
+service type --interface ~.service.domain.GeoportalServicioWebService --class ~.service.domain.impl.GeoportalServicioWebServiceImpl --entity ~.domain.GeoportalServicioWeb
+
+web mvc scaffold --class ~.web.GeoportalServicioWebController --backingType ~.domain.GeoportalServicioWeb --disallowedOperations create,update,delete
+web mvc jquery add --type ~.web.GeoportalServicioWebController
+jpa batch add --entity ~.domain.GeoportalServicioWeb --type ~.service.batch.GeoportalServicioWebBatchService
+web mvc batch add --controller ~.web.GeoportalServicioWebController
+web mvc datatables add --type ~.web.GeoportalServicioWebController
+web mvc loupe set --controller ~.web.GeoportalServicioWebController
+web mvc loupe field --controller ~.web.GeoportalServicioWebController --field servicioWeb --listPath serviciosweb/listLoupeEditionMap --additionalFields nombre,url
+web mvc loupe field --controller ~.web.GeoportalServicioWebController --field servicioWeb --listPath serviciosweb/listLoupeEditionMap --additionalFields nombre,url
+jpa audit all

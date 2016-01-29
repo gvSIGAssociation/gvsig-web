@@ -1,0 +1,15 @@
+id,tipo,geo_portal,version
+30,escala_grafica,3,0
+31,leyenda,3,0
+32,visualizar_coordenadas,3,0
+33,callejero,3,0
+34,desplazar,3,0
+35,regla_zoom,3,0
+36,zoom_ventana,3,0
+37,historico_de_encuadres,3,0
+38,informacion_capas,3,0
+39,calcular_distancia,3,0
+40,calcular_area,3,0
+41,imprimir,3,0
+42,anyadir_grupo_capas,3,0
+43,ver_toc,3,0

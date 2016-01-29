@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  gvGeoportal is sponsored by the General Directorate for Information
+  Technologies (DGTI) of the Regional Ministry of Finance and Public
+  Administration of the Generalitat Valenciana (Valencian Community,
+  Spain), managed by gvSIG Association and led by DISID Corporation.
+  
+  Copyright (C) 2016 DGTI - Generalitat Valenciana
+  
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU Affero General Public License as
+  published by the Free Software Foundation, either version 3 of the
+  License, or (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU Affero General Public License for more details.
+  
+  You should have received a copy of the GNU Affero General Public License
+   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ora="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xmlns:spatial="http://www.liquibase.org/xml/ns/dbchangelog-ext/liquibase-spatial"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd
+      http://www.liquibase.org/xml/ns/dbchangelog-ext
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+      http://www.liquibase.org/xml/ns/dbchangelog-ext/liquibase-spatial
+      http://lonnyj.github.com/liquibase-spatial/liquibase-spatial.xsd"
+	logicalFilePath="db.changelog-demo-data.xml">
+
+	<!-- Loads the demo data -->
+	<changeSet author="omorro" id="demo-agrupador-capa-v000"
+		context="dev,DESA">
+		<loadData file="db/demo-data/agrupador.csv" tableName="agrupador_capa"
+			separator=",">
+		</loadData>
+		<rollback>
+			<delete tableName="agrupador_capa" />
+		</rollback>
+	</changeSet>
+
+	<changeSet author="omorro" id="demo-servicio-web-v000"
+		context="dev,DESA">
+		<loadData file="db/demo-data/servicio_web.csv" tableName="servicio_web"
+			separator="%">
+		</loadData>
+		<rollback>
+			<delete tableName="servicio_web" />
+		</rollback>
+	</changeSet>
+
+	<changeSet author="omorro" id="demo-geoPortal-v000" context="dev,DESA">
+		<loadData file="db/demo-data/geoPortal.csv" tableName="geo_portal"
+			separator="%">
+		</loadData>
+		<rollback>
+			<delete tableName="geo_portal" />
+		</rollback>
+	</changeSet>
+	<changeSet author="omorro" id="demo-capas_servicio_web-v000"
+		context="dev,DESA">
+		<loadData file="db/demo-data/capas_servicio_web.csv"
+			tableName="capas_servicio_web" separator="%">
+		</loadData>
+		<rollback>
+			<delete tableName="capas_servicio_web" />
+		</rollback>
+	</changeSet>
+
+	<changeSet author="omorro" id="demo-coordenadas_servicio_web-v000"
+		context="dev,DESA">
+		<loadData file="db/demo-data/coordenadas_servicio_web.csv"
+			tableName="coordenadas_servicio_web" separator=",">
+		</loadData>
+		<rollback>
+			<delete tableName="coordenadas_servicio_web" />
+		</rollback>
+	</changeSet>
+
+	<changeSet author="omorro" id="demo-agrupador_capa_geo_portales-v000"
+		context="dev,DESA">
+		<loadData file="db/demo-data/agrupador_capa_geo_portales.csv"
+			tableName="agrupador_capa_geo_portales" separator=",">
+		</loadData>
+		<rollback>
+			<delete tableName="agrupador_capa_geo_portales" />
+		</rollback>
+	</changeSet>
+
+  <changeSet author="lalonso" id="demo-gestor_catalogo-v000"
+    context="dev,DESA">
+    <loadData file="db/demo-data/gestor_catalogo.csv"
+      tableName="gestor_catalogo" separator="%">
+    </loadData>
+    <rollback>
+      <delete tableName="gestor_catalogo">
+        <where>id > 2</where>
+      </delete>
+    </rollback>
+  </changeSet>
+
+  <changeSet author="lalonso" id="demo-componentes-v000"
+    context="dev,DESA">
+    <loadData file="db/demo-data/componentes.csv"
+      tableName="componentes" separator=",">
+    </loadData>
+    <rollback>
+      <delete tableName="componentes" />
+    </rollback>
+  </changeSet>
+
+  <changeSet author="lalonso" id="demo-agrupador_capa_servicio_web-v000"
+    context="dev,DESA">
+    <loadData file="db/demo-data/agrupador_capa_servicio_web.csv"
+      tableName="agrupador_capa_servicio_web" separator=",">
+    </loadData>
+    <rollback>
+      <delete tableName="agrupador_capa_servicio_web" />
+    </rollback>
+  </changeSet>
+
+  <changeSet author="lalonso" id="demo-geoportal_servicio_web-v000"
+    context="dev,DESA">
+    <loadData file="db/demo-data/geoportal_servicio_web.csv"
+      tableName="geoportal_servicio_web" separator=",">
+    </loadData>
+    <rollback>
+      <delete tableName="geoportal_servicio_web" />
+    </rollback>
+  </changeSet>
+
+	<!-- Recreate sequence -->
+	<!-- Oracle doc: To restart the sequence at a different number, you must
+		drop and re-create it -->
+	<changeSet author="omorro" id="demo-data-recreate-sequencedemo"
+		context="dev,DESA">
+		<dropSequence sequenceName="hibernate_sequence" />
+    <createSequence startValue="2200" sequenceName="hibernate_sequence"/>
+    <rollback>
+      <dropSequence sequenceName="hibernate_sequence" />
+      <createSequence startValue="1700" sequenceName="hibernate_sequence"/>
+		</rollback>
+	</changeSet>
+
+	<!-- Creates the tag 'demo-data' -->
+	<changeSet author="omorro" id="demo-data-tag" context="dev,DESA">
+		<tagDatabase tag="demo-data" />
+	</changeSet>
+
+</databaseChangeLog>

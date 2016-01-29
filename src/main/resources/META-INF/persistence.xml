@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  gvGeoportal is sponsored by the General Directorate for Information
+  Technologies (DGTI) of the Regional Ministry of Finance and Public
+  Administration of the Generalitat Valenciana (Valencian Community,
+  Spain), managed by gvSIG Association and led by DISID Corporation.
+  
+  Copyright (C) 2016 DGTI - Generalitat Valenciana
+  
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU Affero General Public License as
+  published by the Free Software Foundation, either version 3 of the
+  License, or (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU Affero General Public License for more details.
+  
+  You should have received a copy of the GNU Affero General Public License
+   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+<persistence-unit name="persistenceUnit" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <!-- Se deben incluir manualmente las entidades correspondientes a esta
+         unidad de persistencia para que Hibernate pueda hacer 'mapping' -->
+          <class>es.gva.dgti.gvgeoportal.domain.AgrupadorCapa</class>
+          <class>es.gva.dgti.gvgeoportal.domain.ServicioWeb</class>
+          <class>es.gva.dgti.gvgeoportal.domain.SistemaCoordenadas</class>
+          <class>es.gva.dgti.gvgeoportal.domain.GeoPortal</class>
+          <class>es.gva.dgti.gvgeoportal.domain.GestorCatalogo</class>
+          <class>es.gva.dgti.gvgeoportal.domain.AgrupadorCapaServicioWeb</class>
+          <class>es.gva.dgti.gvgeoportal.domain.GeoportalServicioWeb</class>
+          <class>es.gva.dgti.gvgeoportal.domain.Componentes</class>
+          <class>es.gva.dgti.gvgeoportal.domain.components.ConfAyudaBuscador</class>
+          <class>es.gva.dgti.gvgeoportal.domain.components.ConfCapasTematicas</class>
+          <class>es.gva.dgti.gvgeoportal.domain.components.ConfVistasPredefinidas</class>
+          <class>es.gva.dgti.gvgeoportal.domain.components.ConfMiniMapa</class>
+         <exclude-unlisted-classes/>
+        <properties>
+            <!-- <property name="hibernate.dialect" value="org.hibernate.spatial.dialect.postgis.PostgisDialect"/> -->
+            <!-- value="create" to build a new database on each run; value="update" to modify an existing database; value="create-drop" means the same as "create" but also drops tables when Hibernate closes; value="validate" makes no changes to the database -->
+             <property name="hibernate.hbm2ddl.auto" value="validate"/><!-- value="create" to build a new database on each run; value="update" to modify an existing database; value="create-drop" means the same as "create" but also drops tables when Hibernate closes; value="validate" makes no changes to the database -->
+            <property name="hibernate.ejb.naming_strategy" value="org.hibernate.cfg.ImprovedNamingStrategy"/>
+            <property name="hibernate.connection.charSet" value="UTF-8"/>
+            <!-- Uncomment the following two properties for JBoss only -->
+            <property name="hibernate.validator.apply_to_ddl" value="false" />
+            <property name="hibernate.validator.autoregister_listeners" value="false"/>
+        </properties>
+    </persistence-unit>
+</persistence>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  gvGeoportal is sponsored by the General Directorate for Information
+  Technologies (DGTI) of the Regional Ministry of Finance and Public
+  Administration of the Generalitat Valenciana (Valencian Community,
+  Spain), managed by gvSIG Association and led by DISID Corporation.
+  
+  Copyright (C) 2016 DGTI - Generalitat Valenciana
+  
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU Affero General Public License as
+  published by the Free Software Foundation, either version 3 of the
+  License, or (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU Affero General Public License for more details.
+  
+  You should have received a copy of the GNU Affero General Public License
+   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<gvnix-menu id="_menu" rooMenuBasePath="/">
+
+  <!--Menu geoPortal -->
+  <menu-item id="c_geoportal" labelCode="label_es_gva_dgti_gvgeoportal_domain_geoportal_plural" name="GeoPortal">
+		<menu-item hidden="true" id="i_geoportal_new" labelCode="menu_item_geoportal_new_label" messageCode="global_menu_new" roles="" url="/geoportales?form"/>
+		<menu-item hidden="false" id="i_geoportal_list" labelCode="menu_item_gestion_geoportal_label" roles="" url="/geoportales"/>
+		<menu-item id="fi_geoportal_search" labelCode="menu_item_buscador_geoportal_label" roles="" url="/geoportales?find=ByAll&amp;form"/>
+	</menu-item>
+
+	<!-- Menu capas -->
+	<menu-item hidden="true" id="c_agrupadorcapa" labelCode="menu_item_agrupadorcapa_list_label" name="AgrupadorCapa" roles="ADMIN,USER">
+		<menu-item hidden="true" id="i_agrupadorcapa_new" labelCode="menu_item_agrupadorcapa_new_label" messageCode="global_menu_new" roles="" url="/agrupadorcapas?form"/>
+	</menu-item>
+
+	<!-- Servicios cartograficos -->
+	<menu-item id="c_fuentedatos" labelCode="menu_item_fuente_datos_label" name="ServicioWeb" roles="ADMIN">
+		<menu-item id="i_fuentedatos_list" labelCode="menu_item_gestion_servicio_web" roles="" url="/serviciosweb"/>
+		<menu-item id="i_agrupadorcapa_list" labelCode="menu_item_gestion_agrupadorcapa_label" roles="" url="/agrupadorcapas"/>
+		<menu-item id="fi_servicioweb_nombreequals" labelCode="menu_item_buscador_servicio_web_label" roles="" url="/serviciosweb?find=ByAll&amp;form"/>
+	</menu-item>
+
+	<!-- Configuracion -->
+	<menu-item id="c_configuracion" labelCode="menu_category_configuracion_label" name="Configuracion" roles="ADMIN">
+		<menu-item hidden="false" id="i_gestorcatalogo_list" labelCode="menu_item_gestorcatalogo_list_label" roles="ADMIN" url="/gestorcatalogos"/>
+	</menu-item>
+
+  <!-- Menus no necesarios (no se muestran) -->
+	<menu-item hidden="true" id="c_servicioweb" labelCode="menu_category_servicioweb_label" name="ServicioWeb" roles="ADMIN">
+		<menu-item hidden="false" id="i_servicioweb_new" labelCode="menu_item_servicioweb_new_label" messageCode="global_menu_new" roles="" url="/serviciosweb?form"/>
+		<menu-item hidden="false" id="i_servicioweb_list" labelCode="menu_item_servicioweb_list_label" messageCode="global_menu_list" roles="" url="/serviciosweb?page=1&amp;size=${empty param.size ? 10 : param.size}"/>
+		<menu-item hidden="false" id="fi_servicioweb_nombreequals" labelCode="menu_item_servicioweb_nombreequals_label" messageCode="global_menu_find" roles="" url="/serviciosweb?find=ByNombreEquals&amp;form&amp;page=1&amp;size=${empty param.size ? 10 : param.size}"/>
+	</menu-item>
+	<menu-item hidden="true" id="c_sistemacoordenadas" labelCode="menu_category_sistemacoordenadas_label" name="SistemaCoordenadas" roles="ADMIN">
+		<menu-item hidden="false" id="i_sistemacoordenadas_new" labelCode="menu_item_sistemacoordenadas_new_label" messageCode="global_menu_new" roles="" url="/sistemacoordenadases?form"/>
+		<menu-item hidden="false" id="i_sistemacoordenadas_list" labelCode="menu_item_sistemacoordenadas_list_label" messageCode="global_menu_list" roles="" url="/sistemacoordenadases?page=1&amp;size=${empty param.size ? 10 : param.size}"/>
+	</menu-item>
+	<menu-item hidden="true" id="c_map_menu_category" labelCode="menu_category_map_menu_category_label" name="map_menu_category">
+		<menu-item hidden="true" id="i_map_menu_category_mapview_map_menu_entry" labelCode="menu_item_map_menu_category_mapview_map_menu_entry_label" messageCode="global_generic" roles="" url="/mapview"/>
+		<menu-item hidden="true" id="i_map_menu_category_map_map_menu_entry" labelCode="menu_item_map_menu_category_map_map_menu_entry_label" messageCode="global_generic" roles="" url="/map"/>
+    	<menu-item hidden="true" id="i_map_menu_category_mapaedicion_map_menu_entry" labelCode="menu_item_map_menu_category_mapaedicion_map_menu_entry_label" messageCode="global_generic" roles="" url="/mapaedicion"/>
+    </menu-item>
+	<menu-item hidden="true" id="c_catalogo" labelCode="menu_category_catalogo_label" name="Catalogo">
+		<menu-item hidden="false" id="i_catalogo_list" labelCode="menu_item_catalogo_list_label" messageCode="global_menu_list" roles="" url="/catalogos?page=1&amp;size=${empty param.size ? 10 : param.size}"/>
+	</menu-item>
+	<menu-item hidden="true" id="c_gestorcatalogo" labelCode="menu_category_gestorcatalogo_label" name="GestorCatalogo" roles="ADMIN">
+		<menu-item hidden="true" id="i_gestorcatalogo_new" labelCode="menu_item_gestorcatalogo_new_label" messageCode="global_menu_new" roles="" url="/gestorcatalogos?form"/>
+		<menu-item hidden="true" id="i_gestorcatalogo_list" labelCode="menu_item_gestorcatalogo_list_label" messageCode="global_menu_list" roles="ADMIN" url="/gestorcatalogos"/>
+	</menu-item>
+  <menu-item hidden="true" id="c_componentes" labelCode="menu_category_componentes_label" name="Componentes">
+    <menu-item hidden="false" id="i_componentes_new" labelCode="menu_item_componentes_new_label" messageCode="global_menu_new" roles="" url="/componenteses?form"/>
+    <menu-item hidden="false" id="i_componentes_list" labelCode="menu_item_componentes_list_label" messageCode="global_menu_list" roles="" url="/componenteses?page=1&amp;size=${empty param.size ? 10 : param.size}"/>
+  </menu-item>
+  <menu-item hidden="true" id="c_agrupadorcapaservicioweb" labelCode="menu_category_agrupadorcapaservicioweb_label" name="AgrupadorCapaServicioWeb">
+    <menu-item hidden="true" id="i_agrupadorcapaservicioweb_new" labelCode="menu_item_agrupadorcapaservicioweb_new_label" messageCode="global_menu_new" roles="" url="/agrupadorcapaserviciowebs?form"/>
+    <menu-item hidden="true" id="i_agrupadorcapaservicioweb_list" labelCode="menu_item_agrupadorcapaservicioweb_list_label" messageCode="global_menu_list" roles="" url="/agrupadorcapaserviciowebs?page=1&amp;size=${empty param.size ? 10 : param.size}"/>
+    </menu-item>
+<menu-item hidden="true" id="c_confcapastematicas" labelCode="menu_category_confcapastematicas_label" name="ConfCapasTematicas">
+        <menu-item hidden="true" id="i_confcapastematicas_new" labelCode="menu_item_confcapastematicas_new_label" messageCode="global_menu_new" roles="" url="/confcapastematicases?form"/>
+    <menu-item hidden="true" id="i_confcapastematicas_list" labelCode="menu_item_confcapastematicas_list_label" messageCode="global_menu_list" roles="" url="/confcapastematicases?page=1&amp;size=${empty param.size ? 10 : param.size}"/>
+    </menu-item>
+<menu-item hidden="true" id="c_confvistaspredefinidas" labelCode="menu_category_confvistaspredefinidas_label" name="ConfVistasPredefinidas">
+        <menu-item hidden="true" id="i_confvistaspredefinidas_new" labelCode="menu_item_confvistaspredefinidas_new_label" messageCode="global_menu_new" roles="" url="/confvistaspredefinidases?form"/>
+    <menu-item hidden="true" id="i_confvistaspredefinidas_list" labelCode="menu_item_confvistaspredefinidas_list_label" messageCode="global_menu_list" roles="" url="/confvistaspredefinidases?page=1&amp;size=${empty param.size ? 10 : param.size}"/>
+    </menu-item>
+<menu-item hidden="true" id="c_confminimapa" labelCode="menu_category_confminimapa_label" name="ConfMiniMapa">
+        <menu-item hidden="true" id="i_confminimapa_list" labelCode="menu_item_confminimapa_list_label" messageCode="global_menu_list" roles="" url="/confminimapas?page=1&amp;size=${empty param.size ? 10 : param.size}"/>
+    </menu-item>
+<menu-item hidden="true" id="c_geoportalservicioweb" labelCode="menu_category_geoportalservicioweb_label" name="GeoportalServicioWeb">
+        <menu-item hidden="true" id="i_geoportalservicioweb_list" labelCode="menu_item_geoportalservicioweb_list_label" messageCode="global_menu_list" roles="" url="/geoportalserviciowebs?page=1&amp;size=${empty param.size ? 10 : param.size}"/>
+    </menu-item>
+</gvnix-menu>

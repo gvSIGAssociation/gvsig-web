@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+gvGeoportal is sponsored by the General Directorate for Information
+Technologies (DGTI) of the Regional Ministry of Finance and Public
+Administration of the Generalitat Valenciana (Valencian Community,
+Spain), managed by gvSIG Association and led by DISID Corporation.
+
+Copyright (C) 2016 DGTI - Generalitat Valenciana
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/jquery/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/datatables" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show create="false" delete="false" id="ps_es_gva_dgti_gvgeoportal_domain_GeoportalServicioWeb" object="${geoportalservicioweb}" path="/geoportalserviciowebs" update="false" z="Oz87qfVhkH3B6OqdhQcn9sCHiNs=">
+        <field:display field="geoportal" id="s_es_gva_dgti_gvgeoportal_domain_GeoportalServicioWeb_geoportal" object="${geoportalservicioweb}" z="YqBVErrBKyf8a2L1laSYWaoB1Gc="/>
+        <field:display field="servicioWeb" id="s_es_gva_dgti_gvgeoportal_domain_GeoportalServicioWeb_servicioWeb" object="${geoportalservicioweb}" z="fXaQtf5s3xNH8tBFRqdcBQ0TIDE="/>
+        <field:display field="opacidad" id="s_es_gva_dgti_gvgeoportal_domain_GeoportalServicioWeb_opacidad" object="${geoportalservicioweb}" z="5o+h7bDaSn6UnCtfO8irbx1bGoE="/>
+        <field:display field="activo" id="s_es_gva_dgti_gvgeoportal_domain_GeoportalServicioWeb_activo" object="${geoportalservicioweb}" z="fPC+rdR0519gS4oWhXUll8ot1Mc="/>
+        <field:display field="habilitado" id="s_es_gva_dgti_gvgeoportal_domain_GeoportalServicioWeb_habilitado" object="${geoportalservicioweb}" z="yB8RkOlp0FB1yTxczLaV0DS+Omc="/>
+        <field:display field="posicion" id="s_es_gva_dgti_gvgeoportal_domain_GeoportalServicioWeb_posicion" object="${geoportalservicioweb}" z="hpObrA/I5uR3v1pncg+ogTm5u2k="/>
+        <field:display calendar="true" dateTimePattern="${geoportalServicioWeb_auditcreation_date_format}" field="auditCreation" id="s_es_gva_dgti_gvgeoportal_domain_GeoportalServicioWeb_auditCreation" object="${geoportalservicioweb}" z="B1G3lEvqqN1VYDOYsTGdvpjfroc="/>
+        <field:display field="auditCreatedBy" id="s_es_gva_dgti_gvgeoportal_domain_GeoportalServicioWeb_auditCreatedBy" object="${geoportalservicioweb}" z="YvOPIg2xbbM9/HimlCBITZN04bw="/>
+        <field:display calendar="true" dateTimePattern="${geoportalServicioWeb_auditlastupdate_date_format}" field="auditLastUpdate" id="s_es_gva_dgti_gvgeoportal_domain_GeoportalServicioWeb_auditLastUpdate" object="${geoportalservicioweb}" z="Y8T+xuZ57v9Pc+D+TAFLY/SYZFg="/>
+        <field:display field="auditLastUpdatedBy" id="s_es_gva_dgti_gvgeoportal_domain_GeoportalServicioWeb_auditLastUpdatedBy" object="${geoportalservicioweb}" z="B5kqFboYf4ZLqtZs4UGOiTnBZyI="/>
+    </page:show>
+</div>

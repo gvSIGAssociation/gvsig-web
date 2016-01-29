@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+gvGeoportal is sponsored by the General Directorate for Information
+Technologies (DGTI) of the Regional Ministry of Finance and Public
+Administration of the Generalitat Valenciana (Valencian Community,
+Spain), managed by gvSIG Association and led by DISID Corporation.
+
+Copyright (C) 2016 DGTI - Generalitat Valenciana
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<jsp:root xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:gvsig="http://gvsig.org/web-framework/TLD/util" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+
+  <jsp:output omit-xml-declaration="yes"/>
+
+  <spring:theme code="styleSheet" var="roo_css"/>
+  <spring:url value="/${roo_css}" var="roo_css_url"/>
+  <spring:url value="/resources/images/favicon.ico" var="favicon"/>
+
+  <link href="${roo_css_url}" media="screen" rel="stylesheet" type="text/css"/>
+  <link href="${favicon}" rel="SHORTCUT ICON"/>
+
+  <!-- Get the user local from the page context (it was set by Spring MVC's locale resolver) -->
+  <c:set var="userLocale">
+    <c:set var="plocale">${pageContext.response.locale}</c:set>
+    <c:out default="en" value="${fn:replace(plocale, '_', '-')}"/>
+  </c:set>
+
+
+
+<spring:url value="/resources/styles/jquery/jquery-ui.css" var="jquery_ui_css_url"/>
+    <link href="${jquery_ui_css_url}" media="screen" rel="stylesheet" type="text/css"/>
+    <spring:url value="/resources/scripts/jquery/jquery-min.js" var="jquery_js_url"/>
+    <script src="${jquery_js_url}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+    <spring:url value="/resources/scripts/jquery/jquery-ui.min.js" var="jquery_ui_js_url"/>
+    <script src="${jquery_ui_js_url}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+    <spring:url value="/resources/scripts/jquery/jquery.base64.js" var="jquery_b64_js_url"/>
+    <script src="${jquery_b64_js_url}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+<!--     <spring:url value="/resources/scripts/jquery/tinymce.min.js" var="tinymce_js_url"/> -->
+<!--     <script src="${tinymce_js_url}" type="text/javascript"> -->
+<!--     </script> -->
+    <!-- gvgeoPortal: jquery.tinymce.min.js has problems, we must use jquery.tinymce.js -->
+    <spring:url value="/resources/scripts/jquery/jquery.tinymce.js" var="jquery_tinymce_js_url"/>
+    <script src="${jquery_tinymce_js_url}?v=${application_version_code}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+    <spring:url value="/resources/scripts/jquery/jquery.validate-min.js" var="jquery_validate_js_url"/>
+    <script src="${jquery_validate_js_url}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+    <spring:url value="/resources/scripts/jquery/application.js" var="app_js_url"/>
+    <script src="${app_js_url}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+    <spring:url value="/resources/scripts/jquery/jquery.cookie.js" var="jquery_cookie_js_url"/>
+    <script src="${jquery_cookie_js_url}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+    <c:set var="jqueryLocale">
+        <!-- Get the user local from the page context (it was set by Spring MVC's locale resolver) -->
+        <c:set var="jqlocale">${pageContext.response.locale}</c:set>
+        <c:if test="${fn:length(jqlocale) eq 2}">
+            <c:out value="${jqlocale}"/>
+        </c:if>
+        <c:if test="${fn:length(jqlocale) gt 2}">
+            <c:out default="en" value="${fn:substringBefore(jqlocale, '_')}"/>
+        </c:if>
+        <c:if test="${fn:length(jqlocale) lt 2}">
+            <c:out value="en"/>
+        </c:if>
+    </c:set>
+    <spring:url value="/resources/scripts/jquery/i18n/jquery.ui.datepicker-${jqueryLocale}.js" var="jquery_ui_i18n_js_url"/>
+    <script src="${jquery_ui_i18n_js_url}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+    <spring:url value="/resources/scripts/jquery/jquery-ui.js" var="jquery_ui_js_url"/>
+    <script src="${jquery_ui_js_url}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+    <spring:url value="/resources/scripts/jquery/i18n/jquery.validate-${jqueryLocale}.js" var="jquery_validate_i18n_js_url"/>
+    <script src="${jquery_validate_i18n_js_url}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+    <spring:url value="/resources/scripts/jquery/hashtable.js" var="hashtable_js_url"/>
+    <script src="${hashtable_js_url}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+    <spring:url value="/resources/scripts/jquery/jquery.numberformatter.min.js" var="jquery_numberformatter_js_url"/>
+    <script src="${jquery_numberformatter_js_url}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+    <!-- gvgeoportal Refs #17705. Anyade el js para imprimir mapas. -->
+    <spring:url value="/resources/scripts/jquery/jquery.print.js" var="jquery_print_js_url"/>
+    <script src="${jquery_print_js_url}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+    <spring:url value="/resources/styles/datatables/jquery.dataTables.css" var="css_jquery_datatables_url"/>
+    <link href="${css_jquery_datatables_url}" media="screen" rel="stylesheet" type="text/css"/>
+    <spring:url value="/resources/styles/datatables/gvnix.dataTables.css" var="css_gvnix_datatables_url"/>
+    <link href="${css_gvnix_datatables_url}" media="screen" rel="stylesheet" type="text/css"/>
+    <spring:url value="/resources/scripts/datatables/jquery.dataTables.js" var="js_jquery_datatables_url"/>
+    <script src="${js_jquery_datatables_url}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+    <spring:url value="/resources/scripts/datatables/jquery.dataTables.ext.gvnix.selection.js" var="js_jquery_datatables_selection_url"/>
+    <script src="${js_jquery_datatables_selection_url}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+    <spring:url value="/resources/scripts/datatables/jquery.dataTables.ext.gvnix.editing.js" var="js_jquery_datatables_edit_url"/>
+    <script src="${js_jquery_datatables_edit_url}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+    <spring:url value="/resources/scripts/datatables/jquery.dataTables.ext.gvnix.rowclick.js" var="js_jquery_datatables_rowclik_url"/>
+    <script src="${js_jquery_datatables_rowclik_url}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+    <spring:url value="/resources/scripts/datatables/jquery.dataTables.ext.gvnix.rowontop.js" var="js_jquery_datatables_rowontop_url"/>
+    <script src="${js_jquery_datatables_rowontop_url}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+    <spring:url value="/resources/scripts/datatables/jquery.dataTables.ext.gvnix.detail.js" var="js_jquery_datatables_detail_url"/>
+    <script src="${js_jquery_datatables_detail_url}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+    <spring:url value="/resources/scripts/datatables/jquery.dataTables.ext.gvnix.js" var="js_jquery_datatables_custom_api_url"/>
+    <script src="${js_jquery_datatables_custom_api_url}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+    <spring:url value="/resources/scripts/datatables/jquery.dataTables.ext.gvnix.advancedfilter.js" var="js_jquery_datatables_advancedfilter_url"/>
+    <script src="${js_jquery_datatables_advancedfilter_url}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+<!-- <spring:url value="/resources/scripts/loupefield/jquery.loupeField.ext.gvnix.js" var="loupe_js_url"/> -->
+<!--     <script src="${loupe_js_url}" type="text/javascript"> -->
+        <!--required for FF3 and Opera-->
+<!--     </script> -->
+<spring:url value="/resources/scripts/gvgeoportal/jquery.loupeField.ext.gvnix.js" var="loupe_js_url"/>
+    <script src="${loupe_js_url}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+<spring:url value="/resources/styles/loupefield/loupeField.css" var="loupe_css_url"/>
+    <link href="${loupe_css_url}" media="screen" rel="stylesheet" type="text/css"/>
+<spring:url value="/resources/scripts/loupefield/loupe-callbacks.js" var="loupe_callbacks_js_url"/>
+    <script src="${loupe_callbacks_js_url}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+<spring:url value="/resources/scripts/safe/safe_certificate.js" var="safe_certificate"/>
+    <script src="${safe_certificate}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+<spring:url value="/resources/scripts/fancytree/jquery.fancytree-all.js" var="fancytree_url"/>
+    <script src="${fancytree_url}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+<spring:url value="/resources/scripts/fancytree/fancytree.ext.gvnix.js" var="fancytree_ext_gvnix_url"/>
+    <script src="${fancytree_ext_gvnix_url}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+<spring:url value="/resources/scripts/fancytree/jquery.ui-contextmenu.js" var="fancytree_jquery_contextmenu_url"/>
+    <script src="${fancytree_jquery_contextmenu_url}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+<spring:url value="/resources/styles/fancytree/skin-lion/ui.fancytree.css" var="css_fancytree_default"/>
+    <link href="${css_fancytree_default}" media="screen,print" rel="stylesheet" type="text/css"/>
+<spring:url value="/resources/scripts/leaflet/leaflet_bootstrap.js" var="js_leaflet_geo_js"/>
+    <script src="${js_leaflet_geo_js}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+<spring:url value="/resources/scripts/leaflet/geosearch/l.control.geosearch.js" var="js_leaflet_geosearch_component"/>
+    <script src="${js_leaflet_geosearch_component}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+<spring:url value="/resources/scripts/leaflet/geosearch/providers/l.geosearch.provider.bing.js" var="js_leaflet_geosearch_bing_provider"/>
+    <script src="${js_leaflet_geosearch_bing_provider}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+<spring:url value="/resources/scripts/leaflet/geosearch/providers/l.geosearch.provider.esri.js" var="js_leaflet_geosearch_esri_provider"/>
+    <script src="${js_leaflet_geosearch_esri_provider}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+<spring:url value="/resources/scripts/leaflet/geosearch/providers/l.geosearch.provider.google.js" var="js_leaflet_geosearch_google_provider"/>
+    <script src="${js_leaflet_geosearch_google_provider}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+<spring:url value="/resources/scripts/leaflet/geosearch/providers/l.geosearch.provider.nokia.js" var="js_leaflet_geosearch_nokia_provider"/>
+    <script src="${js_leaflet_geosearch_nokia_provider}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+<spring:url value="/resources/scripts/leaflet/geosearch/providers/l.geosearch.provider.openstreetmap.js" var="js_leaflet_geosearch_openstreetmap_provider"/>
+    <script src="${js_leaflet_geosearch_openstreetmap_provider}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+<spring:url value="/resources/scripts/leaflet/L.Control.Zoomslider.js" var="js_leaflet_zoom_slider_js"/>
+    <script src="${js_leaflet_zoom_slider_js}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+<spring:url value="/resources/scripts/leaflet/L.MeasuringTool.js" var="js_leaflet_measuring_tool_js"/>
+    <script src="${js_leaflet_measuring_tool_js}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+<spring:url value="/resources/scripts/leaflet/leaflet-omnivore.min.js" var="js_leaflet_geo_omnivore_js"/>
+    <script src="${js_leaflet_geo_omnivore_js}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+<spring:url value="/resources/scripts/leaflet/leaflet-tilelayer-wmts-src.js" var="js_leaflet_layers_wmts"/>
+    <script src="${js_leaflet_layers_wmts}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+<spring:url value="/resources/scripts/leaflet/leaflet.awesome-markers.min.js" var="js_leaflet_geo_awesome_markers_js"/>
+    <script src="${js_leaflet_geo_awesome_markers_js}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+<spring:url value="/resources/scripts/leaflet/leaflet.Control.MiniMap.js" var="js_leaflet_control_minimap"/>
+    <script src="${js_leaflet_control_minimap}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+<spring:url value="/resources/scripts/leaflet/Leaflet.Coordinates-0.1.3.js" var="js_leaflet_coordinates"/>
+    <script src="${js_leaflet_coordinates}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+<spring:url value="/resources/scripts/leaflet/leaflet.draw-src.js" var="js_leaflet_draw"/>
+    <script src="${js_leaflet_draw}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+<spring:url value="/resources/scripts/leaflet/leaflet.ext.gvnix.map.htmllayerstoolbarcontrol.js" var="js_leaflet_html_layers_toolbar_control"/>
+    <script src="${js_leaflet_html_layers_toolbar_control}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+<spring:url value="/resources/scripts/leaflet/leaflet.ext.gvnix.map.htmltoolbarcontrol.js" var="js_leaflet_html_toolbar_control"/>
+    <script src="${js_leaflet_html_toolbar_control}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+<spring:url value="/resources/scripts/leaflet/leaflet.markercluster-src.js" var="js_leaflet_geo_marker_cluster_js"/>
+    <script src="${js_leaflet_geo_marker_cluster_js}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+<spring:url value="/resources/scripts/leaflet/leaflet.textpath.js" var="js_leaflet_textpath"/>
+    <script src="${js_leaflet_textpath}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+<spring:url value="/resources/scripts/leaflet/proj4.js" var="js_leaflet_proj4"/>
+    <script src="${js_leaflet_proj4}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+<spring:url value="/resources/scripts/leaflet/proj4leaflet.js" var="js_leaflet_proj4leaflet"/>
+    <script src="${js_leaflet_proj4leaflet}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+<spring:url value="/resources/scripts/leaflet/proj4leaflet-custom-proj.js" var="js_leaflet_proj4leaflet_custom_proj"/>
+    <script src="${js_leaflet_proj4leaflet_custom_proj}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+<spring:url value="/resources/scripts/leaflet/waitingfor.js" var="js_waiting_for"/>
+    <script src="${js_waiting_for}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+
+<!-- load scripts from gvsig-web-fw -->
+<gvsig:load-scripts/>
+
+<spring:url value="/resources/styles/leaflet/font-awesome.min.css" var="styles_leaflet_font_css"/>
+    <link href="${styles_leaflet_font_css}" media="screen,print" rel="stylesheet" type="text/css"/>
+<spring:url value="/resources/styles/leaflet/leaflet.bootstrap.css" var="styles_leaflet_geo_css"/>
+    <link href="${styles_leaflet_geo_css}" media="screen,print" rel="stylesheet" type="text/css"/>
+<spring:url value="/resources/styles/leaflet/L.Control.Zoomslider.css" var="styles_zoom_slider_css"/>
+    <link href="${styles_zoom_slider_css}" media="screen,print" rel="stylesheet" type="text/css"/>
+<spring:url value="/resources/styles/leaflet/l.geosearch.css" var="styles_leaflet_geosearch"/>
+    <link href="${styles_leaflet_geosearch}" media="screen,print" rel="stylesheet" type="text/css"/>
+<spring:url value="/resources/styles/leaflet/leaflet.awesome-markers.css" var="styles_leaflet_markers_css"/>
+    <link href="${styles_leaflet_markers_css}" media="screen,print" rel="stylesheet" type="text/css"/>
+<spring:url value="/resources/styles/leaflet/leaflet.Control.MiniMap.css" var="styles_leaflet_control_minimap"/>
+    <link href="${styles_leaflet_control_minimap}" media="screen,print" rel="stylesheet" type="text/css"/>
+<spring:url value="/resources/styles/leaflet/Leaflet.Coordinates-0.1.3.css" var="styles_leaflet_coordinates_css"/>
+    <link href="${styles_leaflet_coordinates_css}" media="screen,print" rel="stylesheet" type="text/css"/>
+<spring:url value="/resources/styles/leaflet/Leaflet.Coordinates-0.1.3.ie.css" var="styles_leaflet_coordinates_ie_css"/>
+    <link href="${styles_leaflet_coordinates_ie_css}" media="screen,print" rel="stylesheet" type="text/css"/>
+<spring:url value="/resources/styles/leaflet/leaflet.draw.css" var="styles_leaflet_drawl"/>
+    <link href="${styles_leaflet_drawl}" media="screen,print" rel="stylesheet" type="text/css"/>
+<spring:url value="/resources/styles/leaflet/MarkerCluster.css" var="styles_marker_cluster_css"/>
+    <link href="${styles_marker_cluster_css}" media="screen,print" rel="stylesheet" type="text/css"/>
+<spring:url value="/resources/styles/leaflet/MarkerCluster.Default.css" var="styles_marker_cluster_default_css"/>
+    <link href="${styles_marker_cluster_default_css}" media="screen,print" rel="stylesheet" type="text/css"/>
+<spring:url value="/resources/styles/glyphs/whhg.css" var="styles_glyphs_whhg"/>
+    <link href="${styles_glyphs_whhg}" media="screen,print" rel="stylesheet" type="text/css"/>
+<spring:url value="/resources/styles/jquery/jquery-ui.css" var="styles_jquery_ui"/>
+    <link href="${styles_jquery_ui}" media="screen,print" rel="stylesheet" type="text/css"/>
+
+<!-- load styles from gvsig-web-fw -->
+<gvsig:load-styles/>
+
+<link href="${styles_gvnix_leaflet_geo_css}" media="screen,print" rel="stylesheet" type="text/css"/>
+</jsp:root>

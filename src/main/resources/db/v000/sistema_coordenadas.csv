@@ -1,0 +1,8 @@
+id,codigo,nombre,descripcion,version
+1,EPSG:3857,EPSG:3857,Proyección WGS84 / Pseudo-Mercator,0
+2,EPSG:4326,EPSG:4326,Coordenadas Geográficas WGS84,0
+3,EPSG:23029,EPSG:23029,Proyección UTM ED50 Huso 29 N,0
+4,EPSG:23030,EPSG:23030,Proyección UTM ED50 Huso 30 N,0
+5,EPSG:23031,EPSG:23031,Proyección UTM ED50 Huso 31 N,0
+6,EPSG:25830,EPSG:25830,Proyección UTM ETRS89 Huso 30 N,0
+7,EPSG:900913,EPSG:900913,Proyección Google Mercator,0

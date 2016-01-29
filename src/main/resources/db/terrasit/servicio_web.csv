@@ -1,0 +1,86 @@
+id,nombre,descripcion,url,tipo,version_protocolo,formato_imagen,tile_matrix_set,version
+1,Mapa de sombras,Mapa de sombras,http://terramapas.icv.gva.es/isohipsas/?,WMS,1.1.1,image/png,,0
+2,SIOSE 2011 CV,SIOSE 2011 Comunidad Valenciana,http://terramapas.icv.gva.es/siose_etrs89h30_2011,WMS,1.3.0,image/png,,0
+3,SIOSE 2009 CV,SIOSE 2009 Comunidad Valenciana,http://terramapas.icv.gva.es/siose_etrs89h30_2009,WMS,1.3.0,image/png,,0
+4,SIOSE 2005 CV rev.,SIOSE 2005 Comunidad Valenciana Revisado,http://terramapas.icv.gva.es/siose_etrs89h30_2005corregido,WMS,1.3.0,image/png,,0
+5,Toponimia,Toponimia,http://terramapas.icv.gva.es/toponimia_base,WMS,1.3.0,image/png,,0
+6,Mapa Topografico base,Mapa Topografico base,http://terramapas.icv.gva.es/topografico/?,WMS,1.1.1,image/png,,0
+7,Puntos de interés de la CV,Puntos de interés de la Comunidad Valenciana,http://terramapas.icv.gva.es/modernizacion,WMS,1.3.0,image/png,,0
+8,Centros Asistencia Conselleria Bienestar Social,Centros Asistencia Conselleria Bienestar Social,http://terramapas.icv.gva.es/serv_bs,WMS,1.3.0,image/png,,0
+9,CartoCiudad ICV,Callejeros ICV,http://terramapas.icv.gva.es/cciudad,WMS,1.3.0,image/png,,0
+10,Plan Confianza,Plan Confianza,http://terramapas.icv.gva.es/confianza,WMS,1.3.0,image/png,,0
+11,Red de estaciones permanente GNSS,Red de estaciones permanente GNSS,http://terramapas.icv.gva.es/wmsgnss,WMS,1.3.0,image/png,,0
+12,Red de 4º orden,Red de 4º orden,http://terramapas.icv.gva.es/wmsredgeod,WMS,1.3.0,image/png,,0
+13,Cuadrículas geográficas,Cuadrículas geográficas,http://terramapas.icv.gva.es/cgi-bin/mapserv.fcgi?map=/var/www/portal/map/cuadriculas/cuadriculas.map,WMS,1.3.0,image/png,,0
+14,Unidades administrativas,Unidades administrativas de España,http://www.ign.es/wms-inspire/unidades-administrativas,WMS,1.3.0,image/png,,0
+15,Lidar Mapa d'ombres 5m Comunitat Valenciana,Lidar Mapa d'ombres 5m Comunitat Valenciana,http://carto.icv.gva.es/WMS_CV/WMSLiDAR,WMS,1.1.1,image/png,,0
+16,Lidar Mapa d'ombres 1m amb edificis Comunitat Valenciana,Lidar Mapa d'ombres 1m amb edificis Comunitat Valenciana,http://lidar.icv.gva.es/WMS_EDIFICIOS_CV/WMSLiDAR,WMS,1.1.1,image/png,,0
+17,Lidar Mapa d'ombres 1m Comunitat Valenciana,Lidar Mapa d'ombres 1m Comunitat Valenciana,http://lidar.icv.gva.es/WMS_MDT1m_CV/WMSLiDAR,WMS,1.1.1,image/png,,0
+18,Lidar: núvol de punts Comunitat Valenciana,Lidar: núvol de punts Comunitat Valenciana,http://lidar.icv.gva.es/LIDARWMSServer_CV/WMSLiDAR,WMS,1.1.1,image/png,,0
+19,Ortofoto de 1996 de la mitad norte de la provincia de Castellón en RGB, Ortofoto de 1996 de la mitad norte de la provincia de Castellón en RGB.,http://terramapas1.icv.gva.es/odcv05_etrs89h30_1996,WMS,1.3.0,image/png,,0
+20,Ortofoto de 1997 de una franja al sur de provincia de Castellón en RGB, Ortofoto de 1997 de una franja al sur de provincia de Castellón en RGB.,http://terramapas1.icv.gva.es/odcv05_etrs89h30_1997,WMS,1.3.0,image/png,,0
+21,Ortofoto de 2000 de la mitad este de la provincia de Valencia. Sur provincia de Castellón y noreste provincia de Alicante en RGB, Ortofoto de 2000 de la mitad este de la provincia de Valencia. Sur provincia de Castellón y noreste provincia de Alicante en RGB,http://terramapas1.icv.gva.es/odcv05_etrs89h30_2000,WMS,1.3.0,image/png,,0
+22,Ortofoto de 2002 de la mitad oeste de las provincias de Valencia y Alicante en RGB.,Ortofoto de 2002 de la mitad oeste de las provincias de Valencia y Alicante en RGB.,http://terramapas1.icv.gva.es/odcv05_etrs89h30_2002,WMS,1.3.0,image/png,,0
+23,Ortofoto de 2003 de la provincia de Castellon en RGB.,Ortofoto de 2003 de la provincia de Castellon en RGB.,http://terramapas1.icv.gva.es/odcv05_etrs89h30_2003,WMS,1.3.0,image/png,,0
+24,Ortofoto de 2004 de la provincia de Valencia en RGB.,Ortofoto de 2004 de la provincia de Valencia en RGB.,http://terramapas1.icv.gva.es/odcv05_etrs89h30_2004,WMS,1.3.0,image/png,,0
+25,Ortofoto de 2005 de la provincia de Castellón en RGBI y provincia Alicante RGB,Ortofoto de 2005 de la provincia de Castellón en RGBI y provincia Alicante RGB,http://terramapas1.icv.gva.es/odcv10_etrs89h30_2005,WMS,1.3.0,image/png,,0
+26,Ortofoto de 2006 de la provincia de valencia en RGBI.,Ortofoto de 2006 de la provincia de valencia en RGBI.,http://terramapas1.icv.gva.es/odcv10_etrs89h30_2006,WMS,1.3.0,image/png,,0
+27,Ortofoto de 2007 de las provincias de Castellón y Alicante en RGBI.,Ortofoto de 2007 de las provincias de Castellón y Alicante en RGBI.,http://terramapas1.icv.gva.es/odcv10_etrs89h30_2007,WMS,1.3.0,image/png,,0
+28,Ortofoto de 2008 de la provincia de Valencia en RGBI.,Ortofoto de 2008 de la provincia de Valencia en RGBI.,http://terramapas1.icv.gva.es/odcv10_etrs89h30_2008,WMS,1.3.0,image/png,,0
+29,Ortofoto de 2009 de la provincia de castellón en RGBI y provincia alicante RGB.,Ortofoto de 2009 de la provincia de castellón en RGBI y provincia alicante RGB.,http://terramapas1.icv.gva.es/odcv05_etrs89h30_2009,WMS,1.3.0,image/png,,0
+30,Ortofoto de 2010 de la provincia de Valencia en RGB.,Ortofoto de 2010 de la provincia de Valencia en RGB,http://terramapas1.icv.gva.es/odcv05_etrs89h30_2010,WMS,1.3.0,image/png,,0
+31,Ortofoto de 2012 de la Comunitat Valenciana en RGB.,Ortofoto de 2012 de la Comunitat Valenciana en RGB,http://terramapas1.icv.gva.es/odcv05_etrs89h30_2012,WMS,1.3.0,image/png,,0
+32,Playas,Playas,http://cartoweb.cma.gva.es/arcgis/services/playas/MapServer/WMSServer,WMS,1.3.0,image/png,,0
+33,Planeamiento Urbanístico,Planeamiento Urbanístico,http://cartoweb.cma.gva.es/arcgis/services/planeamiento_vigente/MapServer/WMSServer,WMS,1.3.0,image/png,,0
+34,Plan de Acción Territorial Forestal de la Comunitat Valenciana (PATFOR),Plan de acción Territorial Forestal de la Comunidad Valenciana (PATFOR),http://cartoweb.cma.gva.es/arcgis/services/patfor/MapServer/WMSServer,WMS,1.3.0,image/png,,0
+35,Forestal (La cartografía solo tiene carácter informativo y no es vinculante),Forestal (La cartografía solo tiene carácter informativo y no es vinculante),http://cartoweb.cma.gva.es/arcgis/services/forestal/MapServer/WMSServer,WMS,1.3.0,image/png,,0
+36,Espacios Naturales Protegidos,Espacios Naturales Protegidos,http://cartoweb.cma.gva.es/arcgis/services/espacios_protegidos/MapServer/WMSServer,WMS,1.3.0,image/png,,0
+37,Biodiversidad,Biodiversidad,http://cartoweb.cma.gva.es/arcgis/services/biodiversidad/MapServer/WMSServer,WMS,1.3.0,image/png,,0
+38,Ordenación Territorial,Ordenación Territorial,http://cartoweb.cma.gva.es/arcgis/services/ordenacion_territorial/MapServer/WMSServer,WMS,1.3.0,image/png,,0
+39,Calidad Ambiental,Calidad Ambiental,http://cartoweb.cma.gva.es/arcgis/services/calidad_ambiental/MapServer/WMSServer,WMS,1.3.0,image/png,,0
+40,CITMA: Cartografía temática del territorio de la Comunitat Valenciana,CITMA: Cartografía temática del territorio de la Comunitat Valenciana,http://cartoweb.cma.gva.es/arcgis/services/cartografia_tematica/MapServer/WMSServer,WMS,1.3.0,image/png,,0
+41,Residuos,Residuos,http://cartoweb.cma.gva.es/arcgis/services/residuos/MapServer/WMSServer,WMS,1.3.0,image/png,,0
+42,Caza y Pesca,Caza y Pesca,http://cartoweb.cma.gva.es/arcgis/services/cazaypesca/MapServer/WMSServer,WMS,1.3.0,image/png,,0
+43,WMS del IVE (Instituto Valenciano de la Edificación),WMS de IVE (Instituto Valenciano de la Edificación),http://www.five.es/wms_ive,WMS,1.3.0,image/png,,0
+44,Atlas Climático de la Comunitat Valenciana,Atlas Climático de la Comunitat Valenciana,http://cartoweb.cma.gva.es/arcgis/services/atlas_climatico_cv/MapServer/WMSServer?,WMS,1.3.0,image/png,,0
+45,DICS,DICS,http://terramapas.icv.gva.es/cgi-bin/mapserv6.fcgi?map=/var/www/portal/map/dics/dics.map,WMS,1.3.0,image/png,,0
+46,Catastro,Catastro,http://ovc.catastro.meh.es/Cartografia/WMS/ServidorWMS.aspx,WMS,1.1.1,image/png,,0
+47,Entitat d'Sanejament d'aigües: Instalaciones EPSAR,Entitat d'Sanejament d'aigües: Instalaciones EPSAR,http://terrasit.epsar.gva.es/wms/instalaciones,WMS,1.3.0,image/png,,0
+48,Centres educatius,Centres educatius,http://terramapes.edu.gva.es/edugva,WMS,1.3.0,image/png,,0
+49,Registre de centres sanitaris,Registre de centres sanitaris,http://terramapas.icv.gva.es/sanitario,WMS,1.3.0,image/png,,0
+50,CEGESEV Vías de comunicación de la Comunidad Valenciana. Conselleria de Infraestructuras Territorio y Medio Ambiente,CEGESEV Vías de comunicación de la Comunidad Valenciana. Conselleria de Infraestructuras Territorio y Medio Ambiente,http://terramapas.cegesev.gva.es/cgi-bin/mapserv?map=/ms4w/Apache/map/cegesev.map,WMS,1.3.0,image/png,,0
+51,Histórico Red de Carreteras de la Comunitat Valenciana (Cátedra Demetrio Ribes),Histórico Red de Carreteras de la Comunitat Valenciana (Cátedra Demetrio Ribes),http://terramapas.cegesev.gva.es/cgi-bin/mapserv?map=/ms4w/Apache/map/historico.map,WMS,1.3.0,image/png,,0
+52,Servicio WMS de la Confederación Hidrográfica del Júcar,Servicio WMS de la Configuración Hidrográfica del Júcar,http://idejucar.chj.es/sig/services/IDEJucar_WMS/MapServer/WMSServer?,WMS,1.3.0,image/png,,0
+53,Fauna y Flora: Riqueza de Especies,Fauna y Flora: Riqueza de Especies,http://wms.marm.es/sig/Biodiversidad/RiquezaEspecies/wms.aspx?,WMS,1.3.0,image/png,,0
+54,Inventario Nacional de Espacios Naturales Protegidos,Inventario Nacional de Espacios Naturales Protegidos,http://wms.marm.es/sig/Biodiversidad/INENP/wms.aspx?,WMS,1.3.0,image/png,,0
+55,Humedales,Humedales,http://wms.marm.es/sig/Biodiversidad/Humedales/wms.aspx?,WMS,1.3.0,image/png,,0
+56,Red Natura 2000,Red Natura 2000,http://wms.marm.es/sig/Biodiversidad/RedNatura/wms.aspx?,WMS,1.3.0,image/png,,0
+57,Erosión Eólica,Erosión Eólica,http://wms.marm.es/sig/Biodiversidad/INESErosionEolica/wms.aspx?,WMS,1.3.0,image/png,,0
+58,Erosión Laminar,Erosión Laminar,http://wms.marm.es/sig/Biodiversidad/INESErosionLaminarRaster/wms.aspx?,WMS,1.3.0,image/png,,0
+59,Erosión Potencial,Erosión Potencial,http://wms.marm.es/sig/Biodiversidad/INESErosionPotencial/wms.aspx?,WMS,1.3.0,image/png,,0
+60,Convenios Internacionales: Humedales RAMSASR,Convenios internacionales: Humedales RAMSASR,http://wms.marm.es/sig/Biodiversidad/RAMSAR/wms.aspx?,WMS,1.3.0,image/png,,0
+61,Convenios Internacionales: OSPAR,Convenios Internacionales: OSPAR,http://wms.marm.es/sig/Biodiversidad/OSPAR/wms.aspx?,WMS,1.3.0,image/png,,0
+62,Convenios Internacionales: Reservas de la Biosfera (MaB),Convenios Internacionales: Reservas de la Biosfera (MaB),http://wms.marm.es/sig/Biodiversidad/MAB/wms.aspx?,WMS,1.3.0,image/png,,0
+63,Convenios Internacionales: ZEPIM,Convenios Internacionales: ZEPIM,http://wms.marm.es/sig/Biodiversidad/ZEPIM/wms.aspx?,WMS,1.3.0,image/png,,0
+64,Mapa Forestal de España (MFE50),Mapa Forestal de España (MFE50),http://wms.marm.es/sig/Biodiversidad/MFE/wms.aspx?,WMS,1.3.0,image/png,,0
+65,Vías pecuarias,Vías pecuarias,http://wms.marm.es/sig/Biodiversidad/ViasPecuarias/wms.aspx?,WMS,1.3.0,image/png,,0
+66,Vías pecuarias: Abrevaderos,Vías pecuarias: Abrevaderos,http://wms.marm.es/sig/Biodiversidad/Abrevaderos/wms.aspx?,WMS,1.3.0,image/png,,0
+67,Vías pecuarias: Descansaderos,Vías pecuarias: Descansaderos,http://wms.marm.es/sig/Biodiversidad/Descansaderos/wms.aspx?,WMS,1.3.0,image/png,,0
+68,Titularidad de los Montes,Titularidad de los Montes,http://wms.marm.es/sig/Biodiversidad/PropiedadMontes/wms.aspx?,WMS,1.3.0,image/png,,0
+69,Inventario de Espacios Naturales Protegidos,Inventario de Espacios Naturales Protegidos,http://wms.marm.es/sig/Biodiversidad/INENP/wms.aspx?,WMS,1.3.0,image/png,,0
+70,Inventario Nacional de Paisaje,Inventario Nacional de Paisaje,http://wms.marm.es/sig/Biodiversidad/Paisaje/wms.aspx?,WMS,1.3.0,image/png,,0
+71,Recursos genéticos: Región procedencia,Recursos genéticos: Región procedencia,http://wms.marm.es/sig/Biodiversidad/RegionProcedencia/wms.aspx?,WMS,1.3.0,image/png,,0
+72,SIGPAC. Sistema de Información Geográfica de Parcelas Agrícolas,SIGPAC. Sistema de Información Geográfica de Parcelas Agrícolas.,http://wms.magrama.es/wms/wms.aspx,WMS,1.3.0,image/png,,0
+73,IGME - Mapa Geológico de la Comunidad Valenciana a escala 1:400.000,IGME - Mapa Geológico de la Comunidad Valenciana a escala 1:400.000,http://mapas.igme.es/gis/services/Cartografia_Geologica/IGME_GeologicoCValenciana_400/MapServer/WMSServer,WMS,1.3.0,image/png,,0
+74,IGME - Base de Datos de Fallas Activas en el Cuaternario de la Península Ibérica,IGME – Base de Datos de Fallas Activas en el Cuaternario de la Península Ibérica,http://mapas.igme.es/gis/services/Cartografia_Tematica/IGME_QAFI/MapServer/WMSServer,WMS,1.3.0,image/png,,0
+75,IGME - Mapa de Permeabilidades de España a escala 1/200.000,IGME – Mapa de Permeabilidades de España a escala 1/200.001,http://mapas.igme.es/gis/services/Cartografia_Tematica/IGME_Permeabilidad_200/MapServer/WMSServer,WMS,1.3.0,image/png,,0
+76,IGME - Mapa Hidrogeológico de España a escala 1/200.000,IGME - Mapa Hidrogeológico de España a escala 1/200.000,http://mapas.igme.es/gis/services/Cartografia_Tematica/IGME_Hidrogeologico_200/MapServer/WMSServer,WMS,1.3.0,image/png,,0
+77,IGME - Mapa Litoestratigráfico de España a escala 1/200.000,IGME – Mapa Litoestratigráfico de España a escala 1/200.001,http://mapas.igme.es/gis/services/Cartografia_Tematica/IGME_Litoestratigrafico_200/MapServer/WMSServer,WMS,1.3.0,image/png,,0
+78,Distribución Superpuesta / Años ,Distribución Superpuesta / Años,http://terramapas1.icv.gva.es/odcv05_etrs89h30_distribucion_agrupado,WMS,1.3.0,image/png,,0
+79,Orotofotos Superpuestas Históricas,Orotofotos Superpuestas Históricas,http://terramapas1.icv.gva.es/odcv05_etrs89h30_historico_agrupado,WMS,1.3.0,image/png,,0
+80,Distribución Fondo / Años,Distribución Fondo / Años,http://terramapas1.icv.gva.es/odcv05_etrs89h30_distribucion_agrupado,WMS,1.3.0,image/png,,0
+81,Orotofotos Históricas Comunidad Valencia,'',http://terramapas1.icv.gva.es/odcv05_etrs89h30_historico_agrupado,WMS,1.3.0,image/png,,0
+82,CITMA: Infraestructura Verde,'',http://cartoweb.cma.gva.es/arcgis/services/infraestructura_verde/MapServer/WMSServer,WMS,1.3.0,image/png,,0
+83,Limites administrativos de España,Servicio Web de Unidades administrativas de España solo con los límites,http://www.ign.es/wms-inspire/unidades-administrativas,WMS,1.3.0,image/png,,0
+84,Ortofoto 2012 ,Ortofoto 2012 ,http://terramapas.icv.gva.es/ortoactualidad/?,WMS,1.1.1,image/png,,0
+85,Mapa topográfico base,Mapa topográfico base,http://terramapas.icv.gva.es/mapa_topografico_base,WMS,1.3.0,image/png,,0
