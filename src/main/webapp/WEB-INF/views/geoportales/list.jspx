@@ -29,6 +29,7 @@ You should have received a copy of the GNU Affero General Public License
     <spring:message code="label_yes" htmlEscape="false" var="msg_yes"/>
 
     <script type="text/javascript">
+    <![CDATA[
       function addCopyButton(nRow, aData, iDataIndex) {
          var copyGeoPortalButton = '<td class="utilbox" id="copyGeoPortalButton">'
            + '<a alt="${copyGeoPortalTitle}" href="${pageContext.request.contextPath}/geoportales/copyGeoPortal?id=' + aData['id'] +'&amp;returnParam=findByAll${paramsBack}" title="${copyGeoPortalTitle}">'
@@ -44,6 +45,7 @@ You should have received a copy of the GNU Affero General Public License
         	   return "${msg_no}";
           }
       }
+      ]]>
    </script>
 
     <page:list id="pl_es_gva_dgti_gvgeoportal_domain_GeoPortal" items="${geoportales}" z="user-managed">

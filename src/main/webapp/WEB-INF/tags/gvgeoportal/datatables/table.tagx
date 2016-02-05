@@ -974,7 +974,7 @@ You should have received a copy of the GNU Affero General Public License
 									value="var confirmDelete = confirm(${removeColumnId}_confirmation); if(confirmDelete){jQuery(\'#${removeColumnId}_${currentId}_form\').submit();};"></c:set>
                 		var result = '<form method="post"
 									id="${removeColumnId}_${currentId}_form"
-									action="${urlPath}/'+full.${typeIdFieldName}+'">
+									action="${urlPath}/${currentId}">
 									<input type="hidden" value="DELETE" name="_method"
 										data-original-title="" title="" /> <a
 										id="${removeColumnId}_${currentId}" href="#"

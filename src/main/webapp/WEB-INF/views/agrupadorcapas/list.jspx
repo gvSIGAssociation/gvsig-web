@@ -31,7 +31,7 @@ You should have received a copy of the GNU Affero General Public License
 	<jsp:output omit-xml-declaration="yes" />
 	<spring:message code="copy_agrupador_capa_title" htmlEscape="false"
 		var="copyAgrupadorCapaTitle" />
-	<script type="text/javascript">
+	<script type="text/javascript"><![CDATA[
 		function addCopyButton(nRow, aData, iDataIndex) {
 			var copyAgrupadorCapaButton = '<td class="utilbox" id="copyAgrupadorCapaButton">'
 					+ '<a alt="${copyAgrupadorCapaTitle}" href="${pageContext.request.contextPath}/agrupadorcapas/copyAgrupadorCapa?id='
@@ -42,7 +42,7 @@ You should have received a copy of the GNU Affero General Public License
 			+'</td>';
 			jQuery(nRow).find(".copyButton").replaceWith(
 					copyAgrupadorCapaButton);
-		}
+		}]]>
 	</script>
 	<!--     Mostramos errores si los hay -->
 	<c:if test="${not empty errorAgrupadorVacio}">
