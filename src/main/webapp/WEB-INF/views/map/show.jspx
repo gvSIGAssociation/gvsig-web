@@ -477,6 +477,7 @@ You should have received a copy of the GNU Affero General Public License
               layers="${capaMinimapa.capas}"
               id="layer_${capaMinimapa.identificador}"
               opacity="1" transparent="true"
+              styles="${capaMinimapa.estilos}"
               url="${capaMinimapa.url}"
               version="${capaMinimapa.versionProtocolo}" z="user-managed" />
           </c:when>
@@ -509,7 +510,6 @@ You should have received a copy of the GNU Affero General Public License
 		<input id="return" type="button" class="btn btn-primary btn-block btn-return" value="${fn:escapeXml(label_return_listado)}" onclick="javascript:cancelSaveToc()" />
 	 </div>
    </div>
-
   <script type="text/javascript"><![CDATA[
 
     jQuery(document).ready(function() {

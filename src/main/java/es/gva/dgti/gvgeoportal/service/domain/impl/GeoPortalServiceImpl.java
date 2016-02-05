@@ -359,8 +359,7 @@ public class GeoPortalServiceImpl implements GeoPortalService {
         capa.put("capasServicioWeb", capasServicioWebList);
         capa.put("capas", servicioWebService.getSelectedInfoLayersNames(
                 capasServicioWebList, true));
-        capa.put("estilos", servicioWebService.getSelectedInfoLayersNames(
-                capasServicioWebList, false));
+        capa.put("estilos", servicioWebService.getSelectedStyles(capasServicioWebList));
         return capa;
     }
 }

@@ -3,19 +3,19 @@
  * Technologies (DGTI) of the Regional Ministry of Finance and Public
  * Administration of the Generalitat Valenciana (Valencian Community,
  * Spain), managed by gvSIG Association and led by DISID Corporation.
- * 
+ *
  * Copyright (C) 2016 DGTI - Generalitat Valenciana
- * 
+ *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
  * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Affero General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
@@ -293,6 +293,30 @@ public class ServicioWebServiceImpl implements ServicioWebService {
             result = nombresEstilos.toString();
         }
 
+        return result;
+    }
+
+    /*
+     * (non-Javadoc)
+     * @see es.gva.dgti.gvgeoportal.service.domain.ServicioWebService#getSelectedStyles(java.util.Collection)
+     */
+    public String getSelectedStyles(
+            Collection<CapasServicioWeb> listadoCapasServicioWeb) {
+        String result = "";
+        StringBuilder nombresEstilos = new StringBuilder();
+        Iterator<CapasServicioWeb> iterator = listadoCapasServicioWeb
+                .iterator();
+        while (iterator.hasNext()) {
+            CapasServicioWeb capaServicioWeb = iterator.next();
+                nombresEstilos.append(capaServicioWeb.getEstiloCapa());
+
+                // comprobamos si no es el ultimo elemento y anyadimos coma
+                if (iterator.hasNext()) {
+                    nombresEstilos.append(",");
+                }
+        }
+
+        result = nombresEstilos.toString();
         return result;
     }
 
