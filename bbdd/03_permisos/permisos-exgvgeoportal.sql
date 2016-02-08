@@ -20,9 +20,19 @@
 --  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- *****************************************************************************
 -- Grants user 'exgvgeoportal'
+-- *****************************************************************************
+-- DESA
 GRANT USAGE ON SCHEMA owgvgeoportal TO exgvgeoportal;
 ALTER DEFAULT PRIVILEGES IN SCHEMA owgvgeoportal GRANT SELECT ON TABLES TO exgvgeoportal;
 GRANT CONNECT ON DATABASE pg01desa TO exgvgeoportal;
+GRANT USAGE ON SCHEMA owgvgeoportal TO exgvgeoportal;
+GRANT USAGE, SELECT, UPDATE ON ALL SEQUENCES IN SCHEMA owgvgeoportal TO exgvgeoportal;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA owgvgeoportal TO exgvgeoportal;
+-- *****************************************************************************
+-- TEST
+GRANT USAGE ON SCHEMA owgvgeoportal TO exgvgeoportal;
+ALTER DEFAULT PRIVILEGES IN SCHEMA owgvgeoportal GRANT SELECT ON TABLES TO exgvgeoportal;
+GRANT CONNECT ON DATABASE pg01test TO exgvgeoportal;
 GRANT USAGE ON SCHEMA owgvgeoportal TO exgvgeoportal;
 GRANT USAGE, SELECT, UPDATE ON ALL SEQUENCES IN SCHEMA owgvgeoportal TO exgvgeoportal;
 GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA owgvgeoportal TO exgvgeoportal;
