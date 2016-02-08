@@ -92,7 +92,6 @@ You should have received a copy of the GNU Affero General Public License
                             <img alt="" class="hide" id="savedLogo" src="${geoPortal.logoString}"/>
                         </c:otherwise>
                     </c:choose>
-                    <input id="logo" name="logo" type="hidden" value="${geoPortal.logoString}"/>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 putMarginBottom">
@@ -109,6 +108,12 @@ You should have received a copy of the GNU Affero General Public License
                     <div id="manageImage">
                         <input accept="image/*" class="displayInlineBlock" id="logoLoad" onchange="loadImage(this)" type="file" value="${newLogo}"/>
                     </div>
+                     <span class="help-block">
+                           <spring:message code="label_image_help_box"/>
+                     </span>
+                     <span class="has-error errors alert alert-danger" id="logoGeoPortalError" style="display:none;">
+                            <spring:message code="label_image_error_size"/>
+                     </span>
                     <input id="newLogo" name="newLogo" type="hidden" value="${newLogo}"/>
                 </div>
             </div>
@@ -291,15 +296,21 @@ You should have received a copy of the GNU Affero General Public License
 
 		function loadImage(input) {
 			if (input.files && input.files[0]) {
-				var reader = new FileReader();
-				reader.onload = function(e) {
-					var image = e.target.result;
-					jQuery('#logoImg').attr('src', image);
-					jQuery('#logoImg').attr('class', 'logoGeoportal');
-					jQuery('#newLogo').val(image);
-					addRemoveImageIcon();
-				}
-				reader.readAsDataURL(input.files[0]);
+			    var file = input.files[0];
+                if (file.size < 1048576) {
+                    jQuery('#logoGeoPortalError').hide();
+					var reader = new FileReader();
+					reader.onload = function(e) {
+						var image = e.target.result;
+						jQuery('#logoImg').attr('src', image);
+						jQuery('#logoImg').attr('class', 'logoGeoportal');
+						jQuery('#newLogo').val(image);
+						addRemoveImageIcon();
+					}
+					reader.readAsDataURL(input.files[0]);
+                }else {
+	              jQuery('#logoGeoPortalError').show();
+	            }
 			}
 		}
 
