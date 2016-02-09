@@ -56,3 +56,16 @@ L.CRS.EPSG23031 = new L.Proj.CRS('EPSG:23031',
 			              ],
 		origin: [0, 0]
 		});
+
+/**
+ * EPSG:4326 . Sobreescrito para solventar bug con las transformaciones
+ */
+L.CRS.EPSG4326 = L.extend({}, L.CRS, {
+	code: 'EPSG:4326',
+
+	projection: L.extend({}, L.Projection.LonLat, {
+		bounds:L.bounds([-180, -90], [180, 90])
+	}),
+	transformation: new L.Transformation(1 / 180, 1, -1 / 180, 0.5)
+});
+
