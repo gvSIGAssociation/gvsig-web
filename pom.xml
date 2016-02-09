@@ -1123,7 +1123,7 @@
 
         <!-- Propiedades base de datos -->
         <!-- DB gvgeoportal -->
-        <pom.db.url>jdbc:postgresql://dbdpostgre.srv.gva.es:5432/pg01test</pom.db.url>
+        <pom.db.url>jdbc:postgresql://tbdpostgres01.srv.gva.es:5432/pg01test</pom.db.url>
         <pom.db.username>owgvgeoportal</pom.db.username>
         <pom.db.password>forenito</pom.db.password>
         <pom.db.driverClassName>org.postgresql.Driver</pom.db.driverClassName>
