@@ -316,20 +316,20 @@ You should have received a copy of the GNU Affero General Public License
 						serverData="myDoAjaxRequestByPost" show="false" z="user-managed"
 						selection="true" isRadioButton="true">
 						<table:column
-							id="c_es_gva_dgti_gvgeoportal_domain_Catalogo_imagen"
+							id="c_es_gva_dgti_gvgeoportal_domain_Catalogo_imagen" sortable="false"
 							renderFunction="checkImageFunction" property="imagen"
 							z="user-managed" cssCellClass="imagenesCatalogoCelda center"
 							cssClass="imagenesCatalogo" />
 						<table:column
-							id="c_es_gva_dgti_gvgeoportal_domain_Catalogo_titulo"
+							id="c_es_gva_dgti_gvgeoportal_domain_Catalogo_titulo" sortable="false"
 							property="titulo" z="user-managed" />
 						<table:column
-							id="c_es_gva_dgti_gvgeoportal_domain_Catalogo_resumen"
+							id="c_es_gva_dgti_gvgeoportal_domain_Catalogo_resumen" sortable="false"
 							property="resumen" z="user-managed" />
-						<table:column id="c_es_gva_dgti_gvgeoportal_domain_Catalogo_url"
+						<table:column id="c_es_gva_dgti_gvgeoportal_domain_Catalogo_url" sortable="false"
 							property="url" renderFunction="checkUrlFunction" z="user-managed"
 							cssCellClass="urlServicio center" />
-						<table:column id="c_es_gva_dgti_gvgeoportal_domain_Catalogo"
+						<table:column id="c_es_gva_dgti_gvgeoportal_domain_Catalogo" sortable="false"
 							label="Tipo servicio" property="tipoServicio" z="user-managed"
 							cssCellClass="tipoServicio center" />
 						<table-callback:callback function="hideCheck" type="createdRow" />
