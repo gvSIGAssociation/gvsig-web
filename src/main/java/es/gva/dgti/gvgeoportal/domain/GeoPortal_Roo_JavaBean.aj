@@ -128,4 +128,12 @@ privileged aspect GeoPortal_Roo_JavaBean {
         this.url = url;
     }
     
+    public String GeoPortal.getUrlCompleta() {
+        return this.urlCompleta;
+    }
+    
+    public void GeoPortal.setUrlCompleta(String urlCompleta) {
+        this.urlCompleta = urlCompleta;
+    }
+    
 }

@@ -21,6 +21,8 @@
  ******************************************************************************/
 package es.gva.dgti.gvgeoportal.service.domain.impl;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -361,5 +363,34 @@ public class GeoPortalServiceImpl implements GeoPortalService {
                 capasServicioWebList, true));
         capa.put("estilos", servicioWebService.getSelectedStyles(capasServicioWebList));
         return capa;
+    }
+
+    /*
+     * (non-Javadoc)
+     * @see es.gva.dgti.gvgeoportal.service.domain.GeoPortalService#getFullUrlPortal(java.lang.String, java.lang.String, java.lang.String, int, java.lang.String)
+     */
+    public String getFullUrlPortal(String url, String scheme, String serverName, int port, String contextPath){
+
+        String urlCompleta = "";
+        URL serverURL = null;
+
+        //si son los puertos por defecto se setea a -1 para que no aparezca en la url
+        if (scheme.equals("http") && port == 80) {
+            port = -1;
+        } else if (scheme.equals("https") && port == 443) {
+            port = -1;
+        }
+
+        try {
+            serverURL = new URL(scheme, serverName, port, contextPath.concat("/map/").concat(url));
+            urlCompleta = serverURL.toString();
+        }
+        catch (MalformedURLException e) {
+            // si da algun error, creamos nosotros la url de forma manual
+            urlCompleta = scheme.concat("://").concat(serverName).concat(":").concat(""+port).concat(contextPath).concat("/map/").concat(url);
+        }
+
+        return urlCompleta;
+
     }
 }

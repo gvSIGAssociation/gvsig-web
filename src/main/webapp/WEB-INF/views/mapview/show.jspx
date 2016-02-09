@@ -19,8 +19,7 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
--->
-<div xmlns:components="urn:jsptagdir:/WEB-INF/tags/geo/components" xmlns:geo="urn:jsptagdir:/WEB-INF/tags/geo" xmlns:gvsig-components="http://gvsig.org/web-framework/TLD/components" xmlns:gvsig-layers-tools="http://gvsig.org/web-framework/TLD/layers-tools" xmlns:gvsig-tools="http://gvsig.org/web-framework/TLD/tools" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:layer="urn:jsptagdir:/WEB-INF/tags/geo/layers" xmlns:layer-toc="urn:jsptagdir:/WEB-INF/tags/geo/layers/toc" xmlns:layer-tool="urn:jsptagdir:/WEB-INF/tags/geo/layers/tools" xmlns:predefined-layers="http://gvsig.org/web-framework/TLD/predefined-layers" xmlns:tool="urn:jsptagdir:/WEB-INF/tags/geo/tools" xmlns:user-layers="http://gvsig.org/web-framework/TLD/user-layers" version="2.0">
+--><div xmlns:components="urn:jsptagdir:/WEB-INF/tags/geo/components" xmlns:geo="urn:jsptagdir:/WEB-INF/tags/geo" xmlns:gvsig-components="http://gvsig.org/web-framework/TLD/components" xmlns:gvsig-layers-tools="http://gvsig.org/web-framework/TLD/layers-tools" xmlns:gvsig-tools="http://gvsig.org/web-framework/TLD/tools" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:layer="urn:jsptagdir:/WEB-INF/tags/geo/layers" xmlns:layer-toc="urn:jsptagdir:/WEB-INF/tags/geo/layers/toc" xmlns:layer-tool="urn:jsptagdir:/WEB-INF/tags/geo/layers/tools" xmlns:predefined-layers="http://gvsig.org/web-framework/TLD/predefined-layers" xmlns:tool="urn:jsptagdir:/WEB-INF/tags/geo/tools" xmlns:user-layers="http://gvsig.org/web-framework/TLD/user-layers" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <geo:map displayLegend="true" id="ps_es_gva_dgti_gvgeoportal_web_Mapview" projection="EPSG3857" z="OzBXi7RDz2aNcoCwFGPQ/FnRIZw=">

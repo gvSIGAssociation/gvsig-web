@@ -19,8 +19,7 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
--->
-<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/jquery/form/fields" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:form="urn:jsptagdir:/WEB-INF/tags/datatables" xmlns:gvgeoportal="urn:jsptagdir:/WEB-INF/tags/gvgeoportal" xmlns:gvgeoportal-form="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/datatables" xmlns:gvgeoportalfields="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/jquery/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:loupefield="urn:jsptagdir:/WEB-INF/tags/loupefield" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+--><div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/jquery/form/fields" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:form="urn:jsptagdir:/WEB-INF/tags/datatables" xmlns:gvgeoportal="urn:jsptagdir:/WEB-INF/tags/gvgeoportal" xmlns:gvgeoportal-form="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/datatables" xmlns:gvgeoportalfields="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/jquery/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:loupefield="urn:jsptagdir:/WEB-INF/tags/loupefield" xmlns:spring="http://www.springframework.org/tags" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <spring:message code="label_es_gva_dgti_gvgeoportal_domain_componentes" htmlEscape="false" var="tituloComponentes"/>
@@ -108,12 +107,12 @@ You should have received a copy of the GNU Affero General Public License
                     <div id="manageImage">
                         <input accept="image/*" class="displayInlineBlock" id="logoLoad" onchange="loadImage(this)" type="file" value="${newLogo}"/>
                     </div>
-                     <span class="help-block">
-                           <spring:message code="label_image_help_box"/>
-                     </span>
-                     <span class="has-error errors alert alert-danger" id="logoGeoPortalError" style="display:none;">
-                            <spring:message code="label_image_error_size"/>
-                     </span>
+                    <span class="help-block">
+                        <spring:message code="label_image_help_box"/>
+                    </span>
+                    <span class="has-error errors alert alert-danger" id="logoGeoPortalError" style="display:none;">
+                        <spring:message code="label_image_error_size"/>
+                    </span>
                     <input id="newLogo" name="newLogo" type="hidden" value="${newLogo}"/>
                 </div>
             </div>
@@ -172,19 +171,19 @@ You should have received a copy of the GNU Affero General Public License
                                     </c:when>
                                     <!-- si es componente anyadir grupos de capas -->
                                     <c:when test="${componente eq &quot;anyadir_grupo_capas&quot;}">
-                                                <gvgeoportal:components checked="${contains}" configurable="true" disabled="false" field="${componente}" functionOpenDialog="openLayoutsConfiguration" id="${componente}" idConfigurationDialog="dialogoAgrupadorCapas"/>
+                                        <gvgeoportal:components checked="${contains}" configurable="true" disabled="false" field="${componente}" functionOpenDialog="openLayoutsConfiguration" id="${componente}" idConfigurationDialog="dialogoAgrupadorCapas"/>
                                     </c:when>
                                     <!-- si es componente ayuda_buscador -->
                                     <c:when test="${componente eq &quot;ayuda_buscador&quot;}">
-                                                <gvgeoportal:components checked="${contains}" configurable="true" disabled="false" field="${componente}" functionOpenDialog="abrirComponenteAyuda" id="${componente}" idConfigurationDialog="dialogoComponentesAyuda"/>
+                                        <gvgeoportal:components checked="${contains}" configurable="true" disabled="false" field="${componente}" functionOpenDialog="abrirComponenteAyuda" id="${componente}" idConfigurationDialog="dialogoComponentesAyuda"/>
                                     </c:when>
                                     <!-- si es componente cargar_tematicos -->
                                     <c:when test="${componente eq &quot;cargar_tematicos&quot;}">
-                                                <gvgeoportal:components checked="${contains}" configurable="true" disabled="false" field="${componente}" functionOpenDialog="abrir_${componente}" id="${componente}" idConfigurationDialog="dialogo_${componente}"/>
+                                        <gvgeoportal:components checked="${contains}" configurable="true" disabled="false" field="${componente}" functionOpenDialog="abrir_${componente}" id="${componente}" idConfigurationDialog="dialogo_${componente}"/>
                                     </c:when>
-                                     <!-- si es componente vistas_predefinidas -->
+                                    <!-- si es componente vistas_predefinidas -->
                                     <c:when test="${componente eq &quot;vistas_predefinidas&quot;}">
-                                                <gvgeoportal:components checked="${contains}" configurable="true" disabled="false" field="${componente}" functionOpenDialog="abrir_${componente}" id="${componente}" idConfigurationDialog="dialogo_${componente}"/>
+                                        <gvgeoportal:components checked="${contains}" configurable="true" disabled="false" field="${componente}" functionOpenDialog="abrir_${componente}" id="${componente}" idConfigurationDialog="dialogo_${componente}"/>
                                     </c:when>
                                     <c:otherwise>
                                         <gvgeoportal:components checked="${contains}" configurable="false" disabled="false" field="${componente}" id="${componente}"/>
@@ -198,14 +197,11 @@ You should have received a copy of the GNU Affero General Public License
         </div>
         <gvgeoportalfields:input-hidden field="centro" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_centro" validationMessageCode="field_invalid_number" z="user-managed"/>
         <gvgeoportalfields:input-hidden field="zoom" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_zoom" validationMessageCode="field_invalid_integer" z="user-managed"/>
-
         <gvgeoportalfields:input-hidden disableFormBinding="true" field="ayudaBuscadorHidden" id="ayudaBuscadorHidden" label="ayuda" value="${textoAyuda}" z="user-managed"/>
         <gvgeoportalfields:input-hidden disableFormBinding="true" field="selectedGroupLayersHidden" id="selectedGroupLayersHidden" label="selectedGroupLayersFromComponents" value="${selectedGroupLayers}" z="user-managed"/>
         <gvgeoportalfields:input-hidden disableFormBinding="true" field="cargarTematicosHidden" id="cargarTematicosHidden" label="nombre capa tematica" value="${cargarTematico}" z="user-managed"/>
         <gvgeoportalfields:input-hidden disableFormBinding="true" field="vistasPredefinidasHidden" id="vistasPredefinidasHidden" label="vista predefinida" value="${vistasPredefinidas}" z="user-managed"/>
         <gvgeoportalfields:input-hidden disableFormBinding="true" field="miniMapaHidden" id="miniMapaHidden" label="mini Mapa" value="${miniMapa}" z="user-managed"/>
-
-
         <!-- 		Dialogo de componente ayuda -->
         <div class="modal fade" id="dialogoComponentesAyuda" role="dialog" tabindex="-1">
             <div class="modal-dialog modal-lg" role="document">
@@ -230,16 +226,14 @@ You should have received a copy of the GNU Affero General Public License
         <field:input field="alias" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_alias" render="false" z="user-managed"/>
         <field:checkbox field="publicado" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_publicado" render="false" z="user-managed"/>
         <field:simple field="serviciosToc" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_serviciosToc" messageCode="entity_reference_not_managed" messageCodeAttribute="Geoportal Servicio Web" render="false" z="user-managed"/>
+        <field:input field="urlCompleta" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_urlCompleta" z="user-managed" render="false"/>
     </gvgeoportal-form:update>
-
-    <div id ="dialogo_minimapa">&amp;nbsp;</div>
-    <div id ="dialogo_cargar_tematicos">&amp;nbsp;</div>
-    <div id ="dialogo_vistas_predefinidas">&amp;nbsp;</div>
-	<div id="dialogoAgrupadorCapas">&amp;nbsp;</div>
-
+    <div id="dialogo_minimapa">&amp;nbsp;</div>
+    <div id="dialogo_cargar_tematicos">&amp;nbsp;</div>
+    <div id="dialogo_vistas_predefinidas">&amp;nbsp;</div>
+    <div id="dialogoAgrupadorCapas">&amp;nbsp;</div>
     <spring:message code="button_cancel" htmlEscape="false" var="buttonCancel"/>
     <spring:message code="button_continue" htmlEscape="false" var="buttonContinue"/>
-
     <script type="text/javascript"><![CDATA[
 
 		jQuery(document).ready(function() {

@@ -319,8 +319,18 @@ public class GeoPortalController {
         addDateTimeFormatPatterns(uiModel);
         Map<String, Object> datePattern = uiModel.asMap();
 
+        // recorremos listado de geoPortales para setear campo urlCompleta
+        List<GeoPortal> listadoGeoPortales = searchResult.getResults();
+
+        for (int i = 0; i < listadoGeoPortales.size(); i++) {
+            GeoPortal geoPortalTmp = listadoGeoPortales.get(i);
+            // llamamos al metodo que devuelve la url completa del portal
+            String urlCompleta = geoPortalService.getFullUrlPortal(geoPortalTmp.getUrl(), request.getScheme(), request.getServerName(),  request.getServerPort(), request.getContextPath());
+            geoPortalTmp.setUrlCompleta(urlCompleta);
+        }
+
         DataSet<Map<String, String>> dataSet = datatablesUtilsBean_dtt
-                .populateDataSet(searchResult.getResults(), pkFieldName,
+                .populateDataSet(listadoGeoPortales, pkFieldName,
                         totalRecords, recordsFound, criterias.getColumnDefs(),
                         datePattern);
         return DatatablesResponse.build(dataSet, criterias);
@@ -670,27 +680,13 @@ public class GeoPortalController {
 
         // anyadimos mensaje ayuda de url
         String textoUrlEdicion = messageSource_dtt.getMessage("message_help_url_geo_portal_edit", null,LocaleContextHolder.getLocale());
-        // montamos url completa
-        int port = httpServletRequest.getServerPort();
 
-        if (httpServletRequest.getScheme().equals("http") && port == 80) {
-            port = -1;
-        } else if (httpServletRequest.getScheme().equals("https") && port == 443) {
-            port = -1;
-        }
+        // llamamos al metodo que devuelve la url completa del portal
+        String urlCompleta = geoPortalService.getFullUrlPortal(geoPortal.getUrl(), httpServletRequest.getScheme(), httpServletRequest.getServerName(),  httpServletRequest.getServerPort(), httpServletRequest.getContextPath());
 
-        URL serverURL = null;
-        String url = "";
-        try {
-            serverURL = new URL(httpServletRequest.getScheme(), httpServletRequest.getServerName(), port, httpServletRequest.getContextPath().concat("/map/").concat(geoPortal.getUrl()));
-            url = serverURL.toString();
-        }
-        catch (MalformedURLException e) {
-            // si da algun error, creamos nosotros la url de forma manual
-            url = httpServletRequest.getScheme().concat("://").concat(httpServletRequest.getServerName()).concat(":").concat(""+httpServletRequest.getServerPort()).concat(httpServletRequest.getContextPath()).concat("/map/").concat(geoPortal.getUrl());
-        }
+        // concatenamos al mensaje de ayuda la url completa
+        String textoAyudaUrlEdicion = textoUrlEdicion.concat(":").concat("<br/>").concat(urlCompleta);
 
-        String textoAyudaUrlEdicion = textoUrlEdicion.concat(":").concat("<br/>").concat(url);
         uiModel.addAttribute("textoAyudaUrlEdicion", textoAyudaUrlEdicion);
 
         return "geoportales/update";

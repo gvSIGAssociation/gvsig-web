@@ -649,6 +649,11 @@ table.dataTable tr.row_bg_red td:nth-child(3) {
 .logoGeoportal {
   height: 75px;
 }
+.logoGeoportalListado{
+  max-width: 50px;
+  max-height: 50px;
+  min-width: 33px;
+}
 .public-logo-geoportal {
   height: 49px;
 }

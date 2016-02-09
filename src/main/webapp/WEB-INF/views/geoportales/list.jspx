@@ -25,6 +25,8 @@ You should have received a copy of the GNU Affero General Public License
     <jsp:output omit-xml-declaration="yes"/>
 
     <spring:message code="copy_geo_portal_title" htmlEscape="false" var="copyGeoPortalTitle"/>
+    <spring:message code="label_es_gva_dgti_gvgeoportal_domain_geoportal_url" htmlEscape="false" var="urlGeoPortal"/>
+
     <spring:message code="label_no" htmlEscape="false" var="msg_no"/>
     <spring:message code="label_yes" htmlEscape="false" var="msg_yes"/>
 
@@ -38,12 +40,23 @@ You should have received a copy of the GNU Affero General Public License
            + '</td>';
          jQuery(nRow).find(".copyButton").replaceWith(copyGeoPortalButton);
       }
+
       function renderColumnPublicado(result) {
           if (result == 'true'){
         	   return "${msg_yes}";
           } else {
         	   return "${msg_no}";
           }
+      }
+
+      function renderLinkUrl(result) {
+    	var link = '<a href="'+result+'" alt="${urlGeoPortal}" title="${urlGeoPortal}">'+result+'</a>';
+        return link;
+      }
+
+      function renderImageLogo(result){
+    	  var image = '<img src="'+result+'" alt="" class="logoGeoportalListado"/>';
+          return image;
       }
       ]]>
    </script>
@@ -53,8 +66,9 @@ You should have received a copy of the GNU Affero General Public License
             <tablegvgeoportal:filterDescription addFilterSummaryDescription="true" baseFilterDescriptionMap="${baseFilterDescriptionMap}" id="pl_es_gva_dgti_gvgeoportal_domain_GeoPortal" paramsBackMap="${paramsBackMap}" path="/geoportales" titleCode="title_geoportales_filter" titleNoFilterCode="title_geoportales_nofilter"/>
         </c:if>
         <tablegvgeoportal:table data="${geoportales}" displayLength="25" export="PDF,CSV" id="l_es_gva_dgti_gvgeoportal_domain_GeoPortal" path="/geoportales" selection="false" z="user-managed">
-            <table:column id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_titulo" property="titulo" z="user-managed"/>
-            <table:column id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_url" property="url" z="user-managed"/>
+            <table:column sortable="false" cssCellClass="logoGeoportalListado" label=" " id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_logoString" property="logoString" renderFunction="renderImageLogo" z="user-managed"/>
+            <table:column sortInit="asc" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_titulo" property="titulo" z="user-managed" />
+            <table:column id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_urlCompleta" cssCellClass="nowrap" property="urlCompleta" renderFunction="renderLinkUrl" z="user-managed"/>
             <table:column id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_descripcion" property="descripcion" z="user-managed"/>
             <table:column id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_publicado" property="publicado" renderFunction="renderColumnPublicado" z="user-managed"/>
             <!-- botones -->
@@ -70,7 +84,6 @@ You should have received a copy of the GNU Affero General Public License
             <table:column calendar="true" dateTimePattern="${geoPortal_auditlastupdate_date_format}" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_auditLastUpdate" property="auditLastUpdate" render="false" z="user-managed"/>
             <table:column id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_auditLastUpdatedBy" property="auditLastUpdatedBy" render="false" z="user-managed"/>
             <table:column id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_logo" property="logo" render="false" z="user-managed"/>
-            <table:column id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_logoString" property="logoString" render="false" z="user-managed"/>
         </tablegvgeoportal:table>
     </page:list>
 </div>

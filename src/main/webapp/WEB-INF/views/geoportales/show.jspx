@@ -19,8 +19,7 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
--->
-<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/jquery/form/fields" xmlns:gvgeoportal-form="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/datatables" xmlns:gvgeoportal-page="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/datatables" xmlns:gvgeoportalfields="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/jquery/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/datatables" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+--><div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/jquery/form/fields" xmlns:gvgeoportal-form="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/datatables" xmlns:gvgeoportal-page="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/datatables" xmlns:gvgeoportalfields="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/jquery/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/datatables" xmlns:spring="http://www.springframework.org/tags" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <spring:message code="label_es_gva_dgti_gvgeoportal_domain_componentes" htmlEscape="false" var="tituloComponentes"/>
@@ -145,5 +144,6 @@ You should have received a copy of the GNU Affero General Public License
         <field:display field="publicado" id="s_es_gva_dgti_gvgeoportal_domain_GeoPortal_publicado" object="${geoportal}" z="/aLMxpcu6oTGMbNMy+HcCLvxe3Y="/>
         <field:display field="centro" id="s_es_gva_dgti_gvgeoportal_domain_GeoPortal_centro" object="${geoportal}" render="false" z="user-managed"/>
         <field:display field="zoom" id="s_es_gva_dgti_gvgeoportal_domain_GeoPortal_zoom" object="${geoportal}" render="false" z="user-managed"/>
+        <field:display field="urlCompleta" id="s_es_gva_dgti_gvgeoportal_domain_GeoPortal_urlCompleta" object="${geoportal}" z="mE7ixCWxRkkp1IyH4F6GCYBPmOw="/>
     </gvgeoportal-page:show>
 </div>

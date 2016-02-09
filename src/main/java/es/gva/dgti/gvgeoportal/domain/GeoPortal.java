@@ -103,6 +103,9 @@ public class GeoPortal {
     @Column(unique = true)
     private String url;
 
+    @Transient
+    private String urlCompleta;
+
 
     /**
      * @return el valor de la variable logoString.
