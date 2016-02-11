@@ -3,19 +3,19 @@
  * Technologies (DGTI) of the Regional Ministry of Finance and Public
  * Administration of the Generalitat Valenciana (Valencian Community,
  * Spain), managed by gvSIG Association and led by DISID Corporation.
- * 
+ *
  * Copyright (C) 2016 DGTI - Generalitat Valenciana
- * 
+ *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
  * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Affero General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
@@ -712,8 +712,9 @@ public class ServicioWebController {
 
         // comprobamos si el servicioWeb soporta el crs EPSG:4326. Si es asi lo
         // mandamos para hacer fitbound del mapa.
-        if (servicioWebService.containsCrs(servicioWeb.getCoordenadas(),
-                Constants.EPSG_4326)) {
+        if (servicioWebService.containsCrs(servicioWeb.getCoordenadas(),Constants.EPSG_25830)) {
+            uiModel.addAttribute("crs", Constants.EPSG_25830);
+        }else if(servicioWebService.containsCrs(servicioWeb.getCoordenadas(),Constants.EPSG_4326)){
             uiModel.addAttribute("crs", Constants.EPSG_4326);
         }
         else {
@@ -724,7 +725,7 @@ public class ServicioWebController {
         }
 
         // le paso crs EPSG_4326 para realizar comprobaciones en javascrip
-        uiModel.addAttribute("crs4326", Constants.EPSG_4326);
+        //uiModel.addAttribute("crs4326", Constants.EPSG_4326);
 
         // String con las capas seleccionadas
         uiModel.addAttribute(
@@ -792,8 +793,9 @@ public class ServicioWebController {
 
         // comprobamos si el servicioWeb soporta el crs EPSG:4326. Si es asi lo
         // mandamos para hacer fitbound del mapa.
-        if (servicioWebService.containsCrs(servicioWeb.getCoordenadas(),
-                Constants.EPSG_4326)) {
+        if (servicioWebService.containsCrs(servicioWeb.getCoordenadas(),Constants.EPSG_25830)) {
+            uiModel.addAttribute("crs", Constants.EPSG_25830);
+        }else if(servicioWebService.containsCrs(servicioWeb.getCoordenadas(),Constants.EPSG_4326)){
             uiModel.addAttribute("crs", Constants.EPSG_4326);
         }
         else {
@@ -804,7 +806,7 @@ public class ServicioWebController {
         }
 
         // le paso crs EPSG_4326 para realizar comprobaciones en javascrip
-        uiModel.addAttribute("crs4326", Constants.EPSG_4326);
+        //uiModel.addAttribute("crs4326", Constants.EPSG_4326);
 
         // String con las capas seleccionadas
         uiModel.addAttribute(
