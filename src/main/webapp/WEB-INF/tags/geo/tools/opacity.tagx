@@ -25,10 +25,15 @@ You should have received a copy of the GNU Affero General Public License
   <jsp:directive.attribute name="id" type="java.lang.String" required="true" rtexprvalue="true" description="The identifier for this tag (do not change!)" />
   <jsp:directive.attribute name="z" type="java.lang.String" required="false" description="Used for checking if element has been modified (to recalculate simply provide empty string value)" />
 
+  <!-- gvGeoportal - Fixed error with Tomcat 7.0.54 -->
+  <c:set var="EMPTY_STRING" value=""/>
+
   <spring:message code="tooltip_tool_opacity" var="tooltip"/>
 
   <span id="${id}_opacity_tool" data-type="opacity" data-id="${id}_opacity_tool" class="tool-layer">
-  	<input id="${id}_opacity_tool_range" data-placement="bottom" name="${id}_opacity_tool_range" type="range" value="1" step="0.1" min="0.0" max="1.0" style="opacity:0.5;" title="${tooltip}" disabled="" />
+
+    <!-- gvGeoportal - Fixed error with Tomcat 7.0.54 -->
+  	<input id="${id}_opacity_tool_range" data-placement="bottom" name="${id}_opacity_tool_range" type="range" value="1" step="0.1" min="0.0" max="1.0" style="opacity:0.5;" title="${tooltip}" disabled="${EMPTY_STRING}" />
   	<output id="${id}_opacity_tool_range_tooltip" class="input-range-tooltip"></output>
   </span>
 

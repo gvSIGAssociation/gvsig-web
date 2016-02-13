@@ -38,7 +38,10 @@ You should have received a copy of the GNU Affero General Public License
   <jsp:directive.attribute name="addEmptyValue" type="java.lang.Boolean" required="false" rtexprvalue="true" description="Indicate if is necessary to include an empty value as first element of select input(default 'false')" />
   <jsp:directive.attribute name="value" type="java.lang.String" required="false" rtexprvalue="true" description="Value of current select element. Only available if disableFormBinding is true." />
   <jsp:directive.attribute name="z" type="java.lang.String" required="false" description="Used for checking if element has been modified (to recalculate simply provide empty string value)" />
-   <jsp:directive.attribute name="helpBlockMessage" type="java.lang.String" required="false" rtexprvalue="true" description="Indicates the help message to be displayed below the input" />
+  <jsp:directive.attribute name="helpBlockMessage" type="java.lang.String" required="false" rtexprvalue="true" description="Indicates the help message to be displayed below the input" />
+
+  <!-- gvGeoportal - Fixed error with Tomcat 7.0.54 -->
+  <c:set var="EMPTY_STRING" value=""/>
 
   <c:if test="${empty render or render}">
 
@@ -92,7 +95,9 @@ You should have received a copy of the GNU Affero General Public License
                     <c:when test="${multiple}">
                       <select hidden="true" class="form-control" id="_${sec_field}_id" name="${sec_field}" multiple="${multiple}">
                       <c:if test="${addEmptyValue}">
-                        <option value=""></option>
+
+                        <!-- gvGeoportal - Fixed error with Tomcat 7.0.54 -->
+                        <option value="${EMPTY_STRING}"></option>
                       </c:if>
                       <c:forEach items="${items}" var="item">
                         <c:choose>
@@ -127,7 +132,9 @@ You should have received a copy of the GNU Affero General Public License
                     <c:otherwise>
                       <select hidden="true" class="form-control" id="_${sec_field}_id" name="${sec_field}">
                       <c:if test="${addEmptyValue}">
-                        <option value=""></option>
+
+                        <!-- gvGeoportal - Fixed error with Tomcat 7.0.54 -->
+                        <option value="${EMPTY_STRING}"></option>
                       </c:if>
                       <c:forEach items="${items}" var="item">
                         <c:choose>
@@ -195,7 +202,9 @@ You should have received a copy of the GNU Affero General Public License
                     <c:when test="${multiple}">
                       <select hidden="true" class="form-control" id="_${sec_field}_id" name="${sec_field}" multiple="${multiple}" data-required="${required}">
                         <c:if test="${addEmptyValue}">
-                          <option value=""></option>
+
+                          <!-- gvGeoportal - Fixed error with Tomcat 7.0.54 -->
+                          <option value="${EMPTY_STRING}"></option>
                         </c:if>
                         <c:forEach items="${items}" var="item">
 	                        <c:choose>
@@ -230,7 +239,9 @@ You should have received a copy of the GNU Affero General Public License
                     <c:otherwise>
                       <select hidden="true" class="form-control" id="_${sec_field}_id" name="${sec_field}" data-required="${required}">
                       <c:if test="${addEmptyValue}">
-                          <option value=""></option>
+
+                        <!-- gvGeoportal - Fixed error with Tomcat 7.0.54 -->
+                        <option value="${EMPTY_STRING}"></option>
                       </c:if>
                         <c:forEach items="${items}" var="item">
                           <c:choose>

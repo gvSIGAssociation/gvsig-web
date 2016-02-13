@@ -29,14 +29,14 @@ You should have received a copy of the GNU Affero General Public License
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 putMarginBottom">
                 <dl class="row dl-horizontal" id="_s_es_gva_dgti_gvgeoportal_domain_GeoPortal_logoImg_id">
-                    <dt>${logoLabel}: </dt>
+                    <dt>${logoLabel}:</dt>
                     <dd>
                         <c:choose>
                             <c:when test="${not empty geoportal.logoString}">
-                                <img alt="" class="logoGeoportal" id="logoImg" src="${geoportal.logoString}"/>
+                                <img alt="${logoLabel}" class="logoGeoportal" id="logoImg" src="${geoportal.logoString}"/>
                             </c:when>
                             <c:otherwise>
-                                <img alt="" class="hide" id="logoImg" src="${geoportal.logoString}"/>
+                                <img alt="${logoLabel}" class="hide" id="logoImg" src="${geoportal.logoString}"/>
                             </c:otherwise>
                         </c:choose>
                     </dd>

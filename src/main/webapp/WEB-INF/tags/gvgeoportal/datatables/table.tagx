@@ -309,6 +309,9 @@ You should have received a copy of the GNU Affero General Public License
 	<jsp:useBean id="datatables_export_columns_title"
 		class="java.util.LinkedHashMap" scope="request" />
 
+  <!-- gvGeoportal - Fixed error with Tomcat 7.0.54 -->
+  <c:set var="EMPTY_STRING" value=""/>
+
 	<!-- selection -->
 	<c:if
 		test="${empty selection and datatablesStandardMode and datatablesHasBatchSupport}">
@@ -975,8 +978,10 @@ You should have received a copy of the GNU Affero General Public License
                 		var result = '<form method="post"
 									id="${removeColumnId}_${currentId}_form"
 									action="${urlPath}/${currentId}">
+
+                  <!-- gvGeoportal - Fixed error with Tomcat 7.0.54 -->
 									<input type="hidden" value="DELETE" name="_method"
-										data-original-title="" title="" /> <a
+										data-original-title="${EMPTY_STRING}" title="${EMPTY_STRING}" /> <a
 										id="${removeColumnId}_${currentId}" href="#"
 										alt="${delete_label}" title="${delete_label}"
 										class="icon delete_entity" onclick="${confirmation_script}" />

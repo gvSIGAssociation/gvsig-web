@@ -85,10 +85,10 @@ You should have received a copy of the GNU Affero General Public License
                 <div class="controls">
                     <c:choose>
                         <c:when test="${not empty geoPortal.logoString}">
-                            <img alt="" class="logoGeoportal" id="savedLogo" src="${geoPortal.logoString}"/>
+                            <img alt="${logoLabel}" class="logoGeoportal" id="savedLogo" src="${geoPortal.logoString}"/>
                         </c:when>
                         <c:otherwise>
-                            <img alt="" class="hide" id="savedLogo" src="${geoPortal.logoString}"/>
+                            <img alt="${logoLabel}" class="hide" id="savedLogo" src="${geoPortal.logoString}"/>
                         </c:otherwise>
                     </c:choose>
                 </div>
@@ -98,10 +98,10 @@ You should have received a copy of the GNU Affero General Public License
                 <div class="controls">
                     <c:choose>
                         <c:when test="${not empty newLogo}">
-                            <img alt="" class="logoGeoportal" id="logoImg" src="${newLogo}"/>
+                            <img alt="${logoLabel}" class="logoGeoportal" id="logoImg" src="${newLogo}"/>
                         </c:when>
                         <c:otherwise>
-                            <img alt="" class="hide" id="logoImg" src="${newLogo}"/>
+                            <img alt="${logoLabel}" class="hide" id="logoImg" src="${newLogo}"/>
                         </c:otherwise>
                     </c:choose>
                     <div id="manageImage">

@@ -50,12 +50,12 @@ You should have received a copy of the GNU Affero General Public License
       }
 
       function renderLinkUrl(result) {
-    	var link = '<a href="'+result+'" alt="${urlGeoPortal}" title="${urlGeoPortal}">'+result+'</a>';
+    	var link = '<a target="_blank" href="'+result+'" alt="${urlGeoPortal}" title="${urlGeoPortal}">'+result+'</a>';
         return link;
       }
 
       function renderImageLogo(result){
-    	  var image = '<img src="'+result+'" alt="" class="logoGeoportalListado"/>';
+    	  var image = '<img src="'+result+'" class="logoGeoportalListado"/>';
           return image;
       }
       ]]>

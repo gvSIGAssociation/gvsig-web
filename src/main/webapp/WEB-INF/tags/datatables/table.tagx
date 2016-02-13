@@ -153,6 +153,9 @@ You should have received a copy of the GNU Affero General Public License
   <jsp:useBean id="datatables_export_columns" class="java.util.LinkedHashMap" scope="request"/>
   <jsp:useBean id="datatables_export_columns_title" class="java.util.LinkedHashMap" scope="request"/>
 
+  <!-- gvGeoportal - Fixed error with Tomcat 7.0.54 -->
+  <c:set var="EMPTY_STRING" value=""/>
+
   <!-- selection -->
   <c:if test="${empty selection and datatablesStandardMode and datatablesHasBatchSupport}">
     <c:set var="selection" value="true"/>
@@ -696,7 +699,9 @@ You should have received a copy of the GNU Affero General Public License
                 		<c:set var="currentId" value="'+full.${typeIdFieldName}+'" />
                 		<c:set var="confirmation_script" value="var confirmDelete = confirm(${removeColumnId}_confirmation); if(confirmDelete){jQuery(\'#${removeColumnId}_${currentId}_form\').submit();};" ></c:set>
                 		var result = '<form method="post" id="${removeColumnId}_${currentId}_form" action="${urlPath}/${currentId}">
-                						<input type="hidden" value="DELETE" name="_method" data-original-title="" title="" />
+
+                            <!-- gvGeoportal - Fixed error with Tomcat 7.0.54 -->
+                						<input type="hidden" value="DELETE" name="_method" data-original-title="${EMPTY_STRING}" title="${EMPTY_STRING}" />
                 						<a id="${removeColumnId}_${currentId}" href="#" alt="${delete_label}" title="${delete_label}" class="icon delete_entity" onclick="${confirmation_script}"/>
                 					</form>';
                 	</c:otherwise>
