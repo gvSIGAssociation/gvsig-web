@@ -43,7 +43,7 @@ You should have received a copy of the GNU Affero General Public License
     <title>${geoportal.titulo}</title>
   </head>
 
-<body class="tundra spring" style="padding: 0px; padding-top: 50px;">
+<body class="tundra spring" style="padding: 0px; padding-top: 49px;">
 
   <!-- Fixed navbar dropdown -->
   <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav">

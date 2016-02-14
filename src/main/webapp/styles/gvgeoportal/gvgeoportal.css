@@ -8,7 +8,7 @@ body {
 /* Header */
 .navbar-fixed-top {
   background-color: #0B5476;
-  border-color: #117BAF
+  border: none !important;
 }
 
 .navbar .navbar-nav>li>a {
@@ -460,6 +460,74 @@ table.dataTable tr.row_bg_red td:nth-child(3) {
   margin-bottom: -4px;
 }
 
+/* Toolbar */
+.leaflet-control-toolbar {
+  font-size: 1.2em;
+  height: 30px;
+  padding: 0;
+}
+.leaflet-control-toolbar-list i:first-child {
+  border-radius: 3px 0 0 3px;
+}
+.leaflet-control-toolbar-list i:last-child {
+  border-radius: 0 5px 5px 0;
+}
+.leaflet-control-toolbar-list i {
+  line-height: 30px;
+  margin: 0;
+  padding: 5px 4px 4px 10px;
+}
+
+/***********************************/
+/****** Styles for menu tools ******/
+/***********************************/
+
+li.ui-menu-item > div.mapviewer_layers_layer {
+  display: none;
+}
+
+li.ui-menu-item > span#layer-toc-tools {
+  display: none;
+}
+
+ul.ui-menu.ui-menu, ul.ui-menu {
+  width: auto;
+  border: none;
+  border-radius: 5px;
+  padding: 0px;
+  background-color: white;
+}
+.ui-widget-content .ui-state-focus {
+  border: none;
+}
+.ui-widget-content .ui-state-active {
+  background: #dadada;
+  border: none;
+  color: #404040;
+}
+
+li.ui-menu-item {
+  white-space: nowrap;
+  padding: 0px 1px 3px 5px !important;
+}
+li.ui-menu-item:first-child {
+  border-radius: 5px 5px 0 0;
+  padding-top: 3px !important;
+}
+li.ui-menu-item:last-child {
+  border-radius: 0 0 5px 5px;
+  border-bottom: none;
+}
+.menu-item-icon {
+  width: 14px;
+  font-size: 11px;
+  top: 0px;
+}
+
+li.predefined_layers_layer, li.thematic_group, li.predefined_views_group {
+  padding-right: 5px !important;
+}
+
 /*************************/
 /****** Map Edition ******/
 /*************************/
@@ -655,14 +723,17 @@ table.dataTable tr.row_bg_red td:nth-child(3) {
   min-width: 33px;
 }
 .public-logo-geoportal {
-  height: 49px;
+  height: 48px;
+  padding-top: 2px;
 }
 
 /* tools of leaflet map */
 .leaflet-top .leaflet-control {
   margin-top: 60px;
 }
-
+.leaflet-right .leaflet-control {
+  margin-right: 15px;
+}
 .controls {
   position: relative;
 }
@@ -750,6 +821,18 @@ table.dataTable tr.row_bg_red td:nth-child(3) {
   select#_transparencia_id, select#_transparenciaField_id {
     width: 50% !important;
   }
+
+
+  ul.ui-menu.ui-menu, ul.ui-menu {
+    width: 400px;
+  }
+  li.ui-menu-item {
+    white-space: normal;
+  }
+  li.predefined_layers_group >  ul.ui-widget-content {
+    max-height: 350px;
+    overflow: auto;
+  }
 }
 
 /* Small devices (tablets and mobiles) */
@@ -825,18 +908,6 @@ table.dataTable span.errors {
 .textError {
   color: red;
   font-weight: bold;
-}
-
-/***********************************/
-/****** Styles for menu tools ******/
-/***********************************/
-
-li.ui-menu-item > div.mapviewer_layers_layer {
-  display: none;
-}
-
-li.ui-menu-item > span#layer-toc-tools {
-  display: none;
 }
 
 /*********************************************************/

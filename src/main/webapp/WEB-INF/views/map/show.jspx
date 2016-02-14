@@ -232,12 +232,6 @@ You should have received a copy of the GNU Affero General Public License
           z="user-managed" />
       </c:if>
 
-      <!-- Imprimir -->
-      <c:if test="${imprimir}">
-        <tool:print id="ps_es_gva_dgti_gvgeoportal_web_Map_toolbar_print"
-          printOnlyMap="true" z="user-managed" />
-      </c:if>
-
       <!-- Callejero: herramienta de geolocalización -->
       <c:if test="${callejero}">
         <tool:geosearch
@@ -245,12 +239,25 @@ You should have received a copy of the GNU Affero General Public License
           z="user-managed" />
       </c:if>
 
-      <!-- Ayuda : Mostrar diálogo -->
-      <c:if test="${ayuda_buscador}">
-        <gvsig-tools:help id="ps_es_gva_dgti_gvgeoportal_web_Map_toolbar_help"
+      <!-- Añadir capas directamente por el usuario-->
+      <c:if test="${capas_usuario}">
+        <gvsig-tools:user-layers
+          id="ps_es_gva_dgti_gvgeoportal_web_Map_toolbar_userLayers"
           z="user-managed">
-         ${textoAyuda}
-        </gvsig-tools:help>
+          <user-layers:tab-container id="map_tabs">
+            <user-layers:wms-wizard
+              id="ps_es_gva_dgti_gvgeoportal_web_Map_toolbar_userLayers_wms_wizard"
+              path="/ogcinfo" />
+            <user-layers:wmts-wizard
+              id="ps_es_gva_dgti_gvgeoportal_web_Map_toolbar_userLayers_wmts_wizard"
+              path="/ogcinfo" />
+            <user-layers:tile
+              id="ps_es_gva_dgti_gvgeoportal_web_Map_toolbar_userLayers_tile"
+              showInputTitle="false" />
+            <user-layers:shape
+              id="ps_es_gva_dgti_gvgeoportal_web_Map_toolbar_userLayers_shape" />
+          </user-layers:tab-container>
+        </gvsig-tools:user-layers>
       </c:if>
 
       <!-- Añadir capas desde grupos de capas -->
@@ -261,10 +268,9 @@ You should have received a copy of the GNU Affero General Public License
           <c:forEach items="${grupos}" var="capasPorGrupo">
             <predefined-layers:group
               id="ps_es_gva_dgti_gvgeoportal_web_Map_toolbar_predefinedLayers_group_${capasPorGrupo.key}"
-              label="${capasPorGrupo.key}" z="user-managed">
+              label="${capasPorGrupo.key}" icon="glyphicon glyphicon-folder-open" z="user-managed">
               <c:forEach items="${capasPorGrupo.value}" var="capa">
-                <predefined-layers:layer label="${capa.nombreCapa}"
-                  z="user-managed">
+                <predefined-layers:layer label="${capa.nombreCapa}" icon="whhg icon-layerorderdown" z="user-managed">
                   <c:choose>
                     <c:when test="${capa.tipo == 'WMS'}">
                       <layer:wms enableLegend="${enableLegend}"
@@ -329,27 +335,6 @@ You should have received a copy of the GNU Affero General Public License
         </gvsig-tools:predefined-layers>
       </c:if>
 
-      <!-- Añadir capas directamente por el usuario-->
-      <c:if test="${capas_usuario}">
-        <gvsig-tools:user-layers
-          id="ps_es_gva_dgti_gvgeoportal_web_Map_toolbar_userLayers"
-          z="user-managed">
-          <user-layers:tab-container id="map_tabs">
-            <user-layers:wms-wizard
-              id="ps_es_gva_dgti_gvgeoportal_web_Map_toolbar_userLayers_wms_wizard"
-              path="/ogcinfo" />
-            <user-layers:wmts-wizard
-              id="ps_es_gva_dgti_gvgeoportal_web_Map_toolbar_userLayers_wmts_wizard"
-              path="/ogcinfo" />
-            <user-layers:tile
-              id="ps_es_gva_dgti_gvgeoportal_web_Map_toolbar_userLayers_tile"
-              showInputTitle="false" />
-            <user-layers:shape
-              id="ps_es_gva_dgti_gvgeoportal_web_Map_toolbar_userLayers_shape" />
-          </user-layers:tab-container>
-        </gvsig-tools:user-layers>
-      </c:if>
-
       <!-- Añadir capas temáticas -->
       <c:if test="${cargar_tematicos}">
         <gvsig-tools:thematic-layers id="ps_es_gva_dgti_gvgeoportal_web_Map_toolbar_thematicLayers" z="user-managed">
@@ -358,7 +343,7 @@ You should have received a copy of the GNU Affero General Public License
             <c:if test="${empty name}">
               <c:set var="name" value="Grupo sin nombre" />
             </c:if>
-            <layer-fw:thematic-group id="${tema.identificador}" label="${name}">
+            <layer-fw:thematic-group id="${tema.identificador}" label="${name}" icon="fa fa-map">
               <c:forEach items="${tema.capas}" var="capa">
                 <c:choose>
                   <c:when test="${capa.tipo == 'WMS'}">
@@ -417,7 +402,7 @@ You should have received a copy of the GNU Affero General Public License
             </c:if>
             <predefined-views:group
               id="ps_es_gva_dgti_gvgeoportal_web_Map_toolbar_predefinedViews_group_${vistasPredefinida.identificador}"
-              label="${name}"
+              label="${name}" icon="whhg icon-layerorderdown"
               layers="ps_es_gva_dgti_gvgeoportal_web_Map_toc_${vistasPredefinida.idCapas}" >
               <c:forEach items="${vistasPredefinida.capas}" var="capa">
                 <c:choose>
@@ -465,6 +450,21 @@ You should have received a copy of the GNU Affero General Public License
           </c:forEach>
         </gvsig-tools:predefined-views>
       </c:if>
+
+      <!-- Imprimir -->
+      <c:if test="${imprimir}">
+        <tool:print id="ps_es_gva_dgti_gvgeoportal_web_Map_toolbar_print"
+          printOnlyMap="true" z="user-managed" />
+      </c:if>
+
+      <!-- Ayuda : Mostrar diálogo -->
+      <c:if test="${ayuda_buscador}">
+        <gvsig-tools:help id="ps_es_gva_dgti_gvgeoportal_web_Map_toolbar_help"
+          z="user-managed">
+         ${textoAyuda}
+        </gvsig-tools:help>
+      </c:if>
+
     </geo:toolbar>
 
     <!-- Minimapa -->
