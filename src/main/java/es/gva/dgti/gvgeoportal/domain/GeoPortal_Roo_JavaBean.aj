@@ -80,6 +80,22 @@ privileged aspect GeoPortal_Roo_JavaBean {
         this.zoom = zoom;
     }
     
+    public Integer GeoPortal.getMinZoom() {
+        return this.minZoom;
+    }
+    
+    public void GeoPortal.setMinZoom(Integer minZoom) {
+        this.minZoom = minZoom;
+    }
+    
+    public Integer GeoPortal.getMaxZoom() {
+        return this.maxZoom;
+    }
+    
+    public void GeoPortal.setMaxZoom(Integer maxZoom) {
+        this.maxZoom = maxZoom;
+    }
+    
     public Calendar GeoPortal.getFechaAlta() {
         return this.fechaAlta;
     }

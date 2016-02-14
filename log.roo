@@ -149,6 +149,8 @@ field string --fieldName alias
 field boolean --fieldName publicado --notNull --primitive
 field string --fieldName centro
 field number --fieldName zoom --type Integer --primitive
+field number --fieldName minZoom --type Integer --primitive
+field number --fieldName maxZoom --type Integer --primitive
 field date --fieldName fechaAlta --type java.util.Calendar --dateTimeFormatPattern dd/MM/yyyy
 field date --fieldName fechaBaja --type java.util.Calendar --dateTimeFormatPattern dd/MM/yyyy
 focus --class ~.domain.SistemaCoordenadas

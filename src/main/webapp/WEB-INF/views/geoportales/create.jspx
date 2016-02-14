@@ -124,7 +124,9 @@ You should have received a copy of the GNU Affero General Public License
         <field:input field="centro" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_centro" render="false" validationMessageCode="field_invalid_number" z="user-managed"/>
         <field:input field="zoom" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_zoom" render="false" validationMessageCode="field_invalid_integer" z="user-managed"/>
         <field:simple field="serviciosToc" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_serviciosToc" messageCode="entity_reference_not_managed" messageCodeAttribute="Geoportal Servicio Web" render="false" z="user-managed"/>
-        <field:input field="urlCompleta" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_urlCompleta" z="user-managed" render="false"/>
+        <field:input field="urlCompleta" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_urlCompleta" render="false" z="user-managed"/>
+        <field:input field="minZoom" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_minZoom" validationMessageCode="field_invalid_integer" render="false" z="user-managed"/>
+        <field:input field="maxZoom" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_maxZoom" validationMessageCode="field_invalid_integer" render="false" z="user-managed"/>
     </gvgeoportal-form:create>
     <form:dependency dependencies="${dependencies}" id="d_es_gva_dgti_gvgeoportal_domain_GeoPortal" render="${not empty dependencies}" z="zkxVquD8eXOVwgOZ/G1O5to65Bk="/>
     <script type="text/javascript"><![CDATA[

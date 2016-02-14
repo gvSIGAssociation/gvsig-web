@@ -712,9 +712,11 @@ public class ServicioWebController {
 
         // comprobamos si el servicioWeb soporta el crs EPSG:4326. Si es asi lo
         // mandamos para hacer fitbound del mapa.
-        if (servicioWebService.containsCrs(servicioWeb.getCoordenadas(),Constants.EPSG_25830)) {
-            uiModel.addAttribute("crs", Constants.EPSG_25830);
-        }else if(servicioWebService.containsCrs(servicioWeb.getCoordenadas(),Constants.EPSG_4326)){
+        if (servicioWebService.containsCrs(servicioWeb.getCoordenadas(), Constants.EPSG_25830)
+            && servicioWeb.getTipo() != TipoServicio.TILE) {
+          uiModel.addAttribute("crs", Constants.EPSG_25830);
+        }
+        else if (servicioWebService.containsCrs(servicioWeb.getCoordenadas(), Constants.EPSG_4326)) {
             uiModel.addAttribute("crs", Constants.EPSG_4326);
         }
         else {

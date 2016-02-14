@@ -21,7 +21,6 @@
  ******************************************************************************/
 package es.gva.dgti.gvgeoportal.web;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -36,7 +35,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import es.gva.dgti.gvgeoportal.domain.GeoPortal;
-import es.gva.dgti.gvgeoportal.security.ExtLoadWSS4JOutInterceptor;
 import es.gva.dgti.gvgeoportal.security.SafeUser;
 import es.gva.dgti.gvgeoportal.service.domain.GeoPortalService;
 import es.gva.dgti.gvgeoportal.util.SecurityUtils;

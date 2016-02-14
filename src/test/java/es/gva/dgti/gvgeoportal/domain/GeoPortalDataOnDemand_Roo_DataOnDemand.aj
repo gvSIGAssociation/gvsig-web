@@ -45,6 +45,8 @@ privileged aspect GeoPortalDataOnDemand_Roo_DataOnDemand {
         setFechaAlta(obj, index);
         setFechaBaja(obj, index);
         setLogo(obj, index);
+        setMaxZoom(obj, index);
+        setMinZoom(obj, index);
         setPublicado(obj, index);
         setSubtitulo(obj, index);
         setTitulo(obj, index);
@@ -101,6 +103,16 @@ privileged aspect GeoPortalDataOnDemand_Roo_DataOnDemand {
     public void GeoPortalDataOnDemand.setLogo(GeoPortal obj, int index) {
         byte[] logo = String.valueOf(index).getBytes();
         obj.setLogo(logo);
+    }
+    
+    public void GeoPortalDataOnDemand.setMaxZoom(GeoPortal obj, int index) {
+        Integer maxZoom = new Integer(index);
+        obj.setMaxZoom(maxZoom);
+    }
+    
+    public void GeoPortalDataOnDemand.setMinZoom(GeoPortal obj, int index) {
+        Integer minZoom = new Integer(index);
+        obj.setMinZoom(minZoom);
     }
     
     public void GeoPortalDataOnDemand.setPublicado(GeoPortal obj, int index) {

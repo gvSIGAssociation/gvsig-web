@@ -14,7 +14,7 @@ privileged aspect GeoPortal_Roo_Jpa_ActiveRecord {
     @PersistenceContext
     transient EntityManager GeoPortal.entityManager;
     
-    public static final List<String> GeoPortal.fieldNames4OrderClauseFilter = java.util.Arrays.asList("titulo", "descripcion", "subtitulo", "logo", "logoString", "alias", "publicado", "centro", "zoom", "fechaAlta", "fechaBaja", "agrupadorCapa", "serviciosToc", "coordenadas", "url", "urlCompleta");
+    public static final List<String> GeoPortal.fieldNames4OrderClauseFilter = java.util.Arrays.asList("titulo", "descripcion", "subtitulo", "logo", "logoString", "alias", "publicado", "centro", "zoom", "minZoom", "maxZoom", "fechaAlta", "fechaBaja", "agrupadorCapa", "serviciosToc", "coordenadas", "url", "urlCompleta");
     
     public static final EntityManager GeoPortal.entityManager() {
         EntityManager em = new GeoPortal().entityManager;

@@ -20,7 +20,6 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 package es.gva.dgti.gvgeoportal.domain;
-
 import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
@@ -50,9 +49,7 @@ import org.springframework.roo.addon.tostring.RooToString;
 @RooToString
 @RooPlural("GeoPortales")
 @GvNIXJpaAudit
-@RooJpaActiveRecord(sequenceName = "geoportal_id_seq",
-        identifierField = "id",
-        finders = { "findGeoPortalesByTituloLike", "findGeoPortalesByUrlEquals" })
+@RooJpaActiveRecord(sequenceName = "geoportal_id_seq", identifierField = "id", finders = { "findGeoPortalesByTituloLike", "findGeoPortalesByUrlEquals" })
 public class GeoPortal {
 
     @NotNull
@@ -77,6 +74,10 @@ public class GeoPortal {
 
     private Integer zoom;
 
+    private Integer minZoom;
+
+    private Integer maxZoom;
+
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Calendar fechaAlta;
@@ -85,8 +86,7 @@ public class GeoPortal {
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Calendar fechaBaja;
 
-    @ManyToMany(cascade = { javax.persistence.CascadeType.PERSIST,
-            javax.persistence.CascadeType.MERGE })
+    @ManyToMany(cascade = { javax.persistence.CascadeType.PERSIST, javax.persistence.CascadeType.MERGE })
     @JoinTable(name = "agrupador_capa_geo_portales")
     @OrderBy("id ASC")
     private Set<AgrupadorCapa> agrupadorCapa = new HashSet<AgrupadorCapa>();
@@ -106,15 +106,13 @@ public class GeoPortal {
     @Transient
     private String urlCompleta;
 
-
     /**
      * @return el valor de la variable logoString.
      */
     public String getLogoString() {
         if (logo == null) {
             return this.logoString;
-        }
-        else {
+        } else {
             return new String(this.logo);
         }
     }
@@ -131,18 +129,13 @@ public class GeoPortal {
      * @param publicado
      * @return
      */
-    public static TypedQuery<GeoPortal> findGeoportalesByUrlAndPublic(
-            String url, boolean publicado) {
-        if (url == null || url.length() == 0){
+    public static TypedQuery<GeoPortal> findGeoportalesByUrlAndPublic(String url, boolean publicado) {
+        if (url == null || url.length() == 0) {
             throw new IllegalArgumentException("The url argument is required");
         }
-        TypedQuery<GeoPortal> q = entityManager()
-                .createQuery(
-                        "SELECT o FROM GeoPortal AS o WHERE o.url = :url AND o.publicado = :publicado",
-                        GeoPortal.class);
+        TypedQuery<GeoPortal> q = entityManager().createQuery("SELECT o FROM GeoPortal AS o WHERE o.url = :url AND o.publicado = :publicado", GeoPortal.class);
         q.setParameter("url", url);
         q.setParameter("publicado", publicado);
         return q;
     }
-
 }
