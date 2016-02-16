@@ -463,19 +463,19 @@ table.dataTable tr.row_bg_red td:nth-child(3) {
 /* Toolbar */
 .leaflet-control-toolbar {
   font-size: 1.2em;
-  height: 30px;
+  height: 28px;
   padding: 0;
 }
 .leaflet-control-toolbar-list i:first-child {
-  border-radius: 3px 0 0 3px;
+  border-radius: 5px 0 0 5px;
 }
 .leaflet-control-toolbar-list i:last-child {
   border-radius: 0 5px 5px 0;
 }
 .leaflet-control-toolbar-list i {
-  line-height: 30px;
+  line-height: 28px;
   margin: 0;
-  padding: 5px 4px 4px 10px;
+  padding: 5px 4px 5px 10px;
 }
 
 /***********************************/
