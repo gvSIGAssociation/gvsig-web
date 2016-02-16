@@ -391,10 +391,10 @@ You should have received a copy of the GNU Affero General Public License
         </gvsig-tools:thematic-layers>
       </c:if>
 
-      <!-- Añadir vistas predefinidas -->
+      <!-- Anyadir vistas predefinidas en barra herramientas-->
       <c:if test="${vistas_predefinidas and vistasPredefinidas != null}">
         <gvsig-tools:predefined-views
-          id="ps_es_gva_dgti_gvgeoportal_web_Map_toolbar_predefinedViews">
+          id="ps_es_gva_dgti_gvgeoportal_web_Map_toolbar_predefinedViews" visible="false">
           <c:forEach items="${vistasPredefinidas}" var="vistasPredefinida">
             <c:set var="name" value="${vistasPredefinida.nombre}" />
             <c:if test="${empty name}">
@@ -468,7 +468,7 @@ You should have received a copy of the GNU Affero General Public License
     </geo:toolbar>
 
     <!-- Minimapa -->
-    <c:if test="${minimapa and capaMinimapa != null}">
+     <c:if test="${minimapa and capaMinimapa != null}">
       <geo:overview id="ps_es_gva_dgti_gvgeoportal_web_Map_MiniMap"
         z="user-managed">
         <c:choose>
@@ -497,6 +497,65 @@ You should have received a copy of the GNU Affero General Public License
       </geo:overview>
     </c:if>
 
+     <!-- Vistas predefinidas -->
+      <c:if test="${vistas_predefinidas and vistasPredefinidas != null}">
+        <geo:predefined-views id="ps_es_gva_dgti_gvgeoportal_web_Map_PredefinedViews"
+        z="user-managed">
+          <c:forEach items="${vistasPredefinidas}" var="vistasPredefinida">
+            <c:set var="name" value="${vistasPredefinida.nombre}" />
+            <c:if test="${empty name}">
+              <c:set var="name" value="Grupo sin nombre" />
+            </c:if>
+            <predefined-views:groupComponent
+              id="ps_es_gva_dgti_gvgeoportal_web_Map_toolbar_predefinedViews_group_${vistasPredefinida.identificador}"
+              label="${name}"
+              layers="ps_es_gva_dgti_gvgeoportal_web_Map_toc_${vistasPredefinida.idCapas}" >
+              <c:forEach items="${vistasPredefinida.capas}" var="capa">
+                <c:choose>
+                  <c:when test="${capa.tipo == 'WMS'}">
+                    <layer:wms label="${capa.nombreCapa}"
+                      layers="${capa.capas}"
+                      id="layer_${capa.identificador}"
+                      styles="${capa.estilos}" opacity="1" transparent="true"
+                      url="${capa.url}"
+                      version="${capa.versionProtocolo}" z="user-managed" />
+                      <c:if test="${herramientas_propiedades_capas}">
+                        <layer-toc:tools>
+                          <gvsig-layers-tools:metadata
+                            id="${capa.identificador}_metadata" z="user-managed" />
+                        </layer-toc:tools>
+                      </c:if>
+                  </c:when>
+                  <c:when test="${capa.tipo == 'WMTS'}">
+                    <layer:wmts label="${capa.nombreCapa}"
+                      layer="${capa.estilos}" opacity="1"
+                      id="layer_${capa.identificador}"
+                      url="${capa.url}" z="user-managed" />
+                      <c:if test="${herramientas_propiedades_capas}">
+                        <layer-toc:tools>
+                          <gvsig-layers-tools:metadata
+                            id="${capa.identificador}_metadata" z="user-managed" />
+                        </layer-toc:tools>
+                      </c:if>
+                  </c:when>
+                  <c:when test="${capa.tipo == 'TILE'}">
+                    <layer:tile label="${capa.nombreCapa}" opacity="1"
+                      url="${capa.url}"
+                      id="layer_${capa.identificador}"
+                      z="user-managed" />
+                      <c:if test="${herramientas_propiedades_capas}">
+                        <layer-toc:tools>
+                          <gvsig-layers-tools:metadata
+                            id="${capa.nombreCapa}_metadata" z="user-managed" />
+                        </layer-toc:tools>
+                      </c:if>
+                  </c:when>
+                </c:choose>
+              </c:forEach>
+            </predefined-views:groupComponent>
+          </c:forEach>
+        </geo:predefined-views>
+      </c:if>
   </geo:map>
   </div>
 <!--   Solo se muestra si se accede al mapa desde la aplicacion -->
