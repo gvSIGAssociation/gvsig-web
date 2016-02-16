@@ -71,6 +71,24 @@ You should have received a copy of the GNU Affero General Public License
     </c:otherwise>
   </c:choose>
 
+  <!-- Min and max zoom -->
+  <c:choose>
+    <c:when test="${empty geoportal.minZoom}">
+      <c:set value="1" var="minZoom" />
+    </c:when>
+    <c:otherwise>
+      <c:set value="${geoportal.minZoom}" var="minZoom" />
+    </c:otherwise>
+  </c:choose>
+  <c:choose>
+    <c:when test="${empty geoportal.maxZoom}">
+      <c:set value="15" var="maxZoom" />
+    </c:when>
+    <c:otherwise>
+      <c:set value="${geoportal.maxZoom}" var="maxZoom" />
+    </c:otherwise>
+  </c:choose>
+
   <div class="${cssPublicPortal}">
 
   <!-- El atributo displayZoom permite la visualización o no de la regla de zoom -->
@@ -78,7 +96,7 @@ You should have received a copy of the GNU Affero General Public License
     displayLegend="${enableLegend}" displayZoom="${displayZoom}"
     displayToc="${displayToc}" id="ps_es_gva_dgti_gvgeoportal_web_Map"
     projection="${geoportal.coordenadas}" zoom="${geoportal.zoom}"
-    z="user-managed" label="Map">
+    z="user-managed" label="mapa" minZoom="${minZoom}" maxZoom="${maxZoom}">
 
     <!-- TOC -->
     <geo:toc id="ps_es_gva_dgti_gvgeoportal_web_Map_toc"  z="user-managed">
