@@ -537,7 +537,7 @@ li.predefined_layers_layer, li.thematic_group, li.predefined_views_group {
   float:none;
 }
 
-#mapps_es_gva_dgti_gvgeoportal_web_Mapaedicion #toc_container {
+[id^="mapps_es_gva_dgti_gvgeoportal_web_Mapaedicion"] #toc_container {
   margin-top: -5px;
 }
 
@@ -554,21 +554,22 @@ li.predefined_layers_layer, li.thematic_group, li.predefined_views_group {
 #tocButtons a.icon {
   color: #333333;
 }
-#mapps_es_gva_dgti_gvgeoportal_web_Map .btn-return{
+
+[id^="mapps_es_gva_dgti_gvgeoportal_web_Map"] .btn-return {
 	 padding-left: 5px;
 	 padding-right: 5px;
 }
-#mapps_es_gva_dgti_gvgeoportal_web_Map #return_button_id{
+[id^="mapps_es_gva_dgti_gvgeoportal_web_Map"] #return_button_id {
 	margin-top: 60px;
 	margin-left: 0px !important;
 	margin-right: 0px !important;
 }
 @media ( max-width : 768px) {
-	#mapps_es_gva_dgti_gvgeoportal_web_Map #return_button_id{
+	[id^="mapps_es_gva_dgti_gvgeoportal_web_Map"] #return_button_id {
 	   margin-top: 120px;
     }
 }
-.noPublicPortal #mapps_es_gva_dgti_gvgeoportal_web_Map #toc_container {
+.noPublicPortal [id^="mapps_es_gva_dgti_gvgeoportal_web_Map"] #toc_container {
   margin-top: 0px !important;
 }
 
@@ -597,6 +598,16 @@ li.predefined_layers_layer, li.thematic_group, li.predefined_views_group {
   max-height: 75px;
   overflow: auto;
   padding: 5px;
+}
+
+.ui-dialog-content {
+  overflow: unset !important;
+}
+div.loupe-listselector {
+  overflow: auto !important;
+}
+.ui-dialog {
+  overflow: unset !important;
 }
 
 /************************/

@@ -20,92 +20,134 @@ GNU Affero General Public License for more details.
 You should have received a copy of the GNU Affero General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
-<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:geo="urn:jsptagdir:/WEB-INF/tags/geo" xmlns:gvgeoportalfields="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/jquery/form/fields" xmlns:gvsig-components="http://gvsig.org/web-framework/TLD/components" xmlns:gvsig-layers-tools="http://gvsig.org/web-framework/TLD/layers-tools" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:layer="urn:jsptagdir:/WEB-INF/tags/geo/layers" xmlns:layer-toc="urn:jsptagdir:/WEB-INF/tags/geo/layers/toc" xmlns:layer-tool="urn:jsptagdir:/WEB-INF/tags/geo/layers/tools" xmlns:spring="http://www.springframework.org/tags" xmlns:tool="urn:jsptagdir:/WEB-INF/tags/geo/tools" version="2.0">
-  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-  <jsp:output omit-xml-declaration="yes"/>
-  <geo:map center="${geoportal.centro}" id="ps_es_gva_dgti_gvgeoportal_web_Mapaedicion" projection="${geoportal.coordenadas}" zoom="${geoportal.zoom}" z="user-managed">
-        <geo:toc id="ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_toc" z="user-managed">
-          <!-- Capas del TOC -->
-          <c:forEach items="${geoportal.serviciosToc}" var="geoportalServicioWeb">
-            <c:choose>
-              <c:when test="${geoportalServicioWeb.servicioWeb.tipo == 'WMS'}">
-                <layer:wms allowDisable="${geoportalServicioWeb.habilitado}" id="ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_toc_${geoportalServicioWeb.servicioWeb.id}" label="${geoportalServicioWeb.servicioWeb.nombre}" layers="${geoportalServicioWeb.servicioWeb.nombresCapas}" opacity="${geoportalServicioWeb.opacidad}" styles="${geoportalServicioWeb.servicioWeb.estilosCapas}" transparent="true" url="${geoportalServicioWeb.servicioWeb.url}" version="${geoportalServicioWeb.servicioWeb.versionProtocolo}" visibleOnStart="${geoportalServicioWeb.activo}" z="user-managed">
-                  <layer-toc:tools>
-                    <gvsig-layers-tools:metadata id="ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_toc_${geoportalServicioWeb.servicioWeb.id}_metadata" z="user-managed"/>
-                  </layer-toc:tools>
-                </layer:wms>
-              </c:when>
-              <c:when test="${geoportalServicioWeb.servicioWeb.tipo == 'WMTS'}">
-                  <layer:wmts allowDisable="${geoportalServicioWeb.habilitado}" id="ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_toc_${geoportalServicioWeb.servicioWeb.id}" label="${geoportalServicioWeb.servicioWeb.nombre}" layer="${geoportalServicioWeb.servicioWeb.nombresCapas}" opacity="${geoportalServicioWeb.opacidad}" url="${geoportalServicioWeb.servicioWeb.url}" visibleOnStart="${geoportalServicioWeb.activo}" z="user-managed">
-                    <layer-toc:tools>
-                      <gvsig-layers-tools:metadata id="ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_toc_${geoportalServicioWeb.servicioWeb.id}_metadata" z="user-managed"/>
-                 	  </layer-toc:tools>
-                  </layer:wmts>
-              </c:when>
-              <c:when test="${geoportalServicioWeb.servicioWeb.tipo == 'TILE'}">
-                <layer:tile allowDisable="${geoportalServicioWeb.habilitado}" id="ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_toc_${geoportalServicioWeb.servicioWeb.id}" label="${geoportalServicioWeb.servicioWeb.nombre}" opacity="${geoportalServicioWeb.opacidad}" url="${geoportalServicioWeb.servicioWeb.url}" visibleOnStart="${geoportalServicioWeb.activo}" z="user-managed">
-                  <layer-toc:tools>
-                    <gvsig-layers-tools:metadata id="ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_toc_${geoportalServicioWeb.servicioWeb.id}_metadata" z="user-managed"/>
-                  </layer-toc:tools>
-                </layer:tile>
-              </c:when>
-             </c:choose>
-          </c:forEach>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+  xmlns:geo="urn:jsptagdir:/WEB-INF/tags/geo"
+  xmlns:gvgeoportalfields="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/jquery/form/fields"
+  xmlns:gvsig-components="http://gvsig.org/web-framework/TLD/components"
+  xmlns:gvsig-layers-tools="http://gvsig.org/web-framework/TLD/layers-tools" xmlns:jsp="http://java.sun.com/JSP/Page"
+  xmlns:layer="urn:jsptagdir:/WEB-INF/tags/geo/layers" xmlns:layer-toc="urn:jsptagdir:/WEB-INF/tags/geo/layers/toc"
+  xmlns:layer-tool="urn:jsptagdir:/WEB-INF/tags/geo/layers/tools" xmlns:spring="http://www.springframework.org/tags"
+  xmlns:tool="urn:jsptagdir:/WEB-INF/tags/geo/tools" version="2.0">
+  <jsp:directive.page contentType="text/html;charset=UTF-8" />
+  <jsp:output omit-xml-declaration="yes" />
 
-          <!-- Control de opacidad de capas -->
-          <geo:toc-toolbar id="ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_toc_toolbar" z="user-managed">
-            <tool:opacity id="ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_toc_toolbar_opacity_slider" z="user-managed"/>
-          </geo:toc-toolbar>
-        </geo:toc>
+  <geo:map center="${geoportal.centro}" id="ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_${geoportal.titulo}"
+    projection="${geoportal.coordenadas}" zoom="${geoportal.zoom}" z="user-managed" label="test">
 
-        <!-- Componentes -->
-        <geo:components id="ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_components" z="user-managed">
-          <!-- Histórico de encuadres -->
-          <gvsig-components:history position="topright" id="ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_components_history" z="user-managed" />
-        </geo:components>
+    <geo:toc id="ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_toc" z="user-managed">
 
-        <!-- Barra de herramientas -->
-        <!--  <geo:toolbar id="ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_toolbar" z="user-managed"/> -->
+      <!-- Capas del TOC -->
+      <c:forEach items="${geoportal.serviciosToc}" var="geoportalServicioWeb">
+        <c:choose>
+          <c:when test="${geoportalServicioWeb.servicioWeb.tipo == 'WMS'}">
+            <layer:wms allowDisable="${geoportalServicioWeb.habilitado}"
+              id="ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_toc_${geoportalServicioWeb.servicioWeb.id}"
+              label="${geoportalServicioWeb.servicioWeb.nombre}"
+              layers="${geoportalServicioWeb.servicioWeb.nombresCapas}" opacity="${geoportalServicioWeb.opacidad}"
+              styles="${geoportalServicioWeb.servicioWeb.estilosCapas}" transparent="true"
+              url="${geoportalServicioWeb.servicioWeb.url}"
+              version="${geoportalServicioWeb.servicioWeb.versionProtocolo}"
+              visibleOnStart="${geoportalServicioWeb.activo}" z="user-managed">
+              <layer-toc:tools>
+                <gvsig-layers-tools:metadata
+                  id="ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_toc_${geoportalServicioWeb.servicioWeb.id}_metadata"
+                  z="user-managed" />
+              </layer-toc:tools>
+            </layer:wms>
+          </c:when>
+          <c:when test="${geoportalServicioWeb.servicioWeb.tipo == 'WMTS'}">
+            <layer:wmts allowDisable="${geoportalServicioWeb.habilitado}"
+              id="ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_toc_${geoportalServicioWeb.servicioWeb.id}"
+              label="${geoportalServicioWeb.servicioWeb.nombre}"
+              layer="${geoportalServicioWeb.servicioWeb.nombresCapas}" opacity="${geoportalServicioWeb.opacidad}"
+              url="${geoportalServicioWeb.servicioWeb.url}" visibleOnStart="${geoportalServicioWeb.activo}"
+              z="user-managed">
+              <layer-toc:tools>
+                <gvsig-layers-tools:metadata
+                  id="ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_toc_${geoportalServicioWeb.servicioWeb.id}_metadata"
+                  z="user-managed" />
+              </layer-toc:tools>
+            </layer:wmts>
+          </c:when>
+          <c:when test="${geoportalServicioWeb.servicioWeb.tipo == 'TILE'}">
+            <layer:tile allowDisable="${geoportalServicioWeb.habilitado}"
+              id="ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_toc_${geoportalServicioWeb.servicioWeb.id}"
+              label="${geoportalServicioWeb.servicioWeb.nombre}" opacity="${geoportalServicioWeb.opacidad}"
+              url="${geoportalServicioWeb.servicioWeb.url}" visibleOnStart="${geoportalServicioWeb.activo}"
+              z="user-managed">
+              <layer-toc:tools>
+                <gvsig-layers-tools:metadata
+                  id="ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_toc_${geoportalServicioWeb.servicioWeb.id}_metadata"
+                  z="user-managed" />
+              </layer-toc:tools>
+            </layer:tile>
+          </c:when>
+        </c:choose>
+      </c:forEach>
 
-   </geo:map>
+      <!-- Control de opacidad de capas -->
+      <geo:toc-toolbar id="ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_toc_toolbar" z="user-managed">
+        <tool:opacity id="ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_toc_toolbar_opacity_slider" z="user-managed" />
+      </geo:toc-toolbar>
+    </geo:toc>
 
-   <!-- Título del TOC -->
-   <span id="titleToc"><b>${geoportal.titulo}</b></span>
+    <!-- Componentes -->
+    <geo:components id="ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_components" z="user-managed">
 
-   <!-- Botones de "Cancelar" y "Guardar" -->
-   <div class="row submit leaflet-control" id="group_edition_buttons_id">
+      <!-- Histórico de encuadres -->
+      <gvsig-components:history position="topright" id="ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_components_history"
+        z="user-managed" />
+
+    </geo:components>
+
+    <!-- Barra de herramientas -->
+    <!--  <geo:toolbar id="ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_toolbar" z="user-managed"/> -->
+
+  </geo:map>
+
+  <!-- Título del TOC -->
+  <span id="titleToc"><b>${geoportal.titulo}</b></span>
+
+  <!-- Botones de "Cancelar" y "Guardar" -->
+  <div class="row submit leaflet-control" id="group_edition_buttons_id">
     <div class="col-xs-6 col-sm-auto col-md-6 col-lg-6 buttonEdition">
-       <spring:message code="button_cancel" var="cancel_button" htmlEscape="false" />
-       <input id="cancel_button_id" type="button" class="btn btn-primary btn-block btn-return" value="${fn:escapeXml(cancel_button)}" onclick="javascript:cancelSaveToc()" />
-     </div>
-     <div class="col-xs-6 col-sm-auto col-md-6 col-lg-6 buttonEdition">
-       <spring:message code="button_save" var="save_button" htmlEscape="false" />
-       <input id="save_button_id" type="submit" class="btn btn-primary btn-block btn-proceed" value="${fn:escapeXml(save_button)}" onclick="javascript:saveToc()" />
-     </div>
-   </div>
+      <spring:message code="button_cancel" var="cancel_button" htmlEscape="false" />
+      <input id="cancel_button_id" type="button" class="btn btn-primary btn-block btn-return"
+        value="${fn:escapeXml(cancel_button)}" onclick="javascript:cancelSaveToc()" />
+    </div>
+    <div class="col-xs-6 col-sm-auto col-md-6 col-lg-6 buttonEdition">
+      <spring:message code="button_save" var="save_button" htmlEscape="false" />
+      <input id="save_button_id" type="submit" class="btn btn-primary btn-block btn-proceed"
+        value="${fn:escapeXml(save_button)}" onclick="javascript:saveToc()" />
+    </div>
+  </div>
 
-   <!-- Botones de añadir y borrar capa -->
-   <div id="tocButtons">
-      <spring:message code="title_add_layer" var="addLayerTitle" htmlEscape="false" />
-      <a id="addLayerButton" class="icon create_entity" href="#" alt="${addLayerTitle}" title="${addLayerTitle}" onclick="javascript:openAddLayerDialog()"/>
-      <spring:message code="title_remove_layer" var="removeLayerTitle" htmlEscape="false" />
-      <a id="removeLayerButton" class="icon delete_entity" href="#" alt="${removeLayerTitle}" title="${removeLayerTitle}" onclick="javascript:removeLayer()"/>
-   </div>
+  <!-- Botones de añadir y borrar capa -->
+  <div id="tocButtons">
+    <spring:message code="title_add_layer" var="addLayerTitle" htmlEscape="false" />
+    <a id="addLayerButton" class="icon create_entity" href="#" alt="${addLayerTitle}" title="${addLayerTitle}"
+      onclick="javascript:openAddLayerDialog()" />
+    <spring:message code="title_remove_layer" var="removeLayerTitle" htmlEscape="false" />
+    <a id="removeLayerButton" class="icon delete_entity" href="#" alt="${removeLayerTitle}" title="${removeLayerTitle}"
+      onclick="javascript:removeLayer()" />
+  </div>
 
-   <!-- Diálogo de añadir capa al TOC -->
-   <div id="add_layer_dialog">&amp;nbsp;</div>
+  <!-- Diálogo de añadir capa al TOC -->
+  <div id="add_layer_dialog">&amp;nbsp;</div>
 
-   <!-- Diálogo de mensajes -->
-   <spring:message code="message_select_layer" htmlEscape="false" var="selectLayerMessage"/>
-   <div class="messageDialog">&amp;nbsp;</div>
+  <!-- Diálogo de mensajes -->
+  <spring:message code="message_select_layer" htmlEscape="false" var="selectLayerMessage" />
+  <div class="messageDialog" style="display:none">&amp;nbsp;</div>
 
-   <spring:message code="button_add" var="addButton" htmlEscape="false"/>
-   <spring:message code="title_error" var="titleError" htmlEscape="false"/>
-   <spring:message code="error_save_toc" var="saveTocError" htmlEscape="false"/>
-   <spring:message code="button_configure_toc" htmlEscape="false" var="addLayerTitleDialog"/>
-   <spring:message code="msg_legend_undefined" htmlEscape="false" var="undefinedLegendMessage"/>
-   <spring:message code="msg_metadata_undefined" htmlEscape="false" var="undefinedMetadataMessage"/>
-   <script type="text/javascript"><![CDATA[
+  <spring:message code="button_add" var="addButton" htmlEscape="false" />
+  <spring:message code="title_error" var="titleError" htmlEscape="false" />
+  <spring:message code="error_save_toc" var="saveTocError" htmlEscape="false" />
+  <spring:message code="button_configure_toc" htmlEscape="false" var="addLayerTitleDialog" />
+  <spring:message code="msg_legend_undefined" htmlEscape="false" var="undefinedLegendMessage" />
+  <spring:message code="msg_metadata_undefined" htmlEscape="false" var="undefinedMetadataMessage" />
+
+  <script type="text/javascript">
+    <![CDATA[
     var map;
 
     jQuery(document).ready(function() {

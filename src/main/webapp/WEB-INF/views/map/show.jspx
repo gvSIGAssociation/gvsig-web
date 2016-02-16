@@ -76,9 +76,9 @@ You should have received a copy of the GNU Affero General Public License
   <!-- El atributo displayZoom permite la visualización o no de la regla de zoom -->
   <geo:map attributionControl="false" center="${geoportal.centro}" debug="false"
     displayLegend="${enableLegend}" displayZoom="${displayZoom}"
-    displayToc="${displayToc}" id="ps_es_gva_dgti_gvgeoportal_web_Map"
+    displayToc="${displayToc}" id="ps_es_gva_dgti_gvgeoportal_web_Map_${geoportal.titulo}"
     projection="${geoportal.coordenadas}" zoom="${geoportal.zoom}"
-    z="user-managed">
+    z="user-managed" label="test">
 
     <!-- TOC -->
     <geo:toc id="ps_es_gva_dgti_gvgeoportal_web_Map_toc"  z="user-managed">
