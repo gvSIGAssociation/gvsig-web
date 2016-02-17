@@ -18,35 +18,25 @@ import com.github.dandelion.datatables.extras.export.itext.PdfExport;
 import com.github.dandelion.datatables.extras.export.poi.XlsExport;
 import com.github.dandelion.datatables.extras.export.poi.XlsxExport;
 import com.github.dandelion.datatables.extras.spring3.ajax.DatatablesParams;
-import com.mysema.query.BooleanBuilder;
-import com.mysema.query.jpa.impl.JPAQuery;
-import com.mysema.query.types.path.PathBuilder;
 import es.gva.dgti.gvgeoportal.domain.components.ConfVistasPredefinidas;
 import es.gva.dgti.gvgeoportal.web.ConfVistasPredefinidasController;
 import es.gva.dgti.gvgeoportal.web.ConfVistasPredefinidasController_Roo_Controller;
 import es.gva.dgti.gvgeoportal.web.ConfVistasPredefinidasController_Roo_GvNIXDatatables;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpServletResponseWrapper;
 import javax.validation.Valid;
 import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.gvnix.web.datatables.query.SearchResults;
 import org.gvnix.web.datatables.util.DatatablesUtilsBean;
@@ -60,7 +50,6 @@ import org.springframework.core.convert.ConversionService;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
-import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -122,8 +111,8 @@ privileged aspect ConfVistasPredefinidasController_Roo_GvNIXDatatables {
     public void ConfVistasPredefinidasController.populateDatatablesConfig(Model uiModel) {
         uiModel.addAttribute("datatablesHasBatchSupport", true);
         uiModel.addAttribute("datatablesUseAjax",true);
-        uiModel.addAttribute("datatablesInlineEditing",true);
-        uiModel.addAttribute("datatablesInlineCreating",true);
+        uiModel.addAttribute("datatablesInlineEditing",false);
+        uiModel.addAttribute("datatablesInlineCreating",false);
         uiModel.addAttribute("datatablesSecurityApplied",true);
         uiModel.addAttribute("datatablesStandardMode",true);
         uiModel.addAttribute("finderNameParam","ajax_find");
@@ -509,132 +498,6 @@ privileged aspect ConfVistasPredefinidasController_Roo_GvNIXDatatables {
         Map<String, Object> datePattern = uiModel.asMap();
         // Use ConversionService with the obtained data
         return datatablesUtilsBean_dtt.populateDataSet(searchResult.getResults(), "id", searchResult.getTotalCount(), searchResult.getResultsCount(), criterias.getColumnDefs(), datePattern).getRows();
-    }
-    
-    @RequestMapping(value = "/datatables/createform", produces = "application/json", headers = "Accept=application/json")
-    @ResponseBody
-    public List<Map<String, String>> ConfVistasPredefinidasController.createJsonForm(HttpServletRequest request, HttpServletResponse response, Model uiModel) throws ServletException, IOException {
-        
-        // Prepare result
-        List<Map<String, String>> result = new ArrayList<Map<String, String>>();
-        String controllerPath = "confvistaspredefinidases";
-        String pageToUse = "create";
-        String renderUrl = String.format("/WEB-INF/views/%s/%s.jspx", controllerPath, pageToUse);
-        
-        Map<String, String> item = new HashMap<String, String>();
-        final StringWriter buffer = new StringWriter();
-        
-        // Call JSP to render update form
-        RequestDispatcher dispatcher = request.getRequestDispatcher(renderUrl);
-        
-        // spring from:input tag uses BindingResult to locate property editors
-        // for each bean property. So, we add a request attribute (required key
-        // id BindingResult.MODEL_KEY_PREFIX + object name) with a correctly
-        // initialized bindingResult.
-        ConfVistasPredefinidas ConfVistasPredefinidas = new ConfVistasPredefinidas();
-        BeanPropertyBindingResult bindingResult = new BeanPropertyBindingResult(ConfVistasPredefinidas, "ConfVistasPredefinidas");
-        bindingResult.initConversion(conversionService_dtt);
-        request.setAttribute(BindingResult.MODEL_KEY_PREFIX + "ConfVistasPredefinidas", bindingResult);
-        
-        populateItemForRender(request, ConfVistasPredefinidas, true);
-        
-        dispatcher.include(request, new HttpServletResponseWrapper(response) {
-            
-            private PrintWriter writer = new PrintWriter(buffer);
-            
-            @Override
-            public PrintWriter getWriter() throws IOException {
-                return writer;
-            }
-        });
-        String render = buffer.toString();
-        
-        // Put rendered content into first column
-        item.put("form", render);
-        result.add(item);
-        
-        return result;
-    }
-    
-    @RequestMapping(value = "/datatables/updateforms", produces = "application/json", headers = "Accept=application/json")
-    @ResponseBody
-    public List<Map<String, String>> ConfVistasPredefinidasController.updateJsonForms(@RequestParam("id") Long[] ids, HttpServletRequest request, HttpServletResponse response, Model uiModel) throws ServletException, IOException {
-        if (ArrayUtils.isEmpty(ids)) {
-            return new ArrayList<Map<String, String>>();
-        }
-        
-        // Using PathBuilder, a cascading builder for Predicate expressions
-        PathBuilder entity = new PathBuilder(ConfVistasPredefinidas.class, "entity");
-        // URL parameters are used as base search filters
-        Set set = new HashSet();
-        set.addAll(Arrays.asList(ids));
-        BooleanBuilder filterBy = querydslUtilsBean_dtt.createPredicateByIn(entity, "id", set);
-        // Create a query with filter
-        JPAQuery query = new JPAQuery(entityManagerProvider_dtt.getEntityManager(ConfVistasPredefinidas.class));
-        query = query.from(entity);
-        // execute query
-        List<ConfVistasPredefinidas> confVistasPredefinidases = query.where(filterBy).list(entity);
-        List<Map<String, String>> udpateForms = renderUpdateForm(confVistasPredefinidases, request, response);
-        return udpateForms;
-    }
-    
-    public List<Map<String, String>> ConfVistasPredefinidasController.renderUpdateForm(List<ConfVistasPredefinidas> confVistasPredefinidases, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Prepare result
-        List<Map<String, String>> result = new ArrayList<Map<String, String>>(confVistasPredefinidases.size());
-        String controllerPath = "confvistaspredefinidases";
-        String pageToUse = "update";
-        String renderUrl = String.format("/WEB-INF/views/%s/%s.jspx", controllerPath, pageToUse);
-        // For every element
-        for (ConfVistasPredefinidas ConfVistasPredefinidas : confVistasPredefinidases) {
-            Map<String, String> item = new HashMap<String, String>();
-            final StringWriter buffer = new StringWriter();
-            // Call JSP to render update form
-            RequestDispatcher dispatcher = request.getRequestDispatcher(renderUrl);
-            populateItemForRender(request, ConfVistasPredefinidas, true);
-            dispatcher.include(request, new HttpServletResponseWrapper(response) {
-                
-                private PrintWriter writer = new PrintWriter(buffer);
-                
-                @Override
-                public PrintWriter getWriter() throws IOException {
-                    return writer;
-                }
-            });
-            String render = buffer.toString();
-            // Load item id
-            item.put("DT_RowId", conversionService_dtt.convert(ConfVistasPredefinidas.getId(), String.class));
-            // Put rendered content into first column
-            item.put("form", render);
-            result.add(item);
-        }
-        return result;
-    }
-    
-    public void ConfVistasPredefinidasController.populateItemForRender(HttpServletRequest request, ConfVistasPredefinidas confVistasPredefinidas, boolean editing) {
-        org.springframework.ui.Model uiModel = new org.springframework.ui.ExtendedModelMap();
-        
-        request.setAttribute("confVistasPredefinidas", confVistasPredefinidas);
-        request.setAttribute("itemId", conversionService_dtt.convert(confVistasPredefinidas.getId(),String.class));
-        
-        if (editing) {
-            // spring from:input tag uses BindingResult to locate property editors for each bean
-            // property. So, we add a request attribute (required key id BindingResult.MODEL_KEY_PREFIX + object name)
-            // with a correctly initialized bindingResult.
-            BeanPropertyBindingResult bindindResult = new BeanPropertyBindingResult(confVistasPredefinidas, "confVistasPredefinidas");
-            bindindResult.initConversion(conversionService_dtt);
-            request.setAttribute(BindingResult.MODEL_KEY_PREFIX + "confVistasPredefinidas",bindindResult);
-            // Add date time patterns and enums to populate inputs
-            populateEditForm(uiModel, confVistasPredefinidas);
-        } else {
-            // Add date time patterns
-            addDateTimeFormatPatterns(uiModel);
-        }
-        
-        // Load uiModel attributes into request
-        Map<String, Object> modelMap = uiModel.asMap();
-        for (String key : modelMap.keySet()){
-            request.setAttribute(key, modelMap.get(key));
-        }
     }
     
 }

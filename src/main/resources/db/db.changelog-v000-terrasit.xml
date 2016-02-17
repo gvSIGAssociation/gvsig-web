@@ -139,6 +139,15 @@
     </rollback>
   </changeSet>
 
+  <changeSet author="egarcia" id="terrasit-vistas-predefinidas-servicio_web-v000">
+    <loadData file="db/terrasit/vistas_predefinidas_servicio_web.csv" tableName="vistas_predefinidas_servicio_web"
+      separator=",">
+    </loadData>
+    <rollback>
+      <delete tableName="vistas_predefinidas_servicio_web" />
+    </rollback>
+  </changeSet>
+
 	<!-- Recreate sequence -->
 	<!-- Oracle doc: To restart the sequence at a different number, you must
 		drop and re-create it -->

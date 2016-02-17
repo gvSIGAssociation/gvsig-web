@@ -7,7 +7,6 @@ import es.gva.dgti.gvgeoportal.domain.AgrupadorCapa;
 import es.gva.dgti.gvgeoportal.domain.AgrupadorCapaServicioWeb;
 import es.gva.dgti.gvgeoportal.domain.GeoPortal;
 import es.gva.dgti.gvgeoportal.domain.components.ConfCapasTematicas;
-import es.gva.dgti.gvgeoportal.domain.components.ConfVistasPredefinidas;
 import java.util.Set;
 
 privileged aspect AgrupadorCapa_Roo_JavaBean {
@@ -58,14 +57,6 @@ privileged aspect AgrupadorCapa_Roo_JavaBean {
     
     public void AgrupadorCapa.setConfCapasTematicas(Set<ConfCapasTematicas> confCapasTematicas) {
         this.confCapasTematicas = confCapasTematicas;
-    }
-    
-    public Set<ConfVistasPredefinidas> AgrupadorCapa.getConfVistasPredefinidas() {
-        return this.confVistasPredefinidas;
-    }
-    
-    public void AgrupadorCapa.setConfVistasPredefinidas(Set<ConfVistasPredefinidas> confVistasPredefinidas) {
-        this.confVistasPredefinidas = confVistasPredefinidas;
     }
     
 }

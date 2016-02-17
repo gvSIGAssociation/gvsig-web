@@ -4,13 +4,9 @@
 package es.gva.dgti.gvgeoportal.web;
 
 import es.gva.dgti.gvgeoportal.domain.components.ConfVistasPredefinidas;
-import es.gva.dgti.gvgeoportal.domain.enumerated.TipoComponente;
-import es.gva.dgti.gvgeoportal.service.domain.AgrupadorCapaService;
 import es.gva.dgti.gvgeoportal.service.domain.ConfVistasPredefinidasService;
-import es.gva.dgti.gvgeoportal.service.domain.GeoPortalService;
 import es.gva.dgti.gvgeoportal.web.ConfVistasPredefinidasController;
 import java.io.UnsupportedEncodingException;
-import java.util.Arrays;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.joda.time.format.DateTimeFormat;
@@ -29,12 +25,6 @@ privileged aspect ConfVistasPredefinidasController_Roo_Controller {
     
     @Autowired
     ConfVistasPredefinidasService ConfVistasPredefinidasController.confVistasPredefinidasService;
-    
-    @Autowired
-    AgrupadorCapaService ConfVistasPredefinidasController.agrupadorCapaService;
-    
-    @Autowired
-    GeoPortalService ConfVistasPredefinidasController.geoPortalService;
     
     @RequestMapping(method = RequestMethod.POST, produces = "text/html")
     public String ConfVistasPredefinidasController.create(@Valid ConfVistasPredefinidas confVistasPredefinidas, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
@@ -106,14 +96,6 @@ privileged aspect ConfVistasPredefinidasController_Roo_Controller {
     void ConfVistasPredefinidasController.addDateTimeFormatPatterns(Model uiModel) {
         uiModel.addAttribute("confVistasPredefinidas_auditcreation_date_format", DateTimeFormat.patternForStyle("MM", LocaleContextHolder.getLocale()));
         uiModel.addAttribute("confVistasPredefinidas_auditlastupdate_date_format", DateTimeFormat.patternForStyle("MM", LocaleContextHolder.getLocale()));
-    }
-    
-    void ConfVistasPredefinidasController.populateEditForm(Model uiModel, ConfVistasPredefinidas confVistasPredefinidas) {
-        uiModel.addAttribute("confVistasPredefinidas", confVistasPredefinidas);
-        addDateTimeFormatPatterns(uiModel);
-        uiModel.addAttribute("agrupadorcapas", agrupadorCapaService.findAllAgrupadorCapas());
-        uiModel.addAttribute("geoportales", geoPortalService.findAllGeoPortales());
-        uiModel.addAttribute("tipocomponentes", Arrays.asList(TipoComponente.values()));
     }
     
     String ConfVistasPredefinidasController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

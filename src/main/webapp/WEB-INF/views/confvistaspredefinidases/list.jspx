@@ -44,7 +44,7 @@ You should have received a copy of the GNU Affero General Public License
 
 
     <page:list id="pl_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas" items="${confvistaspredefinidases}" z="0lURUg1igvJbZGEoCrqxskRpIFg=">
-        <table:table data="${confvistaspredefinidases}" export=" " id="l_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas" path="/confvistaspredefinidases" selection="false" delete="false" show="false" update="false" z="user-managed">
+        <table:table data="${confvistaspredefinidases}" export=" " id="l_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas" path="/confvistaspredefinidases" selection="false" delete="false" show="false" update="true" z="user-managed">
             <table:column calendar="true" dateTimePattern="${confVistasPredefinidas_auditcreation_date_format}" id="c_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_auditCreation" property="auditCreation" render="false" z="user-managed"/>
             <table:column id="c_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_auditCreatedBy" property="auditCreatedBy" render="false" z="user-managed"/>
             <table:column calendar="true" dateTimePattern="${confVistasPredefinidas_auditlastupdate_date_format}" id="c_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_auditLastUpdate" property="auditLastUpdate" render="false" z="user-managed"/>
@@ -52,7 +52,7 @@ You should have received a copy of the GNU Affero General Public License
             <table:column id="c_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_geoPortal" property="geoPortal" render="false" z="user-managed"/>
             <table:column id="c_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_tipo" property="tipo" render="false" z="user-managed"/>
             <table:column id="c_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_nombre" property="nombre" z="user-managed"/>
-            <table:column id="c_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_grupo" property="grupo" z="user-managed"/>
+            <table:column id="c_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_serviciosWeb" property="serviciosWeb" z="user-managed"/>
             <!-- botones -->
 			<table:column cssCellClass="deleteAction" display="html"
 				filterable="false" id="c_title_remove_services" label=" "

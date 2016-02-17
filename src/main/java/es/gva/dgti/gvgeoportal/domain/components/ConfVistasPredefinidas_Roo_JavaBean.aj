@@ -3,8 +3,9 @@
 
 package es.gva.dgti.gvgeoportal.domain.components;
 
-import es.gva.dgti.gvgeoportal.domain.AgrupadorCapa;
+import es.gva.dgti.gvgeoportal.domain.ServicioWeb;
 import es.gva.dgti.gvgeoportal.domain.components.ConfVistasPredefinidas;
+import java.util.Set;
 
 privileged aspect ConfVistasPredefinidas_Roo_JavaBean {
     
@@ -16,12 +17,16 @@ privileged aspect ConfVistasPredefinidas_Roo_JavaBean {
         this.nombre = nombre;
     }
     
-    public AgrupadorCapa ConfVistasPredefinidas.getGrupo() {
-        return this.grupo;
+    public Set<ServicioWeb> ConfVistasPredefinidas.getServiciosWeb() {
+        return this.serviciosWeb;
     }
     
-    public void ConfVistasPredefinidas.setGrupo(AgrupadorCapa grupo) {
-        this.grupo = grupo;
+    public void ConfVistasPredefinidas.setServiciosWeb(Set<ServicioWeb> serviciosWeb) {
+        this.serviciosWeb = serviciosWeb;
+    }
+    
+    public void ConfVistasPredefinidas.setServiciosWebString(String serviciosWebString) {
+        this.serviciosWebString = serviciosWebString;
     }
     
 }

@@ -240,11 +240,8 @@ public class GeoPortalServiceImpl implements GeoPortalService {
                         vistaPredefinida.put("nombre", confVistasPredefinida.getNombre());
 
                         String idCapasCSV = "";
-                        ServicioWeb servicioWeb = null;
-                        AgrupadorCapa agrupacion = confVistasPredefinida.getGrupo();
-                        Set<AgrupadorCapaServicioWeb> relAgrupadorServiciosWeb = agrupacion.getServicios();
-                        for (AgrupadorCapaServicioWeb relAgrupadorServicioWeb : relAgrupadorServiciosWeb) {
-                            servicioWeb = relAgrupadorServicioWeb.getServicioWeb();
+                        Set<ServicioWeb> serviciosWeb = confVistasPredefinida.getServiciosWeb();
+                        for (ServicioWeb servicioWeb : serviciosWeb) {
                             if (servicioWeb.getCoordenadas().contains(geoportal.getCoordenadas())) {
                                 if (StringUtils.isNotBlank(idCapasCSV)) {
                                     idCapasCSV = idCapasCSV.concat(",");
@@ -257,6 +254,7 @@ public class GeoPortalServiceImpl implements GeoPortalService {
                             }
                         }
                         vistaPredefinida.put("idCapas", idCapasCSV);
+
                         vistaPredefinida.put("capas", capas);
                         vistasPredefinidas.add(vistaPredefinida);
                     }

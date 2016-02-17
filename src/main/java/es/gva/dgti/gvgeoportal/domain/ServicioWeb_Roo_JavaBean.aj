@@ -5,6 +5,7 @@ package es.gva.dgti.gvgeoportal.domain;
 
 import es.gva.dgti.gvgeoportal.domain.ServicioWeb;
 import es.gva.dgti.gvgeoportal.domain.SistemaCoordenadas;
+import es.gva.dgti.gvgeoportal.domain.components.ConfVistasPredefinidas;
 import es.gva.dgti.gvgeoportal.domain.enumerated.TipoServicio;
 import java.util.Set;
 
@@ -64,6 +65,14 @@ privileged aspect ServicioWeb_Roo_JavaBean {
     
     public void ServicioWeb.setCoordenadas(Set<SistemaCoordenadas> coordenadas) {
         this.coordenadas = coordenadas;
+    }
+    
+    public Set<ConfVistasPredefinidas> ServicioWeb.getConfVistasPredefinidas() {
+        return this.confVistasPredefinidas;
+    }
+    
+    public void ServicioWeb.setConfVistasPredefinidas(Set<ConfVistasPredefinidas> confVistasPredefinidas) {
+        this.confVistasPredefinidas = confVistasPredefinidas;
     }
     
     public String ServicioWeb.getFormatoImagen() {

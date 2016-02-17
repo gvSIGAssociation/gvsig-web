@@ -3,7 +3,6 @@
 
 package es.gva.dgti.gvgeoportal.domain.components;
 
-import es.gva.dgti.gvgeoportal.domain.AgrupadorCapaDataOnDemand;
 import es.gva.dgti.gvgeoportal.domain.GeoPortalDataOnDemand;
 import es.gva.dgti.gvgeoportal.domain.components.ConfVistasPredefinidas;
 import es.gva.dgti.gvgeoportal.domain.components.ConfVistasPredefinidasDataOnDemand;
@@ -31,9 +30,6 @@ privileged aspect ConfVistasPredefinidasDataOnDemand_Roo_DataOnDemand {
     
     @Autowired
     GeoPortalDataOnDemand ConfVistasPredefinidasDataOnDemand.geoPortalDataOnDemand;
-    
-    @Autowired
-    AgrupadorCapaDataOnDemand ConfVistasPredefinidasDataOnDemand.agrupadorCapaDataOnDemand;
     
     @Autowired
     ConfVistasPredefinidasService ConfVistasPredefinidasDataOnDemand.confVistasPredefinidasService;

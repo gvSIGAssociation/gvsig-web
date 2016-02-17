@@ -14,7 +14,7 @@ privileged aspect AgrupadorCapa_Roo_Jpa_ActiveRecord {
     @PersistenceContext
     transient EntityManager AgrupadorCapa.entityManager;
     
-    public static final List<String> AgrupadorCapa.fieldNames4OrderClauseFilter = java.util.Arrays.asList("nombre", "descripcion", "id", "geoPortal", "servicios", "confCapasTematicas", "confVistasPredefinidas");
+    public static final List<String> AgrupadorCapa.fieldNames4OrderClauseFilter = java.util.Arrays.asList("nombre", "descripcion", "id", "geoPortal", "servicios", "confCapasTematicas");
     
     public static final EntityManager AgrupadorCapa.entityManager() {
         EntityManager em = new AgrupadorCapa().entityManager;

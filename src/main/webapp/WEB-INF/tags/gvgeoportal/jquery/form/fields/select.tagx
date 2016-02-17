@@ -35,6 +35,7 @@ You should have received a copy of the GNU Affero General Public License
   <jsp:directive.attribute name="disableFormBinding" type="java.lang.Boolean" required="false" rtexprvalue="true" description="Set to true to disable Spring form binding" />
   <jsp:directive.attribute name="render" type="java.lang.Boolean" required="false" rtexprvalue="true" description="Indicate if the contents of this tag and all enclosed tags should be rendered (default 'true')" />
   <jsp:directive.attribute name="renderLabel" type="java.lang.Boolean" required="false" rtexprvalue="true" description="Indicate if the contents of the label should be rendered (default 'true')" />
+  <jsp:directive.attribute name="hideLabel" type="java.lang.Boolean" required="false" rtexprvalue="true" description="Indicate if the label should be hide (default 'false')" />
   <jsp:directive.attribute name="addEmptyValue" type="java.lang.Boolean" required="false" rtexprvalue="true" description="Indicate if is necessary to include an empty value as first element of select input(default 'false')" />
   <jsp:directive.attribute name="value" type="java.lang.String" required="false" rtexprvalue="true" description="Value of current select element. Only available if disableFormBinding is true." />
   <jsp:directive.attribute name="z" type="java.lang.String" required="false" description="Used for checking if element has been modified (to recalculate simply provide empty string value)" />
@@ -76,16 +77,18 @@ You should have received a copy of the GNU Affero General Public License
     <div id="_${fn:escapeXml(id)}_id" class="control-group form-group">
       <c:choose>
         <c:when test="${not empty items}">
-          <label for="_${sec_field}_id" class="control-label">
-            <c:choose>
-              <c:when test="${empty renderLabel or renderLabel}">
-                <c:out value="${fn:escapeXml(label)}" />:
-              </c:when>
-              <c:otherwise>
-                &amp;nbsp;
-              </c:otherwise>
-            </c:choose>
-          </label>
+          <c:if test="${empty hideLabel or not hideLabel}">
+             <label for="_${sec_field}_id" class="control-label">
+              <c:choose>
+                <c:when test="${empty renderLabel or renderLabel}">
+                  <c:out value="${fn:escapeXml(label)}" />:
+                </c:when>
+                <c:otherwise>
+                  &amp;nbsp;
+                </c:otherwise>
+              </c:choose>
+            </label>
+            </c:if>
           <div class="controls">
           <c:choose>
             <c:when test="${empty itemValue}">

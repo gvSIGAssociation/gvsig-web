@@ -19,8 +19,7 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
--->
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/jquery/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/datatables" version="2.0">
+--><div xmlns:field="urn:jsptagdir:/WEB-INF/tags/jquery/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/datatables" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas" object="${confvistaspredefinidas}" path="/confvistaspredefinidases" z="Dtlndv13FxRLVjJ7/Exx/723WtM=">
@@ -31,6 +30,8 @@ You should have received a copy of the GNU Affero General Public License
         <field:display field="geoPortal" id="s_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_geoPortal" object="${confvistaspredefinidas}" z="qd+JNB81V1f+rOScpOJlTg+kYws="/>
         <field:display field="tipo" id="s_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_tipo" object="${confvistaspredefinidas}" z="OBqTOpfY+LypAcSUWfi6tNfyPec="/>
         <field:display field="nombre" id="s_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_nombre" object="${confvistaspredefinidas}" z="K4KP/pesMVBbpoJYkEN30zUcg54="/>
-        <field:display field="grupo" id="s_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_grupo" object="${confvistaspredefinidas}" z="FLNt7LNmn+lHQWu1pRnVKo3/fvw="/>
+        <!--   <field:display field="serviciosWeb" id="s_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_serviciosWeb" object="${confvistaspredefinidas}" z="Z5JM3gTSx2+1PVXGFj90COekjCI="/> -->
+        <field:display field="serviciosWeb" id="s_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_serviciosWeb" object="${confvistaspredefinidas}" z="Z5JM3gTSx2+1PVXGFj90COekjCI="/>
+        <field:display field="serviciosWebString" id="s_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_serviciosWebString" object="${confvistaspredefinidas}" z="KicPq4NGo7WOo2UJE/l2ra5IQNA="/>
     </page:show>
 </div>

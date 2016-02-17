@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+gvGeoportal is sponsored by the General Directorate for Information
+Technologies (DGTI) of the Regional Ministry of Finance and Public
+Administration of the Generalitat Valenciana (Valencian Community,
+Spain), managed by gvSIG Association and led by DISID Corporation.
+
+Copyright (C) 2016 DGTI - Generalitat Valenciana
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<div  xmlns:field="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/jquery/form/fields" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:form1="urn:jsptagdir:/WEB-INF/tags/form"  xmlns:form="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/jquery/form" xmlns:gvgeoportalfields="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/jquery/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" xmlns:page="urn:jsptagdir:/WEB-INF/tags/datatables" xmlns:table="urn:jsptagdir:/WEB-INF/tags/datatables" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <spring:message code="entity_delete_confirm" htmlEscape="false"
+		var="entityDeleteConfirm" />
+	<spring:message code="label_vistas_predefinidas" htmlEscape="false"
+		var="vistasPredefinidas" />
+	<spring:message arguments="${vistasPredefinidas}" code="entity_delete" var="delete_label"/>
+
+	<script type="text/javascript">
+	<![CDATA[
+
+		jQuery(document).ready(function() {
+      $('.btn-return').hide();
+      $('.btn-proceed').hide();
+    });
+
+		function addDeleteButton(nRow, aData, iDataIndex) {
+			var deleteVistaPre = '<td class="utilbox" id="deleteButton">'
+					+ '<a alt="${delete_label}" class="icon delete_entity" href="${pageContext.request.contextPath}/confvistaspredefinidases/'+ aData['id'] +'" title="${delete_label}">'
+					+ '</a>';
+			+'</td>';
+			jQuery(nRow).find(".deleteAction").replaceWith(deleteVistaPre);
+		}
+		]]>
+	</script>
+
+  <div>
+       <form:create id="fc_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas" modelAttribute="confVistasPredefinidas" path="/confvistaspredefinidases" render="true" z="user-managed">
+       <div id="l_es_gva_dgti_gvgeoportal_domain_omponents_ConfVistasPredefinidas" class="tab-content create-div table-responsive" style="">
+        <table class="table table-condensed">
+          <thead>
+            <tr>
+              <th><spring:message code="label_es_gva_dgti_gvgeoportal_domain_components_confvistaspredefinidas_nombre"/></th>
+              <th><spring:message code="label_es_gva_dgti_gvgeoportal_domain_components_confvistaspredefinidas_serviciosweb"/></th>
+              <th></th>
+           </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="controls">
+                  <input id="c_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_nombre" class="form-control form-control input-sm" type="text" value="" data-missing="obligatorio" data-required="true" data-invalid="Por favor, introduzca un Nombre valido" title="" name="nombre" data-original-title="Introducir Nombre (obligatorio)"/>
+                </div>
+              </td>
+              <td>
+                <div class="controls">
+                   <field:select hideLabel="true" renderLabel="false" field="serviciosWeb" id="c_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_serviciosWeb" itemLabel="descripcion" itemValue="id" items="${serviciosweb}" multiple="true" path="/serviciosweb" z="user-managed"/>
+                </div>
+              </td>
+              <td>
+                  <spring:message code="button_submit" htmlEscape="false" var="submit_button"/>
+                  <a id="l_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_submit_btn"
+                      class="btn btn-primary btn-sm" title="${submit_button}" alt="${submit_button}" onclick="javascript:createOnLine()" >${fn:escapeXml(submit_button)}</a>
+              </td>
+            </tr>
+          </tbody>
+
+        </table>
+        </div>
+       </form:create>
+
+       <div>
+       <page:list id="pl_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas" items="${confvistaspredefinidases}" z="0lURUg1igvJbZGEoCrqxskRpIFg=">
+          <table:table data="${confvistaspredefinidases}" export=" " id="l_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas" path="/confvistaspredefinidases" selection="false" delete="false" show="false" update="false" create="false" z="user-managed">
+              <table:column calendar="true" dateTimePattern="${confVistasPredefinidas_auditcreation_date_format}" id="c_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_auditCreation" property="auditCreation" render="false" z="user-managed"/>
+              <table:column id="c_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_auditCreatedBy" property="auditCreatedBy" render="false" z="user-managed"/>
+              <table:column calendar="true" dateTimePattern="${confVistasPredefinidas_auditlastupdate_date_format}" id="c_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_auditLastUpdate" property="auditLastUpdate" render="false" z="user-managed"/>
+              <table:column id="c_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_auditLastUpdatedBy" property="auditLastUpdatedBy" render="false" z="user-managed"/>
+              <table:column id="c_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_geoPortal" property="geoPortal" render="false" z="user-managed"/>
+              <table:column id="c_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_tipo" property="tipo" render="false" z="user-managed"/>
+              <table:column id="c_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_nombre" property="nombre" z="user-managed"/>
+              <table:column id="c_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_serviciosWeb" property="serviciosWebString" z="user-managed"/>
+              <!-- botones -->
+      		  	<table:column cssCellClass="deleteAction" display="html"
+      				filterable="false" id="c_title_remove_services" label=" "
+      				property="delete" searchable="false" sortable="false"
+      				z="user-managed" />
+      			  <!-- callback -->
+      		  	<table:callback function="addDeleteButton" type="createdRow" />
+          </table:table>
+        </page:list>
+       </div>
+
+    </div>
+    <script>
+
+    <![CDATA[
+
+    function createOnLine(){
+   		var serviciosWeb = [];
+    	$('select[name="serviciosWeb"] option:selected').each(function(i, selected){
+    		serviciosWeb[i] = $(selected).val();
+    	});
+    	var url = '${pageContext.request.contextPath}/confvistaspredefinidases/createOnLine';
+    	var params = {
+    			'nombre' :  $('input[name="nombre"]').val(),
+    			'serviciosWeb[]' : serviciosWeb,
+    		  'geoPortal' : "${geoPortal}"
+    	};
+    	jQuery.ajax({
+    		url : url,
+    		data : params,
+    		type: "POST",
+    		success : function(object) {
+    			jQuery("#l_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas").DataTable().fnReloadAjax();
+    			$('input[name="nombre"]').val("");
+    			$('select[name="serviciosWeb"]').val([]);
+    		}
+    	});
+    };
+
+		jQuery("#l_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas" ).on( 'click',
+			'.delete_entity', function(event) {
+		    event.preventDefault();
+		    var confirmDelete = confirm("${entityDeleteConfirm}");
+			if (confirmDelete) {
+				var url = event.target.href;
+				var params = {};
+				jQuery.ajax({
+					url : url,
+					data : params,
+					type: "DELETE",
+					success : function(object) {
+						jQuery("#l_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas").DataTable().fnReloadAjax();
+					}
+				});
+			}
+		});
+
+
+		]]>
+	</script>
+
+
+</div>

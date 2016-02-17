@@ -93,9 +93,4 @@ public class AgrupadorCapa {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "grupo")
     private Set<ConfCapasTematicas> confCapasTematicas = new HashSet<ConfCapasTematicas>();
 
-    /**
-     */
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "grupo")
-    private Set<ConfVistasPredefinidas> confVistasPredefinidas = new HashSet<ConfVistasPredefinidas>();
-
 }

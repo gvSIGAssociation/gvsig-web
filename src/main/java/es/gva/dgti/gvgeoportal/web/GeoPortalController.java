@@ -203,8 +203,8 @@ public class GeoPortalController {
                                 .setNombre(confVistasPredefinidasViejo
                                         .getNombre());
                         confVistasPredefinidas
-                                .setGrupo(confVistasPredefinidasViejo
-                                        .getGrupo());
+                                .setServiciosWeb(confVistasPredefinidasViejo
+                                        .getServiciosWeb());
                         confVistasPredefinidasService
                                 .saveConfVistasPredefinidas(confVistasPredefinidas);
                     }

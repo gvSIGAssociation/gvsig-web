@@ -50,7 +50,7 @@ Herramientas de desarrollo
 Entorno de ejecución
 --------------------
 
-* gvNIX 1.5.0.RELEASE (http://sourceforge.net/projects/gvnix/)
+* gvNIX 1.5.1.RC4 (http://sourceforge.net/projects/gvnix/)
 
   * OJO, para el entorno de desarrollo se trabaja directamente sobre la versión gvNIX 1.5.0.BUILD-SNAPSHOT. De este modo se tienen los últimos cambios realizados y que se necesitarán durante el desarrollo de la aplicación.
 
