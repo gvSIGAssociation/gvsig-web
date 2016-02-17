@@ -1009,7 +1009,7 @@
     <profile>
       <id>dev-tomcat</id>
       <activation>
-        <activeByDefault>false</activeByDefault>
+        <activeByDefault>true</activeByDefault>
       </activation>
       <properties>
 
@@ -1056,8 +1056,9 @@
         <pom.wsdl.SAFEAutorizacion.location>https://preinterint.gva.es:443/eSirca_Bus/ins/Proxy/SAFE/AutorizacionHDFI_v1_00?wsdl</pom.wsdl.SAFEAutorizacion.location>
       </properties>
     </profile>
+
+    <!-- Declare asa.conf and asa.log variable if missing -->
     <profile>
-      <!-- declare asa.conf and asa.log variable if missing -->
       <activation>
         <activeByDefault>true</activeByDefault>
         <property>
@@ -1067,94 +1068,6 @@
       <properties>
         <asa.conf>/tmp</asa.conf>
         <asa.log>/tmp</asa.log>
-      </properties>
-    </profile>
-
-    <profile>
-      <id>DESA</id>
-      <activation>
-        <activeByDefault>false</activeByDefault>
-      </activation>
-      <properties>
-
-        <!-- Propiedades base de datos -->
-        <!-- DB gvgeoportal -->
-        <pom.db.url>jdbc:postgresql://dbdpostgre.srv.gva.es:5432/pg01desa</pom.db.url>
-        <pom.db.username>owgvgeoportal</pom.db.username>
-        <pom.db.password>kopotuba</pom.db.password>
-        <pom.db.driverClassName>org.postgresql.Driver</pom.db.driverClassName>
-        <pom.db.dialect>org.hibernate.dialect.PostgreSQLDialect</pom.db.dialect>
-        <pom.db.schema>owgvgeoportal</pom.db.schema>
-        <pom.db.jndi.name>java:jboss/datasources/gvGeoPortalDataSourceDESA</pom.db.jndi.name>
-
-        <!-- Propiedades Liquibase -->
-        <pom.liquibase.dropFirst>false</pom.liquibase.dropFirst>
-        <pom.liquibase.context>DESA</pom.liquibase.context>
-
-        <!-- Propiedades logging -->
-        <pom.log.rootLogger>DEBUG, stdout, R</pom.log.rootLogger>
-        <pom.log.category.es.gva.dgti.gvgeoportal>DEBUG, stdout, R</pom.log.category.es.gva.dgti.gvgeoportal>
-        <pom.log.file>gvgeoportal.log</pom.log.file>
-
-        <!-- Propiedades SAFE -->
-        <pom.application.id />
-        <pom.security.SAFE.active>false</pom.security.SAFE.active>
-        <pom.security.SAFE.mapRoles>true</pom.security.SAFE.mapRoles>
-        <pom.security.SAFE.autorizacion.poraplicacion>false</pom.security.SAFE.autorizacion.poraplicacion>
-        <pom.security.SAFE.environment>DESA</pom.security.SAFE.environment>
-        <pom.security.SAFE.keystore.file>/home/USER/software/java/jdk1.6.0_45/jre/lib/security/cacerts</pom.security.SAFE.keystore.file>
-        <pom.security.SAFE.keystore.type.keystore>JKS</pom.security.SAFE.keystore.type.keystore>
-        <pom.security.SAFE.keystore.alias>gvgeoportaldescert</pom.security.SAFE.keystore.alias>
-        <pom.security.SAFE.keystore.password>changeit</pom.security.SAFE.keystore.password>
-        <pom.security.SAFE.alias.password>43598</pom.security.SAFE.alias.password>
-        <pom.security.SAFE.traceabilityId>1aa25d39e7ef6acf-GVGEOPORTAL-</pom.security.SAFE.traceabilityId>
-        <pom.security.SAFE.propertiesPath>safe_client_sign.properties</pom.security.SAFE.propertiesPath>
-        <pom.wsdl.SAFE.location>https://preinterint.gva.es/eSirca_Bus/ins/Proxy/SAFE/AutenticacionArangi_v1_00?wsdl</pom.wsdl.SAFE.location>
-        <pom.wsdl.SAFEAutorizacion.location>https://preinterint.gva.es:443/eSirca_Bus/ins/Proxy/SAFE/AutorizacionHDFI_v1_00?wsdl</pom.wsdl.SAFEAutorizacion.location>
-      </properties>
-    </profile>
-
-    <profile>
-      <id>TEST</id>
-      <activation>
-        <activeByDefault>false</activeByDefault>
-      </activation>
-      <properties>
-
-        <!-- Propiedades base de datos -->
-        <!-- DB gvgeoportal -->
-        <pom.db.url>jdbc:postgresql://tbdpostgres01.srv.gva.es:5432/pg01test</pom.db.url>
-        <pom.db.username>owgvgeoportal</pom.db.username>
-        <pom.db.password>forenito</pom.db.password>
-        <pom.db.driverClassName>org.postgresql.Driver</pom.db.driverClassName>
-        <pom.db.dialect>org.hibernate.dialect.PostgreSQLDialect</pom.db.dialect>
-        <pom.db.schema>owgvgeoportal</pom.db.schema>
-        <pom.db.jndi.name>java:jboss/datasources/gvGeoPortalDataSourceTEST</pom.db.jndi.name>
-
-        <!-- Propiedades Liquibase -->
-        <pom.liquibase.dropFirst>false</pom.liquibase.dropFirst>
-        <pom.liquibase.context>TEST</pom.liquibase.context>
-
-        <!-- Propiedades logging -->
-        <pom.log.rootLogger>DEBUG, stdout, R</pom.log.rootLogger>
-        <pom.log.category.es.gva.dgti.gvgeoportal>DEBUG, stdout, R</pom.log.category.es.gva.dgti.gvgeoportal>
-        <pom.log.file>gvgeoportal.log</pom.log.file>
-
-        <!-- Propiedades SAFE -->
-        <pom.application.id />
-        <pom.security.SAFE.active>false</pom.security.SAFE.active>
-        <pom.security.SAFE.mapRoles>true</pom.security.SAFE.mapRoles>
-        <pom.security.SAFE.autorizacion.poraplicacion>false</pom.security.SAFE.autorizacion.poraplicacion>
-        <pom.security.SAFE.environment>DESA</pom.security.SAFE.environment>
-        <pom.security.SAFE.keystore.file>/home/USER/software/java/jdk1.6.0_45/jre/lib/security/cacerts</pom.security.SAFE.keystore.file>
-        <pom.security.SAFE.keystore.type.keystore>JKS</pom.security.SAFE.keystore.type.keystore>
-        <pom.security.SAFE.keystore.alias>gvgeoportaldescert</pom.security.SAFE.keystore.alias>
-        <pom.security.SAFE.keystore.password>changeit</pom.security.SAFE.keystore.password>
-        <pom.security.SAFE.alias.password>43598</pom.security.SAFE.alias.password>
-        <pom.security.SAFE.traceabilityId>1aa25d39e7ef6acf-GVGEOPORTAL-</pom.security.SAFE.traceabilityId>
-        <pom.security.SAFE.propertiesPath>safe_client_sign.properties</pom.security.SAFE.propertiesPath>
-        <pom.wsdl.SAFE.location>https://preinterint.gva.es/eSirca_Bus/ins/Proxy/SAFE/AutenticacionArangi_v1_00?wsdl</pom.wsdl.SAFE.location>
-        <pom.wsdl.SAFEAutorizacion.location>https://preinterint.gva.es:443/eSirca_Bus/ins/Proxy/SAFE/AutorizacionHDFI_v1_00?wsdl</pom.wsdl.SAFEAutorizacion.location>
       </properties>
     </profile>
 
