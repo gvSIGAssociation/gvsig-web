@@ -288,7 +288,14 @@ You should have received a copy of the GNU Affero General Public License
               id="ps_es_gva_dgti_gvgeoportal_web_Map_toolbar_predefinedLayers_group_${capasPorGrupo.key}"
               label="${capasPorGrupo.key}" icon="glyphicon glyphicon-folder-open" z="user-managed">
               <c:forEach items="${capasPorGrupo.value}" var="capa">
-                <predefined-layers:layer label="${capa.nombreCapa}" icon="whhg icon-layerorderdown" z="user-managed">
+            <!-- Comprobamos si el layer esta en el toc activo-->
+              <c:set var="LayerInToc" value="false"/>
+              <c:forEach items="${geoportal.serviciosToc}" var="serviciosWebToc">
+               <c:if test="${serviciosWebToc.activo and serviciosWebToc.servicioWeb.id == capa.identificador}">
+                <c:set var="LayerInToc" value="true"/>
+               </c:if>
+              </c:forEach>
+                <predefined-layers:layer layerInToc="${LayerInToc}" label="${capa.nombreCapa}" icon="whhg icon-layerorderdown" z="user-managed" >
                   <c:choose>
                     <c:when test="${capa.tipo == 'WMS'}">
                       <layer:wms enableLegend="${enableLegend}"
