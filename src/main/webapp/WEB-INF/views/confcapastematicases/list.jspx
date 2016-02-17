@@ -37,13 +37,16 @@ You should have received a copy of the GNU Affero General Public License
 
 
 	<script type="text/javascript">
+	 <![CDATA[
 		function addDeleteButton(nRow, aData, iDataIndex) {
+			debugger;
 			var deleteConfCapaTem = '<td class="utilbox" id="deleteButton">'
 					+ '<a alt="${delete_label}" class="icon delete_entity" href="${pageContext.request.contextPath}/confcapastematicases/'+ aData['id'] +'" title="${delete_label}">'
 					+ '</a>';
 			+'</td>';
 			jQuery(nRow).find(".deleteAction").replaceWith(deleteConfCapaTem);
 		}
+		 ]]>
 	</script>
 
 	<page:list

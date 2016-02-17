@@ -31,6 +31,7 @@ You should have received a copy of the GNU Affero General Public License
 	<spring:message arguments="${vistasPredefinidas}" code="entity_delete" var="delete_label"/>
 
 	<script type="text/javascript">
+	<![CDATA[
 		function addDeleteButton(nRow, aData, iDataIndex) {
 			var deleteVistaPre = '<td class="utilbox" id="deleteButton">'
 					+ '<a alt="${delete_label}" class="icon delete_entity" href="${pageContext.request.contextPath}/confvistaspredefinidases/'+ aData['id'] +'" title="${delete_label}">'
@@ -38,6 +39,7 @@ You should have received a copy of the GNU Affero General Public License
 			+'</td>';
 			jQuery(nRow).find(".deleteAction").replaceWith(deleteVistaPre);
 		}
+		]]>
 	</script>
 
 
