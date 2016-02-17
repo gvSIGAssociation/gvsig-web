@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 privileged aspect ConfVistasPredefinidas_Roo_Jpa_ActiveRecord {
     
-    public static final List<String> ConfVistasPredefinidas.fieldNames4OrderClauseFilter = java.util.Arrays.asList("nombre", "serviciosWeb", "serviciosWebString");
+    public static final List<String> ConfVistasPredefinidas.fieldNames4OrderClauseFilter = java.util.Arrays.asList("nombre", "logo", "logoString", "serviciosWeb", "serviciosWebString");
     
     public static long ConfVistasPredefinidas.countConfVistasPredefinidases() {
         return entityManager().createQuery("SELECT COUNT(o) FROM ConfVistasPredefinidas o", Long.class).getSingleResult();

@@ -144,7 +144,8 @@ public class ConfVistasPredefinidasController {
     @Transactional
     public JsonResponse<List<ConfVistasPredefinidas>> createOnLine(@RequestParam("geoPortal") Long geoPortalId,
                                               @RequestParam(value="serviciosWeb[]", required = false)  Long[] ids,
-                                              @RequestParam("nombre") String nombre) {
+                                              @RequestParam("nombre") String nombre,
+                                              @RequestParam("logo") byte[] logo) {
 
        JsonResponse<List<ConfVistasPredefinidas>> jsonResponse = new JsonResponse<List<ConfVistasPredefinidas>>();
        ConfVistasPredefinidas confVistasPredefinidas =  new ConfVistasPredefinidas();
@@ -163,6 +164,7 @@ public class ConfVistasPredefinidasController {
           }
           confVistasPredefinidas.setServiciosWeb(serviciosWebs);
 
+          confVistasPredefinidas.setLogo(logo);
           confVistasPredefinidasService.saveConfVistasPredefinidas(confVistasPredefinidas);
         }
         catch (Exception ex) {

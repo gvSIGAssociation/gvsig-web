@@ -40,6 +40,7 @@ privileged aspect ConfVistasPredefinidasDataOnDemand_Roo_DataOnDemand {
         setAuditCreation(obj, index);
         setAuditLastUpdate(obj, index);
         setAuditLastUpdatedBy(obj, index);
+        setLogo(obj, index);
         setNombre(obj, index);
         setTipo(obj, index);
         return obj;
@@ -63,6 +64,11 @@ privileged aspect ConfVistasPredefinidasDataOnDemand_Roo_DataOnDemand {
     public void ConfVistasPredefinidasDataOnDemand.setAuditLastUpdatedBy(ConfVistasPredefinidas obj, int index) {
         String auditLastUpdatedBy = "auditLastUpdatedBy_" + index;
         obj.setAuditLastUpdatedBy(auditLastUpdatedBy);
+    }
+    
+    public void ConfVistasPredefinidasDataOnDemand.setLogo(ConfVistasPredefinidas obj, int index) {
+        byte[] logo = String.valueOf(index).getBytes();
+        obj.setLogo(logo);
     }
     
     public void ConfVistasPredefinidasDataOnDemand.setNombre(ConfVistasPredefinidas obj, int index) {

@@ -50,12 +50,28 @@ public class ConfVistasPredefinidas extends Componentes {
     @NotEmpty
     private String nombre;
 
+    private byte[] logo;
+
+    @Transient
+    private String logoString;
+
     @ManyToMany(cascade = { javax.persistence.CascadeType.PERSIST, javax.persistence.CascadeType.MERGE })
     @JoinTable(name = "vistas_predefinidas_servicio_web")
     private Set<ServicioWeb> serviciosWeb = new HashSet<ServicioWeb>();
 
     @Transient
     private String serviciosWebString;
+
+    /**
+     * @return el valor de la variable logoString.
+     */
+    public String getLogoString() {
+        if (logo == null) {
+            return this.logoString;
+        } else {
+            return new String(this.logo);
+        }
+    }
 
     /**
      * @return el valor de la variable serviciosWebString.

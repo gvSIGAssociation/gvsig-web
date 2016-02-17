@@ -20,7 +20,7 @@ GNU Affero General Public License for more details.
 You should have received a copy of the GNU Affero General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
-<div  xmlns:field="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/jquery/form/fields" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:form1="urn:jsptagdir:/WEB-INF/tags/form"  xmlns:form="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/jquery/form" xmlns:gvgeoportalfields="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/jquery/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" xmlns:page="urn:jsptagdir:/WEB-INF/tags/datatables" xmlns:table="urn:jsptagdir:/WEB-INF/tags/datatables" version="2.0">
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/jquery/form/fields" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:form1="urn:jsptagdir:/WEB-INF/tags/form"  xmlns:form="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/jquery/form" xmlns:gvgeoportalfields="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/jquery/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" xmlns:page="urn:jsptagdir:/WEB-INF/tags/datatables" xmlns:table="urn:jsptagdir:/WEB-INF/tags/datatables" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
 
@@ -29,6 +29,8 @@ You should have received a copy of the GNU Affero General Public License
 	<spring:message code="label_vistas_predefinidas" htmlEscape="false"
 		var="vistasPredefinidas" />
 	<spring:message arguments="${vistasPredefinidas}" code="entity_delete" var="delete_label"/>
+  <spring:message code="label_es_gva_dgti_gvgeoportal_domain_components_confvistaspredefinidas_logo" htmlEscape="false" var="logoLabel"/>
+  <spring:message code="message_remove_image" htmlEscape="false" var="removeImageMessage"/>
 
 	<script type="text/javascript">
 	<![CDATA[
@@ -71,15 +73,35 @@ You should have received a copy of the GNU Affero General Public License
                    <field:select hideLabel="true" renderLabel="false" field="serviciosWeb" id="c_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_serviciosWeb" itemLabel="descripcion" itemValue="id" items="${serviciosweb}" multiple="true" path="/serviciosweb" z="user-managed"/>
                 </div>
               </td>
-              <td>
+               <td>
                   <spring:message code="button_submit" htmlEscape="false" var="submit_button"/>
                   <a id="l_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_submit_btn"
                       class="btn btn-primary btn-sm" title="${submit_button}" alt="${submit_button}" onclick="javascript:createOnLine()" >${fn:escapeXml(submit_button)}</a>
               </td>
             </tr>
           </tbody>
-
         </table>
+        <label class="control-label" for="_logo_confVistasPredef_id">${logoLabel}:</label>
+            <div class="controls">
+                <c:choose>
+                    <c:when test="${not empty confVistasPredefinidas.logoString}">
+                        <img alt="${logoLabel}" class="logoConfVistasPredef" id="logoImgCVP" src="${confVistasPredefinidas.logoString}"/>
+                    </c:when>
+                    <c:otherwise>
+                        <img alt="${logoLabel}" class="hide" id="logoLoadCVP" src="${confVistasPredefinidas.logoString}"/>
+                    </c:otherwise>
+                </c:choose>
+                <div id="manageImageCVP">
+                    <input accept="image/*" class="displayInlineBlockCVP" id="logoLoad" onchange="loadImage(this)" type="file"/>
+                </div>
+                <span class="help-block">
+                    <spring:message code="label_image_help_box"/>
+                </span>
+                <span class="has-error errors alert alert-danger" id="logoConfVistasPredefError" style="display:none;">
+                    <spring:message code="label_image_error_size"/>
+                </span>
+                <input id="logoCVP" name="logoCVP" type="hidden" value="${confVistasPredefinidas.logo}"/>
+            </div>
         </div>
        </form:create>
 
@@ -119,7 +141,8 @@ You should have received a copy of the GNU Affero General Public License
     	var params = {
     			'nombre' :  $('input[name="nombre"]').val(),
     			'serviciosWeb[]' : serviciosWeb,
-    		  'geoPortal' : "${geoPortal}"
+    		  'geoPortal' : "${geoPortal}",
+    		  'logo' : $('input[name="logoCVP"]').val()
     	};
     	jQuery.ajax({
     		url : url,
@@ -129,6 +152,11 @@ You should have received a copy of the GNU Affero General Public License
     			jQuery("#l_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas").DataTable().fnReloadAjax();
     			$('input[name="nombre"]').val("");
     			$('select[name="serviciosWeb"]').val([]);
+    			jQuery('.logoConfVistasPredef').attr('src', '');
+    			jQuery('.logoConfVistasPredef').attr('class', 'hide');
+    			jQuery('.displayInlineBlockCVP').val('');
+    			jQuery('input[name="logoCVP"]').val('');
+    			jQuery('.removeImageIconCVP').remove();
     		}
     	});
     };
@@ -151,7 +179,39 @@ You should have received a copy of the GNU Affero General Public License
 			}
 		});
 
+		function clearImage() {
+			jQuery('.logoConfVistasPredef').attr('src', '');
+			jQuery('.logoConfVistasPredef').attr('class', 'hide');
+			jQuery('.displayInlineBlockCVP').val('');
+			jQuery('input[name="logoCVP"]').val('');
+			jQuery('.removeImageIconCVP').remove();
+		}
 
+		function loadImage(input) {
+			if (input.files && input.files[0]) {
+				var file = input.files[0];
+				if (file.size < 1048576) {
+				 jQuery('#logoConfVistasPredefError').hide();
+					var reader = new FileReader();
+					reader.onload = function(e) {
+						var image = e.target.result;
+						jQuery('#logoImgCVP').attr('src', image);
+						jQuery('#logoImgCVP').attr('class', 'logoConfVistasPredef');
+						jQuery('#logoCVP').val(image);
+						if (jQuery('#removeImageIconCVP').length == 0) {
+							jQuery('#manageImageCVP')
+									.append(
+											'<a alt="${removeImageMessage}" aria-hidden="true" class="glyphicon glyphicon-new-window icon delete_entity" id="removeImageIconCVP" onclick="clearImage();" title="${removeImageMessage}"/>');
+						}
+					}
+					reader.readAsDataURL(input.files[0]);
+			   }else {
+	              jQuery('#logoConfVistasPredefError').show();
+	              clearImage();
+            	}
+
+			}
+		}
 		]]>
 	</script>
 

@@ -17,6 +17,18 @@ privileged aspect ConfVistasPredefinidas_Roo_JavaBean {
         this.nombre = nombre;
     }
     
+    public byte[] ConfVistasPredefinidas.getLogo() {
+        return this.logo;
+    }
+    
+    public void ConfVistasPredefinidas.setLogo(byte[] logo) {
+        this.logo = logo;
+    }
+    
+    public void ConfVistasPredefinidas.setLogoString(String logoString) {
+        this.logoString = logoString;
+    }
+    
     public Set<ServicioWeb> ConfVistasPredefinidas.getServiciosWeb() {
         return this.serviciosWeb;
     }
