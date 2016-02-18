@@ -96,7 +96,7 @@ You should have received a copy of the GNU Affero General Public License
     displayLegend="${enableLegend}" displayZoom="${displayZoom}"
     displayToc="${displayToc}" id="ps_es_gva_dgti_gvgeoportal_web_Map"
     projection="${geoportal.coordenadas}" zoom="${geoportal.zoom}"
-    z="user-managed" label="mapa" minZoom="${minZoom}" maxZoom="${maxZoom}">
+    z="user-managed" label="mapa">
 
     <!-- TOC -->
     <geo:toc id="ps_es_gva_dgti_gvgeoportal_web_Map_toc"  z="user-managed">

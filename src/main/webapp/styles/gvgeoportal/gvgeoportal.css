@@ -448,20 +448,20 @@ table.dataTable tr.row_bg_red td:nth-child(3) {
 /****** Map Components ******/
 /****************************/
 
+.leaflet-control-zoomslider {
+  margin-top: 100px !important;
+}
 .history-control {
   margin-top: -277px !important;
 }
 
-.leaflet-control-zoomslider {
-  margin-top: 100px !important;
-}
 
 .component-image {
   margin-bottom: -4px;
 }
 .predefined-views-control {
-  margin-top: -277px !important;
-  margin-right: 80px !important;
+  margin-top: -278px !important;
+  margin-right: 75px !important;
 }
 
 .predefined-views-layer-control:hover {
@@ -753,7 +753,8 @@ div.loupe-listselector {
 }
 
 .logoGeoportal {
-  height: 75px;
+  max-height: 75px;
+  max-width: 255px;
 }
 .logoGeoportalListado{
   max-width: 50px;
