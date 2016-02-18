@@ -37,7 +37,7 @@ You should have received a copy of the GNU Affero General Public License
 
     <label class="pull-left">${opacity}</label>
     <div>
-  		<input  id="${id}_opacity_tool_range" data-placement="bottom" name="${id}_opacity_tool_range" type="range" value="1" step="0.1" min="0.0" max="1.0" style="opacity:0.5;" title="${tooltip}" disabled="${EMPTY_STRING}" />
+  		<input  id="${id}_opacity_tool_range" data-placement="bottom" name="${id}_opacity_tool_range" type="range" value="1" step="0.1" min="0.0" max="1.0" style="opacity:0.5;" title="${EMPTY_STRING}" disabled="${EMPTY_STRING}" />
   		<output id="${id}_opacity_tool_range_tooltip" class="input-range-tooltip"></output>
   	</div>
 

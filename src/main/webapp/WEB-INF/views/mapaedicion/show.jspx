@@ -136,9 +136,6 @@ You should have received a copy of the GNU Affero General Public License
   	<span aria-hidden='true' class='toc-tools whhg icon-trash'></span>
   </a>
 
-  	jQuery(".fancytree-node .col-xs-3").prepend("");
-
-
   <!-- Diálogo de añadir capa al TOC -->
   <div id="add_layer_dialog">&amp;nbsp;</div>
 

@@ -12,12 +12,13 @@
 .leaflet-control-layers.ui-tabs{
   background: #ffffff;
   padding: 0 !important;
-  border-radius: 4px;
+  border-radius: 0px 15px 15px 0px;
   margin-bottom: 0px;
   border: 0px solid transparent;
   text-shadow: rgba(0, 0, 0, 0.14902) 0px -1px 0px;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
   max-height: 55vh;
+  margin-left: 0px;
 }
 .leaflet-top.leaflet-top .leaflet-control {
     margin-top: 0;
@@ -52,10 +53,10 @@
 }
 
 #toc-container.tab-content {
-  margin-left: 41px;
+  margin-left: 40px;
   max-height: 55vh;
-  width: 30vw;
-  max-width: 30vw;
+  width: 16vw;
+  max-width: 16vw;
   border-left: 1px solid #ddd;
 }
 
@@ -94,7 +95,7 @@
 #toc-container.tab-content .tab-pane {
     overflow-y: auto;
     border: 0 !important;
-    margin: 0.2em 0.2em 0.2em 0 !important;
+    margin: 0 0 0.2em 0 !important;
     padding: 0;
     background: #fff;
 }
@@ -120,7 +121,7 @@
 }
 .leaflet-top.leaflet-top div[id^="ps_es_gva_dgti_gvgeoportal_web_Map_"],
 .leaflet-top.leaflet-top  .fancytreeDiv {
-    border-top: 1px solid #ccc;
+    border-top: none;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
 }
 
@@ -168,7 +169,7 @@
   min-height: 38px;
   line-height: 38px;
   border: 0;
-  margin: 0.1em;
+  margin: 0;
   padding: 0;
   border-radius: 0;
 }
@@ -241,12 +242,12 @@
 #toc-container .fancytreeDiv ul li ul li,
 #toc-container .fancytreeDiv ul li{
 	color: #777;
-    background-color: #fff;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid transparent;
-    padding: 0.2em 0;
-    margin: 0;
-    min-height: 35px;
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+  border-bottom: none;
+  padding: 0em 0;
+  margin: 0;
+  min-height: 35px;
 }
 
 #toc-container .fancytreeDiv ul li ul li{
@@ -256,6 +257,10 @@
 
 #toc-container .fancytreeDiv ul li:first-child{
     border-top: none;
+}
+
+#toc-container .fancytreeDiv span.fancytree-node {
+  margin-top: 0px;
 }
 
 #toc-container .fancytreeDiv span.fancytree-node span.fancytree-title {
@@ -297,18 +302,25 @@
 /*div de capa*/
 #toc-container .fancytreeDiv ul.ui-fancytree li span.fancytree-node {
 	display: table;
-	padding: 0.5em 0;
+	padding: 14px 0 1px;
 }
 #toc-container .fancytreeDiv ul.ui-fancytree li span.fancytree-node.fancytree-expanded {
-    border-bottom: 2px solid #ccc;
-    min-height: 35px;
-    background: rgba(174,176,179,0.1);
+  padding: 14px 0 1px;
+  border-bottom: none;
+  min-height: 35px;
+  background: rgba(174,176,179,0.1);
 }
+
 /* #toc-container .fancytreeDiv ul.ui-fancytree li span.fancytree-node.fancytree-selected */
 #toc-container .fancytreeDiv ul.ui-fancytree li span.fancytree-node.fancytree-active{
     background: rgba(174,176,179,0.1);
 }
 
+#toc-container .fancytreeDiv .fancytree-node.fancytree-exp-n.fancytree-ico-c,
+#toc-container .fancytreeDiv .fancytree-node.fancytree-partsel.fancytree-selected.fancytree-exp-n.fancytree-ico-c,
+#toc-container .fancytreeDiv .fancytree-node.fancytree-lastsib.fancytree-exp-nl.fancytree-ico-c {
+  padding: 9px 0px 3px 10px !important;
+}
 #toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-4,
 #toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-12,
 #toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-8{
@@ -352,20 +364,22 @@
 *** Listado leyenda ***
 **********************/
 
-div[id^="ps_es_gva_dgti_gvgeoportal_web_"]{
-	padding: 1em 1em 0;
-    border-bottom: 1px solid #ccc;
-    margin: 0;
+.leaflet-control-layers-legend > div[id^="ps_es_gva_dgti_gvgeoportal_web_"]{
+	padding: 1em 1em 1em;
+  border-bottom: 1px solid #ccc;
+  margin: 0;
 }
 
-div[id^="ps_es_gva_dgti_gvgeoportal_web_"] p{
+.leaflet-control-layers-legend > div[id^="ps_es_gva_dgti_gvgeoportal_web_"] p{
 	font-size: 0.9em;
     color: #999;
     margin-bottom: 5px;
     font-weight: bold;
     text-shadow: none;
 }
-
+.leaflet-control-layers-legend img {
+  margin-bottom: 0px;
+}
 #toc-container .leaflet-control-layers-legend img{
     /* margin: 0 auto; */
     border: none;
@@ -522,16 +536,17 @@ span.fancytree-checkbox:hover {
 #toc-container input[type=range],
 #toc-container input[type=range] + .thumb {
   cursor: pointer;
-  }
+}
 
 #toc-container input[type=range] {
   position: relative;
   border: none;
-  width: 120px;
-  margin: 30px 0 10px 20px;
+  width: auto;
+  max-width: 130px;
+  margin: 17px 0 11px 3px;
   padding: 0;
   border: 1px solid white; /*required for proper track sizing in FF*/
-  }
+}
 
 #toc-container input[type=range]:focus {
   outline: none; }

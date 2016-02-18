@@ -461,25 +461,31 @@ table.dataTable tr.row_bg_red td:nth-child(3) {
 }
 .predefined-views-control {
   margin-top: -278px !important;
-  margin-right: 75px !important;
+  margin-right: 70px !important;
 }
 
-.predefined-views-layer-control:hover {
+.history-control, .leaflet-control-zoomslider {
+  opacity: 0.5;
+}
+.history-control:hover, .leaflet-control-zoomslider:hover, .predefined-views-layer-control:hover {
   opacity: 1;
 }
+
 .predefined-views-layer-control {
-	float:left!important;
-	background: #0b5476 none repeat scroll 0 0;
-	min-height: 30px !important;
-	min-widht: 30px !important;
-	border-radius: 3px;
-	border: 4px solid #0b5476;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
+	float: left!important;
+	background: #ffffff none repeat scroll 0 0;
+	min-height: 25px !important;
+	min-widht: 90px !important;
+	border-radius: 5px;
 	padding: 5px;
 	margin-right: 10px;
-	opacity: 0.7;
+	text-align: center;
+	width: 90px;
+	opacity: 0.5;
 }
 .predefined-views-layer-control a {
-	color: #d2e3eb;
+	color: black;
 	text-decoration: none;
 }
 
@@ -515,6 +521,7 @@ li.ui-menu-item > span#layer-toc-tools {
 
 ul.ui-menu.ui-menu, ul.ui-menu {
   width: auto;
+  max-width: 600px;
   border: none;
   border-radius: 5px;
   padding: 0px;
@@ -530,7 +537,7 @@ ul.ui-menu.ui-menu, ul.ui-menu {
 }
 
 li.ui-menu-item {
-  white-space: nowrap;
+  white-space: normal;
   padding: 0px 1px 3px 5px !important;
 }
 li.ui-menu-item:first-child {
@@ -779,13 +786,17 @@ div.loupe-listselector {
 
 /* tools of leaflet map */
 .leaflet-top .leaflet-control {
-  margin-top: 60px;
+  margin-top: 0px;
 }
 .leaflet-right .leaflet-control {
-  margin-right: 15px;
+  margin-right: 10px;
 }
 .controls {
   position: relative;
+}
+
+.leaflet-bottom .leaflet-control-scale {
+  margin-bottom: 10px;
 }
 
 /* Loupe */

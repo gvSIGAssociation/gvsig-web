@@ -44,32 +44,6 @@
     <cxf.version>2.7.3</cxf.version>
 
     <pom.gvgeoportal.version.info>${project.version}</pom.gvgeoportal.version.info>
-
-    <!-- Propiedades por defecto (para test) -->
-    <!-- DB gvgeoportal -->
-    <pom.test.db.url>jdbc:postgresql://dbdpostgre.srv.gva.es:5432/pg01desa</pom.test.db.url>
-    <pom.test.db.username>owgvgeoportal</pom.test.db.username>
-    <pom.test.db.password>kopotuba</pom.test.db.password>
-    <pom.test.db.driverClassName>org.postgresql.Driver</pom.test.db.driverClassName>
-    <pom.db.dialect>org.hibernate.dialect.PostgreSQLDialect</pom.db.dialect>
-    <pom.db.schema>owgvgeoportal</pom.db.schema>
-    <pom.db.jndi.name>noSeUsa</pom.db.jndi.name>
-
-    <!-- Propiedades SAFE -->
-    <pom.application.id />
-    <pom.security.SAFE.active>false</pom.security.SAFE.active>
-    <pom.security.SAFE.mapRoles>true</pom.security.SAFE.mapRoles>
-    <pom.security.SAFE.autorizacion.poraplicacion>false</pom.security.SAFE.autorizacion.poraplicacion>
-    <pom.security.SAFE.environment>DESA</pom.security.SAFE.environment>
-    <pom.security.SAFE.keystore.file>/home/USER/software/java/jdk/jre/lib/security/cacerts</pom.security.SAFE.keystore.file>
-    <pom.security.SAFE.keystore.type.keystore>JKS</pom.security.SAFE.keystore.type.keystore>
-    <pom.security.SAFE.keystore.alias>gvgeoportaldescert</pom.security.SAFE.keystore.alias>
-    <pom.security.SAFE.keystore.password>changeit</pom.security.SAFE.keystore.password>
-    <pom.security.SAFE.alias.password>43598</pom.security.SAFE.alias.password>
-    <pom.security.SAFE.traceabilityId>1aa25d39e7ef6acf-GVGEOPORTAL-</pom.security.SAFE.traceabilityId>
-    <pom.security.SAFE.propertiesPath>${basedir}/src/main/resources/safe_client_sign.properties</pom.security.SAFE.propertiesPath>
-    <pom.wsdl.SAFE.location>https://preinterint.gva.es/eSirca_Bus/ins/Proxy/SAFE/AutenticacionArangi_v1_00?wsdl</pom.wsdl.SAFE.location>
-    <pom.wsdl.SAFEAutorizacion.location>https://preinterint.gva.es:443/eSirca_Bus/ins/Proxy/SAFE/AutorizacionHDFI_v1_00?wsdl</pom.wsdl.SAFEAutorizacion.location>
   </properties>
   <repositories>
     <repository>
