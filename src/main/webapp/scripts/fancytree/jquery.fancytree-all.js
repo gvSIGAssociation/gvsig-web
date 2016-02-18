@@ -3067,6 +3067,11 @@ $.extend(Fancytree.prototype,
 		}
 		// connector (expanded, expandable or simple)
 		// TODO: optimize this if clause
+		var classes = "col-xs-8";
+
+		if(level > 1){
+			classes = "col-xs-12";
+		}
 		if( level < opts.minExpandLevel ) {
 			if( !node.lazy ) {
 				node.expanded = true;
@@ -3074,19 +3079,18 @@ $.extend(Fancytree.prototype,
 			if(level > 1){
 				if(aria){
 					//Added DIV colspan
-					ares.push("<div class='col-xs-8'><span role='button' class='fancytree-expander fancytree-expander-fixed'></span>");
+					ares.push('<div class="'+classes+'"><span role="button" class="fancytree-expander fancytree-expander-fixed"></span>');
 				}else{
-					ares.push("<div class='col-xs-8'><span class='fancytree-expander fancytree-expander-fixed''></span>");
+					ares.push('<div class="'+classes+'"><span class="fancytree-expander fancytree-expander-fixed"></span>');
 				}
 			}
 			// .. else (i.e. for root level) skip expander/connector alltogether
 		} else {
 			if(aria){
 				//Added DIV colspan
-				//TODO: replace by class='col-xs-12' when clause works
-				ares.push("<div class='col-xs-8'><span role='button' class='fancytree-expander'></span>");
+				ares.push('<div class="'+classes+'"><span role="button" class="fancytree-expander"></span>');
 			}else{
-				ares.push("<div class='col-xs-8'><span class='fancytree-expander'></span>");
+				ares.push('<div class="'+classes+'"><span class="fancytree-expander"></span>');
 			}
 		}
 		// Checkbox mode
@@ -3126,8 +3130,7 @@ $.extend(Fancytree.prototype,
 			id = aria ? " id='ftal_" + node.key + "'" : "";
 			role = aria ? " role='treeitem'" : "";
 			tabindex = opts.titlesTabbable ? " tabindex='0'" : "";
-			//cierre de col
-			nodeTitle = "<span " + role + " class='fancytree-title'" + id + tooltip + tabindex + ">" + node.title + "</span></div>";
+			nodeTitle = "<span " + role + " class='fancytree-title'" + id + tooltip + tabindex + ">" + node.title + "</span>";
 		}
 		ares.push(nodeTitle);
 		// Note: this will trigger focusout, if node had the focus
