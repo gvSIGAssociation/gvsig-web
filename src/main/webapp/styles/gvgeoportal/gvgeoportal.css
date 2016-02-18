@@ -997,6 +997,16 @@ form#servicioWeb #mapview_tabs_user_layers_tabs {
   display: inline !important;
 }
 
+/*************************************************/
+/****** Styles for Wizard inside Form Page ******/
+/************************************************/
+
+div#wms_wizard_wms_wizard {
+    display: table;
+    width: 100%;
+}
+
+
 /********************************/
 /****** Styles for Printer ******/
 /********************************/
