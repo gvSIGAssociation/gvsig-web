@@ -202,9 +202,14 @@ public class GeoPortalController {
                         confVistasPredefinidas
                                 .setNombre(confVistasPredefinidasViejo
                                         .getNombre());
+                        Set<ServicioWeb> serviciosWebViejo = confVistasPredefinidasViejo
+                            .getServiciosWeb();
+                        Set<ServicioWeb> serviciosWeb = new HashSet<ServicioWeb>();
+                        for(ServicioWeb servicioWeb : serviciosWebViejo){
+                          serviciosWeb.add(servicioWeb);
+                        }
                         confVistasPredefinidas
-                                .setServiciosWeb(confVistasPredefinidasViejo
-                                        .getServiciosWeb());
+                                .setServiciosWeb(serviciosWeb);
                         confVistasPredefinidasService
                                 .saveConfVistasPredefinidas(confVistasPredefinidas);
                     }
