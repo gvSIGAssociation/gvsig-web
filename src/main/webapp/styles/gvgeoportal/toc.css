@@ -1,0 +1,608 @@
+/************************************/
+/****** Custom Toc  geoportal ******/
+/**********************************/
+
+/************************
+*** div container  ***
+***********************/
+
+.leaflet-left {
+    z-index: 1030;
+}
+
+.leaflet-control-layers.ui-tabs{
+  background: #ffffff;
+  padding: 0 !important;
+  border-radius: 4px;
+  margin-bottom: 0px;
+  border: 0px solid transparent;
+  text-shadow: rgba(0, 0, 0, 0.14902) 0px -1px 0px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
+  max-height: 55vh;
+}
+
+/************************
+*** content container   ***
+***********************/
+
+.leaflet-control-layers {
+    min-width: 0;
+}
+#toc_container{
+	overflow: hidden;
+}
+
+#toc-container.tab-content {
+  margin-left: 41px;
+  max-height: 55vh;
+  /*fixed with*/
+  /* width: 230px; */
+  width: 25vw;
+  max-width: 25vw;
+  border-left: 1px solid #ddd;
+}
+
+@media ( max-width : 768px) {
+	#toc-container.tab-content {
+		width: 50vw;
+  		max-width: 50vw;
+  		width: 250px;
+  		max-width: 250px;
+  		min-width: 250px;
+	}
+}
+
+
+#toc-container.tab-content.collapse {
+  margin-left: 0;
+  overflow: hidden;
+  max-height: 0;
+  /* fixed with */
+  width: 0;
+}
+
+#toc-container.tab-content .tab-pane {
+    overflow-y: auto;
+    border: 0 !important;
+    margin: 0.2em 0.2em 0.2em 0 !important;
+    padding: 0;
+    background: #fff;
+}
+
+#toc-container.tab-content .leaflet-control-layers-legend.tab-pane {
+    min-width: 0;
+    height: 400px;
+    max-height: 55vh;
+    overflow-y: auto;
+}
+/* #toc-container.tab-content .tab-pane[aria-hidden="false"] h3,
+#toc-container.tab-content .tab-pane.active h3 { */
+#toc-container.tab-content .tab-pane h3{
+    height: 35px;
+    padding: 0.7em 0em;
+    text-align: center;
+    font-size: 1.1em;
+     margin: 0.1em 0;
+    background: rgba(204,204,204,0.2);
+    color: #00407B;
+    margin: 0.1em;
+    text-shadow: rgba(0, 0, 0, 0.2) 0px -1px 0px;
+}
+div[id^="ps_es_gva_dgti_gvgeoportal_web_Map_"],
+.fancytreeDiv {
+    border-top: 1px solid #ccc;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+}
+
+/************************
+*** btn collapsed   ***
+***********************/
+
+.leaflet-control-layers-collapse-button {
+	font-family: 'Glyphicons Halflings';
+    -webkit-font-smoothing: antialiased;
+    margin-left: 0;
+    background: #ffffff;
+  	border-radius: 4px;
+  	border: 0px solid transparent;
+  	text-shadow: rgba(0, 0, 0, 0.14902) 0px -1px 0px;
+  	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
+  	height: 30px;
+    width: 30px;
+    padding: 0.5em 0;
+}
+.leaflet-control-layers-collapse-button:hover {
+    font-weight: bold;
+    color: #00407B;
+}
+
+
+/*****************
+*** buttons   ***
+*****************/
+
+#mapps_es_gva_dgti_gvgeoportal_web_Map #return_button_id{
+ 	margin-top: 0px;
+	margin-left: 0px !important;
+	margin-right: 0px !important;
+}
+
+.leaflet-top.leaflet-left{
+	  margin-top: 60px;
+}
+
+@media ( max-width : 768px) {
+	.leaflet-top.leaflet-left{
+	  margin-top: 60px;
+	}
+	#mapps_es_gva_dgti_gvgeoportal_web_Map #return_button_id,
+	#mapps_es_gva_dgti_gvgeoportal_web_Map .leaflet-top.leaflet-left{
+	   margin-top: 0 !important;
+    }
+}
+
+/********************
+*** tabs position ***
+********************/
+
+.leaflet-control-layers.ui-tabs ul.tabs-left {
+  float: left;
+  border: 0;
+  padding: 0;
+  /*define altura de todo el toc*/
+  max-height: 55vh;
+}
+
+.leaflet-control-layers.ui-tabs .tabs-left>li {
+  float: none;
+  display: table;
+  min-height: 38px;
+  line-height: 38px;
+  border: 0;
+  margin: 0.1em;
+  padding: 0;
+  border-radius: 0;
+}
+.leaflet-control-layers.ui-tabs .tabs-left>li>a {
+  display:block;
+  background-color: transparent;
+  cursor: pointer;
+  border: 0;
+  margin: 0;
+  padding: 5px 10px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.leaflet-control-layers.ui-tabs .ui-tabs-nav li.ui-tabs-active,
+.leaflet-control-layers.ui-tabs .ui-tabs-nav li.ui-tabs-active:hover{
+    background: rgba(204,204,204,0.2);
+    cursor: text;
+    border-top-color: rgba(255,255,255,0.2);
+    border-bottom-color: rgba(0,0,0,0.2);
+    -webkit-transition: background .5s;
+    -moz-transition: background .5s;
+    -o-transition: background .5s;
+    -ms-transition: background .5s;
+    transition: background .5s;
+}
+.leaflet-control-layers.ui-tabs .tabs-left>li:last-child>a {
+	border: 0;
+}
+.leaflet-control-layers.ui-tabs .ui-tabs-nav li.ui-tabs-active:last-child,
+.leaflet-control-layers.ui-tabs .ui-tabs-nav li.ui-tabs-active:last-child:hover{
+	border: 0;
+}
+
+.leaflet-control-layers.ui-tabs .tabs-left>li:hover a,
+.leaflet-control-layers.ui-tabs .tabs-left>li>a:hover {
+	color: #666 !important;
+}
+.leaflet-control-layers.ui-tabs .tabs-left>li>a:hover {
+    color: #00407B !important;
+}
+.leaflet-control-layers.ui-tabs .tabs-left>li.ui-tabs-active:hover a,
+.leaflet-control-layers.ui-tabs .tabs-left>li.ui-tabs-active a {
+    color: #00407B !important;
+}
+.leaflet-control-layers.ui-tabs .tabs-left>li>a>span.glyphicon,
+.leaflet-control-layers.ui-tabs .tabs-left>li>a>span.whhg,
+.leaflet-control-layers.ui-tabs .tabs-left>li>a.ui-tabs-anchor{
+	font-size: 0.95em;
+}
+
+/************************
+*** Listado de capas ***
+**********************/
+
+#toc-container ul.fancytree-container ul,
+#toc-container .fancytreeDiv ul {
+	font-size: inherit;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, Verdana, sans-serif;
+    font-weight: 500;
+    line-height: 1;
+    outline: none;
+}
+
+#toc-container ul.fancytree-container ul{
+	padding: 0;
+}
+
+#toc-container .fancytreeDiv ul li ul li,
+#toc-container .fancytreeDiv ul li{
+	color: #777;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid transparent;
+    padding: 0.2em 0;
+    margin: 0;
+    min-height: 35px;
+}
+
+#toc-container .fancytreeDiv ul li ul li{
+    margin: 0;
+    min-height: 35px;
+}
+
+#toc-container .fancytreeDiv ul li:first-child{
+    border-top: none;
+}
+
+#toc-container .fancytreeDiv span.fancytree-node span.fancytree-title {
+    color: inherit !important;
+    font-size: 0.9em;
+    border: none;
+    padding-top: 3px;
+}
+#toc-container .fancytreeDiv span.fancytree-selected span.fancytree-title {
+    color: inherit !important;
+    font-size: 0.9em;
+    border: none;
+    background-color: transparent !important;
+    text-shadow: none;
+    outline: none;
+}
+
+#toc-container .fancytreeDiv ul li:hover span.fancytree-title{
+    color: #00407B !important;
+    text-shadow: none;
+}
+#toc-container .fancytreeDiv ul li:hover ul li span.fancytree-title{
+    color: #777 !important;
+    text-shadow: none;
+}
+#toc-container .fancytreeDiv ul li:hover ul li:hover span.fancytree-title{
+    color: #00407B !important;
+    text-shadow: none;
+}
+
+#toc-container .fancytreeDiv span.fancytree-active span.fancytree-title {
+	color: #00407B !important;
+    font-weight: bold;
+    background-color: transparent !important;
+    outline: none;
+    text-shadow: none;
+}
+
+/*div de capa*/
+#toc-container .fancytreeDiv ul.ui-fancytree li span.fancytree-node {
+	display: table;
+	padding: 0.5em 0;
+}
+#toc-container .fancytreeDiv ul.ui-fancytree li span.fancytree-node.fancytree-expanded {
+	padding: 1em 0;
+    border-bottom: 2px solid #ccc;
+    min-height: 35px;
+    background: rgba(174,176,179,0.2);
+}
+
+#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-3,
+#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-9{
+    padding: 0;
+    border-bottom: none;
+
+}
+#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-3{
+	text-align: left;
+}
+#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-3 i,
+#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-3 a{
+}
+#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-3 span,
+#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-9 span{
+    display:block;
+    float: left;
+}
+#toc-container .fancytreeDiv ul.ui-fancytree li span.toc-tools.whhg.icon-trash {
+    margin-top: 2px;
+}
+#toc-container .fancytreeDiv ul li span[role="treeitem"]{
+    word-wrap: break-word;
+    white-space: normal;
+    /*fixed with*/
+    /* width: 120px; */
+    width: 70%;
+  	max-width: 70%;
+}
+#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-3 span[role="img"],
+#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-9 span[role="img"] {
+    display: none;
+}
+
+
+/***********************
+*** Listado leyenda ***
+**********************/
+
+div[id^="ps_es_gva_dgti_gvgeoportal_web_"]{
+	padding: 1em 1em 0;
+    border-bottom: 1px solid #ccc;
+    margin: 0;
+}
+
+div[id^="ps_es_gva_dgti_gvgeoportal_web_"] p{
+	font-size: 0.9em;
+    color: #999;
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-shadow: none;
+}
+
+#toc-container .leaflet-control-layers-legend img{
+    /* margin: 0 auto; */
+    border: none;
+    max-width: 100%;
+}
+
+
+/**************
+*** icons ***
+*************/
+
+#toc-container .fancytreeDiv .leaflet-control-layers.ui-tabs .glyphicon {
+    color: #777;
+}
+#toc-container .fancytreeDiv .leaflet-control-layers.ui-tabs .glyphicon .ui-tabs-active .glyphicon {
+    color: #333;
+}
+
+#toc-container .fancytreeDiv .whhg,
+#toc-container .fancytreeDiv .glyphicon {
+    color: #666;
+    font-size: 1em;
+    cursor: pointer;
+    padding: 0 3px;
+}
+@media ( max-width : 768px) {
+	#toc-container .fancytreeDiv .whhg,
+	#toc-container .fancytreeDiv .glyphicon {
+	    color: #666;
+	    font-size: 1em;
+	    cursor: pointer;
+	    padding: 0 1px;
+	}
+}
+
+.toc_layers_button{
+	margin: 0;
+}
+
+/*------------------------------------------------------------------------------
+ * Checkbox icon
+ *----------------------------------------------------------------------------*/
+span.fancytree-checkbox {
+  margin-left: 3px;
+  background-position: 0px -32px;
+  background-position: 0 0 !important;
+  background-image:url("icons/fa-square-o_16_0_666666_none.png");
+}
+span.fancytree-checkbox:hover {
+  background-position: -16px -32px;
+}
+.fancytree-partsel span.fancytree-checkbox {
+  background-position: -64px -32px;
+}
+.fancytree-partsel span.fancytree-checkbox:hover {
+  background-position: -80px -32px;
+}
+.fancytree-selected span.fancytree-checkbox {
+  background-position: -32px -32px;
+  background-position: 0 0 !important;
+  background-image:url("icons/fa-check-square-o_16_0_666666_none.png");
+}
+.fancytree-selected span.fancytree-checkbox:hover {
+  background-position: -48px -32px;
+}
+
+.fancytree-unselectable span.fancytree-checkbox:hover {
+  background-position: 0px -32px;
+  background-position: 0 0 !important;
+  background-image:url("icons/fa-square-o_16_0_666666_none.png");
+}
+.fancytree-unselectable.fancytree-partsel span.fancytree-checkbox:hover {
+  background-position: -64px -32px;
+}
+.fancytree-unselectable.fancytree-selected span.fancytree-checkbox:hover {
+  background-position: -32px -32px;
+  background-position: 0 0 !important;
+  background-image:url("icons/fa-check-square-o_16_0_666666_none.png");
+}
+
+
+
+
+/************************
+*** Opacidad Tool  ***
+**********************/
+
+/*container*/
+#toc-container .leaflet-control-layers-toolbar{
+    width: 100%;
+    min-height: 30px;
+    border-bottom: 1px solid #ddd;
+}
+#toc-container form.leaflet-control-layers-toolbar-list .tool-layer {
+    padding: 0;
+    display: table;
+    width: 100%;
+}
+/*TBC*/
+.tool-opacity label,
+#toc-container form.leaflet-control-layers-toolbar-list .tool-layer label {
+	font-size: 0.8em;
+    color: #999;
+    margin: 1.3em 0.5em;
+    font-weight: normal;
+}
+
+/***************
+      Range
+***************/
+
+#toc-container .tool-layer .tool-opacity .tooltip {
+	z-index: 2000;
+	width: 200px;
+}
+
+
+/* .tool-opacity */
+#toc-container .input-range-tooltip {
+/*     position: absolute;
+    border: none;
+    background-color: #00407B;
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    border-radius: 50% 50% 50% 0;
+    height: 20px;
+    width: 20px;
+    color: white;
+    text-align: center;
+    font-size: 0.6em;
+    padding: 0.3em;
+    font-weight: bold;
+    top: 47px;
+    left: 124px; */
+    position: relative;
+    margin: 10px;
+    background: #00407B;
+    padding: 2px 10px;
+    width: 30px;
+    color: #fff;
+    left: 100px;
+    display: none !important;
+}
+
+#toc-container .range-field {
+  position: relative;
+}
+#toc-container input[type=range],
+#toc-container input[type=range] + .thumb {
+  cursor: pointer;
+  }
+
+#toc-container input[type=range] {
+  position: relative;
+  border: none;
+  width: 120px;
+  margin: 30px 0 10px 20px;
+  padding: 0;
+  border: 1px solid white; /*required for proper track sizing in FF*/
+  }
+
+#toc-container input[type=range]:focus {
+  outline: none; }
+
+#toc-container input[type=range] {
+  -webkit-appearance: none;
+  }
+
+
+#toc-container input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #ccc; }
+
+#toc-container input[type=range]::-moz-range-track {
+  height: 3px;
+  background: #ddd;
+  border: none; }
+
+#toc-container input[type=range]::-moz-range-thumb {
+  border: none;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background: #00407B;
+  margin-top: -5px; }
+
+/*hide the outline behind the border*/
+#toc-container input[type=range]:-moz-focusring {
+  outline: 1px solid white;
+  outline-offset: -1px; }
+
+#toc-container input[type=range]:focus::-moz-range-track {
+  background: #ccc; }
+
+#toc-container input[type=range]::-ms-track {
+  height: 3px;
+  /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
+  background: transparent;
+  /*leave room for the larger thumb to overflow with a transparent border */
+  border-color: transparent;
+  border-width: 6px 0;
+  /*remove default tick marks*/
+  color: transparent; }
+
+#toc-container input[type=range]::-ms-fill-lower {
+  background: #777; }
+
+#toc-container input[type=range]::-ms-fill-upper {
+  background: #ddd; }
+
+#toc-container input[type=range]::-ms-thumb {
+  border: none;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background: #00407B; }
+
+#toc-container input[type=range]:focus::-ms-fill-lower {
+  background: #888; }
+
+#toc-container input[type=range]:focus::-ms-fill-upper {
+  background: #ccc; }
+
+
+/***************
+   Scrollbar
+***************/
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    background: rgba(0,64,123,0.7);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(0,64,123,0.2);
+}
+
+
