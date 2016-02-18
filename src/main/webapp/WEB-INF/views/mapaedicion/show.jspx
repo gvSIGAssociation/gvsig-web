@@ -132,7 +132,7 @@ You should have received a copy of the GNU Affero General Public License
 
   <!-- Botones de borrar capa -->
   <spring:message code="title_remove_layer" var="removeLayerTitle" htmlEscape="false" />
-  <a id="removeLayerButton" href="#" data-original-title='${removeLayerTitle}' title='${removeLayerTitle}' alt="${removeLayerTitle}" onclick="javascript:removeLayer()">
+  <a id="removeLayerButton" href="#" data-original-title='${removeLayerTitle}' title='${removeLayerTitle}' alt="${removeLayerTitle}" onclick="javascript:removeLayer(event)">
   	<span aria-hidden='true' class='toc-tools whhg icon-trash'></span>
   </a>
 
@@ -337,7 +337,13 @@ You should have received a copy of the GNU Affero General Public License
     /**
      * Elimina una capa del TOC.
      */
-    function removeLayer() {
+    function removeLayer(e) {
+    	var $spanTarget = jQuery(e.target);
+    	var spanPadre = $spanTarget.parent().parent().parent();
+    	if(!spanPadre.hasClass("ui-tabs-active")){
+    		jQuery(spanPadre).click();
+    	}
+
       var activeLayer = map.fnGetActiveLayer();
       if (typeof activeLayer !== 'undefined' && activeLayer !== 'remove') {
         // TODO Añadir al api del map la obtención de las layers. No hacerlo directamente sobre el objeto.
