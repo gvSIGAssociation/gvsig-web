@@ -45,7 +45,7 @@ jQuery(document).ready(function() {
 	//init toggle
 	$('.btn-toc-tools').click(function(){
 		var $boton = jQuery(this);
-		var $parent = $boton.closest("li");
+		var $parent = $boton.closest("span");
 		var $opacityTool = jQuery(".tool-opacity");
 		//comprobamos si la capa ya tiene la opacidad anyadida
 		if($parent.find(".tool-opacity").length == 0){

@@ -321,7 +321,7 @@
 }
 
 #toc-container .fancytreeDiv ul.children-layers .fancytree-node {
-  padding: 9px 0px 3px 15px !important;
+  padding: 9px 0px 3px 25px !important;
 }
 
 #toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-3,
@@ -460,6 +460,10 @@ span.fancytree-checkbox:hover {
     display: block;
     position: relative;
     padding: 10px 20px !important;
+}
+
+.fancytree-node .tool-opacity{
+    margin-top: 20px;
 }
 
 .tool-opacity label {
