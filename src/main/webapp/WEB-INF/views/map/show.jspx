@@ -288,14 +288,7 @@ You should have received a copy of the GNU Affero General Public License
               id="ps_es_gva_dgti_gvgeoportal_web_Map_toolbar_predefinedLayers_group_${capasPorGrupo.key}"
               label="${capasPorGrupo.key}" icon="glyphicon glyphicon-folder-open" z="user-managed">
               <c:forEach items="${capasPorGrupo.value}" var="capa">
-            <!-- Comprobamos si el layer esta en el toc activo-->
-              <c:set var="LayerInToc" value="false"/>
-              <c:forEach items="${geoportal.serviciosToc}" var="serviciosWebToc">
-               <c:if test="${serviciosWebToc.activo and serviciosWebToc.servicioWeb.id == capa.identificador}">
-                <c:set var="LayerInToc" value="true"/>
-               </c:if>
-              </c:forEach>
-                <predefined-layers:layer layerInToc="${LayerInToc}" label="${capa.nombreCapa}" icon="whhg icon-layerorderdown" z="user-managed" >
+                <predefined-layers:layer label="${capa.nombreCapa}" icon="whhg icon-layerorderdown" z="user-managed">
                   <c:choose>
                     <c:when test="${capa.tipo == 'WMS'}">
                       <layer:wms enableLegend="${enableLegend}"
@@ -585,23 +578,29 @@ You should have received a copy of the GNU Affero General Public License
   </div>
 <!--   Solo se muestra si se accede al mapa desde la aplicacion -->
   <c:if test="${!isPublic}">
+
   <!-- Título del TOC -->
-  <span id="titleToc"><b>${geoportal.titulo}</b></span>
-    <!-- Boton "Volver" -->
-   <div class="row submit leaflet-control" id="return_button_id">
-     <div class="col-xs-12 col-sm-auto col-md-12 col-lg-12 buttonReturn">
-		 <spring:message code="label_return_listado" htmlEscape="false" var="label_return_listado"/>
-		<input id="return" type="button" class="btn btn-primary btn-block btn-return" value="${fn:escapeXml(label_return_listado)}" onclick="javascript:cancelSaveToc()" />
-	 </div>
-   </div>
-  <script type="text/javascript"><![CDATA[
+  <h3 id="titleToc">${geoportal.titulo}</h3>
+
+  <!-- Boton "Volver" -->
+   <li id="return_button_id" class="ui-state-default ui-corner-top">
+		<spring:message code="label_return_listado" htmlEscape="false" var="label_return_listado"/>
+		<a id="return" data-toggle="tooltip" data-title="${fn:escapeXml(label_return_listado)}" alt="${fn:escapeXml(label_return_listado)}" data-placement="right" title="${fn:escapeXml(label_return_listado)}" type="button" onclick="javascript:cancelSaveToc()">
+		<span class="whhg icon-pageback"></span>
+		</a>
+   </li>
+
+  <script type="text/javascript">
+  	<![CDATA[
 
     jQuery(document).ready(function() {
 
 	  // Añade el título del geoportal en el TOC
-      jQuery("#toc_container").prepend(jQuery("#titleToc"));
-      // Añade el botón de cancelar y guardar
-      jQuery("#return_button_id").insertBefore("#toc_container");
+      jQuery(".tab-content .tab-pane").prepend(jQuery("#titleToc"));
+
+      // Añade el botón de volver al listado de geoportales
+      jQuery(".leaflet-control-layers-tabs").append(jQuery("#return_button_id"));
+
     });
 
     /**

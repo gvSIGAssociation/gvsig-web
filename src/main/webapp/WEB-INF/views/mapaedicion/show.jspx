@@ -106,31 +106,38 @@ You should have received a copy of the GNU Affero General Public License
   </geo:map>
 
   <!-- Título del TOC -->
-  <span id="titleToc"><b>${geoportal.titulo}</b></span>
+  <h3 id="titleToc">${geoportal.titulo}</h3>
 
   <!-- Botones de "Cancelar" y "Guardar" -->
-  <div class="row submit leaflet-control" id="group_edition_buttons_id">
-    <div class="col-xs-6 col-sm-auto col-md-6 col-lg-6 buttonEdition">
-      <spring:message code="button_cancel" var="cancel_button" htmlEscape="false" />
-      <input id="cancel_button_id" type="button" class="btn btn-primary btn-block btn-return"
-        value="${fn:escapeXml(cancel_button)}" onclick="javascript:cancelSaveToc()" />
-    </div>
-    <div class="col-xs-6 col-sm-auto col-md-6 col-lg-6 buttonEdition">
-      <spring:message code="button_save" var="save_button" htmlEscape="false" />
-      <input id="save_button_id" type="submit" class="btn btn-primary btn-block btn-proceed"
-        value="${fn:escapeXml(save_button)}" onclick="javascript:saveToc()" />
-    </div>
-  </div>
+  <li id="cancel_button_id" class="ui-state-default ui-corner-top">
+  	<spring:message code="button_cancel" var="cancel_button" htmlEscape="false" />
+     <a data-toggle="tooltip" data-title="${fn:escapeXml(cancel_button)}" data-placement="right" title="${fn:escapeXml(cancel_button)}" type="button" onclick="javascript:cancelSaveToc()">
+		<span class="whhg icon-remove"></span>
+	 </a>
+   </li>
+   <li id="save_button_id" class="ui-state-default ui-corner-top">
+  	 <spring:message code="button_save" var="save_button" htmlEscape="false" />
+     <a data-toggle="tooltip" data-title="${fn:escapeXml(save_button)}" data-placement="right" title="${fn:escapeXml(save_button)}" type="button" onclick="javascript:saveToc()">
+		<span class="whhg icon-save-floppy"></span>
+	 </a>
+   </li>
 
-  <!-- Botones de añadir y borrar capa -->
-  <div id="tocButtons">
-    <spring:message code="title_add_layer" var="addLayerTitle" htmlEscape="false" />
-    <a id="addLayerButton" class="icon create_entity" href="#" alt="${addLayerTitle}" title="${addLayerTitle}"
-      onclick="javascript:openAddLayerDialog()" />
-    <spring:message code="title_remove_layer" var="removeLayerTitle" htmlEscape="false" />
-    <a id="removeLayerButton" class="icon delete_entity" href="#" alt="${removeLayerTitle}" title="${removeLayerTitle}"
-      onclick="javascript:removeLayer()" />
-  </div>
+  <!-- Botones de añadir capa -->
+  <li id="addLayerButton" class="ui-state-default ui-corner-top">
+  	 <spring:message code="title_add_layer" var="addLayerTitle" htmlEscape="false" />
+     <a data-toggle="tooltip" data-title="${addLayerTitle}" data-placement="right" title="${addLayerTitle}" type="button" onclick="javascript:openAddLayerDialog()">
+		<span class="whhg icon-circleadd"></span>
+	 </a>
+ </li>
+
+  <!-- Botones de borrar capa -->
+  <spring:message code="title_remove_layer" var="removeLayerTitle" htmlEscape="false" />
+  <a id="removeLayerButton" href="#" data-original-title='${removeLayerTitle}' title='${removeLayerTitle}' alt="${removeLayerTitle}" onclick="javascript:removeLayer()">
+  	<span aria-hidden='true' class='toc-tools whhg icon-trash'></span>
+  </a>
+
+  	jQuery(".fancytree-node .col-xs-3").prepend("");
+
 
   <!-- Diálogo de añadir capa al TOC -->
   <div id="add_layer_dialog">&amp;nbsp;</div>
@@ -152,14 +159,18 @@ You should have received a copy of the GNU Affero General Public License
 
     jQuery(document).ready(function() {
 
-      // Añade el título del geoportal en el TOC
-      jQuery("#toc_container").prepend(jQuery("#titleToc"));
+	  // Añade el título del geoportal en el TOC
+      jQuery(".tab-content .tab-pane").prepend(jQuery("#titleToc"));
 
-      // Añade el botón de cancelar y guardar
-      jQuery("#group_edition_buttons_id").insertBefore("#toc_container");
+      // Añade el botón de cancelar, guardar y añadir capa
+      jQuery(".leaflet-control-layers-tabs").append(jQuery("#addLayerButton"));
+      jQuery(".leaflet-control-layers-tabs").append(jQuery("#save_button_id"));
+      jQuery(".leaflet-control-layers-tabs").append(jQuery("#cancel_button_id"));
 
-      // Añade los botones de añadir y borrar capas
-      jQuery("#tocButtons").insertAfter("#ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_toc_toolbar_opacity_slider_opacity_tool");
+      // Añade el botón de borrar capa
+      //jQuery("#removeLayerButton").insertAfter("#ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_toc_toolbar_opacity_slider_opacity_tool");
+      jQuery(".fancytree-node .col-xs-3").append(jQuery("#removeLayerButton"));
+
 
       // Se obtiene el mapa
       map = GvNIX_Map_Leaflet.fnGetInstance("ps_es_gva_dgti_gvgeoportal_web_Mapaedicion");
