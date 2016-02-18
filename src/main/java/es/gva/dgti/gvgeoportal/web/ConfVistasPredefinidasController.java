@@ -28,7 +28,6 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.transaction.Transactional;
 
 import es.gva.dgti.gvgeoportal.domain.GeoPortal;
 import es.gva.dgti.gvgeoportal.domain.GeoportalServicioWeb;
@@ -84,6 +83,7 @@ public class ConfVistasPredefinidasController {
     uiModel.addAttribute("geoportales", geoPortalService.findAllGeoPortales());
     uiModel.addAttribute("tipocomponentes", Arrays.asList(TipoComponente.values()));
 
+
     if(!uiModel.containsAttribute("serviciosweb")){
       uiModel.addAttribute("serviciosweb", servicioWebService.findAllServiciosWeb());
     }
@@ -130,6 +130,9 @@ public class ConfVistasPredefinidasController {
             ServicioWeb servicioWeb = geoportalServicioWeb.getServicioWeb();
             serviciosWeb.add(servicioWeb);
           }
+          if(serviciosWeb.isEmpty()){
+            uiModel.addAttribute("serviciosWebEmpty", true);
+          }
           uiModel.addAttribute("serviciosweb", serviciosWeb);
         }
 
@@ -141,10 +144,9 @@ public class ConfVistasPredefinidasController {
 
     @RequestMapping(headers = "Accept=application/json", value = "createOnLine", produces = "application/json")
     @ResponseBody
-    @Transactional
-    public JsonResponse<List<ConfVistasPredefinidas>> createOnLine(@RequestParam("geoPortal") Long geoPortalId,
-                                              @RequestParam(value="serviciosWeb[]", required = false)  Long[] ids,
-                                              @RequestParam("nombre") String nombre,
+    public JsonResponse<List<ConfVistasPredefinidas>> createOnLine(@RequestParam(value="geoPortal", required=true) Long geoPortalId,
+                                              @RequestParam(value="serviciosWeb[]",required=true)  Long[] ids,
+                                              @RequestParam(value="nombre",required = true ) String nombre,
                                               @RequestParam("logo") byte[] logo) {
 
        JsonResponse<List<ConfVistasPredefinidas>> jsonResponse = new JsonResponse<List<ConfVistasPredefinidas>>();
@@ -167,7 +169,7 @@ public class ConfVistasPredefinidasController {
           confVistasPredefinidas.setLogo(logo);
           confVistasPredefinidasService.saveConfVistasPredefinidas(confVistasPredefinidas);
         }
-        catch (Exception ex) {
+       catch (Exception ex) {
             jsonResponse.setStatus("ERROR");
             jsonResponse.setExceptionMessage(ex.getLocalizedMessage());
             return jsonResponse;
