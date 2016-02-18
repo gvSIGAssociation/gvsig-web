@@ -425,7 +425,7 @@ span.fancytree-checkbox:hover {
 }
 .fancytree-partsel span.fancytree-checkbox {
   background-position: 0 0 !important;
-  background-image:url("icons/fa-check-square-o_14_0_666666_none.png");
+  background-image:url("icons/fa-minus-square-o_14_0_666666_none.png");
 }
 .fancytree-partsel span.fancytree-checkbox:hover {
   background-position: 0 0;
@@ -447,7 +447,7 @@ span.fancytree-checkbox:hover {
 }
 .fancytree-unselectable.fancytree-selected span.fancytree-checkbox:hover {
   background-position: 0 0 !important;
-  background-image:url("icons/fa-check-square-o_14_0_666666_none.png");
+  background-image:url("icons/fa-minus-square-o_14_0_666666_none.png");
 }
 
 
