@@ -54,23 +54,34 @@
 #toc-container.tab-content {
   margin-left: 41px;
   max-height: 55vh;
-  /*fixed with*/
-  /* width: 230px; */
-  width: 25vw;
-  max-width: 25vw;
+  width: 30vw;
+  max-width: 30vw;
   border-left: 1px solid #ddd;
 }
 
 @media ( max-width : 768px) {
 	#toc-container.tab-content {
-		width: 50vw;
-  		max-width: 50vw;
-  		width: 250px;
-  		max-width: 250px;
-  		min-width: 250px;
+  		min-width: 40vw;
+	   	width: 40vw;
+	   	max-width: 40vw;
 	}
 }
 
+@media ( max-width : 480px) {
+	#toc-container.tab-content {
+  		min-width: 60vw;
+	   	width: 60vw;
+	   	max-width: 60vw;
+	}
+}
+
+@media ( max-width : 320px) {
+	#toc-container.tab-content {
+  		min-width: 60vw;
+	   	width: 60vw;
+	   	max-width: 60vw;
+	}
+}
 
 #toc-container.tab-content.collapse {
   margin-left: 0;
@@ -289,26 +300,27 @@
 	padding: 0.5em 0;
 }
 #toc-container .fancytreeDiv ul.ui-fancytree li span.fancytree-node.fancytree-expanded {
-	padding: 1em 0;
     border-bottom: 2px solid #ccc;
     min-height: 35px;
-    background: rgba(174,176,179,0.2);
+    background: rgba(174,176,179,0.1);
+}
+/* #toc-container .fancytreeDiv ul.ui-fancytree li span.fancytree-node.fancytree-selected */
+#toc-container .fancytreeDiv ul.ui-fancytree li span.fancytree-node.fancytree-active{
+    background: rgba(174,176,179,0.1);
 }
 
-#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-3,
-#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-9{
+#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-4,
+#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-12,
+#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-8{
     padding: 0;
     border-bottom: none;
-
 }
-#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-3{
+#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-4{
 	text-align: left;
 }
-#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-3 i,
-#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-3 a{
-}
-#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-3 span,
-#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-9 span{
+#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-4 span,
+#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-12 span,
+#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-8 span{
     display:block;
     float: left;
 }
@@ -323,8 +335,9 @@
     width: 70%;
   	max-width: 70%;
 }
-#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-3 span[role="img"],
-#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-9 span[role="img"] {
+#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-4 span[role="img"],
+#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-12 span[role="img"],
+#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-8 span[role="img"] {
     display: none;
 }
 
@@ -392,40 +405,37 @@ div[id^="ps_es_gva_dgti_gvgeoportal_web_"] p{
 
 span.fancytree-checkbox {
   margin-left: 3px;
-  background-position: 0px -32px;
   background-position: 0 0 !important;
-  background-image:url("icons/fa-square-o_16_0_666666_none.png");
+  background-image:url("icons/fa-square-o_14_0_666666_none.png");
 }
 span.fancytree-checkbox:hover {
-  background-position: -16px -32px;
+  background-position: 0 0;
 }
 .fancytree-partsel span.fancytree-checkbox {
-  background-position: -64px -32px;
+  background-position: 0 0 !important;
+  background-image:url("icons/fa-check-square-o_14_0_666666_none.png");
 }
 .fancytree-partsel span.fancytree-checkbox:hover {
-  background-position: -80px -32px;
+  background-position: 0 0;
 }
 .fancytree-selected span.fancytree-checkbox {
   background-position: -32px -32px;
   background-position: 0 0 !important;
-  background-image:url("icons/fa-check-square-o_16_0_666666_none.png");
+  background-image:url("icons/fa-check-square_14_0_666666_none.png");
 }
 .fancytree-selected span.fancytree-checkbox:hover {
-  background-position: -48px -32px;
+  background-position: 0 0;
 }
-
 .fancytree-unselectable span.fancytree-checkbox:hover {
-  background-position: 0px -32px;
   background-position: 0 0 !important;
-  background-image:url("icons/fa-square-o_16_0_666666_none.png");
+  background-image:url("icons/fa-square-o_14_0_666666_none.png");
 }
 .fancytree-unselectable.fancytree-partsel span.fancytree-checkbox:hover {
-  background-position: -64px -32px;
+  background-position: 0 0;
 }
 .fancytree-unselectable.fancytree-selected span.fancytree-checkbox:hover {
-  background-position: -32px -32px;
   background-position: 0 0 !important;
-  background-image:url("icons/fa-check-square-o_16_0_666666_none.png");
+  background-image:url("icons/fa-check-square-o_14_0_666666_none.png");
 }
 
 
