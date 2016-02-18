@@ -40,6 +40,7 @@ import com.itextpdf.text.log.LoggerFactory;
 import es.gva.dgti.gvgeoportal.domain.GeoPortal;
 import es.gva.dgti.gvgeoportal.domain.GeoportalServicioWeb;
 import es.gva.dgti.gvgeoportal.domain.ServicioWeb;
+import es.gva.dgti.gvgeoportal.service.domain.ConfVistasPredefinidasService;
 import es.gva.dgti.gvgeoportal.service.domain.GeoPortalService;
 import es.gva.dgti.gvgeoportal.service.domain.GeoportalServicioWebService;
 import es.gva.dgti.gvgeoportal.service.domain.ServicioWebService;
@@ -53,6 +54,9 @@ public class GeoportalServicioWebServiceImpl implements
 
     @Autowired(required = false)
     GeoPortalService geoPortalService;
+
+    @Autowired(required = false)
+    ConfVistasPredefinidasService confVistasPredefinidasService;
 
     private static final Logger LOGGER = LoggerFactory
             .getLogger(MapaEdicionController.class);
@@ -152,7 +156,7 @@ public class GeoportalServicioWebServiceImpl implements
                             if (entry.getValue().toString().equals("remove")) {
                                 remove = true;
                                 deleteGeoportalServicioWeb(geoportalServicioWeb);
-                                // }
+                                confVistasPredefinidasService.deleteConfVistasPredefinidasServicioWebByGeoPortal(geoportalServicioWeb);
                             }
                         }else {
                             LOGGER.debug("No se hace nada.");

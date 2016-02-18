@@ -752,14 +752,25 @@ div.loupe-listselector {
   display: inline-block !important;
 }
 
+.displayInlineBlockCVP {
+  display: inline-block !important;
+}
 .logoGeoportal {
   max-height: 75px;
   max-width: 255px;
+}
+.logoConfVistasPredefinidas {
+  max-height: 30px;
+  max-width: 30px;
 }
 .logoGeoportalListado{
   max-width: 50px;
   max-height: 50px;
   min-width: 33px;
+}
+.logoConfVistasPredefinidasListado{
+  max-width: 30px;
+  max-height: 30px;
 }
 .public-logo-geoportal {
   height: 48px;
