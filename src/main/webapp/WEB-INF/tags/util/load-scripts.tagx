@@ -155,6 +155,13 @@ You should have received a copy of the GNU Affero General Public License
     <script src="${loupe_js_url}" type="text/javascript">
         <!--required for FF3 and Opera-->
     </script>
+
+<!-- CUSTOM -->
+<spring:url value="/resources/scripts/gvgeoportal/toc.js" var="toc_js_url"/>
+    <script src="${toc_js_url}" type="text/javascript">
+        <!--required for FF3 and Opera-->
+    </script>
+
 <spring:url value="/resources/styles/loupefield/loupeField.css" var="loupe_css_url"/>
     <link href="${loupe_css_url}" media="screen" rel="stylesheet" type="text/css"/>
 <spring:url value="/resources/scripts/loupefield/loupe-callbacks.js" var="loupe_callbacks_js_url"/>

@@ -33,4 +33,8 @@ You should have received a copy of the GNU Affero General Public License
 	<spring:url value="/resources/styles/gvgeoportal/gvgeoportal.css" var="gvgeoportal_css_url" />
 	<link href="${gvgeoportal_css_url}?v=${application_version_code}" rel="stylesheet" type="text/css" />
 
+  <!-- Toc styles -->
+  <spring:url value="/resources/styles/gvgeoportal/toc.css" var="toc_css_url" />
+  <link href="${toc_css_url}?v=${application_version_code}" rel="stylesheet" type="text/css" />
+
 </jsp:root>
