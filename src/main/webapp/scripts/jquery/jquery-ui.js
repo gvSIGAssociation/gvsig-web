@@ -15650,7 +15650,7 @@ var tabs = $.widget( "ui.tabs", {
 			prevPanels = this.panels;
 
 		this.tablist = this._getList()
-			.addClass( "ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all" )
+			.addClass( "ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all nav nav-tabs tabs-left" )
 			.attr( "role", "tablist" )
 
 			// Prevent users from focusing disabled tabs via click
@@ -15729,7 +15729,7 @@ var tabs = $.widget( "ui.tabs", {
 		});
 
 		this.panels
-			.addClass( "ui-tabs-panel ui-widget-content ui-corner-bottom" )
+			.addClass( "ui-tabs-panel ui-widget-content ui-corner-bottom tab-pane" )
 			.attr( "role", "tabpanel" );
 
 		// Avoid memory leaks (#10056)
