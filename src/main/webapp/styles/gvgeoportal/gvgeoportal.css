@@ -452,7 +452,7 @@ table.dataTable tr.row_bg_red td:nth-child(3) {
   margin-top: 100px !important;
 }
 .history-control {
-  margin-top: -277px !important;
+  margin-top: -228px !important;
 }
 
 
@@ -460,7 +460,7 @@ table.dataTable tr.row_bg_red td:nth-child(3) {
   margin-bottom: -4px;
 }
 .predefined-views-control {
-  margin-top: -278px !important;
+  margin-top: -229px !important;
   margin-right: 70px !important;
 }
 
@@ -521,7 +521,6 @@ li.ui-menu-item > span#layer-toc-tools {
 
 ul.ui-menu.ui-menu, ul.ui-menu {
   width: auto;
-  max-width: 600px;
   border: none;
   border-radius: 5px;
   padding: 0px;
@@ -636,6 +635,9 @@ li.predefined_layers_layer, li.thematic_group, li.predefined_views_group {
 
 .ui-dialog-content {
   overflow: unset !important;
+}
+[id*="metadata_metadata_tool_dialog"].ui-dialog-content {
+  overflow: auto !important;
 }
 div.loupe-listselector {
   overflow: auto !important;

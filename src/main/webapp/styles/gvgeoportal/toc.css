@@ -23,6 +23,9 @@
 .leaflet-top.leaflet-top .leaflet-control {
     margin-top: 0;
 }
+.leaflet-control-geosearch {
+  margin-top: 60px !important;
+}
 
 #mapps_es_gva_dgti_gvgeoportal_web_Mapaedicion .leaflet-top.leaflet-left,
 #mapps_es_gva_dgti_gvgeoportal_web_Map .leaflet-top.leaflet-left{
@@ -50,6 +53,7 @@
 }
 #toc_container{
 	overflow: hidden;
+	background-color: transparent;
 }
 
 #toc-container.tab-content {
@@ -57,6 +61,8 @@
   max-height: 55vh;
   width: 18vw;
   max-width: 18vw;
+  border-left: 1px solid #ddd;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 @media ( max-width : 768px) {
@@ -96,7 +102,7 @@
     border: 0 !important;
     margin: 0 0 0.2em 0 !important;
     padding: 0;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.5);
 }
 
 #toc-container.tab-content .leaflet-control-layers-legend.tab-pane {
@@ -107,13 +113,13 @@
 }
 /* #toc-container.tab-content .tab-pane[aria-hidden="false"] h3,
 #toc-container.tab-content .tab-pane.active h3 { */
-#toc-container.tab-content .tab-pane h3{
+#toc-container.tab-content .tab-pane h3 {
     height: 35px;
-    padding: 0.7em 0em;
+    padding: 12px 10px 30px 0px;
     text-align: center;
     font-size: 1.1em;
-     margin: 0.1em 0;
-    background: rgba(204,204,204,0.2);
+    margin: 0px !important;
+    background: rgba(76, 76, 76, 0.2);
     color: #00407B;
     margin: 0.1em;
     text-shadow: rgba(0, 0, 0, 0.2) 0px -1px 0px;
@@ -161,6 +167,7 @@
   /*define altura de todo el toc*/
   max-height: 55vh;
   border-right: 1px solid #ddd;
+  background-color: white;
 }
 
 .leaflet-control-layers.ui-tabs .tabs-left>li {
@@ -310,18 +317,12 @@
   background: rgba(174,176,179,0.1);
 }
 
-/* #toc-container .fancytreeDiv .fancytree-node.fancytree-exp-n.fancytree-ico-c,
-#toc-container .fancytreeDiv .fancytree-node.fancytree-lastsib.fancytree-exp-nl.fancytree-ico-c {} */
-/* #toc-container .fancytreeDiv .fancytree-node.fancytree-partsel.fancytree-selected.fancytree-exp-n.fancytree-ico-c{
-  padding: 9px 0px 3px 15px !important;
-} */
-
 #toc-container .fancytreeDiv .fancytree-node {
-  padding: 9px 0px 3px 10px !important;
+  padding: 9px 0px 3px 0px !important;
 }
 
 #toc-container .fancytreeDiv ul.children-layers .fancytree-node {
-  padding: 9px 0px 3px 25px !important;
+  padding: 9px 0px 3px 30px !important;
 }
 
 #toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-3,
@@ -357,6 +358,10 @@
 /***********************
 *** Listado leyenda ***
 **********************/
+
+.leaflet-control-layers-legend {
+  background-color: white !important;
+}
 
 .leaflet-control-layers-legend > div[id^="ps_es_gva_dgti_gvgeoportal_web_"]{
 	padding: 1em 1em 1em;
@@ -404,6 +409,9 @@
 #toc-container .fancytreeDiv ul.ui-fancytree li span.toc-tools.glyphicon-cog,
 #toc-container .fancytreeDiv ul.ui-fancytree li span.toc-tools.whhg.icon-trash {
     margin: 0;
+}
+#toc-container .fancytreeDiv ul.ui-fancytree li span.toc-tools.whhg.icon-trash {
+  padding: 10px 1px;
 }
 .toolbar_button {
     width: 16px;
