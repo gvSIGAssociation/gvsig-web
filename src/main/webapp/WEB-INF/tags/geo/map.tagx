@@ -192,21 +192,7 @@ You should have received a copy of the GNU Affero General Public License
 			if(instance){
 				var map = instance.fnGetMapObject();
 				map._onResize();
-				// Setting max height of layer control
-				jQuery(".mapviewer_layers").css("max-height", finalHeight - 90 + "px");
 
-				// Setting position of layer control collapse button
-				var layerControlWidth = jQuery(".leaflet-control-layers").width();
-				var layerControlHeight = jQuery(".leaflet-control-layers").height();
-				var buttonHeight = jQuery(".leaflet-control-layers-collapse-button").height();
-				var buttonWidth = jQuery(".leaflet-control-layers-collapse-button").width();
-				jQuery(".leaflet-control-layers-collapse-button").css("top", "0px" );
-				jQuery(".leaflet-control-layers-collapse-button").css("margin-left", (layerControlWidth + (buttonWidth / 5)) + "px" );
-				// Setting position of layer control collapse button image
-				var imageHeight = jQuery(".leaflet-control-layers-collapse-button > img").height();
-				jQuery(".leaflet-control-layers-collapse-button > img").css("margin-top",  (buttonHeight/2) -  (imageHeight/2) + "px");
-				// Setting max width of toolbar control
-				jQuery(".leaflet-control-toolbar").css("max-width", windowWidth - 20 + "px");
 			}
 		}
 
