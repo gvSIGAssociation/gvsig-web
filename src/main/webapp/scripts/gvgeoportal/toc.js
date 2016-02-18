@@ -47,10 +47,9 @@ jQuery(document).ready(function() {
 	jQuery(".leaflet-control-layers-toolbar").addClass("collapse");
 	jQuery(".leaflet-control-layers-toolbar").attr("id","toc-tools");
 	// added button to show opacity
-	jQuery(".fancytree-node .col-xs-3").prepend("<a class='btn-toc-tools' data-original-title='Control de opacidad de la capa' title='Control de opacidad de la capa'><span aria-hidden='true' class='toc-tools glyphicon glyphicon-cog'></span></a>");
+	jQuery(".fancytree-node .col-xs-4").prepend("<a class='btn-toc-tools' data-original-title='Control de opacidad de la capa' title='Control de opacidad de la capa'><span aria-hidden='true' class='toc-tools glyphicon glyphicon-cog'></span></a>");
 
 	// Ubicamos capa
-
 	//init toggle
 	$('.btn-toc-tools').click(function(){
 		var $boton = jQuery(this);
@@ -70,7 +69,7 @@ jQuery(document).ready(function() {
 	});
 
 
-//Images Toc
+	//Images Toc
 	jQuery("div[id^='ps_es_gva_dgti_gvgeoportal_web_'] img").addClass("img-responsive");
 
 
