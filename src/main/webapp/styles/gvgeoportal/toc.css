@@ -55,9 +55,8 @@
 #toc-container.tab-content {
   margin-left: 40px;
   max-height: 55vh;
-  width: 16vw;
-  max-width: 16vw;
-  border-left: 1px solid #ddd;
+  width: 18vw;
+  max-width: 18vw;
 }
 
 @media ( max-width : 768px) {
@@ -161,6 +160,7 @@
   padding: 0;
   /*define altura de todo el toc*/
   max-height: 55vh;
+  border-right: 1px solid #ddd;
 }
 
 .leaflet-control-layers.ui-tabs .tabs-left>li {
@@ -267,7 +267,6 @@
     color: inherit !important;
     font-size: 0.9em;
     border: none;
-    padding-top: 3px;
 }
 #toc-container .fancytreeDiv span.fancytree-selected span.fancytree-title {
     color: inherit !important;
@@ -311,34 +310,37 @@
   background: rgba(174,176,179,0.1);
 }
 
-/* #toc-container .fancytreeDiv ul.ui-fancytree li span.fancytree-node.fancytree-selected */
-#toc-container .fancytreeDiv ul.ui-fancytree li span.fancytree-node.fancytree-active{
-    background: rgba(174,176,179,0.1);
-}
+/* #toc-container .fancytreeDiv .fancytree-node.fancytree-exp-n.fancytree-ico-c,
+#toc-container .fancytreeDiv .fancytree-node.fancytree-lastsib.fancytree-exp-nl.fancytree-ico-c {} */
+/* #toc-container .fancytreeDiv .fancytree-node.fancytree-partsel.fancytree-selected.fancytree-exp-n.fancytree-ico-c{
+  padding: 9px 0px 3px 15px !important;
+} */
 
-#toc-container .fancytreeDiv .fancytree-node.fancytree-exp-n.fancytree-ico-c,
-#toc-container .fancytreeDiv .fancytree-node.fancytree-partsel.fancytree-selected.fancytree-exp-n.fancytree-ico-c,
-#toc-container .fancytreeDiv .fancytree-node.fancytree-lastsib.fancytree-exp-nl.fancytree-ico-c {
+#toc-container .fancytreeDiv .fancytree-node {
   padding: 9px 0px 3px 10px !important;
 }
-#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-4,
+
+#toc-container .fancytreeDiv ul.children-layers .fancytree-node {
+  padding: 9px 0px 3px 15px !important;
+}
+
+#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-3,
 #toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-12,
-#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-8{
+#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-9{
     padding: 0;
     border-bottom: none;
 }
-#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-4 span,
-#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-4 i,
-#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-4 a{
+#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-3 span,
+#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-3 i,
+#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-3 a{
 	float: right;
-	padding: 0 0.5em;
 }
-#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-4{
+#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-3{
     text-align: left;
 }
 
 #toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-12 span,
-#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-8 span{
+#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-9 span{
     display:block;
     float: left;
 }
@@ -353,9 +355,9 @@
     width: 70%;
   	max-width: 70%;
 }
-#toc-container .col-xs-4 span[role="img"],
+#toc-container .col-xs-3 span[role="img"],
 #toc-container .col-xs-12 span[role="img"],
-#toc-container .col-xs-8 span[role="img"] {
+#toc-container .col-xs-9 span[role="img"] {
     display: none !important;
 }
 
@@ -403,7 +405,7 @@
     color: #666;
     font-size: 1em;
     cursor: pointer;
-    padding: 0 3px;
+    padding: 0 3px 0 0;
 }
 @media ( max-width : 768px) {
 	#toc-container .fancytreeDiv .whhg,
@@ -459,156 +461,29 @@ span.fancytree-checkbox:hover {
 }
 
 
-
-
 /************************
 *** Opacidad Tool  ***
 **********************/
 
-/*container*/
-#toc-container .leaflet-control-layers-toolbar{
-    width: 100%;
-    min-height: 30px;
-    border-bottom: 1px solid #ddd;
+.tool-opacity{
+	width: 100%;
+    border: 1px solid red;
+    display: block;
+    position: relative;
+    padding: 10px 20px !important;
 }
-#toc-container form.leaflet-control-layers-toolbar-list .tool-layer {
-    padding: 0;
-    display: table;
-    width: 100%;
-}
-/*TBC*/
-.tool-opacity label,
-#toc-container form.leaflet-control-layers-toolbar-list .tool-layer label {
+
+.tool-opacity label {
 	font-size: 0.8em;
     color: #999;
-    margin: 1.3em 0.5em;
     font-weight: normal;
+    text-align: left;
 }
 
-/***************
-      Range
-***************/
-
-#toc-container .tool-layer .tool-opacity .tooltip {
+.tool-opacity .tooltip {
 	z-index: 2000;
 	width: 200px;
 }
-
-
-/* .tool-opacity */
-#toc-container .input-range-tooltip {
-/*     position: absolute;
-    border: none;
-    background-color: #00407B;
-    -webkit-transform-origin: 50% 50%;
-    -moz-transform-origin: 50% 50%;
-    -ms-transform-origin: 50% 50%;
-    -o-transform-origin: 50% 50%;
-    transform-origin: 50% 50%;
-    -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    -ms-transform: rotate(-45deg);
-    -o-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-    border-radius: 50% 50% 50% 0;
-    height: 20px;
-    width: 20px;
-    color: white;
-    text-align: center;
-    font-size: 0.6em;
-    padding: 0.3em;
-    font-weight: bold;
-    top: 47px;
-    left: 124px; */
-    position: relative;
-    margin: 10px;
-    background: #00407B;
-    padding: 2px 10px;
-    width: 30px;
-    color: #fff;
-    left: 100px;
-    display: none !important;
-}
-
-#toc-container .range-field {
-  position: relative;
-}
-#toc-container input[type=range],
-#toc-container input[type=range] + .thumb {
-  cursor: pointer;
-}
-
-#toc-container input[type=range] {
-  position: relative;
-  border: none;
-  width: auto;
-  max-width: 130px;
-  margin: 17px 0 11px 3px;
-  padding: 0;
-  border: 1px solid white; /*required for proper track sizing in FF*/
-}
-
-#toc-container input[type=range]:focus {
-  outline: none; }
-
-#toc-container input[type=range] {
-  -webkit-appearance: none;
-  }
-
-
-#toc-container input[type=range]:focus::-webkit-slider-runnable-track {
-  background: #ccc; }
-
-#toc-container input[type=range]::-moz-range-track {
-  height: 3px;
-  background: #ddd;
-  border: none; }
-
-#toc-container input[type=range]::-moz-range-thumb {
-  border: none;
-  height: 14px;
-  width: 14px;
-  border-radius: 50%;
-  background: #00407B;
-  margin-top: -5px; }
-
-/*hide the outline behind the border*/
-#toc-container input[type=range]:-moz-focusring {
-  outline: 1px solid white;
-  outline-offset: -1px; }
-
-#toc-container input[type=range]:focus::-moz-range-track {
-  background: #ccc; }
-
-#toc-container input[type=range]::-ms-track {
-  height: 3px;
-  /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
-  background: transparent;
-  /*leave room for the larger thumb to overflow with a transparent border */
-  border-color: transparent;
-  border-width: 6px 0;
-  /*remove default tick marks*/
-  color: transparent; }
-
-#toc-container input[type=range]::-ms-fill-lower {
-  background: #777; }
-
-#toc-container input[type=range]::-ms-fill-upper {
-  background: #ddd; }
-
-#toc-container input[type=range]::-ms-thumb {
-  border: none;
-  height: 14px;
-  width: 14px;
-  border-radius: 50%;
-  background: #00407B; }
-
-#toc-container input[type=range]:focus::-ms-fill-lower {
-  background: #888; }
-
-#toc-container input[type=range]:focus::-ms-fill-upper {
-  background: #ccc; }
-
 
 /***************
    Scrollbar
@@ -635,4 +510,13 @@ span.fancytree-checkbox:hover {
 	background: rgba(0,64,123,0.2);
 }
 
+/*------------------------------------------------------------------------------
+ * Expander icon
+ *
+ *----------------------------------------------------------------------------*/
 
+.fancytree-exp-nl span.fancytree-expander, .fancytree-exp-nl span.fancytree-expander:hover,
+.fancytree-exp-n span.fancytree-expander, .fancytree-exp-n span.fancytree-expander:hover {
+    width: 0;
+    height: 0;
+}

@@ -33,21 +33,13 @@ jQuery(document).ready(function() {
 		//general collapse
 	    jQuery(".tab-content").addClass("collapse");
 
-// altura tabs
-
-	$('.ui-tabs-anchor').click(function(){
-	   $('.nav-tabs.tabs-left').css("height","55vh");
-	   $('.tab-pane').css("height","55vh");
-
-	});
-
 //	Layer settings
 
 	//opacity tool collapsed
 	jQuery(".leaflet-control-layers-toolbar").addClass("collapse");
 	jQuery(".leaflet-control-layers-toolbar").attr("id","toc-tools");
 	// added button to show opacity
-	jQuery(".fancytree-node .col-xs-4").prepend("<a class='btn-toc-tools' data-original-title='Control de opacidad de la capa' title='Control de opacidad de la capa'><span aria-hidden='true' class='toc-tools glyphicon glyphicon-cog'></span></a>");
+	jQuery(".fancytree-node .col-xs-3").prepend("<a class='btn-toc-tools' data-original-title='Control de opacidad de la capa' title='Control de opacidad de la capa'><span aria-hidden='true' class='toc-tools glyphicon glyphicon-cog'></span></a>");
 
 	// Ubicamos capa
 	//init toggle
@@ -85,16 +77,29 @@ var tabsFn = (function() {
 	   }
 
 	   function setHeight() {
-	     var $tabPane = $('.tab-pane'),
-	         tabsHeight = $('.nav-tabs').height();
+		   tabsHeight = $('.tabs-left').height();
+		   var $tabContent = $('.tab-content');
+	       var $tabPane = $('.tab-pane');
 
 	     $tabPane.css({
 	       height: tabsHeight
 	     });
+	     $tabContent.css({
+		       height: tabsHeight
+		     });
 	   }
 
 	   $(init);
 })();
+
+//altura tabs
+$(document).ready(function(){
+$('.ui-tabs-anchor').click(function(){
+	   $('.nav-tabs.tabs-left').css("height","55vh");
+	   $('.tab-pane').css("height","55vh");
+
+	});
+});
 
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();

@@ -3067,7 +3067,7 @@ $.extend(Fancytree.prototype,
 		}
 		// connector (expanded, expandable or simple)
 		// TODO: optimize this if clause
-		var classes = "col-xs-8";
+		var classes = "col-xs-9";
 
 		if(level > 1){
 			classes = "col-xs-12";
