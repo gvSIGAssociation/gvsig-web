@@ -29,12 +29,18 @@ You should have received a copy of the GNU Affero General Public License
   <c:set var="EMPTY_STRING" value=""/>
 
   <spring:message code="tooltip_tool_opacity" var="tooltip"/>
+  <spring:message code="opacity" var="opacity"/>
 
-  <span id="${id}_opacity_tool" data-type="opacity" data-id="${id}_opacity_tool" class="tool-layer">
+  <span id="${id}_opacity_tool" data-type="opacity" data-id="${id}_opacity_tool" class="tool-layer tool-opacity">
 
     <!-- gvGeoportal - Fixed error with Tomcat 7.0.54 -->
-  	<input id="${id}_opacity_tool_range" data-placement="bottom" name="${id}_opacity_tool_range" type="range" value="1" step="0.1" min="0.0" max="1.0" style="opacity:0.5;" title="${tooltip}" disabled="${EMPTY_STRING}" />
-  	<output id="${id}_opacity_tool_range_tooltip" class="input-range-tooltip"></output>
+
+    <label class="pull-left">${opacity}</label>
+    <div>
+  		<input  id="${id}_opacity_tool_range" data-placement="bottom" name="${id}_opacity_tool_range" type="range" value="1" step="0.1" min="0.0" max="1.0" style="opacity:0.5;" title="${tooltip}" disabled="${EMPTY_STRING}" />
+  		<output id="${id}_opacity_tool_range_tooltip" class="input-range-tooltip"></output>
+  	</div>
+
   </span>
 
 </jsp:root>
