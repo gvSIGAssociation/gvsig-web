@@ -32,7 +32,7 @@ You should have received a copy of the GNU Affero General Public License
   <jsp:output omit-xml-declaration="yes" />
 
   <geo:map center="${geoportal.centro}" id="ps_es_gva_dgti_gvgeoportal_web_Mapaedicion"
-    projection="${geoportal.coordenadas}" zoom="${geoportal.zoom}" z="user-managed" label="Map">
+    projection="${geoportal.coordenadas}" zoom="${geoportal.zoom}" z="user-managed" label="Map" maxZoom="15">
 
     <geo:toc id="ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_toc" z="user-managed">
 
