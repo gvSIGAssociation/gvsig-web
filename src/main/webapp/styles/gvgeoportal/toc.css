@@ -330,11 +330,6 @@
     padding: 0;
     border-bottom: none;
 }
-#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-3 span,
-#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-3 i,
-#toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-3 a{
-	float: right;
-}
 #toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-3{
     text-align: left;
 }
@@ -343,9 +338,6 @@
 #toc-container .fancytreeDiv ul.ui-fancytree li .col-xs-9 span{
     display:block;
     float: left;
-}
-#toc-container .fancytreeDiv ul.ui-fancytree li span.toc-tools.whhg.icon-trash {
-    margin-top: 2px;
 }
 #toc-container .fancytreeDiv ul li span[role="treeitem"]{
     word-wrap: break-word;
@@ -405,21 +397,19 @@
     color: #666;
     font-size: 1em;
     cursor: pointer;
-    padding: 0 3px 0 0;
-}
-@media ( max-width : 768px) {
-	#toc-container .fancytreeDiv .whhg,
-	#toc-container .fancytreeDiv .glyphicon {
-	    color: #666;
-	    font-size: 1em;
-	    cursor: pointer;
-	    padding: 0 1px;
-	}
+    padding: 0;
+    margin: 0 3px;
 }
 
-.toc_layers_button{
-	margin: 0;
+#toc-container .fancytreeDiv ul.ui-fancytree li span.toc-tools.glyphicon-cog,
+#toc-container .fancytreeDiv ul.ui-fancytree li span.toc-tools.whhg.icon-trash {
+    margin: 0;
 }
+.toolbar_button {
+    width: 16px;
+    height: 16px;
+}
+
 
 /*------------------------------------------------------------------------------
  * Checkbox icon
