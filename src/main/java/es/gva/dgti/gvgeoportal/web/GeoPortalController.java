@@ -181,6 +181,8 @@ public class GeoPortalController {
                                 .getNombre());
                         confCapasTematicas.setGrupo(confCapasTematicasViejo
                                 .getGrupo());
+                        confCapasTematicas.setLogo(confCapasTematicasViejo.getLogo());
+                        confCapasTematicas.setLogoString(confCapasTematicasViejo.getLogoString());
                         confCapasTematicasService
                                 .saveConfCapasTematicas(confCapasTematicas);
 
@@ -210,6 +212,8 @@ public class GeoPortalController {
                         }
                         confVistasPredefinidas
                                 .setServiciosWeb(serviciosWeb);
+                        confVistasPredefinidas.setLogo(confVistasPredefinidasViejo.getLogo());
+                        confVistasPredefinidas.setLogoString(confVistasPredefinidasViejo.getLogoString());
                         confVistasPredefinidasService
                                 .saveConfVistasPredefinidas(confVistasPredefinidas);
                     }
