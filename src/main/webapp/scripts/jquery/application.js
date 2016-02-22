@@ -536,7 +536,6 @@ function fnRegisterFunctionsToCallBack(callback){
  */
 function clearForm(id,exclusions) {
 
-	debugger;
 	var arrayExcludes = [];
 	if(exclusions.length > 0){
 		exclusions = exclusions.toLowerCase();
