@@ -42,15 +42,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import es.gva.dgti.gvgeoportal.comparator.OrdenarCapasServicioWebPorNombreCapa;
 import es.gva.dgti.gvgeoportal.domain.AgrupadorCapa;
 import es.gva.dgti.gvgeoportal.domain.AgrupadorCapaServicioWeb;
+import es.gva.dgti.gvgeoportal.domain.CapasServicioWeb;
 import es.gva.dgti.gvgeoportal.domain.Componentes;
 import es.gva.dgti.gvgeoportal.domain.GeoPortal;
 import es.gva.dgti.gvgeoportal.domain.ServicioWeb;
-import es.gva.dgti.gvgeoportal.domain.ServicioWeb.CapasServicioWeb;
 import es.gva.dgti.gvgeoportal.domain.components.ConfAyudaBuscador;
 import es.gva.dgti.gvgeoportal.domain.components.ConfCapasTematicas;
 import es.gva.dgti.gvgeoportal.domain.components.ConfMiniMapa;
 import es.gva.dgti.gvgeoportal.domain.components.ConfVistasPredefinidas;
 import es.gva.dgti.gvgeoportal.domain.enumerated.TipoComponente;
+import es.gva.dgti.gvgeoportal.service.domain.CapasServicioWebService;
 import es.gva.dgti.gvgeoportal.service.domain.ComponentesService;
 import es.gva.dgti.gvgeoportal.service.domain.ConfCapasTematicasService;
 import es.gva.dgti.gvgeoportal.service.domain.ConfVistasPredefinidasService;
@@ -65,6 +66,9 @@ public class GeoPortalServiceImpl implements GeoPortalService {
 
     @Autowired(required = false)
     ServicioWebService servicioWebService;
+
+    @Autowired(required = false)
+    CapasServicioWebService capasServicioWebService;
 
     @Autowired(required = false)
     ConfVistasPredefinidasService confVistasPredefinidasService;
@@ -350,16 +354,13 @@ public class GeoPortalServiceImpl implements GeoPortalService {
         capa.put("tipo", servicioWeb.getTipo());
         capa.put("versionProtocolo", servicioWeb.getVersionProtocolo());
 
-        Set<CapasServicioWeb> capasServicioWeb = servicioWeb
-                .getCapasServicioWeb();
-        List<CapasServicioWeb> capasServicioWebList = new ArrayList<CapasServicioWeb>(
-                capasServicioWeb);
-        Collections.sort(capasServicioWebList,
+        List<CapasServicioWeb> capasServicioWeb = capasServicioWebService.findCapasServicioWebsByServicioWeb(servicioWeb);
+        Collections.sort(capasServicioWeb,
                 new OrdenarCapasServicioWebPorNombreCapa());
-        capa.put("capasServicioWeb", capasServicioWebList);
+        capa.put("capasServicioWeb", capasServicioWeb);
         capa.put("capas", servicioWebService.getSelectedInfoLayersNames(
-                capasServicioWebList, true));
-        capa.put("estilos", servicioWebService.getSelectedStyles(capasServicioWebList));
+                capasServicioWeb, true));
+        capa.put("estilos", servicioWebService.getSelectedStyles(capasServicioWeb));
         return capa;
     }
 

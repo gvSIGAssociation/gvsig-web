@@ -31,8 +31,8 @@ import javax.persistence.TypedQuery;
 import org.springframework.roo.addon.layers.service.RooService;
 
 import es.gva.dgti.gvgeoportal.domain.AgrupadorCapa;
+import es.gva.dgti.gvgeoportal.domain.CapasServicioWeb;
 import es.gva.dgti.gvgeoportal.domain.ServicioWeb;
-import es.gva.dgti.gvgeoportal.domain.ServicioWeb.CapasServicioWeb;
 import es.gva.dgti.gvgeoportal.domain.SistemaCoordenadas;
 
 @RooService(domainTypes = { es.gva.dgti.gvgeoportal.domain.ServicioWeb.class })

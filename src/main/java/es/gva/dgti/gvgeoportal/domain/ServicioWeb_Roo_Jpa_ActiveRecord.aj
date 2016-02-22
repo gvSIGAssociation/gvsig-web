@@ -14,7 +14,7 @@ privileged aspect ServicioWeb_Roo_Jpa_ActiveRecord {
     @PersistenceContext
     transient EntityManager ServicioWeb.entityManager;
     
-    public static final List<String> ServicioWeb.fieldNames4OrderClauseFilter = java.util.Arrays.asList("id", "nombre", "descripcion", "url", "versionProtocolo", "tipo", "coordenadas", "confVistasPredefinidas", "formatoImagen", "nombresCapas", "estilosCapas", "tileMatrixSet", "capasServicioWeb");
+    public static final List<String> ServicioWeb.fieldNames4OrderClauseFilter = java.util.Arrays.asList("id", "nombre", "descripcion", "url", "versionProtocolo", "tipo", "coordenadas", "confVistasPredefinidas", "capasServicioWeb", "formatoImagen", "nombresCapas", "estilosCapas", "tileMatrixSet");
     
     public static final EntityManager ServicioWeb.entityManager() {
         EntityManager em = new ServicioWeb().entityManager;

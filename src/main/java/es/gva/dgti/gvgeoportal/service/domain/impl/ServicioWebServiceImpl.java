@@ -41,10 +41,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import es.gva.dgti.gvgeoportal.comparator.OrdenarCapasServicioWebPorNombreCapa;
 import es.gva.dgti.gvgeoportal.domain.AgrupadorCapa;
+import es.gva.dgti.gvgeoportal.domain.CapasServicioWeb;
 import es.gva.dgti.gvgeoportal.domain.ServicioWeb;
-import es.gva.dgti.gvgeoportal.domain.ServicioWeb.CapasServicioWeb;
 import es.gva.dgti.gvgeoportal.domain.SistemaCoordenadas;
 import es.gva.dgti.gvgeoportal.domain.enumerated.TipoServicio;
+import es.gva.dgti.gvgeoportal.service.domain.CapasServicioWebService;
 import es.gva.dgti.gvgeoportal.service.domain.ServicioWebService;
 import es.gva.dgti.gvgeoportal.service.domain.SistemaCoordenadasService;
 
@@ -52,6 +53,9 @@ public class ServicioWebServiceImpl implements ServicioWebService {
 
     @Autowired
     SistemaCoordenadasService sistemaCoordenadasService;
+
+    @Autowired(required = false)
+    CapasServicioWebService capasServicioWebService;
 
     /*
      * (non-Javadoc)
@@ -458,15 +462,13 @@ public class ServicioWebServiceImpl implements ServicioWebService {
             ServicioWeb servicioWeb) {
         Map<String, String> map = new HashMap<String, String>();
 
-        Set<CapasServicioWeb> capasServicioWeb = servicioWeb
-                .getCapasServicioWeb();
-        List<CapasServicioWeb> capasServicioWebList = new LinkedList<CapasServicioWeb>();
-        capasServicioWebList.addAll(capasServicioWeb);
-        Collections.sort(capasServicioWebList,
+        List<CapasServicioWeb> capasServicioWeb = capasServicioWebService.findCapasServicioWebsByServicioWeb(servicioWeb);
+
+        Collections.sort(capasServicioWeb,
                 new OrdenarCapasServicioWebPorNombreCapa());
         String nombresCapas = "";
         String estilosCapas = "";
-        for (CapasServicioWeb capaServicioWeb : capasServicioWebList) {
+        for (CapasServicioWeb capaServicioWeb : capasServicioWeb) {
             String nombreCapa = capaServicioWeb.getNombreCapa();
             if (nombreCapa != null && !nombreCapa.isEmpty()) {
                 nombresCapas = nombresCapas.concat(nombreCapa).concat(",");

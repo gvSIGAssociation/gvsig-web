@@ -19,8 +19,7 @@
   
   You should have received a copy of the GNU Affero General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.
--->
-<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_0.xsd">
+--><entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_0.xsd">
 
 
 <entity class="es.gva.dgti.gvgeoportal.domain.AgrupadorCapa">
@@ -103,6 +102,13 @@
 <entity class="es.gva.dgti.gvgeoportal.domain.components.ConfMiniMapa">
         <entity-listeners>
             <entity-listener class="es.gva.dgti.gvgeoportal.domain.components.ConfMiniMapaAuditListener">
+                <description>MID:org.gvnix.addon.jpa.addon.audit.JpaAuditListenerMetadata</description>
+            </entity-listener>
+        </entity-listeners>
+    </entity>
+<entity class="es.gva.dgti.gvgeoportal.domain.CapasServicioWeb">
+        <entity-listeners>
+            <entity-listener class="es.gva.dgti.gvgeoportal.domain.CapasServicioWebAuditListener">
                 <description>MID:org.gvnix.addon.jpa.addon.audit.JpaAuditListenerMetadata</description>
             </entity-listener>
         </entity-listeners>

@@ -3,6 +3,7 @@
 
 package es.gva.dgti.gvgeoportal.domain;
 
+import es.gva.dgti.gvgeoportal.domain.CapasServicioWeb;
 import es.gva.dgti.gvgeoportal.domain.ServicioWeb;
 import es.gva.dgti.gvgeoportal.domain.SistemaCoordenadas;
 import es.gva.dgti.gvgeoportal.domain.components.ConfVistasPredefinidas;
@@ -75,6 +76,14 @@ privileged aspect ServicioWeb_Roo_JavaBean {
         this.confVistasPredefinidas = confVistasPredefinidas;
     }
     
+    public Set<CapasServicioWeb> ServicioWeb.getCapasServicioWeb() {
+        return this.capasServicioWeb;
+    }
+    
+    public void ServicioWeb.setCapasServicioWeb(Set<CapasServicioWeb> capasServicioWeb) {
+        this.capasServicioWeb = capasServicioWeb;
+    }
+    
     public String ServicioWeb.getFormatoImagen() {
         return this.formatoImagen;
     }
@@ -105,14 +114,6 @@ privileged aspect ServicioWeb_Roo_JavaBean {
     
     public void ServicioWeb.setTileMatrixSet(String tileMatrixSet) {
         this.tileMatrixSet = tileMatrixSet;
-    }
-    
-    public Set<CapasServicioWeb> ServicioWeb.getCapasServicioWeb() {
-        return this.capasServicioWeb;
-    }
-    
-    public void ServicioWeb.setCapasServicioWeb(Set<CapasServicioWeb> capasServicioWeb) {
-        this.capasServicioWeb = capasServicioWeb;
     }
     
 }

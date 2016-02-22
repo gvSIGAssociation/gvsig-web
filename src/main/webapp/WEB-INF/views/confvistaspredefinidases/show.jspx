@@ -33,7 +33,7 @@ You should have received a copy of the GNU Affero General Public License
         <!--   <field:display field="serviciosWeb" id="s_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_serviciosWeb" object="${confvistaspredefinidas}" z="Z5JM3gTSx2+1PVXGFj90COekjCI="/> -->
         <field:display field="serviciosWeb" id="s_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_serviciosWeb" object="${confvistaspredefinidas}" z="Z5JM3gTSx2+1PVXGFj90COekjCI="/>
         <field:display field="serviciosWebString" id="s_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_serviciosWebString" object="${confvistaspredefinidas}" z="KicPq4NGo7WOo2UJE/l2ra5IQNA="/>
-        <field:display field="logoString" id="s_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_logoString" object="${confvistaspredefinidas}" render="false" z="5jh427UQLR4+z6ZZ7GITsWli0NU="/>
-        <field:display field="logo" id="s_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_logo" object="${confvistaspredefinidas}" render="false" z="k4dy33yeVJXRbzWiIgNjWUrDIY4="/>
+        <field:display field="logoString" id="s_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_logoString" object="${confvistaspredefinidas}" render="false" z="user-managed"/>
+        <field:display field="logo" id="s_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_logo" object="${confvistaspredefinidas}" render="false" z="user-managed"/>
     </page:show>
 </div>

@@ -24,7 +24,7 @@ package es.gva.dgti.gvgeoportal.comparator;
 import java.io.Serializable;
 import java.util.Comparator;
 
-import es.gva.dgti.gvgeoportal.domain.ServicioWeb.CapasServicioWeb;
+import es.gva.dgti.gvgeoportal.domain.CapasServicioWeb;
 
 /**
  * Se usa para ordenar las capas del servicio web por nombre de capa usando

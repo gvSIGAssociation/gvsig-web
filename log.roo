@@ -360,3 +360,13 @@ web mvc loupe set --controller ~.web.GeoportalServicioWebController
 web mvc loupe field --controller ~.web.GeoportalServicioWebController --field servicioWeb --listPath serviciosweb/listLoupeEditionMap --additionalFields nombre,url
 web mvc loupe field --controller ~.web.GeoportalServicioWebController --field servicioWeb --listPath serviciosweb/listLoupeEditionMap --additionalFields nombre,url
 jpa audit all
+
+entity jpa --class ~.domain.CapasServicioWeb --identifierField id --testAutomatically
+field string --fieldName nombreCapa --notNull
+field string --fieldName tituloCapa
+field string --fieldName estiloCapa
+field reference --fieldName servicioWeb --type ~.domain.ServicioWeb
+service type --interface ~.service.domain.CapasServicioWebService --class ~.service.domain.impl.CapasServicioWebServiceImpl --entity ~.domain.CapasServicioWeb
+jpa audit all
+finder list --class ~.domain.CapasServicioWeb
+finder add --finderName findCapasServicioWebsByServicioWeb --class ~.domain.CapasServicioWeb

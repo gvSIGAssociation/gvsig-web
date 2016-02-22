@@ -3,24 +3,25 @@
  * Technologies (DGTI) of the Regional Ministry of Finance and Public
  * Administration of the Generalitat Valenciana (Valencian Community,
  * Spain), managed by gvSIG Association and led by DISID Corporation.
- * 
+ *
  * Copyright (C) 2016 DGTI - Generalitat Valenciana
- * 
+ *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
  * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Affero General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 package es.gva.dgti.gvgeoportal.web;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -42,11 +43,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import es.gva.dgti.gvgeoportal.domain.CapasServicioWeb;
 import es.gva.dgti.gvgeoportal.domain.GeoPortal;
 import es.gva.dgti.gvgeoportal.domain.ServicioWeb;
 import es.gva.dgti.gvgeoportal.domain.components.ConfMiniMapa;
 import es.gva.dgti.gvgeoportal.domain.enumerated.TipoComponente;
 import es.gva.dgti.gvgeoportal.service.batch.ConfMiniMapaBatchService;
+import es.gva.dgti.gvgeoportal.service.domain.CapasServicioWebService;
 import es.gva.dgti.gvgeoportal.service.domain.GeoPortalService;
 import es.gva.dgti.gvgeoportal.service.domain.ServicioWebService;
 
@@ -65,6 +68,9 @@ public class ConfMiniMapaController {
 
     @Autowired
     ServicioWebService servicioWebService;
+
+    @Autowired(required = false)
+    CapasServicioWebService capasServicioWebService;
 
     @Autowired
     GeoPortalService geoPortalService;
@@ -148,13 +154,14 @@ public class ConfMiniMapaController {
         String layersSelected = "";
         String stylesSelected = "";
 
+        List <CapasServicioWeb> listCapasServicioWeb = capasServicioWebService.findCapasServicioWebsByServicioWeb(servicioWeb);
+
         // obtenemos informacion sobre las capas y estilos
-        if (servicioWeb != null && servicioWeb.getCapasServicioWeb() != null
-                && servicioWeb.getCapasServicioWeb().size() > 0) {
+        if (servicioWeb != null && listCapasServicioWeb != null
+                && listCapasServicioWeb.size() > 0) {
             layersSelected = servicioWebService.getSelectedInfoLayersNames(
-                    confMiniMapa.getServicioWeb().getCapasServicioWeb(), true);
-            stylesSelected = servicioWebService.getStylesNames(confMiniMapa
-                    .getServicioWeb().getCapasServicioWeb());
+                    listCapasServicioWeb, true);
+            stylesSelected = servicioWebService.getStylesNames(listCapasServicioWeb);
         }
         // String con las capas seleccionadas
         uiModel.addAttribute("layersSelected", layersSelected);

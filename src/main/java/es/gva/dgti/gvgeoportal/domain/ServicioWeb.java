@@ -39,6 +39,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Transient;
 import javax.persistence.TypedQuery;
@@ -93,6 +95,12 @@ public class ServicioWeb {
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "serviciosWeb")
     private Set<ConfVistasPredefinidas> confVistasPredefinidas = new HashSet<ConfVistasPredefinidas>();
 
+    /**
+     */
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "servicioWeb")
+    @OrderBy("id ASC")
+    private Set<CapasServicioWeb> capasServicioWeb = new HashSet<CapasServicioWeb>();
+
     private String formatoImagen;
 
     @Transient
@@ -103,53 +111,6 @@ public class ServicioWeb {
 
     private String tileMatrixSet;
 
-    @Embeddable
-    public static class CapasServicioWeb {
-
-        private String nombreCapa;
-        private String tituloCapa;
-        private String estiloCapa;
-
-        /**
-         * Constructor vacio
-         */
-        public CapasServicioWeb() {}
-
-        public CapasServicioWeb(String nombreCapa, String tituloCapa, String estiloCapa) {
-            this.nombreCapa = nombreCapa;
-            this.tituloCapa = tituloCapa;
-            this.estiloCapa = estiloCapa;
-        }
-
-        public String getNombreCapa() {
-            return nombreCapa;
-        }
-
-        public void setNombreCapa(String nombreCapa) {
-            this.nombreCapa = nombreCapa;
-        }
-
-        public String getTituloCapa() {
-            return tituloCapa;
-        }
-
-        public void setTituloCapa(String tituloCapa) {
-            this.tituloCapa = tituloCapa;
-        }
-
-        public String getEstiloCapa() {
-            return estiloCapa;
-        }
-
-        public void setEstiloCapa(String estiloCapa) {
-            this.estiloCapa = estiloCapa;
-        }
-    }
-
-    @ElementCollection
-    @CollectionTable(name = "CapasServicioWeb",
-            joinColumns = @JoinColumn(name = "ID_CAPA_SERVICIO_WEB"))
-    private Set<CapasServicioWeb> capasServicioWeb = new HashSet<CapasServicioWeb>();
 
     public String toString() {
         return this.nombre;

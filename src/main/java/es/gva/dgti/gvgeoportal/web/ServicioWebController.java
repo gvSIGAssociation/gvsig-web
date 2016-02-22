@@ -62,11 +62,12 @@ import com.mysema.query.BooleanBuilder;
 import com.mysema.query.types.path.PathBuilder;
 
 import es.gva.dgti.gvgeoportal.domain.AgrupadorCapaServicioWeb;
+import es.gva.dgti.gvgeoportal.domain.CapasServicioWeb;
 import es.gva.dgti.gvgeoportal.domain.ServicioWeb;
-import es.gva.dgti.gvgeoportal.domain.ServicioWeb.CapasServicioWeb;
 import es.gva.dgti.gvgeoportal.domain.SistemaCoordenadas;
 import es.gva.dgti.gvgeoportal.domain.enumerated.TipoServicio;
 import es.gva.dgti.gvgeoportal.service.domain.AgrupadorCapaServicioWebService;
+import es.gva.dgti.gvgeoportal.service.domain.CapasServicioWebService;
 import es.gva.dgti.gvgeoportal.service.domain.GestorCatalogoService;
 import es.gva.dgti.gvgeoportal.service.domain.SistemaCoordenadasService;
 import es.gva.dgti.gvgeoportal.util.Constants;

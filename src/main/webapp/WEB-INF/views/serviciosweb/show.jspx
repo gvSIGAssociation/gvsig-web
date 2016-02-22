@@ -19,8 +19,7 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
--->
-<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/jquery/form/fields" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:geo="urn:jsptagdir:/WEB-INF/tags/geo" xmlns:geodisplay="urn:jsptagdir:/WEB-INF/tags/geo/form/fields" xmlns:gvgeoportal="urn:jsptagdir:/WEB-INF/tags/gvgeoportal" xmlns:gvgeoportal-page="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/datatables" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:layer="urn:jsptagdir:/WEB-INF/tags/geo/layers" xmlns:page="urn:jsptagdir:/WEB-INF/tags/datatables" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+--><div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/jquery/form/fields" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:geo="urn:jsptagdir:/WEB-INF/tags/geo" xmlns:geodisplay="urn:jsptagdir:/WEB-INF/tags/geo/form/fields" xmlns:gvgeoportal="urn:jsptagdir:/WEB-INF/tags/gvgeoportal" xmlns:gvgeoportal-page="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/datatables" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:layer="urn:jsptagdir:/WEB-INF/tags/geo/layers" xmlns:page="urn:jsptagdir:/WEB-INF/tags/datatables" xmlns:spring="http://www.springframework.org/tags" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <spring:message code="wait_label" htmlEscape="false" var="wait_label"/>
@@ -44,7 +43,7 @@ You should have received a copy of the GNU Affero General Public License
                 </div>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6">
-                <gvgeoportal:showMap crs="${crs}" tilematrixSet="${servicioweb.tileMatrixSet}" formatoImagen="${servicioweb.formatoImagen}" idMapa="ps_es_gva_dgti_gvgeoportal_web_Map_${servicioweb.id}" layersSelected="${layersSelected}" stylesSelected="${stylesSelected}" type="${servicioweb.tipo}" url="${servicioweb.url}"/>
+                <gvgeoportal:showMap crs="${crs}" formatoImagen="${servicioweb.formatoImagen}" idMapa="ps_es_gva_dgti_gvgeoportal_web_Map_${servicioweb.id}" layersSelected="${layersSelected}" stylesSelected="${stylesSelected}" tilematrixSet="${servicioweb.tileMatrixSet}" type="${servicioweb.tipo}" url="${servicioweb.url}"/>
                 <div class="row previewMapInfo">
                     <p class="text-muted">${mensajeAyudaPrevisualizacionMapa}</p>
                 </div>
@@ -62,6 +61,6 @@ You should have received a copy of the GNU Affero General Public License
         <field:display field="estilosCapas" id="s_es_gva_dgti_gvgeoportal_domain_ServicioWeb_estilosCapas" object="${servicioweb}" render="false" z="user-managed"/>
         <field:display field="nombresCapas" id="s_es_gva_dgti_gvgeoportal_domain_ServicioWeb_nombresCapas" object="${servicioweb}" render="false" z="user-managed"/>
         <field:display field="tileMatrixSet" id="s_es_gva_dgti_gvgeoportal_domain_ServicioWeb_tileMatrixSet" object="${servicioweb}" render="false" z="user-managed"/>
-        <field:display field="confVistasPredefinidas" id="s_es_gva_dgti_gvgeoportal_domain_ServicioWeb_confVistasPredefinidas" object="${servicioweb}" render="false" z="yS8W11kB1XiG23Eret/1IjhmgCg="/>
+        <field:display field="confVistasPredefinidas" id="s_es_gva_dgti_gvgeoportal_domain_ServicioWeb_confVistasPredefinidas" object="${servicioweb}" render="false" z="user-managed"/>
     </gvgeoportal-page:show>
 </div>

@@ -19,8 +19,7 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
--->
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/jquery/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/datatables" xmlns:gvgeoportal-form="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/datatables" xmlns:gvgeoportalfields="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/jquery/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" xmlns:user-layers="http://gvsig.org/web-framework/TLD/user-layers" version="2.0">
+--><div xmlns:field="urn:jsptagdir:/WEB-INF/tags/jquery/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/datatables" xmlns:gvgeoportal-form="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/datatables" xmlns:gvgeoportalfields="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/jquery/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" xmlns:user-layers="http://gvsig.org/web-framework/TLD/user-layers" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <spring:message code="busqueda_avanzada_catalogo" htmlEscape="false" var="busqueda_avanzada"/>
@@ -109,7 +108,7 @@ You should have received a copy of the GNU Affero General Public License
         <field:input field="estilosCapas" id="c_es_gva_dgti_gvgeoportal_domain_ServicioWeb_estilosCapas" render="false" z="user-managed"/>
         <field:input field="nombresCapas" id="c_es_gva_dgti_gvgeoportal_domain_ServicioWeb_nombresCapas" render="false" z="user-managed"/>
         <gvgeoportalfields:input-hidden field="tileMatrixSet" id="c_es_gva_dgti_gvgeoportal_domain_ServicioWeb_tileMatrixSet" z="user-managed"/>
-        <field:select field="confVistasPredefinidas" id="c_es_gva_dgti_gvgeoportal_domain_ServicioWeb_confVistasPredefinidas" itemValue="id" items="${confvistaspredefinidases}" multiple="true" path="/confvistaspredefinidases" render="false" z="8G7VnMLIhH5JpIESGVTTFQvWy5k="/>
+        <field:select field="confVistasPredefinidas" id="c_es_gva_dgti_gvgeoportal_domain_ServicioWeb_confVistasPredefinidas" itemValue="id" items="${confvistaspredefinidases}" multiple="true" path="/confvistaspredefinidases" render="false" z="user-managed"/>
     </gvgeoportal-form:update>
     <script><![CDATA[
 

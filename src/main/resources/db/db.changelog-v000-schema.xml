@@ -48,6 +48,10 @@
 		<createSequence sequenceName="componentes_id_seq"
 			startValue="300" />
 	</changeSet>
+	<changeSet author="omorro" id="schema-seq-6">
+		<createSequence sequenceName="capas_servicio_web_id_seq"
+			startValue="300" />
+	</changeSet>
 
 	<!-- Inicio creacion tablas -->
 
@@ -171,14 +175,20 @@
 	<changeSet author="omorro" id="schema-6"
 		objectQuotingStrategy="QUOTE_ALL_OBJECTS">
 		<createTable tableName="capas_servicio_web">
-			<column name="id_capa_servicio_web" type="BIGINT">
-				<constraints nullable="false" />
+			<column name="id" type="BIGINT">
+				<constraints primaryKey="true" primaryKeyName="capas_servicio_web_pkey" />
 			</column>
+			<column name="servicio_web" type="BIGINT" />
 			<column name="estilo_capa" type="VARCHAR(255)" />
 			<column name="nombre_capa" type="VARCHAR(255)">
 				<constraints nullable="false" />
 			</column>
 			<column name="titulo_capa" type="VARCHAR(255)" />
+			<column name="version" type="INT" />
+			<column name="audit_created_by" type="VARCHAR(255)" />
+			<column name="audit_creation" type="timestamp" />
+			<column name="audit_last_update" type="timestamp" />
+			<column name="audit_last_updated_by" type="VARCHAR(255)" />
 		</createTable>
 	</changeSet>
 
@@ -511,6 +521,14 @@
         deferrable="false" initiallyDeferred="false" onDelete="CASCADE"
         referencedColumnNames="id" referencedTableName="conf_vistas_predefinidas" />
     </changeSet>
+
+    <!-- Clave ajena de capas_servicio_web a servicio_web -->
+	<changeSet author="omorro" id="schema-fk-19">
+		<addForeignKeyConstraint baseColumnNames="servicio_web"
+			baseTableName="capas_servicio_web" constraintName="FK_capas_servicio_web_servicio_web"
+			deferrable="false" initiallyDeferred="false" onDelete="CASCADE"
+			referencedColumnNames="id" referencedTableName="servicio_web" />
+	</changeSet>
 
 
 
