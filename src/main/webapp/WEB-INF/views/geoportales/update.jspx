@@ -30,6 +30,8 @@ You should have received a copy of the GNU Affero General Public License
     <spring:message code="message_remove_image" htmlEscape="false" var="removeImageMessage"/>
     <spring:message code="label_es_gva_dgti_gvgeoportal_domain_geoportal_logo" htmlEscape="false" var="logoLabel"/>
     <spring:message code="title_new_logo" htmlEscape="false" var="newLogoLabel"/>
+    <spring:message code="button_cancel" htmlEscape="false" var="buttonCancel"/>
+    <spring:message code="button_continue" htmlEscape="false" var="buttonContinue"/>
     <gvgeoportal-form:update id="fu_es_gva_dgti_gvgeoportal_domain_GeoPortal" modelAttribute="geoPortal" path="/geoportales" versionField="Version" z="user-managed">
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
@@ -202,6 +204,14 @@ You should have received a copy of the GNU Affero General Public License
         <gvgeoportalfields:input-hidden disableFormBinding="true" field="cargarTematicosHidden" id="cargarTematicosHidden" label="nombre capa tematica" value="${cargarTematico}" z="user-managed"/>
         <gvgeoportalfields:input-hidden disableFormBinding="true" field="vistasPredefinidasHidden" id="vistasPredefinidasHidden" label="vista predefinida" value="${vistasPredefinidas}" z="user-managed"/>
         <gvgeoportalfields:input-hidden disableFormBinding="true" field="miniMapaHidden" id="miniMapaHidden" label="mini Mapa" value="${miniMapa}" z="user-managed"/>
+        <field:input field="logoString" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_logoString" render="false" z="user-managed"/>
+        <field:input field="logo" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_logo" render="false" z="user-managed"/>
+        <field:input field="alias" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_alias" render="false" z="user-managed"/>
+        <field:checkbox field="publicado" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_publicado" render="false" z="user-managed"/>
+        <field:simple field="serviciosToc" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_serviciosToc" messageCode="entity_reference_not_managed" messageCodeAttribute="Geoportal Servicio Web" render="false" z="user-managed"/>
+        <field:input field="urlCompleta" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_urlCompleta" render="false" z="user-managed"/>
+        <field:input field="minZoom" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_minZoom" validationMessageCode="field_invalid_integer" render="false" z="user-managed"/>
+        <field:input field="maxZoom" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_maxZoom" validationMessageCode="field_invalid_integer" render="false" z="user-managed"/>
         <!-- 		Dialogo de componente ayuda -->
         <div class="modal fade" id="dialogoComponentesAyuda" role="dialog" tabindex="-1">
             <div class="modal-dialog modal-lg" role="document">
@@ -221,21 +231,13 @@ You should have received a copy of the GNU Affero General Public License
                 </div>
             </div>
         </div>
-        <field:input field="logoString" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_logoString" render="false" z="user-managed"/>
-        <field:input field="logo" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_logo" render="false" z="user-managed"/>
-        <field:input field="alias" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_alias" render="false" z="user-managed"/>
-        <field:checkbox field="publicado" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_publicado" render="false" z="user-managed"/>
-        <field:simple field="serviciosToc" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_serviciosToc" messageCode="entity_reference_not_managed" messageCodeAttribute="Geoportal Servicio Web" render="false" z="user-managed"/>
-        <field:input field="urlCompleta" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_urlCompleta" render="false" z="user-managed"/>
-        <field:input field="minZoom" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_minZoom" validationMessageCode="field_invalid_integer" render="false" z="user-managed"/>
-        <field:input field="maxZoom" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_maxZoom" validationMessageCode="field_invalid_integer" render="false" z="user-managed"/>
+
     </gvgeoportal-form:update>
     <div id="dialogo_minimapa">&amp;nbsp;</div>
     <div id="dialogo_cargar_tematicos">&amp;nbsp;</div>
     <div id="dialogo_vistas_predefinidas">&amp;nbsp;</div>
     <div id="dialogoAgrupadorCapas">&amp;nbsp;</div>
-    <spring:message code="button_cancel" htmlEscape="false" var="buttonCancel"/>
-    <spring:message code="button_continue" htmlEscape="false" var="buttonContinue"/>
+
     <script type="text/javascript"><![CDATA[
 
 		jQuery(document).ready(function() {

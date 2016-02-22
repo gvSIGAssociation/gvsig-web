@@ -50,8 +50,9 @@ You should have received a copy of the GNU Affero General Public License
 	 <![CDATA[
 
     jQuery(document).ready(function() {
-    	  $('.btn-return').hide();
-    		$('.btn-proceed').hide();
+    	  //ocultamos botones de creacion y cancel
+    	  $('#confCapasTematicas .btn-return').hide();
+    	  $('#confCapasTematicas .btn-proceed').hide();
 
     		new GvNIX_Loupe(jQuery("#_c_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_grupo_loupe_input_id"));
 
@@ -74,7 +75,6 @@ You should have received a copy of the GNU Affero General Public License
 		 ]]>
 	</script>
 
-  <div>
    <form:create id="fc_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas" modelAttribute="confCapasTematicas" path="/confcapastematicases" render="${empty dependencies}" z="3DC+ux/G5bVRjbRVEXoZxSMrvwM=">
        <div id="lc_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas" class="tab-content create-div table-responsive" style="">
         <table class="table table-condensed">
@@ -129,7 +129,6 @@ You should have received a copy of the GNU Affero General Public License
            </div>
        </form:create>
 
-   <div>
 
 	<page:list id="plc_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas" items="${confcapastematicases}" z="rJU8LL4j6XpLJr7edak6DP5otC8=">
   	<table:table data="${confcapastematicases}" export=" " id="l_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas" path="/confcapastematicases" selection="false" show="false" delete="false" create="false" update="false" z="user-managed">
@@ -147,8 +146,6 @@ You should have received a copy of the GNU Affero General Public License
 		</table:table>
 	</page:list>
 
-  </div>
-  </div>
 	  <script>
     <![CDATA[
 
