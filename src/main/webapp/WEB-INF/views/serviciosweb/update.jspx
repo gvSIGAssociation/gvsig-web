@@ -98,7 +98,7 @@ You should have received a copy of the GNU Affero General Public License
         <div class="row">
             <gvgeoportalfields:input-hidden disableFormBinding="true" field="capasSeleccionadas" id="capasSeleccionadas" value="${layersSelected}" z="user-managed"/>
         </div>
-         <div class="row">
+        <div class="row">
             <gvgeoportalfields:input-hidden disableFormBinding="true" field="tituloCapasSeleccionadas" id="tituloCapasSeleccionadas" value="${titleLayersSelected}" z="user-managed"/>
         </div>
         <div class="row">
@@ -109,6 +109,7 @@ You should have received a copy of the GNU Affero General Public License
         <field:input field="estilosCapas" id="c_es_gva_dgti_gvgeoportal_domain_ServicioWeb_estilosCapas" render="false" z="user-managed"/>
         <field:input field="nombresCapas" id="c_es_gva_dgti_gvgeoportal_domain_ServicioWeb_nombresCapas" render="false" z="user-managed"/>
         <gvgeoportalfields:input-hidden field="tileMatrixSet" id="c_es_gva_dgti_gvgeoportal_domain_ServicioWeb_tileMatrixSet" z="user-managed"/>
+        <field:select field="confVistasPredefinidas" id="c_es_gva_dgti_gvgeoportal_domain_ServicioWeb_confVistasPredefinidas" itemValue="id" items="${confvistaspredefinidases}" multiple="true" path="/confvistaspredefinidases" render="false" z="8G7VnMLIhH5JpIESGVTTFQvWy5k="/>
     </gvgeoportal-form:update>
     <script><![CDATA[
 

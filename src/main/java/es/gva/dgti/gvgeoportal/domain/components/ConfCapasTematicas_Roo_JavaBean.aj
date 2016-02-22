@@ -24,4 +24,16 @@ privileged aspect ConfCapasTematicas_Roo_JavaBean {
         this.grupo = grupo;
     }
     
+    public byte[] ConfCapasTematicas.getLogo() {
+        return this.logo;
+    }
+    
+    public void ConfCapasTematicas.setLogo(byte[] logo) {
+        this.logo = logo;
+    }
+    
+    public void ConfCapasTematicas.setLogoString(String logoString) {
+        this.logoString = logoString;
+    }
+    
 }

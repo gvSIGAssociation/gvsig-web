@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 privileged aspect ConfCapasTematicas_Roo_Jpa_ActiveRecord {
     
-    public static final List<String> ConfCapasTematicas.fieldNames4OrderClauseFilter = java.util.Arrays.asList("nombre", "grupo");
+    public static final List<String> ConfCapasTematicas.fieldNames4OrderClauseFilter = java.util.Arrays.asList("nombre", "grupo", "logo", "logoString");
     
     public static long ConfCapasTematicas.countConfCapasTematicases() {
         return entityManager().createQuery("SELECT COUNT(o) FROM ConfCapasTematicas o", Long.class).getSingleResult();

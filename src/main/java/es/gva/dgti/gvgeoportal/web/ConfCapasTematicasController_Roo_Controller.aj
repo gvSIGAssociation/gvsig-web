@@ -4,13 +4,9 @@
 package es.gva.dgti.gvgeoportal.web;
 
 import es.gva.dgti.gvgeoportal.domain.components.ConfCapasTematicas;
-import es.gva.dgti.gvgeoportal.domain.enumerated.TipoComponente;
-import es.gva.dgti.gvgeoportal.service.domain.AgrupadorCapaService;
 import es.gva.dgti.gvgeoportal.service.domain.ConfCapasTematicasService;
-import es.gva.dgti.gvgeoportal.service.domain.GeoPortalService;
 import es.gva.dgti.gvgeoportal.web.ConfCapasTematicasController;
 import java.io.UnsupportedEncodingException;
-import java.util.Arrays;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.joda.time.format.DateTimeFormat;
@@ -29,12 +25,6 @@ privileged aspect ConfCapasTematicasController_Roo_Controller {
     
     @Autowired
     ConfCapasTematicasService ConfCapasTematicasController.confCapasTematicasService;
-    
-    @Autowired
-    AgrupadorCapaService ConfCapasTematicasController.agrupadorCapaService;
-    
-    @Autowired
-    GeoPortalService ConfCapasTematicasController.geoPortalService;
     
     @RequestMapping(method = RequestMethod.POST, produces = "text/html")
     public String ConfCapasTematicasController.create(@Valid ConfCapasTematicas confCapasTematicas, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
@@ -106,14 +96,6 @@ privileged aspect ConfCapasTematicasController_Roo_Controller {
     void ConfCapasTematicasController.addDateTimeFormatPatterns(Model uiModel) {
         uiModel.addAttribute("confCapasTematicas_auditcreation_date_format", DateTimeFormat.patternForStyle("MM", LocaleContextHolder.getLocale()));
         uiModel.addAttribute("confCapasTematicas_auditlastupdate_date_format", DateTimeFormat.patternForStyle("MM", LocaleContextHolder.getLocale()));
-    }
-    
-    void ConfCapasTematicasController.populateEditForm(Model uiModel, ConfCapasTematicas confCapasTematicas) {
-        uiModel.addAttribute("confCapasTematicas", confCapasTematicas);
-        addDateTimeFormatPatterns(uiModel);
-        uiModel.addAttribute("agrupadorcapas", agrupadorCapaService.findAllAgrupadorCapas());
-        uiModel.addAttribute("geoportales", geoPortalService.findAllGeoPortales());
-        uiModel.addAttribute("tipocomponentes", Arrays.asList(TipoComponente.values()));
     }
     
     String ConfCapasTematicasController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

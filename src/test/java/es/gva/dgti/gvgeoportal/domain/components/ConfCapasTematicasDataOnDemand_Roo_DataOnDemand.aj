@@ -44,6 +44,7 @@ privileged aspect ConfCapasTematicasDataOnDemand_Roo_DataOnDemand {
         setAuditCreation(obj, index);
         setAuditLastUpdate(obj, index);
         setAuditLastUpdatedBy(obj, index);
+        setLogo(obj, index);
         setNombre(obj, index);
         setTipo(obj, index);
         return obj;
@@ -67,6 +68,11 @@ privileged aspect ConfCapasTematicasDataOnDemand_Roo_DataOnDemand {
     public void ConfCapasTematicasDataOnDemand.setAuditLastUpdatedBy(ConfCapasTematicas obj, int index) {
         String auditLastUpdatedBy = "auditLastUpdatedBy_" + index;
         obj.setAuditLastUpdatedBy(auditLastUpdatedBy);
+    }
+    
+    public void ConfCapasTematicasDataOnDemand.setLogo(ConfCapasTematicas obj, int index) {
+        byte[] logo = String.valueOf(index).getBytes();
+        obj.setLogo(logo);
     }
     
     public void ConfCapasTematicasDataOnDemand.setNombre(ConfCapasTematicas obj, int index) {

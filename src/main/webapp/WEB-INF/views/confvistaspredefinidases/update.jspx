@@ -33,5 +33,7 @@ You should have received a copy of the GNU Affero General Public License
         <!-- <field:select field="serviciosWeb" id="c_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_serviciosWeb" itemValue="id" items="${serviciosweb}" multiple="true" path="/serviciosweb" z="t7wR8OsM0Y/jgEe17O1+IVt357c="/> -->
         <field:select field="serviciosWeb" id="c_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_serviciosWeb" itemValue="id" items="${serviciosweb}" multiple="true" path="/serviciosweb" z="t7wR8OsM0Y/jgEe17O1+IVt357c="/>
         <field:input field="serviciosWebString" id="c_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_serviciosWebString" z="63Zfdh7SqbLLwk2c29yVTTH+cO8="/>
+        <field:input field="logoString" id="c_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_logoString" render="false" z="D60p1mI8Tl5YTRSkzJbDkRWfWaA="/>
+        <field:input field="logo" id="c_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_logo" render="false" z="XUOHWXvS8+lh7aGe6HsCTWWGUVQ="/>
     </form:update>
 </div>

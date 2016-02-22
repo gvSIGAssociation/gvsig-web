@@ -62,5 +62,6 @@ You should have received a copy of the GNU Affero General Public License
         <field:display field="estilosCapas" id="s_es_gva_dgti_gvgeoportal_domain_ServicioWeb_estilosCapas" object="${servicioweb}" render="false" z="user-managed"/>
         <field:display field="nombresCapas" id="s_es_gva_dgti_gvgeoportal_domain_ServicioWeb_nombresCapas" object="${servicioweb}" render="false" z="user-managed"/>
         <field:display field="tileMatrixSet" id="s_es_gva_dgti_gvgeoportal_domain_ServicioWeb_tileMatrixSet" object="${servicioweb}" render="false" z="user-managed"/>
+        <field:display field="confVistasPredefinidas" id="s_es_gva_dgti_gvgeoportal_domain_ServicioWeb_confVistasPredefinidas" object="${servicioweb}" render="false" z="yS8W11kB1XiG23Eret/1IjhmgCg="/>
     </gvgeoportal-page:show>
 </div>

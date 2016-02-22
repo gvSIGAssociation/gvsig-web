@@ -32,5 +32,7 @@ You should have received a copy of the GNU Affero General Public License
         <field:display field="tipo" id="s_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_tipo" object="${confcapastematicas}" z="oj5RK7XwKwu/NzyoCHnoRqqiq5M="/>
         <field:display field="nombre" id="s_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_nombre" object="${confcapastematicas}" z="cYRByTuFuquFdBgYAWPJ3SmZT60="/>
         <field:display field="grupo" id="s_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_grupo" object="${confcapastematicas}" z="HyKJGZ0ksxAWmPCZ+fwY58+EQiA="/>
+        <field:display field="logoString" id="s_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_logoString" object="${confcapastematicas}" render="false" z="tXjceINuEDuj84zm84tMR6wXbhQ="/>
+        <field:display field="logo" id="s_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_logo" object="${confcapastematicas}" render="false" z="ybjWd22j0ENWjGpw1IFnGFF5zWg="/>
     </page:show>
 </div>

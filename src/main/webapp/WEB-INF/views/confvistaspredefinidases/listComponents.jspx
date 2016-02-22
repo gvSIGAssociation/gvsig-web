@@ -20,7 +20,7 @@ GNU Affero General Public License for more details.
 You should have received a copy of the GNU Affero General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
-<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/jquery/form/fields" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:form1="urn:jsptagdir:/WEB-INF/tags/form"  xmlns:form="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/jquery/form" xmlns:gvgeoportalfields="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/jquery/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" xmlns:page="urn:jsptagdir:/WEB-INF/tags/datatables" xmlns:table="urn:jsptagdir:/WEB-INF/tags/datatables" version="2.0">
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/jquery/form/fields" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:form="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/jquery/form" xmlns:gvgeoportalfields="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/jquery/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" xmlns:page="urn:jsptagdir:/WEB-INF/tags/datatables" xmlns:table="urn:jsptagdir:/WEB-INF/tags/datatables" version="2.0">
   <jsp:directive.page contentType="text/html;charset=UTF-8"/>
   <jsp:output omit-xml-declaration="yes"/>
 
@@ -181,13 +181,8 @@ You should have received a copy of the GNU Affero General Public License
     		type: "POST",
     		success : function(object) {
     			jQuery("#l_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas").DataTable().fnReloadAjax();
-    			$('input[name="nombre"]').val("");
-    			$('select[name="serviciosWeb"]').val([]);
-    			jQuery('#logoImgCVP').attr('src', '');
-    			jQuery('#logoImgCVP').attr('class', 'hide');
-    			jQuery('#logoLoadCVP').val('');
-    			jQuery('#logoCVP').val('');
-    			jQuery('#removeImageIconCVP').remove();
+    			clearForm('confVistasPredefinidas','');
+    			clearImage();
     		}
     	});
     };

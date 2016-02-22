@@ -31,7 +31,7 @@ You should have received a copy of the GNU Affero General Public License
         <field:select field="geoPortal" id="c_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_geoPortal" itemValue="id" items="${geoportales}" path="/geoportales" z="user-managed"/>
         <gvgeoportalfields:input-hidden field="tipo" id="c_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_tipo" value="cargar_tematicos" z="user-managed"/>
         <field:input field="nombre" id="c_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_nombre" required="true" z="3UthKEMN8rOgSb20TvbrbuCpEwM="/>
-        <loupefield:loupe additionalFields="nombre" controllerPath="confcapastematicases" field="grupo" id="c_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_grupo" listPath="agrupadorcapas/list" mode="create" path="/agrupadorcapas" pkField="id" z="user-managed"/>
+        <loupefield:loupe additionalFields="nombre,descripcion" controllerPath="confcapastematicases" field="grupo" id="c_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_grupo" listPath="agrupadorcapas/list" mode="create" path="/agrupadorcapas" pkField="id" render="false" z="user-managed"/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas" render="${not empty dependencies}" z="66NkO9QZrr0Hn9gjxk+GHLZKS68="/>
 </div>

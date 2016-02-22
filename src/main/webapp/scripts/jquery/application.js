@@ -526,3 +526,52 @@ function fnRegisterFunctionsToCallBack(callback){
   });
 
 }(window.jQuery);
+
+/**
+ * Cleans the entire form identified by the 'id' passed as parameter. It cleans
+ * hidden inputs too.
+ *
+ * @param id
+ *            the identifier of the form.
+ */
+function clearForm(id,exclusions) {
+
+	debugger;
+	var arrayExcludes = [];
+	if(exclusions.length > 0){
+		exclusions = exclusions.toLowerCase();
+		arrayExcludes = exclusions.split(',');
+	}
+	var form = document.forms[id];
+	var formElements = form.elements;
+	for(var k = 0, n = formElements.length; k < n; k++){
+		if( $.inArray(formElements[k].name.toLowerCase() , arrayExcludes) > -1 ){
+			continue;
+		}
+		formElement = formElements[k];
+		elementType = formElement.tagName.toLowerCase();
+
+	    if(elementType == "input"){
+	      if(formElement.hasAttribute("type")){
+	        elementType = formElement.getAttribute("type");
+	        if(elementType == "checkbox" || elementType == "radio"){
+	          formElement.checked = false;
+	        }
+	        else if(elementType != "hidden" && elementType != "reset" && elementType != "submit"){
+	          formElement.value = "";
+	        }
+	      }
+	      else{
+	        formElement.value = "";
+	      }
+	    }
+	    else if(elementType == "select"){
+	      formElement.selectedIndex = -1;
+	    }
+	    else if(elementType == "textarea"){
+	      formElement.value = "";
+	    }
+	    jQuery(formElement).trigger("change");
+	  }
+	  $('#'+id).find('input:hidden[id$="_loupe_hidden"]').val('');
+}

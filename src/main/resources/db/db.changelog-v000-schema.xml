@@ -275,6 +275,7 @@
 			</column>
 			<column name="grupo" type="BIGINT" />
 			<column name="nombre" type="VARCHAR(2000)" />
+      <column name="logo" type="BYTEA" />
 			<column name="version" type="INT" />
 			<column name="audit_created_by" type="VARCHAR(255)" />
 			<column name="audit_creation" type="timestamp" />
