@@ -79,8 +79,8 @@ id,nombre,descripcion,url,tipo,version_protocolo,formato_imagen,tile_matrix_set,
 78,Distribución Superpuesta / Años ,Distribución Superpuesta / Años,http://terramapas1.icv.gva.es/odcv05_etrs89h30_distribucion_agrupado,WMS,1.3.0,image/png,,0
 79,Orotofotos Superpuestas Históricas,Orotofotos Superpuestas Históricas,http://terramapas1.icv.gva.es/odcv05_etrs89h30_historico_agrupado,WMS,1.3.0,image/png,,0
 80,Distribución Fondo / Años,Distribución Fondo / Años,http://terramapas1.icv.gva.es/odcv05_etrs89h30_distribucion_agrupado,WMS,1.3.0,image/png,,0
-81,Orotofotos Históricas Comunidad Valencia,'',http://terramapas1.icv.gva.es/odcv05_etrs89h30_historico_agrupado,WMS,1.3.0,image/png,,0
-82,CITMA: Infraestructura Verde,'',http://cartoweb.cma.gva.es/arcgis/services/infraestructura_verde/MapServer/WMSServer,WMS,1.3.0,image/png,,0
+81,Orotofotos Históricas Comunidad Valencia,,http://terramapas1.icv.gva.es/odcv05_etrs89h30_historico_agrupado,WMS,1.3.0,image/png,,0
+82,CITMA: Infraestructura Verde,,http://cartoweb.cma.gva.es/arcgis/services/infraestructura_verde/MapServer/WMSServer,WMS,1.3.0,image/png,,0
 83,Limites administrativos de España,Servicio Web de Unidades administrativas de España solo con los límites,http://www.ign.es/wms-inspire/unidades-administrativas,WMS,1.3.0,image/png,,0
 84,Ortofoto 2012 ,Ortofoto 2012 ,http://terramapas.icv.gva.es/ortoactualidad/?,WMS,1.1.1,image/png,,0
 85,Mapa topográfico base,Mapa topográfico base,http://terramapas.icv.gva.es/mapa_topografico_base,WMS,1.3.0,image/png,,0
