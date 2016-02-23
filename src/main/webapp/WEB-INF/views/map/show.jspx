@@ -533,7 +533,7 @@ You should have received a copy of the GNU Affero General Public License
             <predefined-views:groupComponent
               id="ps_es_gva_dgti_gvgeoportal_web_Map_toolbar_predefinedViews_group_${vistasPredefinida.identificador}"
               label="${name}"
-              layers="ps_es_gva_dgti_gvgeoportal_web_Map_toc_${vistasPredefinida.idCapas}" >
+              layers="ps_es_gva_dgti_gvgeoportal_web_Map_toc_${vistasPredefinida.idCapas}" logoString="${vistasPredefinida.logo}">
               <c:forEach items="${vistasPredefinida.capas}" var="capa">
                 <c:choose>
                   <c:when test="${capa.tipo == 'WMS'}">

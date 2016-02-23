@@ -242,6 +242,7 @@ public class GeoPortalServiceImpl implements GeoPortalService {
 
                         vistaPredefinida.put("identificador", StringUtils.replace(confVistasPredefinida.getNombre(), " ", "_"));
                         vistaPredefinida.put("nombre", confVistasPredefinida.getNombre());
+                        vistaPredefinida.put("logo", confVistasPredefinida.getLogoString());
 
                         String idCapasCSV = "";
                         Set<ServicioWeb> serviciosWeb = confVistasPredefinida.getServiciosWeb();
