@@ -68,6 +68,22 @@ L.Control.GeoSearch = L.Control.extend({
         msgbox.className = 'leaflet-control-geosearch-msg';
         this._msgbox = msgbox;
 
+        //add contributor info
+        var infoAttribution = document.createElement('span');
+        infoAttribution.setAttribute('class', 'attributionGeoSearch');
+        var textAttribution = document.createElement('a');
+
+        var textCopyright = document.createTextNode('\u00a9');
+        var textOSTM = document.createTextNode(" OpenStreetMap");
+        var textContributors = document.createTextNode(" contributors");
+
+        textAttribution.setAttribute('href', 'http://www.openstreetmap.org/copyright');
+        textAttribution.appendChild(textOSTM);
+        infoAttribution.appendChild(textCopyright);
+        infoAttribution.appendChild(textAttribution);
+        infoAttribution.appendChild(textContributors);
+        this._msgbox.appendChild(infoAttribution);
+
         var resultslist = document.createElement('ul');
         resultslist.id = 'leaflet-control-geosearch-results';
         this._resultslist = resultslist;

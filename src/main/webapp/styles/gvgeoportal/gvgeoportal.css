@@ -448,6 +448,15 @@ table.dataTable tr.row_bg_red td:nth-child(3) {
 /****** Map Components ******/
 /****************************/
 
+.attributionGeoSearch{
+	color: white;
+	float:right;
+	font-size: 11px;
+}
+.attributionGeoSearch a{
+	color: white !important;
+}
+
 .leaflet-control-zoomslider {
   margin-top: 100px !important;
 }
