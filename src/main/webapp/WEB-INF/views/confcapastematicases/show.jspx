@@ -19,8 +19,7 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
--->
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/jquery/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/datatables" version="2.0">
+--><div xmlns:field="urn:jsptagdir:/WEB-INF/tags/jquery/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/datatables" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas" object="${confcapastematicas}" path="/confcapastematicases" z="nKeLdk+V76JH/00IS1lPeGOd6kA=">
@@ -32,7 +31,7 @@ You should have received a copy of the GNU Affero General Public License
         <field:display field="tipo" id="s_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_tipo" object="${confcapastematicas}" z="oj5RK7XwKwu/NzyoCHnoRqqiq5M="/>
         <field:display field="nombre" id="s_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_nombre" object="${confcapastematicas}" z="cYRByTuFuquFdBgYAWPJ3SmZT60="/>
         <field:display field="grupo" id="s_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_grupo" object="${confcapastematicas}" z="HyKJGZ0ksxAWmPCZ+fwY58+EQiA="/>
-        <field:display field="logoString" id="s_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_logoString" object="${confcapastematicas}" render="false" z="tXjceINuEDuj84zm84tMR6wXbhQ="/>
-        <field:display field="logo" id="s_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_logo" object="${confcapastematicas}" render="false" z="ybjWd22j0ENWjGpw1IFnGFF5zWg="/>
+        <field:display field="logoString" id="s_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_logoString" object="${confcapastematicas}" render="false" z="user-managed"/>
+        <field:display field="logo" id="s_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_logo" object="${confcapastematicas}" render="false" z="user-managed"/>
     </page:show>
 </div>

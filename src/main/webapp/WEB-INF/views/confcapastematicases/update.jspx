@@ -30,8 +30,8 @@ You should have received a copy of the GNU Affero General Public License
         <field:select field="geoPortal" id="c_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_geoPortal" itemValue="id" items="${geoportales}" path="/geoportales" z="yo/CAR7rSCgC6c71SCneAfCcDy4="/>
         <field:select field="tipo" id="c_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_tipo" items="${tipocomponentes}" path="tipocomponentes" required="true" z="L1FNmVTbQmf1Dms9qnAL9I9pbfA="/>
         <field:input field="nombre" id="c_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_nombre" required="true" z="3UthKEMN8rOgSb20TvbrbuCpEwM="/>
-        <field:input field="logoString" id="c_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_logoString" render="false" z="+DRBQ8KQmcaLasfY5tBmoTbjUWc="/>
-        <field:input field="logo" id="c_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_logo" render="false" z="bL0bmiX87H+oz2RjeXWRsIx3uj0="/>
+        <field:input field="logoString" id="c_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_logoString" render="false" z="user-managed"/>
+        <field:input field="logo" id="c_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_logo" render="false" z="user-managed"/>
         <loupefield:loupe additionalFields="nombre,descripcion" controllerPath="confcapastematicases" field="grupo" id="c_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_grupo" listPath="agrupadorcapas/list" mode="update" path="/agrupadorcapas" pkField="id" render="false" z="user-managed"/>
     </form:update>
 </div>

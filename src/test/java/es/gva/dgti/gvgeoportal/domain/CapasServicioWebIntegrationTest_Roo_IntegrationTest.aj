@@ -6,10 +6,7 @@ package es.gva.dgti.gvgeoportal.domain;
 import es.gva.dgti.gvgeoportal.domain.CapasServicioWebDataOnDemand;
 import es.gva.dgti.gvgeoportal.domain.CapasServicioWebIntegrationTest;
 import es.gva.dgti.gvgeoportal.service.domain.CapasServicioWebService;
-import java.util.Iterator;
 import java.util.List;
-import javax.validation.ConstraintViolation;
-import javax.validation.ConstraintViolationException;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -54,7 +51,7 @@ privileged aspect CapasServicioWebIntegrationTest_Roo_IntegrationTest {
     public void CapasServicioWebIntegrationTest.testFindAllCapasServicioWebs() {
         Assert.assertNotNull("Data on demand for 'CapasServicioWeb' failed to initialize correctly", dod.getRandomCapasServicioWeb());
         long count = capasServicioWebService.countAllCapasServicioWebs();
-        Assert.assertTrue("Too expensive to perform a find all test for 'CapasServicioWeb', as there are " + count + " entries; set the findAllMaximum to exceed this value or set findAll=false on the integration test annotation to disable the test", count < 250);
+        Assert.assertTrue("Too expensive to perform a find all test for 'CapasServicioWeb', as there are " + count + " entries; set the findAllMaximum to exceed this value or set findAll=false on the integration test annotation to disable the test", count < 2000);
         List<CapasServicioWeb> result = capasServicioWebService.findAllCapasServicioWebs();
         Assert.assertNotNull("Find all method for 'CapasServicioWeb' illegally returned null", result);
         Assert.assertTrue("Find all method for 'CapasServicioWeb' failed to return any data", result.size() > 0);
@@ -99,38 +96,6 @@ privileged aspect CapasServicioWebIntegrationTest_Roo_IntegrationTest {
         obj.flush();
         Assert.assertEquals("Identifier of merged object not the same as identifier of original object", merged.getId(), id);
         Assert.assertTrue("Version for 'CapasServicioWeb' failed to increment on merge and flush directive", (currentVersion != null && obj.getVersion() > currentVersion) || !modified);
-    }
-    
-    @Test
-    public void CapasServicioWebIntegrationTest.testSaveCapasServicioWeb() {
-        Assert.assertNotNull("Data on demand for 'CapasServicioWeb' failed to initialize correctly", dod.getRandomCapasServicioWeb());
-        CapasServicioWeb obj = dod.getNewTransientCapasServicioWeb(Integer.MAX_VALUE);
-        Assert.assertNotNull("Data on demand for 'CapasServicioWeb' failed to provide a new transient entity", obj);
-        Assert.assertNull("Expected 'CapasServicioWeb' identifier to be null", obj.getId());
-        try {
-            capasServicioWebService.saveCapasServicioWeb(obj);
-        } catch (final ConstraintViolationException e) {
-            final StringBuilder msg = new StringBuilder();
-            for (Iterator<ConstraintViolation<?>> iter = e.getConstraintViolations().iterator(); iter.hasNext();) {
-                final ConstraintViolation<?> cv = iter.next();
-                msg.append("[").append(cv.getRootBean().getClass().getName()).append(".").append(cv.getPropertyPath()).append(": ").append(cv.getMessage()).append(" (invalid value = ").append(cv.getInvalidValue()).append(")").append("]");
-            }
-            throw new IllegalStateException(msg.toString(), e);
-        }
-        obj.flush();
-        Assert.assertNotNull("Expected 'CapasServicioWeb' identifier to no longer be null", obj.getId());
-    }
-    
-    @Test
-    public void CapasServicioWebIntegrationTest.testDeleteCapasServicioWeb() {
-        CapasServicioWeb obj = dod.getRandomCapasServicioWeb();
-        Assert.assertNotNull("Data on demand for 'CapasServicioWeb' failed to initialize correctly", obj);
-        Long id = obj.getId();
-        Assert.assertNotNull("Data on demand for 'CapasServicioWeb' failed to provide an identifier", id);
-        obj = capasServicioWebService.findCapasServicioWeb(id);
-        capasServicioWebService.deleteCapasServicioWeb(obj);
-        obj.flush();
-        Assert.assertNull("Failed to remove 'CapasServicioWeb' with identifier '" + id + "'", capasServicioWebService.findCapasServicioWeb(id));
     }
     
 }
