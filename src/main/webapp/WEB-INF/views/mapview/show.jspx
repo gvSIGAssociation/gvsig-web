@@ -125,7 +125,7 @@ You should have received a copy of the GNU Affero General Public License
         </geo:components>
         <geo:toolbar id="ps_es_gva_dgti_gvgeoportal_web_Mapview_toolbar" z="ThJ6jgh2qfxrCvshm8dLteUox/Q=">
           <gvsig-tools:measure id="measure"/>
-          <gvsig-tools:geosearch id="a_geosearch_line" keepZoom="true" provider="google" showMarker="true"/>
+          <gvsig-tools:geosearch id="a_geosearch_line" keepZoom="true" provider="openstreetmap" showMarker="true"/>
           <gvsig-tools:info-by-point id="mapview_info_point" markerColor="white"/>
           <gvsig-tools:min-zoom center="true" id="mapview_min_zooom" mapCenterCoord="0,0" minZoom="5"/>
           <gvsig-tools:external-request fnDoRequest="doRequest" formDialogHeight="600" formDialogTitleCode="label_service_metadata_keywords" formDialogWidth="600" getPointOverMap="true" icon="icon-deathstar" iconLibrary="whhg" id="ps_es_gva_dgti_gvgeoportal_web_Mapview" idContainerFormGetData="divFormu" setDataByForm="false" showResultDialogTitleCode="label_service_metadata_fees"/>
