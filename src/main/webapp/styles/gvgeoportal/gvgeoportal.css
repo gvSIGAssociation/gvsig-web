@@ -491,17 +491,43 @@ table.dataTable tr.row_bg_red td:nth-child(3) {
 	margin-right: 10px;
 	text-align: center;
 	width: 90px;
-	opacity: 0.8;
+	opacity: 0.7;
+}
+.predefinedLogo:hover{
+	opacity: 1;
 }
 .predefined-views-layer-control span{
 	display: inline-block;
 	margin-top: 20px;
 }
-.predefined-views-layer-control a {
+.predefined-views-layer-control a{
+	text-decoration: none;
+	color: black;
+}
+.predefinedLogo a {
 	color: white;
 	text-decoration: none;
 	font-size: 12px;
 	font-weight: bold;
+}
+
+
+li.ui-menu-item.thematicLogo:first-child{
+	padding-top: 0px !important;
+}
+li.thematicLogo, li.thematicLogo.ui-state-focus{
+	height: 40px !important;
+	width: 220px !important;
+	opacity: 0.9 !important;
+	border-bottom: medium none;
+    border-top: 1px solid #ccc;
+}
+.thematicLogo span {
+	color: white;
+	font-weight: bold;
+	display: inline-block;
+	margin-top: 10px;
+	margin-left: 20px;
 }
 
 /* Toolbar */

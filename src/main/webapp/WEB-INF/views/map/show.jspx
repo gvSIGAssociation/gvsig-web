@@ -367,13 +367,13 @@ You should have received a copy of the GNU Affero General Public License
             <c:if test="${empty name}">
               <c:set var="name" value="Grupo sin nombre" />
             </c:if>
-            <layer-fw:thematic-group id="${tema.identificador}" label="${name}" icon="fa fa-map">
+            <layer-fw:thematic-group id="${tema.identificador}" label="${name}" icon="fa fa-map" logoString="${tema.logo}">
               <c:forEach items="${tema.capas}" var="capa">
                 <c:choose>
                   <c:when test="${capa.tipo == 'WMS'}">
                     <layer:wms enableLegend="${enableLegend}"
                       id="layer_${capa.identificador}"
-                      label="${capa.nombreCapa}" layers="${capa.capas}" styles="${capa.estilos}" opacity="1"
+                      label="${capa.nombreCapa}" layers="${capa.capas}" visibleOnStart="true" styles="${capa.estilos}" opacity="1"
                       transparent="true" url="${capa.url}" version="${capa.versionProtocolo}" z="user-managed">
                       <c:if test="${herramientas_propiedades_capas}">
                         <layer-toc:tools>
@@ -386,7 +386,7 @@ You should have received a copy of the GNU Affero General Public License
                   <c:when test="${capa.tipo == 'WMTS'}">
                     <layer:wmts enableLegend="${enableLegend}"
                       id="layer_${capa.identificador}"
-                      label="${capa.nombreCapa}" layer="${capa.estilos}" opacity="1" url="${capa.url}"
+                      label="${capa.nombreCapa}" layer="${capa.estilos}" visibleOnStart="true" opacity="1" url="${capa.url}"
                       z="user-managed">
                       <c:if test="${herramientas_propiedades_capas}">
                         <layer-toc:tools>
@@ -399,7 +399,7 @@ You should have received a copy of the GNU Affero General Public License
                   <c:when test="${capa.tipo == 'TILE'}">
                     <layer:tile enableLegend="${enableLegend}"
                       id="layer_${capa.identificador}"
-                      label="${capa.nombreCapa}" opacity="1" url="${capa.url}" z="user-managed">
+                      label="${capa.nombreCapa}" opacity="1" visibleOnStart="true" url="${capa.url}" z="user-managed">
                       <c:if test="${herramientas_propiedades_capas}">
                         <layer-toc:tools>
                           <gvsig-layers-tools:metadata

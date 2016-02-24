@@ -96,7 +96,7 @@
 
   <changeSet author="omorro" id="terrasit-conf-capas-tematicas-v000">
 		<loadData file="db/terrasit/conf_capas_tematicas.csv" tableName="conf_capas_tematicas"
-			separator=",">
+			separator="%">
 		</loadData>
 		<rollback>
 			<delete tableName="conf_capas_tematicas" />

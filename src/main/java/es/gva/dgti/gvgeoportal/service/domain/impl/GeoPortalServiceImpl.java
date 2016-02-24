@@ -282,6 +282,7 @@ public class GeoPortalServiceImpl implements GeoPortalService {
                         Map<String, Object> grupoTematico = new HashMap<String, Object>();
                         grupoTematico.put("identificador", StringUtils.replace(confCapaTematica.getNombre(), " ", "_"));
                         grupoTematico.put("nombre", confCapaTematica.getNombre());
+                        grupoTematico.put("logo", confCapaTematica.getLogoString());
 
                         // Buscamos los servicios web relacionados con el grupo temático
                         AgrupadorCapa agrupacion = confCapaTematica.getGrupo();
