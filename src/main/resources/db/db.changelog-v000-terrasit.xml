@@ -105,7 +105,7 @@
 
 	<changeSet author="omorro" id="terrasit-conf-vistas-predefinidas-v000">
 		<loadData file="db/terrasit/conf_vistas_predefinidas.csv" tableName="conf_vistas_predefinidas"
-			separator=",">
+			separator="%">
 		</loadData>
 		<rollback>
 			<delete tableName="conf_vistas_predefinidas" />
