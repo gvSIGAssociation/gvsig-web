@@ -1,9 +1,0 @@
-id%nombre%descripcion%url%tipo%version_protocolo%formato_imagen%tile_matrix_set%version
-200%OpenStreepMap%OpenStreetMap%http://{s}.tile.osm.org/{z}/{x}/{y}.png?bar%TILE%%%%0
-201%Mapa base del IGN%WMTS Mapa Base del IGN%http://www.ign.es/wmts/ign-base%WMTS%1.0.0%image/png%%0
-202%Mapa de sombras - Servicio WMTS%Mapa de sombras - Servicio WMTS%http://terramapas.icv.gva.es/isohipsas/wmts%WMTS%1.0.0%image/jpeg%%0
-203%Topográfico Tilecached Service -Servicio WMTS%Topográfico Tilecached Service -Servicio WMTS%http://terramapas.icv.gva.es/topografico/wmts%WMTS%1.0.0%image/png%%0
-204%ORTOFOTO Actual Servicio WMTS%ORTOFOTO Actual Servicio WMTS%http://terramapas.icv.gva.es/ortoactualidad/wmts%WMTS%1.0.0%image/jpeg%%0
-205%PNOA%Ortofotos PNOA máxima actualidad%http://www.ign.es/wms-inspire/pnoa-ma%WMS%1.3.0%image/png%%0
-206%Cartociudad%Servicio de visualización de mapas de Cartociudad%http://www.cartociudad.es/wms/CARTOCIUDAD/CARTOCIUDAD%WMS%1.3.0%image/png%%0
-207%Caza y Pesca%Conselleria d'Infraestructures, Territori i Medi Ambient GVA - Servicio WMS de Caza y Pesca%http://cartoweb.cma.gva.es/arcgis/services/cazaypesca/MapServer/WMSServer%WMS%1.3.0%image/png%%0
