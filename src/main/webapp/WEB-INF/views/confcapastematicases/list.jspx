@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+gvGeoportal is sponsored by the General Directorate for Information
+Technologies (DGTI) of the Regional Ministry of Finance and Public
+Administration of the Generalitat Valenciana (Valencian Community,
+Spain), managed by gvSIG Association and led by DISID Corporation.
+
+Copyright (C) 2016 DGTI - Generalitat Valenciana
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<div
+	xmlns:gvgeoportalfields="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/jquery/form/fields"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:page="urn:jsptagdir:/WEB-INF/tags/datatables"
+	xmlns:table="urn:jsptagdir:/WEB-INF/tags/datatables" version="2.0">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+
+	<spring:message code="entity_delete_confirm" htmlEscape="false"
+		var="entityDeleteConfirm" />
+	<spring:message code="label_cargar_tematicos" htmlEscape="false"
+		var="capasTematicas" />
+	<spring:message arguments="${capasTematicas}" code="entity_delete" var="delete_label"/>
+
+
+	<script type="text/javascript">
+	 <![CDATA[
+		function addDeleteButton(nRow, aData, iDataIndex) {
+			var deleteConfCapaTem = '<td class="utilbox" id="deleteButton">'
+					+ '<a alt="${delete_label}" class="icon delete_entity" href="${pageContext.request.contextPath}/confcapastematicases/'+ aData['id'] +'" title="${delete_label}">'
+					+ '</a>';
+			+'</td>';
+			jQuery(nRow).find(".deleteAction").replaceWith(deleteConfCapaTem);
+		}
+		 ]]>
+	</script>
+
+	<page:list
+		id="pl_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas"
+		items="${confcapastematicases}" z="rJU8LL4j6XpLJr7edak6DP5otC8=">
+		<table:table data="${confcapastematicases}" export=" "
+			id="l_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas"
+			path="/confcapastematicases" selection="false" show="false" delete="false"
+			update="false" z="user-managed">
+			<table:column calendar="true"
+				dateTimePattern="${confCapasTematicas_auditcreation_date_format}"
+				id="c_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_auditCreation"
+				property="auditCreation" render="false" z="user-managed" />
+			<table:column
+				id="c_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_auditCreatedBy"
+				property="auditCreatedBy" render="false" z="user-managed" />
+			<table:column calendar="true"
+				dateTimePattern="${confCapasTematicas_auditlastupdate_date_format}"
+				id="c_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_auditLastUpdate"
+				property="auditLastUpdate" render="false" z="user-managed" />
+			<table:column
+				id="c_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_auditLastUpdatedBy"
+				property="auditLastUpdatedBy" render="false" z="user-managed" />
+			<table:column
+				id="c_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_nombre"
+				property="nombre" z="user-managed" />
+			<table:column
+				id="c_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_grupo"
+				property="grupo" z="user-managed" />
+			<table:column
+				id="c_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_geoPortal"
+				property="geoPortal" render="false" z="user-managed" />
+			<table:column
+				id="c_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas_tipo"
+				property="tipo" render="false" z="user-managed" />
+			<!-- botones -->
+			<table:column cssCellClass="deleteAction" display="html"
+				filterable="false" id="c_title_remove_services" label=" "
+				property="delete" searchable="false" sortable="false"
+				z="user-managed" />
+			<!-- callback -->
+			<table:callback function="addDeleteButton" type="createdRow" />
+		</table:table>
+	</page:list>
+
+	<script>
+		<![CDATA[
+
+		jQuery("#l_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas" ).on( 'click',
+			'.utilbox a', function(event) {
+		    event.preventDefault();
+		    var confirmDelete = confirm("${entityDeleteConfirm}");
+			if (confirmDelete) {
+				var url = event.target.href;
+				var params = {};
+				jQuery.ajax({
+					url : url,
+					data : params,
+					type: "DELETE",
+					success : function(object) {
+						jQuery("#l_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas").DataTable().fnReloadAjax();
+					}
+				});
+			}
+		});
+
+
+		]]>
+	</script>
+</div>

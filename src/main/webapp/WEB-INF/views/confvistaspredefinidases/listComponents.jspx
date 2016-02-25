@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+gvGeoportal is sponsored by the General Directorate for Information
+Technologies (DGTI) of the Regional Ministry of Finance and Public
+Administration of the Generalitat Valenciana (Valencian Community,
+Spain), managed by gvSIG Association and led by DISID Corporation.
+
+Copyright (C) 2016 DGTI - Generalitat Valenciana
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/jquery/form/fields" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:form="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/jquery/form" xmlns:gvgeoportalfields="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/jquery/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" xmlns:page="urn:jsptagdir:/WEB-INF/tags/datatables" xmlns:table="urn:jsptagdir:/WEB-INF/tags/datatables" version="2.0">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <jsp:output omit-xml-declaration="yes"/>
+
+  <spring:message code="entity_delete_confirm" htmlEscape="false" var="entityDeleteConfirm" />
+	<spring:message code="label_vistas_predefinidas" htmlEscape="false" var="vistasPredefinidas" />
+	<spring:message arguments="${vistasPredefinidas}" code="entity_delete" var="delete_label"/>
+  <spring:message code="label_es_gva_dgti_gvgeoportal_domain_components_confvistaspredefinidas_logo" htmlEscape="false" var="logoLabel"/>
+  <spring:message code="message_remove_image" htmlEscape="false" var="removeImageMessage"/>
+  <spring:message code="title_warning" htmlEscape="false" var="warningMessage"/>
+  <spring:message code="message_warning_confvistaspredefinidas_nombre" htmlEscape="false" var="warningMessageNombre"/>
+  <spring:message code="message_warning_confvistaspredefinidas_servicioweb" htmlEscape="false" var="warningMessageServicioWeb"/>
+
+	<script type="text/javascript">
+	<![CDATA[
+
+		jQuery(document).ready(function() {
+			//ocultamos botones de creacion y cancel
+		    $('#confVistasPredefinidas .btn-return').hide();
+            $('#confVistasPredefinidas .btn-proceed').hide();
+    });
+
+		function addDeleteButton(nRow, aData, iDataIndex) {
+			var deleteVistaPre = '<td class="utilbox" id="deleteButton">'
+					+ '<a alt="${delete_label}" class="icon delete_entity" href="${pageContext.request.contextPath}/confvistaspredefinidases/'+ aData['id'] +'" title="${delete_label}">'
+					+ '</a>';
+			+'</td>';
+			jQuery(nRow).find(".deleteAction").replaceWith(deleteVistaPre);
+		}
+
+		function renderImageLogo(result){
+    	if(result != ""){
+  			var image = '<img src="'+result+'" class="logoConfVistasPredefinidasListado"/>';
+        return image;
+    	}
+	  }
+
+		]]>
+	</script>
+
+  <div>
+       <form:create id="fc_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas" modelAttribute="confVistasPredefinidas" path="/confvistaspredefinidases" render="true" z="user-managed">
+       <div id="l_es_gva_dgti_gvgeoportal_domain_omponents_ConfVistasPredefinidas" class="tab-content create-div table-responsive" style="">
+        <table class="table table-condensed">
+          <thead>
+            <tr>
+              <th><spring:message code="label_es_gva_dgti_gvgeoportal_domain_components_confvistaspredefinidas_nombre"/></th>
+              <th><spring:message code="label_es_gva_dgti_gvgeoportal_domain_components_confvistaspredefinidas_serviciosweb"/></th>
+              <th></th>
+           </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="controls">
+                  <input id="c_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_nombre" class="form-control form-control input-sm" type="text" value="" data-missing="obligatorio" data-required="true" data-invalid="Por favor, introduzca un Nombre valido" title="" name="nombre" data-original-title="Introducir Nombre (obligatorio)"/>
+                </div>
+              </td>
+              <td>
+              <div class="controls">
+                <c:choose>
+                  <c:when test="${serviciosWebEmpty}">
+                    <spring:message code="label_es_gva_dgti_gvgeoportal_domain_components_confvistaspredefinidas_servicioswebempty" />
+                  </c:when>
+                  <c:otherwise>
+                    <field:select required="true" hideLabel="true" renderLabel="false" field="serviciosWeb" id="c_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_serviciosWeb" itemLabel="descripcion" itemValue="id" items="${serviciosweb}" multiple="true" path="/serviciosweb" z="user-managed"/>
+                 </c:otherwise>
+                </c:choose>
+                </div>
+              </td>
+               <td>
+                 <c:if test="${not serviciosWebEmpty}">
+                    <spring:message code="button_submit" htmlEscape="false" var="submit_button"/>
+                    <a id="l_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_submit_btn"
+                        class="btn btn-primary btn-sm" title="${submit_button}" alt="${submit_button}" onclick="javascript:createOnLine()" >${fn:escapeXml(submit_button)}</a>
+                  </c:if>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <label class="control-label" for="_logo_confVistasPredef_id">${logoLabel}:</label>
+            <div class="controls">
+                <c:choose>
+                    <c:when test="${not empty confVistasPredefinidas.logoString}">
+                        <img alt="${logoLabel}" class="logoConfVistasPredefinidas" id="logoImgCVP" src="${confVistasPredefinidas.logoString}"/>
+                    </c:when>
+                    <c:otherwise>
+                        <img alt="${logoLabel}" class="hide" id="logoImgCVP" src="${confVistasPredefinidas.logoString}"/>
+                    </c:otherwise>
+                </c:choose>
+                <div id="manageImageCVP">
+                    <input accept="image/*" class="displayInlineBlockCVP" id="logoLoadCVP" onchange="loadImage(this)" type="file"/>
+                </div>
+                <span class="help-block">
+                    <spring:message code="label_image_help_box"/>
+                </span>
+                <span class="has-error errors alert alert-danger" id="logoConfVistasPredefError" style="display:none;">
+                    <spring:message code="label_image_error_size"/>
+                </span>
+                <input id="logoCVP" name="logoCVP" type="hidden" value="${confVistasPredefinidas.logo}"/>
+            </div>
+        </div>
+       </form:create>
+
+       <div>
+       <page:list id="pl_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas" items="${confvistaspredefinidases}" z="0lURUg1igvJbZGEoCrqxskRpIFg=">
+          <table:table data="${confvistaspredefinidases}" export=" " id="l_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas" path="/confvistaspredefinidases" selection="false" delete="false" show="false" update="false" create="false" z="user-managed">
+              <table:column sortable="false" cssCellClass="logoConfVistasPredefinidasListado" label=" " id="c_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_logoString" property="logoString" renderFunction="renderImageLogo" z="user-managed"/>
+              <table:column calendar="true" dateTimePattern="${confVistasPredefinidas_auditcreation_date_format}" id="c_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_auditCreation" property="auditCreation" render="false" z="user-managed"/>
+              <table:column id="c_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_auditCreatedBy" property="auditCreatedBy" render="false" z="user-managed"/>
+              <table:column calendar="true" dateTimePattern="${confVistasPredefinidas_auditlastupdate_date_format}" id="c_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_auditLastUpdate" property="auditLastUpdate" render="false" z="user-managed"/>
+              <table:column id="c_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_auditLastUpdatedBy" property="auditLastUpdatedBy" render="false" z="user-managed"/>
+              <table:column id="c_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_geoPortal" property="geoPortal" render="false" z="user-managed"/>
+              <table:column id="c_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_tipo" property="tipo" render="false" z="user-managed"/>
+              <table:column id="c_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_nombre" property="nombre" z="user-managed"/>
+              <table:column id="c_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas_serviciosWeb" property="serviciosWebString" z="user-managed"/>
+              <!-- botones -->
+      		  	<table:column cssCellClass="deleteAction" display="html"
+      				filterable="false" id="c_title_remove_services" label=" "
+      				property="delete" searchable="false" sortable="false"
+      				z="user-managed" />
+      			  <!-- callback -->
+      		  	<table:callback function="addDeleteButton" type="createdRow" />
+          </table:table>
+        </page:list>
+       </div>
+
+    </div>
+    <script>
+
+    <![CDATA[
+
+
+    function createOnLine(){
+   		var nombre = $('input[name="nombre"]').val();
+   		if (nombre == ""){
+   			showMessage("${warningMessage}","${warningMessageNombre}",	null);
+      	return;
+   	  }
+    	var serviciosWebEmpty = true;
+    	var serviciosWeb = [];
+    	$('select[name="serviciosWeb"] option:selected').each(function(i, selected){
+    		serviciosWeb[i] = $(selected).val();
+    		serviciosWebEmpty = false;
+    	});
+    	if(serviciosWebEmpty){
+    		showMessage("${warningMessage}","${warningMessageServicioWeb}",	null);
+    		return;
+      }
+    	var url = '${pageContext.request.contextPath}/confvistaspredefinidases/createOnLine';
+     	var params = {
+     			'nombre' : nombre,
+    			'serviciosWeb[]' : serviciosWeb,
+    		  'geoPortal' : "${geoPortal}",
+    		  'logo' : $('input[name="logoCVP"]').val()
+    	};
+    	jQuery.ajax({
+    		url : url,
+    		data : params,
+    		type: "POST",
+    		success : function(object) {
+    			jQuery("#l_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas").DataTable().fnReloadAjax();
+    			clearForm('confVistasPredefinidas','');
+    			clearImage();
+    		}
+    	});
+    };
+
+		jQuery("#l_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas" ).on( 'click',
+			'.delete_entity', function(event) {
+		    event.preventDefault();
+		    var confirmDelete = confirm("${entityDeleteConfirm}");
+			if (confirmDelete) {
+				var url = event.target.href;
+				var params = {};
+				jQuery.ajax({
+					url : url,
+					data : params,
+					type: "DELETE",
+					success : function(object) {
+						jQuery("#l_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas").DataTable().fnReloadAjax();
+					}
+				});
+			}
+		});
+
+		function clearImage() {
+			jQuery('#logoImgCVP').attr('src', '');
+			jQuery('#logoImgCVP').attr('class', 'hide');
+			jQuery('#logoLoadCVP').val('');
+			jQuery('#logoCVP').val('');
+			jQuery('#removeImageIconCVP').remove();
+		}
+
+		function loadImage(input) {
+			if (input.files && input.files[0]) {
+				var file = input.files[0];
+				if (file.size < 1048576) {
+				 jQuery('#logoConfVistasPredefError').hide();
+					var reader = new FileReader();
+					reader.onload = function(e) {
+						var image = e.target.result;
+						jQuery('#logoImgCVP').attr('src', image);
+						jQuery('#logoImgCVP').attr('class', 'logoConfVistasPredefinidas');
+						jQuery('#logoCVP').val(image);
+						if (jQuery('#removeImageIconCVP').length == 0) {
+							jQuery('#manageImageCVP')
+									.append(
+											'<a alt="${removeImageMessage}" aria-hidden="true" class="glyphicon glyphicon-new-window icon delete_entity" id="removeImageIconCVP" onclick="clearImage();" title="${removeImageMessage}"/>');
+						}
+					}
+					reader.readAsDataURL(input.files[0]);
+			   }else {
+	              jQuery('#logoConfVistasPredefError').show();
+	              clearImage();
+            	}
+
+			}
+		}
+		]]>
+	</script>
+
+
+</div>

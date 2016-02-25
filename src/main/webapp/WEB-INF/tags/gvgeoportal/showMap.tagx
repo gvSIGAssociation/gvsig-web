@@ -1,0 +1,144 @@
+<!--
+gvGeoportal is sponsored by the General Directorate for Information
+Technologies (DGTI) of the Regional Ministry of Finance and Public
+Administration of the Generalitat Valenciana (Valencian Community,
+Spain), managed by gvSIG Association and led by DISID Corporation.
+
+Copyright (C) 2016 DGTI - Generalitat Valenciana
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<jsp:root xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:form="http://www.springframework.org/tags/form"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:field="urn:jsptagdir:/WEB-INF/tags/jquery/form/fields"
+	xmlns:geodisplay="urn:jsptagdir:/WEB-INF/tags/geo/form/fields" version="2.0">
+	<jsp:output omit-xml-declaration="yes" />
+
+<jsp:directive.attribute name="label" type="java.lang.String" required="false" rtexprvalue="true" description="Entity label code" />
+<jsp:directive.attribute name="idMapa" type="java.lang.String" required="false" rtexprvalue="true" description="Id of the element to display" />
+<jsp:directive.attribute name="crs" type="java.lang.String" required="true" rtexprvalue="true" description="Crs used for the map display" />
+<jsp:directive.attribute name="formatoImagen" type="java.lang.String" required="true" rtexprvalue="true" description="Image format" />
+<jsp:directive.attribute name="layersSelected" type="java.lang.String" required="true" rtexprvalue="true" description="Selected layers to show on the map" />
+<jsp:directive.attribute name="stylesSelected" type="java.lang.String" required="true" rtexprvalue="true" description="Styles associated with layers" />
+<jsp:directive.attribute name="type" type="java.lang.String" required="true" rtexprvalue="true" description="type of Web Service (tiles, WMS, WMS)" />
+<jsp:directive.attribute name="url" type="java.lang.String" required="true" rtexprvalue="true" description="url Web Services" />
+<jsp:directive.attribute name="tilematrixSet" type="java.lang.String" required="false" description="Tile Matrix Set identifier" />
+
+ <spring:message code="wait_label" htmlEscape="false" var="wait_label" />
+	<spring:message code="mensajeErrorVisualizacionMapa" htmlEscape="false"
+		var="mensajeErrorVisualizacionMapa" />
+	<spring:message code="preview_map" htmlEscape="false" var="preview_map" />
+	<div id="mapaContainer">
+		<div class="panel-body" id="mapPanel">
+			<geodisplay:geo-location crs="${crs}" displayZoom="false"
+				format="${formatoImagen}" id="${idMapa}" layers="${layersSelected}" tilematrixSet="${tilematrixSet}"
+				path="/serviciosWeb" styles="${stylesSelected}" type="${type}"
+				url="${url}" />
+
+		</div>
+	</div>
+	<div id="errorContainer" style="display: none;">
+		<p class="has-error errors alert alert-danger">${mensajeErrorVisualizacionMapa}</p>
+	</div>
+
+
+	<script type="text/javascript">
+		<![CDATA[
+		var urlServicio = '${url}';
+		var tipo = '${type}';
+		var crs = '${crs}';
+		var crs4326 = 'EPSG:4326';
+		var layers = '${layersSelected}';
+		//solo se realizara llamada para crs WMS y WMTS
+		if (!(tipo.indexOf("TILE") > -1)) {
+			var params = {
+				url : urlServicio,
+				type : tipo,
+				crs : crs,
+				layers : layers
+			};
+
+			//TODO Ajustar mapa al zoom y posicion adecuado
+			/*
+			var url = '${pageContext.request.contextPath}/ogcinfo/getLayerBoundingBox';
+
+			startWaitMeAnimation('${wait_label}',jQuery("#mapPanel"));
+			jQuery.ajax({
+				url : url,
+				data : params,
+				cache : true,
+				timeout : 5000,
+				success : function(element) {
+
+					if (element.length > 0) {
+
+						// f.e.: -1.48152, 37.8755, 0.473968, 40.6891
+						var minX = element[0];
+						var minY = element[1];
+						var maxX = element[2];
+						var maxY = element[3];
+
+
+						var p1 = new L.LatLng(minX, minY);
+						var p2 = new L.LatLng(minX, maxY);
+						var p3 = new L.LatLng(maxX, maxY);
+						var p4 = new L.LatLng(maxX, minY);
+
+						var polygonPoints = [ p1, p2, p3, p4 ];
+
+						var polygon = new L.Polygon(polygonPoints);
+
+						var map = GvNIX_Map_Leaflet.fnGetInstance("${idMapa}").fnGetMapObject();
+
+						//si el crs es 4326 se aplica fitBounds. SIno se centra en espanya.
+						if (crs === crs4326) {
+							//TODO: estaria bien remarcar un cuadrado con el polygono en el mapa utilizando funcion graphicLayer
+							map.fitBounds(polygon.getBounds());
+						} else {
+							map.panTo({
+								lon : -3,
+								lat : 40
+							});
+						}
+
+					} else {
+						ocultarMapa();
+					}
+					jQuery("#mapaContainer").show();
+					stopWaitMeAnimation(jQuery("#mapPanel"));
+
+				},
+				error : function(element) {
+					ocultarMapa();
+					stopWaitMeAnimation(jQuery("#mapPanel"));
+
+				},
+        timeout : function(element) {
+            stopWaitMeAnimation(jQuery("#mapPanel"));
+        }
+			});
+			*/
+
+		}
+
+		function ocultarMapa() {
+			jQuery("#mapaContainer").hide();
+			jQuery("#errorContainer").show();
+		}
+		]]>
+	</script>
+</jsp:root>

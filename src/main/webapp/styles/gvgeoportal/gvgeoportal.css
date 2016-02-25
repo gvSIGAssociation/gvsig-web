@@ -1,0 +1,1174 @@
+/******************/
+/****** Body ******/
+/******************/
+body {
+  padding-bottom: 0px
+}
+
+/* Header */
+.navbar-fixed-top {
+  background-color: #0B5476;
+  border: none !important;
+}
+
+.navbar .navbar-nav>li>a {
+  color: #d2e3eb;
+}
+
+.form-signin-heading {
+  text-align: center;
+  margin-bottom: 0 !important;
+}
+.form-signin-subeading {
+  font-style: italic;
+  margin-top: 0;
+  text-align: center;
+}
+
+div.logo {
+  padding-top: 3px;
+}
+
+div.logo a img {
+  border-radius: 5px;
+}
+
+.navbar-area {
+  margin-right: 10px
+}
+
+.navbar-collapse.in {
+  overflow: initial
+}
+
+.navbar-collapse div div.pull-left {
+  padding-top: 2.5px
+}
+.navbar-collapse div div.map {
+  padding: 0px !important;
+  margin-right: 10px;
+}
+
+.navbar-logo {
+  font-size: 18px;
+  line-height: 20px;
+  padding: 0px;
+  padding-top: 3px
+}
+
+.bs-docs-nav .navbar-nav>li>a {
+  color: #D2E3EB
+}
+
+.bs-docs-nav .navbar-nav>li>a:hover {
+  background-color: #0B5476
+}
+
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover,
+  .navbar-inverse .navbar-nav>.open>a:focus, .bs-docs-nav .navbar-nav>.active>a,
+  .bs-docs-nav .navbar-nav>.active>a:hover {
+  background-color: #09415B
+}
+
+.navbar-inverse .navbar-nav>.dropdown>a .caret {
+  border-bottom-color: #D2E3EB;
+  border-top-color: #D2E3EB
+}
+
+.navbar-toggle {
+  z-index: 200
+}
+
+.map-title {
+  color: white;
+  margin-right: 10px;
+}
+.map-title > h4 {
+  font-family: Helvetica;
+  margin: 0px 0px;
+  padding-top: 13px;
+}
+.map-title > h4 > small {
+  padding-left: 5px;
+}
+
+@media ( min-width : 768px) {
+  .navbar-nav {
+    margin: 0 10px !important;
+  }
+}
+
+.btn-group-collapse {
+  z-index: 100
+}
+
+.btn-submit {
+  float: left;
+  width: 80% !important;
+}
+
+.btn-reset {
+  float: right;
+  width: 19% !important;
+}
+
+.bs-docs-nav .navbar-toggle {
+  border-color: #117BAF;
+  background-color: #117BAF
+}
+
+.bs-docs-nav .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
+  background-color: #117BAF;
+  border-color: #0B5476
+}
+
+#header .pull-right .btn-group {
+  margin-top: 5px;
+  margin-right: 10px
+}
+
+.nowrap {
+  white-space: nowrap
+}
+
+/* Components */
+.well>.row>div>dl {
+  margin-bottom: 0px
+}
+
+.index-menu {
+  margin-bottom: 20px;
+}
+
+.index-menu h1 {
+  margin-top: 10px;
+  font-size: 32px;
+}
+
+.index-menu .thumbnail {
+  border-radius: 10px;
+}
+
+.index-menu a.thumbnail {
+  text-align: center;
+  padding: 0px;
+  text-decoration: none;
+}
+
+.panel-sm {
+  margin-bottom: 10px
+}
+
+.panel-heading-sm {
+  padding: 5px 10px
+}
+
+.panel-body-sm {
+  padding: 10px 10px
+}
+
+.panel-body-sm .form-group {
+  margin-bottom: 0px
+}
+
+.panel-default>.panel-heading-title {
+  color: #555555;
+  font-weight: bold
+}
+
+.heading-collapse {
+  cursor: pointer;
+}
+
+.panel-several-bodies div.panel-body {
+  padding: 0px 15px;
+}
+
+.panel-several-bodies div.panel-body:NTH-CHILD(2) {
+  padding-top: 15px;
+}
+
+.panel-several-bodies div.panel-body:LAST-CHILD {
+  padding-bottom: 15px;
+}
+
+.panel-default.panel-primary>.panel-heading-title {
+  color: #FFFFFF
+}
+
+.panel-display {
+  padding-bottom: 0px;
+  padding-top: 5px
+}
+
+.panel-display .row {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+.panel-display dl {
+  margin-bottom: 10px
+}
+
+.audit-basic>.panel-collapse>.panel-display dl {
+  margin-bottom: 3px;
+  margin-top: 3px;
+}
+
+.panel-display dl.dl-horizontal dt {
+  width: 20%;
+  margin-right: 10px;
+}
+
+.audit-basic>.panel-collapse>.panel-display dl.dl-horizontal dt {
+  width: 123px
+}
+
+/* .panel-display dl.dl-horizontal dd { */
+/*   margin-left: 130px */
+/* } */
+
+/* .audit-basic>.panel-collapse>.panel-display dl.dl-horizontal dd { */
+/*   margin-left: 135px */
+/* } */
+.panel-form .row {
+  padding-bottom: 15px
+}
+
+.icon-gray {
+  color: #888888
+}
+
+.icon-help {
+  cursor: help
+}
+
+.breadcrumb {
+  margin-bottom: 10px;
+}
+
+.left {
+  text-align: left
+}
+
+.center {
+  text-align: center
+}
+
+.right {
+  text-align: right
+}
+
+.btnMessage {
+  display: none;
+  font-size: small;
+  margin-top: 38px;
+}
+
+.hidden {
+  display: none;
+}
+
+.noRow:before, .noRow:after {
+  content: " ";
+  display: table;
+}
+
+.noRow {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.noMargin {
+  margin: 0px;
+}
+
+/* Footer */
+.bs-footer {
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin-top: 0px;
+  margin-bottom: 0px
+}
+
+.quicklinks {
+  display: none;
+}
+
+/************************/
+/****** DataTables ******/
+/************************/
+table.dataTable {
+  margin-top: -1px !important;
+}
+
+div.dataTables_filter {
+  margin-right: 10px;
+}
+
+div.dataTables_length {
+  margin-left: 10px;
+  padding-top: 5px;
+}
+
+div.table-large-search div.dataTables_filter input {
+  width: 500px
+}
+
+div.dataTables_info {
+  font-size: 90%;
+}
+
+div.dataTables_filter input {
+  height: 31px;
+  line-height: 1.42857;
+  margin-top: 1px;
+  width: 16em;
+}
+
+.create-div h4 {
+  margin: 0px;
+}
+.create-div form.create-form {
+  padding: 0px;
+}
+.create-div table.table {
+  margin-bottom: 0px;
+}
+
+.create-form-inline {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 0px;
+  padding-top: 5px;
+  border-bottom: 1px solid #DDDDDD
+}
+
+.create-form-inline div[class*="col-"] {
+  padding-left: 5px;
+  padding-right: 5px
+}
+
+.create-form-inline .inline-submit {
+  margin-top: 26px
+}
+
+.dataTables_scrollBody {
+  width: 100% !important;
+}
+
+.dataTables_scrollHead {
+  width: 100% !important;
+}
+
+table.dataTable tr.row_bg_green td:nth-child(3) {
+  background-color: #D2FAB8
+}
+
+table.dataTable tr.row_bg_yellow td:nth-child(3) {
+  background-color: #FFFFA7
+}
+
+table.dataTable tr.row_bg_red td:nth-child(3) {
+  background-color: #FF7C86
+}
+
+.gvnix_dataTables_toolbar {
+  padding-bottom: 5px;
+}
+
+.ui-widget-content a {
+  color: #428bca;
+}
+
+/********************************/
+/**** filterDescription.tagx ****/
+/********************************/
+.filterPanel {
+  margin-bottom: 15px;
+}
+
+.filterPanel .panel-heading {
+  padding-left: 10px;
+  padding-top: 4px;
+}
+
+.filterPanelTitle {
+  padding-top: 5px;
+}
+
+.filterPanel a {
+  color: #428bca;
+}
+
+.filterPanelHeading {
+  padding-bottom: 6px;
+}
+
+.filterPanelHeading h4 {
+  cursor: pointer;
+}
+
+.filterPanelTitle {
+  font-size: 14px;
+}
+
+.filterDescriptionTitle {
+  background-color: #AAA;
+  margin-right: 5px;
+  padding-left: 4px;
+  padding-right: 4px;
+  display: inline-block;
+}
+
+.filterDots {
+  margin-right: 5px;
+}
+
+.filterPanel .panel-body {
+  padding: 7px 5px 2px;
+}
+
+.filterDescription {
+  display: inline-block;
+  margin: 3px;
+  max-width: 100%;
+  overflow: auto;
+}
+
+.backButtonFinder {
+  color: white !important;
+  margin: 3px 5px 0px 0px;
+  padding-bottom: 3px;
+  float: left;
+  width: 26px;
+}
+
+/****************************/
+/****** Map Components ******/
+/****************************/
+
+.attributionGeoSearch{
+	color: white;
+	float:right;
+	font-size: 11px;
+}
+.attributionGeoSearch a{
+	color: white !important;
+}
+
+.leaflet-control-zoomslider {
+  margin-top: 100px !important;
+}
+.history-control {
+  margin-top: -228px !important;
+}
+
+
+.component-image {
+  margin-bottom: -4px;
+}
+.predefined-views-control {
+  margin-top: -229px !important;
+  margin-right: 70px !important;
+}
+
+.history-control, .leaflet-control-zoomslider {
+  opacity: 0.5;
+}
+.history-control:hover, .leaflet-control-zoomslider:hover {
+  opacity: 1;
+}
+
+.predefined-views-layer-control {
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
+	float: left!important;
+	background: #ffffff none repeat scroll 0 0;
+	min-height: 50px !important;
+	min-widht: 90px !important;
+	border-radius: 5px;
+	padding: 5px;
+	margin-right: 10px;
+	text-align: center;
+	width: 90px;
+	opacity: 0.7;
+}
+.predefinedLogo:hover{
+	opacity: 1;
+}
+.predefined-views-layer-control span{
+	display: inline-block;
+	margin-top: 20px;
+}
+.predefined-views-layer-control a{
+	text-decoration: none;
+	color: black;
+}
+.predefinedLogo a {
+	color: white;
+	text-decoration: none;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+
+li.ui-menu-item.thematicLogo:first-child{
+	padding-top: 0px !important;
+}
+li.thematicLogo, li.thematicLogo.ui-state-focus{
+	height: 40px !important;
+	width: 220px !important;
+	opacity: 0.9 !important;
+	border-bottom: medium none;
+    border-top: 1px solid #ccc;
+}
+.thematicLogo span {
+	color: white;
+	font-weight: bold;
+	display: inline-block;
+	margin-top: 10px;
+	margin-left: 20px;
+}
+
+/* Toolbar */
+.leaflet-control-toolbar {
+  font-size: 1.2em;
+  height: 28px;
+  padding: 0;
+}
+.leaflet-control-toolbar-list i:first-child {
+  border-radius: 5px 0 0 5px;
+}
+.leaflet-control-toolbar-list i:last-child {
+  border-radius: 0 5px 5px 0;
+}
+.leaflet-control-toolbar-list i {
+  line-height: 28px;
+  margin: 0;
+  padding: 5px 4px 5px 10px;
+}
+
+/***********************************/
+/****** Styles for menu tools ******/
+/***********************************/
+
+li.ui-menu-item > div.mapviewer_layers_layer {
+  display: none;
+}
+
+li.ui-menu-item > span#layer-toc-tools {
+  display: none;
+}
+
+ul.ui-menu.ui-menu, ul.ui-menu {
+  width: auto;
+  border: none;
+  border-radius: 5px;
+  padding: 0px;
+  background-color: white;
+}
+.ui-widget-content .ui-state-focus {
+  border: none;
+}
+.ui-widget-content .ui-state-active {
+  background: #dadada;
+  border: none;
+  color: #404040;
+}
+
+li.ui-menu-item {
+  white-space: normal;
+  padding: 0px 1px 3px 5px !important;
+}
+li.ui-menu-item:first-child {
+  border-radius: 5px 5px 0 0;
+  padding-top: 3px !important;
+}
+li.ui-menu-item:last-child {
+  border-radius: 0 0 5px 5px;
+  border-bottom: none;
+}
+.menu-item-icon {
+  width: 14px;
+  font-size: 11px;
+  top: 0px;
+}
+
+li.predefined_layers_layer, li.thematic_group, li.predefined_views_group {
+  padding-right: 5px !important;
+}
+
+/*************************/
+/****** Map Edition ******/
+/*************************/
+
+#group_edition_buttons_id {
+  margin-top: 60px;
+  float:none;
+}
+
+[id^="mapps_es_gva_dgti_gvgeoportal_web_Mapaedicion"] #toc_container {
+  margin-top: -5px;
+}
+
+.buttonEdition {
+  padding: 0;
+  width: 47%;
+}
+
+#tocButtons {
+  display: inline-block;
+  float: right;
+}
+
+#tocButtons a.icon {
+  color: #333333;
+}
+
+.layerInToc{
+  background-color:#e2e4ff;
+}
+
+[id^="mapps_es_gva_dgti_gvgeoportal_web_Map"] .btn-return {
+	 padding-left: 5px;
+	 padding-right: 5px;
+}
+[id^="mapps_es_gva_dgti_gvgeoportal_web_Map"] #return_button_id {
+	margin-top: 60px;
+	margin-left: 0px !important;
+	margin-right: 0px !important;
+}
+@media ( max-width : 768px) {
+	[id^="mapps_es_gva_dgti_gvgeoportal_web_Map"] #return_button_id {
+	   margin-top: 120px;
+    }
+}
+.noPublicPortal [id^="mapps_es_gva_dgti_gvgeoportal_web_Map"] #toc_container {
+  margin-top: 0px !important;
+}
+
+/************************/
+/******** Alerts ********/
+/************************/
+.alerts {
+  margin-top: 5px;
+}
+
+/************************/
+/******* Dialogs ********/
+/************************/
+.confirmationDialog .ui-dialog-buttonset {
+  display: inline-flex;
+  width: 100%;
+}
+
+.messageDialog, .messageConfirmation {
+  display: none;
+  text-align: center;
+}
+
+.confirmation {
+  background: none repeat scroll 0 0 #E6E6E6;
+  max-height: 75px;
+  overflow: auto;
+  padding: 5px;
+}
+
+.ui-dialog-content {
+  overflow: unset !important;
+}
+[id*="metadata_metadata_tool_dialog"].ui-dialog-content {
+  overflow: auto !important;
+}
+div.loupe-listselector {
+  overflow: auto !important;
+}
+.ui-dialog {
+  overflow: unset !important;
+}
+
+/************************/
+/****** FileUpload ******/
+/************************/
+.panel-fileupload {
+  padding-top: 5px;
+  padding-bottom: 5px
+}
+
+.panel-fileupload table {
+  margin-bottom: 0px
+}
+
+.fileinput-button-bar {
+  margin-bottom: 5px
+}
+
+.fileupload-buttonbar .start {
+  margin-right: 10px
+}
+
+.fileupload-buttonbar .progress {
+  margin-bottom: 0px
+}
+
+.fileinput-button {
+  position: relative;
+  overflow: hidden;
+  margin-right: 10px
+}
+
+.fileinput-button input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  opacity: 0;
+  -ms-filter: 'alpha(opacity=0)';
+  font-size: 200px;
+  direction: ltr;
+  cursor: pointer
+}
+
+.files th.name-column, .files td.name-column {
+  width: 60%
+}
+
+.files p.name {
+  margin-bottom: 0px
+}
+
+.files td.size-column, .files th.size-column {
+  width: 30%
+}
+
+.files p.size {
+  margin-bottom: 0px
+}
+
+.files th.action-column, .files td.action-column {
+  width: 10%;
+  white-space: nowrap
+}
+
+.files div.progress {
+  margin-bottom: 0px
+}
+
+.files button.start {
+  margin-right: 10px
+}
+
+/* Fixes for IE < 8 */
+@media screen\9 {
+  .fileinput-button input {
+    filter: alpha(opacity = 0);
+    font-size: 100%;
+    height: 100%;
+  }
+}
+
+/********************/
+/****** Fields ******/
+/********************/
+.form-group {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  margin-bottom: 0px;
+}
+
+/* Puts on labels on forms */
+.form-horizontal .control-label {
+  text-align: left;
+}
+
+/* Put margin bottom*/
+.putMarginBottom {
+  margin-bottom: 20px
+}
+
+.noPadding {
+  padding: 0px
+}
+
+#resumenFinderInputGroupButton {
+  padding-bottom: 3px;
+}
+
+#help_block_abstract_id {
+  margin-top: -68px;
+}
+
+.displayInlineBlock {
+  display: inline-block !important;
+}
+
+.displayInlineBlockCVP {
+  display: inline-block !important;
+}
+.displayInlineBlockCCT {
+  display: inline-block !important;
+}
+.logoGeoportal {
+  max-height: 75px;
+  max-width: 255px;
+}
+.logoConfVistasPredefinidas {
+  max-height: 30px;
+  max-width: 30px;
+}
+.logoConfCapasTematicas {
+  max-height: 30px;
+  max-width: 30px;
+}
+.logoGeoportalListado{
+  max-width: 50px;
+  max-height: 50px;
+  min-width: 33px;
+}
+.logoConfVistasPredefinidasListado{
+  max-width: 30px;
+  max-height: 30px;
+}
+.logoConfCapasTematicasListado{
+  max-width: 30px;
+  max-height: 30px;
+}
+.public-logo-geoportal {
+  height: 48px;
+  padding-top: 2px;
+}
+
+/* tools of leaflet map */
+.leaflet-top .leaflet-control {
+  margin-top: 0px;
+}
+.leaflet-right .leaflet-control {
+  margin-right: 10px;
+}
+.controls {
+  position: relative;
+}
+
+.leaflet-bottom .leaflet-control-scale {
+  margin-bottom: 10px;
+}
+
+/* Loupe */
+.loupe-button {
+  -moz-border-radius: 0px 4px 4px 0px !important; /* Firefox */
+  -webkit-border-radius: 0px 4px 4px 0px !important; /* Safari, Chrome */
+  border-radius: 0px 4px 4px 0px !important; /* CSS3 */
+  border-left: 0px;
+}
+
+/* Time */
+/* #ui-datepicker-div { */
+/*   z-index: 1500 !important */
+/* } */
+
+/* Between time */
+.between-label {
+  padding-top: 5px;
+  margin-right: 13px;
+  width: 2.333%
+}
+
+.betweentime-form-group {
+  margin-bottom: 0px
+}
+
+.and {
+  width: 1%;
+  padding-right: 6px;
+  padding-left: 2px;
+  margin-right: 0px
+}
+
+.second-input {
+  width: 42%
+}
+
+/* Small devices (tablets, 768px and up) */
+@media ( min-width :768px) and (max-width: 992px) {
+  .between-label {
+    margin-right: -7px;
+    width: 10.333%;
+  }
+  .and {
+    padding-right: 14px;
+    width: 1%;
+  }
+  #fc_es_gva_dgti_gvgeoportal_catalogo_metadatos_submit {
+    margin-top: 45px;
+  }
+}
+
+/* Hides information */
+.hide {
+  display: none
+}
+
+/* Center text */
+.centerText {
+  text-align: center;
+}
+
+/* Put margin bottom*/
+.putMarginBottom {
+  margin-bottom: 25px
+}
+
+/* Put margin top*/
+.putMarginTop {
+  margin-top: 25px
+}
+
+.row label {
+  padding-top: 7px;
+}
+
+/* Small screen */
+@media ( max-width : 1200px) {
+  /* Put margin bottom*/
+  .putMarginBottomSmallScreen {
+    margin-bottom: 15px;
+  }
+  select#_transparencia_id, select#_transparenciaField_id {
+    width: 50% !important;
+  }
+
+
+  ul.ui-menu.ui-menu, ul.ui-menu {
+    width: 400px;
+  }
+  li.ui-menu-item {
+    white-space: normal;
+  }
+  li.predefined_layers_group >  ul.ui-widget-content {
+    max-height: 350px;
+    overflow: auto;
+  }
+}
+
+/* Small devices (tablets and mobiles) */
+@media ( max-width : 992px) {
+  /* Put margin bottom*/
+  .putMarginBottomTablets {
+    margin-bottom: 15px;
+  }
+  select#_transparencia_id, select#_transparenciaField_id {
+    width: 100% !important;
+  }
+  #help_block_abstract_id {
+    margin-top: -68px;
+  }
+}
+
+/* Small devices (mobiles) */
+@media ( max-width : 768px) {
+  /* Put margin bottom*/
+  .putMarginBottomMobiles {
+    margin-bottom: 15px;
+  }
+  .rightMapOfPlace {
+    margin-top: 0px;
+  }
+  .row {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  select#_transparencia_id, select#_transparenciaField_id {
+    width: 100% !important;
+  }
+  #help_block_abstract_id {
+    margin-top: -25px;
+  }
+}
+
+select#_transparencia_id, select#_transparenciaField_id {
+  width: 50%;
+}
+
+/* Moves the time to the left */
+.leftTime {
+  padding-left: 15px
+}
+
+/* Centered advanced search button */
+.centerBtnAdvancedSearch {
+  margin-top: 2px;
+  width: 24px
+}
+
+/* Select fields: show all options */
+.showAllOptions {
+  height: 123px !important
+}
+
+/********************/
+/****** Errors ******/
+/********************/
+span.errors {
+  border-radius: 0 0 4px 4px;
+  margin: 0px 15px 10px 10px;
+  padding: 2px 5px;
+}
+
+table.dataTable span.errors {
+  display: block;
+  padding: 0px;
+  margin: 0px;
+}
+
+.textError {
+  color: red;
+  font-weight: bold;
+}
+
+/*********************************************************/
+/****** Styles for Wizard inside User Layers Dialog ******/
+/*********************************************************/
+form#servicioWeb #mapview_tabs_user_layers_tabs {
+  border: 0px;
+}
+
+.wizard_dialog .content {
+  min-height: inherit;
+}
+
+.wizard_dialog .content>h3.title {
+  display: none;
+}
+
+.wizard_dialog .content .body {
+  float: none;
+  position: relative;
+}
+
+.wizard_radio {
+  margin-left: 20px !important;
+  margin-right: 5px !important;
+  display: inline !important;
+}
+
+/*************************************************/
+/****** Styles for Wizard inside Form Page ******/
+/************************************************/
+
+div#wms_wizard_wms_wizard {
+    display: table;
+    width: 100%;
+}
+
+
+/********************************/
+/****** Styles for Printer ******/
+/********************************/
+@media print {
+  a:after {
+    content: none !important;
+  }
+  header, footer {
+    display: none !important;
+  }
+  body {
+    padding-top: 0px !important;
+  }
+  div.container {
+    width: 100%;
+    max-width: 100% !important;
+  }
+  div.print-hide {
+    display: none;
+  }
+}
+
+#busquedaCatalogoLabel {
+  padding-right: 5px;
+}
+
+.imagenesCatalogoCelda {
+  width: 10%;
+}
+
+.imagenesCatalogoCelda .noImage {
+  font-style: italic;
+}
+
+.imagenesCatalogo {
+  width: 100%;
+}
+
+.botonCatalogo {
+  clear: both;
+  padding-top: 15px;
+}
+
+.marginTop10 {
+  margin-top: 10px;
+}
+
+.previewMapInfo {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  margin-top: 10px;
+}
+
+#resumenBuscadorCatalogo .input-group-addon {
+  padding-top: 3.5% !important;
+  padding-left: 0px !important;
+  vertical-align: top !important;
+  background-color: #ffffff !important;
+  border: inherit !important;
+}
+
+.rowCheckboxComponent {
+  cursor: pointer;
+}
+
+.rowComponent {
+  width: 100%;
+  clear: both;
+  margin-bottom: 5px;
+}
+.rowComponent .input-group-addon {
+  background-color: inherit !important;
+  border: none !important;
+}
+
+.configuracionComp {
+  padding: 8px 0 0 5px;
+  text-align: left !important;
+}
+.configuracionComp img {
+  vertical-align: bottom !important;
+}
+.configuracionComp a, .configuracionComp a:VISITED, .configuracionComp a:HOVER {
+  color: black;
+  text-decoration: none;
+}
+
+.imageConfiguration span {
+  display: none;
+}
+
+.component_description {
+  display: none;
+  padding-left: 5px;
+  cursor: pointer;
+}
+
+.floatLeft {
+  float: left;
+}
+
+/* Botstrap */
+@media ( min-width : 992px) {
+  .modal-lg {
+    width: 900px;
+  }
+}
+
+.fancytreeDiv{
+	overflow-y: visible !important;
+}

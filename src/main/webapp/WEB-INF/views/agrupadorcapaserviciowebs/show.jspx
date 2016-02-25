@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+gvGeoportal is sponsored by the General Directorate for Information
+Technologies (DGTI) of the Regional Ministry of Finance and Public
+Administration of the Generalitat Valenciana (Valencian Community,
+Spain), managed by gvSIG Association and led by DISID Corporation.
+
+Copyright (C) 2016 DGTI - Generalitat Valenciana
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/jquery/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/datatables" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_es_gva_dgti_gvgeoportal_domain_AgrupadorCapaServicioWeb" object="${agrupadorcapaservicioweb}" path="/agrupadorcapaserviciowebs" z="42DMsz0Hjb+fT9u0HY9yc7w2uFs=">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <field:display field="nombre" id="s_es_gva_dgti_gvgeoportal_domain_AgrupadorCapaServicioWeb_servicioWeb_nombre" object="${agrupadorcapaservicioweb.servicioWeb}" z="user-managed"/>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <field:display field="tipo" id="s_es_gva_dgti_gvgeoportal_domain_AgrupadorCapaServicioWeb_servicioWeb_tipo" object="${agrupadorcapaservicioweb.servicioWeb}" z="user-managed"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <field:display field="url" id="s_es_gva_dgti_gvgeoportal_domain_AgrupadorCapaServicioWeb_servicioWeb_url" object="${agrupadorcapaservicioweb.servicioWeb}" z="user-managed"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <field:display field="descripcion" id="s_es_gva_dgti_gvgeoportal_domain_AgrupadorCapaServicioWeb_servicioWeb_descripcion" object="${agrupadorcapaservicioweb.servicioWeb}" z="user-managed"/>
+            </div>
+        </div>
+        <field:display field="agrupador" id="s_es_gva_dgti_gvgeoportal_domain_AgrupadorCapaServicioWeb_agrupador" object="${agrupadorcapaservicioweb}" render="false" z="user-managed"/>
+        <field:display field="servicioWeb" id="s_es_gva_dgti_gvgeoportal_domain_AgrupadorCapaServicioWeb_servicioWeb" object="${agrupadorcapaservicioweb}" render="false" z="user-managed"/>
+        <field:display calendar="true" dateTimePattern="${agrupadorCapaServicioWeb_auditcreation_date_format}" field="auditCreation" id="s_es_gva_dgti_gvgeoportal_domain_AgrupadorCapaServicioWeb_auditCreation" object="${agrupadorcapaservicioweb}" render="false" z="user-managed"/>
+        <field:display field="auditCreatedBy" id="s_es_gva_dgti_gvgeoportal_domain_AgrupadorCapaServicioWeb_auditCreatedBy" object="${agrupadorcapaservicioweb}" render="false" z="user-managed"/>
+        <field:display calendar="true" dateTimePattern="${agrupadorCapaServicioWeb_auditlastupdate_date_format}" field="auditLastUpdate" id="s_es_gva_dgti_gvgeoportal_domain_AgrupadorCapaServicioWeb_auditLastUpdate" object="${agrupadorcapaservicioweb}" render="false" z="user-managed"/>
+        <field:display field="auditLastUpdatedBy" id="s_es_gva_dgti_gvgeoportal_domain_AgrupadorCapaServicioWeb_auditLastUpdatedBy" object="${agrupadorcapaservicioweb}" render="false" z="user-managed"/>
+    </page:show>
+</div>

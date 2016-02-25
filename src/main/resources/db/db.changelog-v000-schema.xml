@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  gvGeoportal is sponsored by the General Directorate for Information
+  Technologies (DGTI) of the Regional Ministry of Finance and Public
+  Administration of the Generalitat Valenciana (Valencian Community,
+  Spain), managed by gvSIG Association and led by DISID Corporation.
+
+  Copyright (C) 2016 DGTI - Generalitat Valenciana
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU Affero General Public License as
+  published by the Free Software Foundation, either version 3 of the
+  License, or (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU Affero General Public License for more details.
+
+  You should have received a copy of the GNU Affero General Public License
+   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog-ext/liquibase-spatial http://lonnyj.github.com/liquibase-spatial/liquibase-spatial.xsd"
+	xmlns:spatial="http://www.liquibase.org/xml/ns/dbchangelog-ext/liquibase-spatial">
+	<changeSet author="omorro" id="schema-seq-0"
+		objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+		<createSequence sequenceName="hibernate_sequence" />
+	</changeSet>
+	<changeSet author="omorro" id="schema-seq-1">
+		<createSequence sequenceName="agrupador_capa_id_seq"
+			startValue="300" />
+	</changeSet>
+	<changeSet author="omorro" id="schema-seq-2">
+		<createSequence sequenceName="servicio_web_id_seq"
+			startValue="300" />
+	</changeSet>
+	<changeSet author="omorro" id="schema-seq-3">
+		<createSequence sequenceName="sistema_coordenadas_id_seq"
+			startValue="300" />
+	</changeSet>
+	<changeSet author="omorro" id="schema-seq-4">
+		<createSequence sequenceName="geoportal_id_seq"
+			startValue="300" />
+	</changeSet>
+	<changeSet author="omorro" id="schema-seq-5">
+		<createSequence sequenceName="componentes_id_seq"
+			startValue="300" />
+	</changeSet>
+	<changeSet author="omorro" id="schema-seq-6">
+		<createSequence sequenceName="capas_servicio_web_id_seq"
+			startValue="300" />
+	</changeSet>
+
+	<!-- Inicio creacion tablas -->
+
+	<changeSet author="omorro" id="schema-1"
+		objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+		<createTable tableName="geo_portal">
+			<column name="id" type="BIGINT">
+				<constraints primaryKey="true" primaryKeyName="geoPortal_pkey" />
+			</column>
+			<column name="titulo" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="url" type="VARCHAR(255)">
+				<constraints nullable="false" unique="true"
+					uniqueConstraintName="url_geoPortal_key" deferrable="false"
+					initiallyDeferred="false" />
+			</column>
+			<column name="descripcion" type="VARCHAR(255)" />
+			<column name="subtitulo" type="VARCHAR(255)" />
+			<column name="logo" type="BYTEA" />
+			<column name="alias" type="VARCHAR(255)" />
+  		<column name="publicado" type="BOOLEAN">
+    		<constraints nullable="false" />
+  		</column>
+  		<column name="centro" type="VARCHAR(255)" />
+  		<column name="zoom" type="INT" />
+      <column name="min_zoom" type="INT" />
+      <column name="max_zoom" type="INT" />
+			<column name="fecha_alta" type="timestamp" />
+			<column name="fecha_baja" type="timestamp" />
+			<column name="coordenadas" type="BIGINT" />
+			<column name="version" type="INT" />
+			<column name="audit_created_by" type="VARCHAR(255)" />
+			<column name="audit_creation" type="timestamp" />
+			<column name="audit_last_update" type="timestamp" />
+			<column name="audit_last_updated_by" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="omorro" id="schema-2"
+		objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+		<createTable tableName="componentes">
+			<column name="id" type="BIGINT">
+				<constraints primaryKey="true" primaryKeyName="componentes_pkey" />
+			</column>
+			<column name="tipo" type="VARCHAR(255)" />
+			<column name="geo_portal" type="BIGINT" />
+			<column name="version" type="INT" />
+			<column name="audit_created_by" type="VARCHAR(255)" />
+			<column name="audit_creation" type="timestamp" />
+			<column name="audit_last_update" type="timestamp" />
+			<column name="audit_last_updated_by" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="omorro" id="schema-3"
+		objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+		<createTable tableName="sistema_coordenadas">
+			<column name="id" type="BIGINT">
+				<constraints primaryKey="true" primaryKeyName="sistema_coordenadas_pkey" />
+			</column>
+			<column name="codigo" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="nombre" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="descripcion" type="VARCHAR(255)" />
+			<column name="version" type="INT" />
+			<column name="audit_created_by" type="VARCHAR(255)" />
+			<column name="audit_creation" type="timestamp" />
+			<column name="audit_last_update" type="timestamp" />
+			<column name="audit_last_updated_by" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="omorro" id="schema-4"
+		objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+		<createTable tableName="agrupador_capa">
+			<column name="id" type="BIGINT">
+				<constraints primaryKey="true" primaryKeyName="agrupador_capa_pkey" />
+			</column>
+			<column name="nombre" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="descripcion" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="version" type="INT" />
+			<column name="audit_created_by" type="VARCHAR(255)" />
+			<column name="audit_creation" type="timestamp" />
+			<column name="audit_last_update" type="timestamp" />
+			<column name="audit_last_updated_by" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="omorro" id="schema-5"
+		objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+		<createTable tableName="servicio_web">
+			<column name="id" type="BIGINT">
+				<constraints primaryKey="true" primaryKeyName="servicio_web_pkey" />
+			</column>
+			<column name="nombre" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="descripcion" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="url" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="tipo" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="version_protocolo" type="VARCHAR(255)" />
+			<column name="formato_imagen" type="VARCHAR(255)" />
+			<column name="tile_matrix_set" type="VARCHAR(255)" />
+      <column name="version" type="INT" />
+			<column name="audit_created_by" type="VARCHAR(255)" />
+			<column name="audit_creation" type="timestamp" />
+			<column name="audit_last_update" type="timestamp" />
+			<column name="audit_last_updated_by" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="omorro" id="schema-6"
+		objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+		<createTable tableName="capas_servicio_web">
+			<column name="id" type="BIGINT">
+				<constraints primaryKey="true" primaryKeyName="capas_servicio_web_pkey" />
+			</column>
+			<column name="servicio_web" type="BIGINT" />
+			<column name="estilo_capa" type="VARCHAR(255)" />
+			<column name="nombre_capa" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="titulo_capa" type="VARCHAR(255)" />
+			<column name="version" type="INT" />
+			<column name="audit_created_by" type="VARCHAR(255)" />
+			<column name="audit_creation" type="timestamp" />
+			<column name="audit_last_update" type="timestamp" />
+			<column name="audit_last_updated_by" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+
+	<changeSet author="omorro" id="schema-7"
+		objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+		<createTable tableName="coordenadas_servicio_web">
+			<column name="servicios_web" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="coordenadas" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="omorro" id="schema-7-pk">
+		<addPrimaryKey columnNames="servicios_web,coordenadas"
+			constraintName="coordenadas_servicio_web_pkey" tableName="coordenadas_servicio_web" />
+	</changeSet>
+
+	<changeSet author="omorro" id="schema-8"
+		objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+		<createTable tableName="agrupador_capa_geo_portales">
+			<column name="geo_portal" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="agrupador_capa" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="omorro" id="schema-8-pk">
+		<addPrimaryKey columnNames="geo_portal,agrupador_capa"
+			constraintName="agrupador_capa_geo_portales_pkey" tableName="agrupador_capa_geo_portales" />
+	</changeSet>
+
+	<changeSet author="lalonso" id="schema-9"
+		objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+		<createTable tableName="gestor_catalogo">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints primaryKey="true" primaryKeyName="gestor_catalogo_pkey" />
+			</column>
+			<column name="nombre" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="url" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="version" type="INT" />
+			<column name="audit_created_by" type="VARCHAR(255)" />
+			<column name="audit_creation" type="timestamp" />
+			<column name="audit_last_update" type="timestamp" />
+			<column name="audit_last_updated_by" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="omorro" id="schema-10"
+		objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+		<createTable tableName="conf_ayuda_buscador">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints primaryKey="true" primaryKeyName="conf_ayuda_buscador_pkey" />
+			</column>
+			<column name="texto_ayuda" type="VARCHAR(2000)" />
+			<column name="version" type="INT" />
+			<column name="audit_created_by" type="VARCHAR(255)" />
+			<column name="audit_creation" type="timestamp" />
+			<column name="audit_last_update" type="timestamp" />
+			<column name="audit_last_updated_by" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+
+  	<changeSet author="lalonso" id="schema-11" objectQuotingStrategy="QUOTE_ALL_OBJECTS" >
+    	<createTable tableName="agrupador_capa_servicio_web">
+      		<column autoIncrement="true" name="id" type="BIGINT">
+        		<constraints primaryKey="true" primaryKeyName="agrup_serv_pkey" />
+      		</column>
+      		<column name="agrupador" type="BIGINT">
+        		<constraints nullable="false"/>
+      		</column>
+      		<column name="servicio_web" type="BIGINT">
+        		<constraints nullable="false"/>
+      		</column>
+      		<column name="version" type="INT" />
+      		<column name="audit_created_by" type="VARCHAR(255)" />
+      		<column name="audit_creation" type="timestamp" />
+      		<column name="audit_last_update" type="timestamp" />
+      		<column name="audit_last_updated_by" type="VARCHAR(255)" />
+   		 </createTable>
+  	</changeSet>
+
+	<changeSet author="omorro" id="schema-12"
+		objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+		<createTable tableName="conf_capas_tematicas">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints primaryKey="true" primaryKeyName="conf_capas_tematicas_pkey" />
+			</column>
+			<column name="grupo" type="BIGINT" />
+			<column name="nombre" type="VARCHAR(2000)" />
+      <column name="logo" type="BYTEA" />
+			<column name="version" type="INT" />
+			<column name="audit_created_by" type="VARCHAR(255)" />
+			<column name="audit_creation" type="timestamp" />
+			<column name="audit_last_update" type="timestamp" />
+			<column name="audit_last_updated_by" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+
+	<changeSet author="egarcia" id="schema-13"
+		objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+		<createTable tableName="conf_vistas_predefinidas">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints primaryKey="true" primaryKeyName="conf_vistas_predefinidas_pkey" />
+			</column>
+			<column name="nombre" type="VARCHAR(2000)" >
+          <constraints nullable="false"/>
+      </column>
+      <column name="logo" type="BYTEA" />
+			<column name="version" type="INT" />
+			<column name="audit_created_by" type="VARCHAR(255)" />
+			<column name="audit_creation" type="timestamp" />
+			<column name="audit_last_update" type="timestamp" />
+			<column name="audit_last_updated_by" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+
+	<changeSet author="omorro" id="schema-14"
+		objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+		<createTable tableName="conf_mini_mapa">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints primaryKey="true" primaryKeyName="conf_mini_mapa_pkey" />
+			</column>
+			<column name="servicio_web" type="BIGINT" />
+			<column name="version" type="INT" />
+			<column name="audit_created_by" type="VARCHAR(255)" />
+			<column name="audit_creation" type="timestamp" />
+			<column name="audit_last_update" type="timestamp" />
+			<column name="audit_last_updated_by" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+
+  	<changeSet author="lalonso" id="schema-15" objectQuotingStrategy="QUOTE_ALL_OBJECTS" >
+    	<createTable tableName="geoportal_servicio_web">
+      		<column autoIncrement="true" name="id" type="BIGINT">
+        		<constraints primaryKey="true" primaryKeyName="geo_serv_pkey" />
+      		</column>
+      		<column name="geoportal" type="BIGINT">
+        		<constraints nullable="false"/>
+      		</column>
+      		<column name="servicio_web" type="BIGINT">
+        		<constraints nullable="false"/>
+      		</column>
+         	<column name="opacidad" type="NUMBER">
+        		<constraints nullable="false"/>
+      		</column>
+      		<column name="activo" type="BOOLEAN">
+        		<constraints nullable="false"/>
+      		</column>
+          <column name="habilitado" type="BOOLEAN">
+            <constraints nullable="false"/>
+          </column>
+      		<column name="posicion" type="INT">
+        		<constraints nullable="false"/>
+      		</column>
+          <column name="version" type="INT" />
+      		<column name="audit_created_by" type="VARCHAR(255)" />
+      		<column name="audit_creation" type="timestamp" />
+      		<column name="audit_last_update" type="timestamp" />
+      		<column name="audit_last_updated_by" type="VARCHAR(255)" />
+    	</createTable>
+    </changeSet>
+
+    <changeSet author="egarcia" id="schema-16"
+      objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+      <createTable tableName="vistas_predefinidas_servicio_web">
+        <column name="servicios_web" type="BIGINT">
+          <constraints nullable="false" />
+        </column>
+        <column name="conf_vistas_predefinidas" type="BIGINT">
+          <constraints nullable="false" />
+        </column>
+      </createTable>
+    </changeSet>
+    <changeSet author="egarcia" id="schema-16-pk">
+      <addPrimaryKey columnNames="servicios_web,conf_vistas_predefinidas"
+        constraintName="vistas_predefinidas_servicio_web_pkey" tableName="vistas_predefinidas_servicio_web" />
+    </changeSet>
+
+	<!-- Fin tablas -->
+
+	<!-- Clave ajena de geo_portal con Sistema coordenadas -->
+	<changeSet author="omorro" id="schema-fk-1">
+		<addForeignKeyConstraint baseColumnNames="coordenadas"
+			baseTableName="geo_portal" constraintName="FK_geo_portal_sistema_coordenadas"
+			deferrable="false" initiallyDeferred="false" onDelete="NO ACTION"
+			referencedColumnNames="id" referencedTableName="sistema_coordenadas" />
+	</changeSet>
+
+	<!-- Clave ajena de coordenadas_servicio_web con servicio_web -->
+	<changeSet author="omorro" id="schema-fk-2">
+		<addForeignKeyConstraint baseColumnNames="servicios_web"
+			baseTableName="coordenadas_servicio_web" constraintName="FK_coordenadas_servicio_web_servicio_web"
+			deferrable="false" initiallyDeferred="false" onDelete="CASCADE"
+			referencedColumnNames="id" referencedTableName="servicio_web" />
+	</changeSet>
+
+	<!-- Clave ajena de coordenadas_servicio_web con sistema_coordenadas -->
+	<changeSet author="omorro" id="schema-fk-3">
+		<addForeignKeyConstraint baseColumnNames="coordenadas"
+			baseTableName="coordenadas_servicio_web" constraintName="FK_coordenadas_servicio_web_sistema_coordenadas"
+			deferrable="false" initiallyDeferred="false" onDelete="CASCADE"
+			referencedColumnNames="id" referencedTableName="sistema_coordenadas" />
+	</changeSet>
+
+
+	<!-- Clave ajena de agrupador_capa_geo_portales con agrupador_capa -->
+	<changeSet author="omorro" id="schema-fk-4">
+		<addForeignKeyConstraint baseColumnNames="agrupador_capa "
+			baseTableName="agrupador_capa_geo_portales" constraintName="FK_agrupador_capa_geo_portales_agrupador_capa"
+			deferrable="false" initiallyDeferred="false" onDelete="CASCADE"
+			referencedColumnNames="id" referencedTableName="agrupador_capa" />
+	</changeSet>
+
+	<!-- Clave ajena de agrupador_capa_geo_portales con geo_portal -->
+	<changeSet author="omorro" id="schema-fk-5">
+		<addForeignKeyConstraint baseColumnNames="geo_portal"
+			baseTableName="agrupador_capa_geo_portales" constraintName="FK_agrupador_capa_geo_portales_geo_portal"
+			deferrable="false" initiallyDeferred="false" onDelete="CASCADE"
+			referencedColumnNames="id" referencedTableName="geo_portal" />
+	</changeSet>
+
+	<!-- Clave ajena de componentes a geoPortal -->
+	<changeSet author="omorro" id="schema-fk-6">
+		<addForeignKeyConstraint baseColumnNames="geo_portal"
+			baseTableName="componentes" constraintName="FK_componentes_geoPortal"
+			deferrable="false" initiallyDeferred="false" onDelete="CASCADE"
+			referencedColumnNames="id" referencedTableName="geo_portal" />
+	</changeSet>
+
+	<!-- Clave ajena de conf_ayuda_buscador con componentes -->
+	<changeSet author="omorro" id="schema-fk-7">
+		<addForeignKeyConstraint baseColumnNames="id"
+			baseTableName="conf_ayuda_buscador" constraintName="FK_conf_ayuda_buscador_componentes"
+			deferrable="false" initiallyDeferred="false" referencedColumnNames="id"
+			referencedTableName="componentes" />
+	</changeSet>
+
+  	<!-- Clave ajena de agrupador_capa_servicio_web para agrupador -->
+  	<changeSet author="lalonso" id="schema-fk-8">
+   		<addForeignKeyConstraint baseColumnNames="agrupador"
+     		baseTableName="agrupador_capa_servicio_web" constraintName="FK_agrupserv_agrupador"
+    		 deferrable="false" initiallyDeferred="false" onDelete="CASCADE"
+     		referencedColumnNames="id" referencedTableName="agrupador_capa" />
+  	</changeSet>
+
+  	<!-- Clave ajena de agrupador_capa_servicio_web para servicio web -->
+  	<changeSet author="lalonso" id="schema-fk-9" >
+   		<addForeignKeyConstraint baseColumnNames="servicio_web"
+     		baseTableName="agrupador_capa_servicio_web" constraintName="FK_agrupserv_servicio"
+     		deferrable="false" initiallyDeferred="false" onDelete="CASCADE"
+     		referencedColumnNames="id" referencedTableName="servicio_web" />
+  	</changeSet>
+
+	<!-- Clave ajena de conf_capas_tematicas con componentes -->
+	<changeSet author="omorro" id="schema-fk-10">
+		<addForeignKeyConstraint baseColumnNames="id"
+			baseTableName="conf_capas_tematicas" constraintName="FK_conf_capas_tematicas_componentes"
+			deferrable="false" initiallyDeferred="false" referencedColumnNames="id"
+			referencedTableName="componentes" />
+	</changeSet>
+
+
+	<!-- Clave ajena de conf_capas_tematicas con AgrupadorCapas -->
+	<changeSet author="omorro" id="schema-fk-11">
+		<addForeignKeyConstraint baseColumnNames="grupo"
+			baseTableName="conf_capas_tematicas" constraintName="FK_conf_capas_tematicas_agrupador_capa"
+			deferrable="false" initiallyDeferred="false" onDelete="NO ACTION"
+			referencedColumnNames="id" referencedTableName="agrupador_capa" />
+	</changeSet>
+
+	<!-- Clave ajena de conf_vistas_predefinidas con componentes -->
+	<changeSet author="omorro" id="schema-fk-12">
+		<addForeignKeyConstraint baseColumnNames="id"
+			baseTableName="conf_vistas_predefinidas" constraintName="FK_conf_vistas_predefinidas_componentes"
+			deferrable="false" initiallyDeferred="false" referencedColumnNames="id"
+			referencedTableName="componentes" />
+	</changeSet>
+
+	<!-- Clave ajena de conf_mini_mapa con componentes -->
+	<changeSet author="omorro" id="schema-fk-13">
+		<addForeignKeyConstraint baseColumnNames="id"
+			baseTableName="conf_mini_mapa" constraintName="FK_conf_mini_mapa_componentes"
+			deferrable="false" initiallyDeferred="false" referencedColumnNames="id"
+			referencedTableName="componentes" />
+	</changeSet>
+
+	<!-- Clave ajena de conf_mini_mapa con ServiciosWeb -->
+	<changeSet author="omorro" id="schema-fk-14">
+		<addForeignKeyConstraint baseColumnNames="servicio_web"
+			baseTableName="conf_mini_mapa" constraintName="FK_conf_mini_mapa_servicio_web"
+			deferrable="false" initiallyDeferred="false" onDelete="NO ACTION"
+			referencedColumnNames="id" referencedTableName="servicio_web" />
+	</changeSet>
+
+ 	<!-- Clave ajena de geoportal_servicio_web para geoportal -->
+	<changeSet author="lalonso" id="schema-fk-15">
+   	<addForeignKeyConstraint baseColumnNames="geoportal"
+     		baseTableName="geoportal_servicio_web" constraintName="FK_geoserv_geoportal"
+     		deferrable="false" initiallyDeferred="false" onDelete="CASCADE"
+     		referencedColumnNames="id" referencedTableName="geo_portal" />
+ 	</changeSet>
+
+ 	<!-- Clave ajena de geoportal_servicio_web para servicio web -->
+ 	<changeSet author="lalonso" id="schema-fk-16" >
+  	<addForeignKeyConstraint baseColumnNames="servicio_web"
+     		baseTableName="geoportal_servicio_web" constraintName="FK_geoserv_servicio"
+     		deferrable="false" initiallyDeferred="false" onDelete="CASCADE"
+     		referencedColumnNames="id" referencedTableName="servicio_web" />
+ 	</changeSet>
+
+   <!-- Clave ajena de vistas_predefinidas_servicio_web con servicio_web -->
+    <changeSet author="egarcia" id="schema-fk-17">
+      <addForeignKeyConstraint baseColumnNames="servicios_web"
+        baseTableName="vistas_predefinidas_servicio_web" constraintName="FK_vistas_predefinidas_servicio_web_servicio_web"
+        deferrable="false" initiallyDeferred="false" onDelete="CASCADE"
+        referencedColumnNames="id" referencedTableName="servicio_web" />
+    </changeSet>
+
+    <!-- Clave ajena de vistas_predefinidas_servicio_web con conf_vistas_predefinidas -->
+    <changeSet author="egarcia" id="schema-fk-18">
+      <addForeignKeyConstraint baseColumnNames="conf_vistas_predefinidas"
+        baseTableName="vistas_predefinidas_servicio_web" constraintName="FK_vistas_predefinidas_servicio_web_conf_vistas_predefinidas"
+        deferrable="false" initiallyDeferred="false" onDelete="CASCADE"
+        referencedColumnNames="id" referencedTableName="conf_vistas_predefinidas" />
+    </changeSet>
+
+    <!-- Clave ajena de capas_servicio_web a servicio_web -->
+	<changeSet author="omorro" id="schema-fk-19">
+		<addForeignKeyConstraint baseColumnNames="servicio_web"
+			baseTableName="capas_servicio_web" constraintName="FK_capas_servicio_web_servicio_web"
+			deferrable="false" initiallyDeferred="false" onDelete="CASCADE"
+			referencedColumnNames="id" referencedTableName="servicio_web" />
+	</changeSet>
+
+
+
+</databaseChangeLog>

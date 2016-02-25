@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+gvGeoportal is sponsored by the General Directorate for Information
+Technologies (DGTI) of the Regional Ministry of Finance and Public
+Administration of the Generalitat Valenciana (Valencian Community,
+Spain), managed by gvSIG Association and led by DISID Corporation.
+
+Copyright (C) 2016 DGTI - Generalitat Valenciana
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/jquery/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/datatables" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_es_gva_dgti_gvgeoportal_domain_SistemaCoordenadas" object="${sistemacoordenadas}" path="/sistemacoordenadases" z="mox7cPM6e3n5GGlQ6xbb7Fk8L5Q=">
+        <field:display field="codigo" id="s_es_gva_dgti_gvgeoportal_domain_SistemaCoordenadas_codigo" object="${sistemacoordenadas}" z="2T+ZMsaUd/KC5DPRiPfRkba1Ybg="/>
+        <field:display field="nombre" id="s_es_gva_dgti_gvgeoportal_domain_SistemaCoordenadas_nombre" object="${sistemacoordenadas}" z="/i2e/aTUmNzsnzRQ41a0B20k+0g="/>
+        <field:display field="descripcion" id="s_es_gva_dgti_gvgeoportal_domain_SistemaCoordenadas_descripcion" object="${sistemacoordenadas}" z="HPfP0ZBmFoIE1ftKcLbfBIajTwo="/>
+        <field:display field="serviciosWeb" id="s_es_gva_dgti_gvgeoportal_domain_SistemaCoordenadas_serviciosWeb" object="${sistemacoordenadas}" z="mqAU4CZVF4VB1k97M8xBjCZOEog="/>
+        <field:display calendar="true" dateTimePattern="${sistemaCoordenadas_auditcreation_date_format}" field="auditCreation" id="s_es_gva_dgti_gvgeoportal_domain_SistemaCoordenadas_auditCreation" object="${sistemacoordenadas}" z="7jjTjdhzEt8/GNKszii8wv+eL/8="/>
+        <field:display field="auditCreatedBy" id="s_es_gva_dgti_gvgeoportal_domain_SistemaCoordenadas_auditCreatedBy" object="${sistemacoordenadas}" z="2l/YUpGzX39paL5GNfbNpdv8biQ="/>
+        <field:display calendar="true" dateTimePattern="${sistemaCoordenadas_auditlastupdate_date_format}" field="auditLastUpdate" id="s_es_gva_dgti_gvgeoportal_domain_SistemaCoordenadas_auditLastUpdate" object="${sistemacoordenadas}" z="zbguNKTasBogq1hRqibpZhd9+YE="/>
+        <field:display field="auditLastUpdatedBy" id="s_es_gva_dgti_gvgeoportal_domain_SistemaCoordenadas_auditLastUpdatedBy" object="${sistemacoordenadas}" z="9OTtKeuPRFUxYIZT4aQDJ0RCNCM="/>
+    </page:show>
+</div>

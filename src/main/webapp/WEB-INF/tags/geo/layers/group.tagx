@@ -1,0 +1,107 @@
+<!--
+gvGeoportal is sponsored by the General Directorate for Information
+Technologies (DGTI) of the Regional Ministry of Finance and Public
+Administration of the Generalitat Valenciana (Valencian Community,
+Spain), managed by gvSIG Association and led by DISID Corporation.
+
+Copyright (C) 2016 DGTI - Generalitat Valenciana
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<jsp:root xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:spring="http://www.springframework.org/tags" xmlns:form="http://www.springframework.org/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+	<jsp:output omit-xml-declaration="yes" />
+
+	<jsp:directive.attribute name="id" type="java.lang.String" required="true" rtexprvalue="true"	description="The identifier for this tag (do not change!)" />
+	<jsp:directive.attribute name="label" type="java.lang.String"	required="false" description="Label to display the layer name" />
+	<jsp:directive.attribute name="labelCode" type="java.lang.String"	required="false" description="Label code to display the layer name" />
+	<jsp:directive.attribute name="opacity" type="java.lang.String"	required="false" description="Layer opacity (between 0 and 1)" />
+	<jsp:directive.attribute name="allowDisable" type="java.lang.Boolean"	required="false"	description="Use this to set current layer as allowDisable or not. DEFAULT true." />
+	<jsp:directive.attribute name="maxZoom" type="java.lang.Integer"	required="false" description="Maximun zoom which layer is shown" />
+	<jsp:directive.attribute name="minZoom" type="java.lang.Integer"	required="false" description="Minimun zoom wich layer is shown" />
+  <jsp:directive.attribute name="layerIcon" type="java.lang.String" required="false" description="Layer icon for showing in map's TOC." />
+  <jsp:directive.attribute name="metadataType" type="java.lang.String" required="false" description="Specify metadata type returned by fnPrepareMetadata function. Values can be 'URL', 'STRING'(html) or 'JSON'" />
+  <jsp:directive.attribute name="fnPrepareMetadata" type="java.lang.String" required="false" description="Specify the name of function to prepare the data for draw layer metadata" />
+  <jsp:directive.attribute name="visibleOnStart" type="java.lang.Boolean" required="false" description="Specify the visibility of layer the first time it is shown. DEFAULT false" />
+	<jsp:directive.attribute name="z" type="java.lang.String"	required="false"	description="Used for checking if element has been modified (to recalculate simply provide empty string value)" />
+
+	<c:choose>
+		<c:when
+			test="${empty mapview_in_overview or not mapview_in_overview}">
+			<c:if test="${empty label}">
+				<c:if test="${empty labelCode }">
+					<c:set var="labelCode"
+						value="label_${fn:toLowerCase(fn:substringAfter(id,'_'))}" />
+				</c:if>
+				<spring:message code="${labelCode}" var="label" htmlEscape="false" />
+			</c:if>
+
+      <c:set var="spanId" value="${id}_span" />
+
+			<c:if test="${empty allowDisable}">
+				<c:set var="allowDisable" value="true" />
+			</c:if>
+
+      <c:if test="${empty layerIcon}">
+        <c:set var="layerIcon" value=".whhg icon-layers" />
+      </c:if>
+
+			<!--<c:choose>
+				<c:when test="${addCheckBox}">
+					<c:set var="checkboxId" value="${id}_check" />
+				</c:when>
+				<c:otherwise>
+					<c:set var="allowDisable" value="false" />
+				</c:otherwise>
+			</c:choose>-->
+
+		</c:when>
+		<c:otherwise>
+			<!-- configuration for overview layer -->
+			<c:set var="allowDisable" value="false" />
+			<c:set var="id" value="${id}_overview" />
+		</c:otherwise>
+	</c:choose>
+
+	 <c:if test="${empty visibleOnStart}">
+     <c:set var="visibleOnStart" value="false" />
+   </c:if>
+
+	<spring:message code="msg_metadata_undefined" var="msgMetadataUndefined"/>
+
+  <div class="mapviewer_layers_layer folder" data-layer_type="group" id="${id}"
+	  data-span="${spanId}"
+	  data-group="${mapview_group_stack.peek()}"
+		data-min_zoom="${minZoom}" data-max_zoom="${maxZoom}"
+		data-allow_disable="${allowDisable}"
+    data-node_icon="${layerIcon}"
+    data-title="${fn:escapeXml(label)}"
+    data-enable_legend="false"
+    data-metadata_type="${metadataType}"
+    data-fn_prepare_metadata="${fnPrepareMetadata}"
+    data-msg_metadata_undefined="${msgMetadataUndefined}"
+    data-visible_on_start="${visibleOnStart}"
+    >
+
+		<div id="layer-components" class="layer_components">
+			<!-- Push new group name -->
+			<c:set value="${mapview_group_stack.push(id)}" var="nop" />
+			<c:set scope="request" value="${id}" var="current_layer"/>
+			<jsp:doBody />
+			<!-- Pop new group name -->
+			<c:set value="${mapview_group_stack.pop()}" var="nop" />
+			<c:set scope="request" value="" var="current_layer"/>
+		</div>
+	</div>
+
+</jsp:root>

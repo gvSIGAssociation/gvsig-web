@@ -1,0 +1,732 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+gvGeoportal is sponsored by the General Directorate for Information
+Technologies (DGTI) of the Regional Ministry of Finance and Public
+Administration of the Generalitat Valenciana (Valencian Community,
+Spain), managed by gvSIG Association and led by DISID Corporation.
+
+Copyright (C) 2016 DGTI - Generalitat Valenciana
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+--><div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/jquery/form/fields" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:form="urn:jsptagdir:/WEB-INF/tags/datatables" xmlns:gvgeoportal="urn:jsptagdir:/WEB-INF/tags/gvgeoportal" xmlns:gvgeoportal-form="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/datatables" xmlns:gvgeoportalfields="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/jquery/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:loupefield="urn:jsptagdir:/WEB-INF/tags/loupefield" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <spring:message code="label_es_gva_dgti_gvgeoportal_domain_componentes" htmlEscape="false" var="tituloComponentes"/>
+    <spring:message code="label_es_gva_dgti_gvgeoportal_domain_componentes_listado" htmlEscape="false" var="labelListadoComponentes"/>
+    <spring:message code="message_help_publicado_geo_portal" htmlEscape="false" var="messageHelpGeoportalPublicado"/>
+    <spring:message code="title_configuracion_componente" htmlEscape="false" var="titleConfiguracionComponente"/>
+    <spring:message code="title_dialog_add_layers" htmlEscape="false" var="titleDialogAddLayers"/>
+    <spring:message code="message_remove_image" htmlEscape="false" var="removeImageMessage"/>
+    <spring:message code="label_es_gva_dgti_gvgeoportal_domain_geoportal_logo" htmlEscape="false" var="logoLabel"/>
+    <spring:message code="title_new_logo" htmlEscape="false" var="newLogoLabel"/>
+    <spring:message code="button_cancel" htmlEscape="false" var="buttonCancel"/>
+    <spring:message code="button_continue" htmlEscape="false" var="buttonContinue"/>
+    <gvgeoportal-form:update id="fu_es_gva_dgti_gvgeoportal_domain_GeoPortal" modelAttribute="geoPortal" path="/geoportales" versionField="Version" z="user-managed">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <field:input field="titulo" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_titulo" required="true" z="VKVdWAmZXDf3wu36QOODqQxbi74="/>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <gvgeoportalfields:input field="url" helpBlockMessage="${textoAyudaUrlEdicion}" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_url" required="true" validationMessageCode="error_invalid_format" validationRegex="[-a-zA-Z0-9_-]{1,255}" z="user-managed"/>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <gvgeoportalfields:input-hidden field="coordenadas" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_coordenadas" value="${geoPortal.coordenadas.id}" z="user-managed"/>
+                <field:display field="coordenadas" id="d_es_gva_dgti_gvgeoportal_domain_GeoPortal_coordenadas" object="${geoPortal}" z="user-managed"/>
+            </div>
+        </div>
+        <div class="row putMarginBottom">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <field:input field="subtitulo" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_subtitulo" z="ERzH9bEzaIrA4ZDRG0Y1wWTSayQ="/>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <field:input field="descripcion" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_descripcion" z="zj98EYVqrebPMXw39fspT9DjhNs="/>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-2 col-lg-2">
+                <div class="control-group form-group" id="_geoportal_publicado_id">
+                    <label class="control-label" for="_geoportal_publicado_select_id">
+                        <spring:message code="label_es_gva_dgti_gvgeoportal_domain_geoportal_publicado" htmlEscape="false"/>:
+					</label>
+                    <select class="controls form-control" id="_geoportal_publicado_select_id" name="publicado">
+                        <c:choose>
+                            <c:when test="${geoPortal.publicado}">
+                                <option value="true">
+                                    <spring:message code="label_yes" htmlEscape="false"/>
+                                </option>
+                                <option value="false">
+                                    <spring:message code="label_no" htmlEscape="false"/>
+                                </option>
+                            </c:when>
+                            <c:otherwise>
+                                <option value="false">
+                                    <spring:message code="label_no" htmlEscape="false"/>
+                                </option>
+                                <option value="true">
+                                    <spring:message code="label_yes" htmlEscape="false"/>
+                                </option>
+                            </c:otherwise>
+                        </c:choose>
+                    </select>
+                </div>
+                <p class="help-block">${messageHelpGeoportalPublicado}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <label class="control-label" for="_logo_id">${logoLabel}:</label>
+                <div class="controls">
+                    <c:choose>
+                        <c:when test="${not empty geoPortal.logoString}">
+                            <img alt="${logoLabel}" class="logoGeoportal" id="savedLogo" src="${geoPortal.logoString}"/>
+                        </c:when>
+                        <c:otherwise>
+                            <img alt="${logoLabel}" class="hide" id="savedLogo" src="${geoPortal.logoString}"/>
+                        </c:otherwise>
+                    </c:choose>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 putMarginBottom">
+                <label class="control-label" for="_logo_id">${newLogoLabel}:</label>
+                <div class="controls">
+                    <c:choose>
+                        <c:when test="${not empty newLogo}">
+                            <img alt="${logoLabel}" class="logoGeoportal" id="logoImg" src="${newLogo}"/>
+                        </c:when>
+                        <c:otherwise>
+                            <img alt="${logoLabel}" class="hide" id="logoImg" src="${newLogo}"/>
+                        </c:otherwise>
+                    </c:choose>
+                    <div id="manageImage">
+                        <input accept="image/*" class="displayInlineBlock" id="logoLoad" onchange="loadImage(this)" type="file" value="${newLogo}"/>
+                    </div>
+                    <span class="help-block">
+                        <spring:message code="label_image_help_box"/>
+                    </span>
+                    <span class="has-error errors alert alert-danger" id="logoGeoPortalError" style="display:none;">
+                        <spring:message code="label_image_error_size"/>
+                    </span>
+                    <input id="newLogo" name="newLogo" type="hidden" value="${newLogo}"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                <field:datetime dateTimePattern="${geoPortal_fechaalta_date_format}" field="fechaAlta" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_fechaAlta" render="false" z="user-managed"/>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                <field:datetime dateTimePattern="${geoPortal_fechabaja_date_format}" field="fechaBaja" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_fechaBaja" render="false" z="user-managed"/>
+            </div>
+        </div>
+        <!-- Botón de configuración del TOC -->
+        <div class="row submit" id="configuracion_toc_btn">
+            <div class="col-xs-12 col-sm-auto col-md-6 col-lg-3">
+                <spring:message code="button_configure_toc" htmlEscape="false" var="configure_toc_button"/>
+                <spring:message code="title_help_configure_toc_button" htmlEscape="false" var="configureTocHelp"/>
+                <input class="btn btn-primary btn-block btn-proceed" data-original-title="${configureTocHelp}" id="configure_toc_id" onclick="javascript:openConfigureToc()" type="button" value="${fn:escapeXml(configure_toc_button)}"/>
+            </div>
+        </div>
+        <gvgeoportalfields:select-hidden field="agrupadorCapa" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_agrupadorCapa" itemValue="id" items="${geoPortal.agrupadorCapa}" multiple="true" path="/agrupadorcapas" z="user-managed"/>
+        <gvgeoportalfields:datetime-hidden dateTimePattern="${geoPortal_auditcreation_date_format}" field="auditCreation" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_auditCreation" z="user-managed"/>
+        <gvgeoportalfields:input-hidden field="auditCreatedBy" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_auditCreatedBy" z="user-managed"/>
+        <gvgeoportalfields:datetime-hidden dateTimePattern="${geoPortal_auditlastupdate_date_format}" field="auditLastUpdate" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_auditLastUpdate" z="user-managed"/>
+        <gvgeoportalfields:input-hidden field="auditLastUpdatedBy" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_auditLastUpdatedBy" z="user-managed"/>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <h4>${labelListadoComponentes}</h4>
+            </div>
+        </div>
+        <div class="panel panel-default panel-sm" id="panelComponentes">
+            <div class="panel-body panel-body-sm panel-display">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                        <c:forEach items="${listadoComponentes}" var="componente" varStatus="loop">
+                            <c:set value="${(loop.index % 8)}" var="aux"/>
+                            <c:if test="${loop.index != 0 and aux == 0}">
+                                <c:out escapeXml="false" value="&lt;/div&gt;"/>
+                                <c:out escapeXml="false" value="&lt;div class=&quot;col-xs-12 col-sm-6 col-md-4 col-lg-4&quot;&gt;"/>
+                            </c:if>
+                            <div class="rowComponent input-group">
+                                <c:set value="false" var="contains"/>
+                                <c:forEach items="${listadoComponentesSeleccionados}" var="item">
+                                    <c:if test="${item.tipo eq componente}">
+                                        <c:set value="true" var="contains"/>
+                                    </c:if>
+                                </c:forEach>
+                                <c:choose>
+                                    <!-- si es componente desplazar -->
+                                    <c:when test="${componente eq &quot;desplazar&quot;}">
+                                        <gvgeoportal:components checked="true" disabled="true" field="${componente}" id="${componente}"/>
+                                    </c:when>
+                                    <!-- si es componente minimapa -->
+                                    <c:when test="${componente eq &quot;minimapa&quot;}">
+                                        <gvgeoportal:components checked="${contains}" configurable="true" disabled="false" field="${componente}" functionOpenDialog="abrir_${componente}" id="${componente}" idConfigurationDialog="dialogo_${componente}"/>
+                                    </c:when>
+                                    <!-- si es componente anyadir grupos de capas -->
+                                    <c:when test="${componente eq &quot;anyadir_grupo_capas&quot;}">
+                                        <gvgeoportal:components checked="${contains}" configurable="true" disabled="false" field="${componente}" functionOpenDialog="openLayoutsConfiguration" id="${componente}" idConfigurationDialog="dialogoAgrupadorCapas"/>
+                                    </c:when>
+                                    <!-- si es componente ayuda_buscador -->
+                                    <c:when test="${componente eq &quot;ayuda_buscador&quot;}">
+                                        <gvgeoportal:components checked="${contains}" configurable="true" disabled="false" field="${componente}" functionOpenDialog="abrirComponenteAyuda" id="${componente}" idConfigurationDialog="dialogoComponentesAyuda"/>
+                                    </c:when>
+                                    <!-- si es componente cargar_tematicos -->
+                                    <c:when test="${componente eq &quot;cargar_tematicos&quot;}">
+                                        <gvgeoportal:components checked="${contains}" configurable="true" disabled="false" field="${componente}" functionOpenDialog="abrir_${componente}" id="${componente}" idConfigurationDialog="dialogo_${componente}"/>
+                                    </c:when>
+                                    <!-- si es componente vistas_predefinidas -->
+                                    <c:when test="${componente eq &quot;vistas_predefinidas&quot;}">
+                                        <gvgeoportal:components checked="${contains}" configurable="true" disabled="false" field="${componente}" functionOpenDialog="abrir_${componente}" id="${componente}" idConfigurationDialog="dialogo_${componente}"/>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <gvgeoportal:components checked="${contains}" configurable="false" disabled="false" field="${componente}" id="${componente}"/>
+                                    </c:otherwise>
+                                </c:choose>
+                            </div>
+                        </c:forEach>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <gvgeoportalfields:input-hidden field="centro" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_centro" validationMessageCode="field_invalid_number" z="user-managed"/>
+        <gvgeoportalfields:input-hidden field="zoom" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_zoom" validationMessageCode="field_invalid_integer" z="user-managed"/>
+        <gvgeoportalfields:input-hidden disableFormBinding="true" field="ayudaBuscadorHidden" id="ayudaBuscadorHidden" label="ayuda" value="${textoAyuda}" z="user-managed"/>
+        <gvgeoportalfields:input-hidden disableFormBinding="true" field="selectedGroupLayersHidden" id="selectedGroupLayersHidden" label="selectedGroupLayersFromComponents" value="${selectedGroupLayers}" z="user-managed"/>
+        <gvgeoportalfields:input-hidden disableFormBinding="true" field="cargarTematicosHidden" id="cargarTematicosHidden" label="nombre capa tematica" value="${cargarTematico}" z="user-managed"/>
+        <gvgeoportalfields:input-hidden disableFormBinding="true" field="vistasPredefinidasHidden" id="vistasPredefinidasHidden" label="vista predefinida" value="${vistasPredefinidas}" z="user-managed"/>
+        <gvgeoportalfields:input-hidden disableFormBinding="true" field="miniMapaHidden" id="miniMapaHidden" label="mini Mapa" value="${miniMapa}" z="user-managed"/>
+        <field:input field="logoString" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_logoString" render="false" z="user-managed"/>
+        <field:input field="logo" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_logo" render="false" z="user-managed"/>
+        <field:input field="alias" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_alias" render="false" z="user-managed"/>
+        <field:checkbox field="publicado" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_publicado" render="false" z="user-managed"/>
+        <field:simple field="serviciosToc" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_serviciosToc" messageCode="entity_reference_not_managed" messageCodeAttribute="Geoportal Servicio Web" render="false" z="user-managed"/>
+        <field:input field="urlCompleta" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_urlCompleta" render="false" z="user-managed"/>
+        <field:input field="minZoom" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_minZoom" validationMessageCode="field_invalid_integer" render="false" z="user-managed"/>
+        <field:input field="maxZoom" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_maxZoom" validationMessageCode="field_invalid_integer" render="false" z="user-managed"/>
+        <!-- 		Dialogo de componente ayuda -->
+        <div class="modal fade" id="dialogoComponentesAyuda" role="dialog" tabindex="-1">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                            <span aria-hidden="true"> &amp;times;</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">${titleConfiguracionComponente}</h4>
+                    </div>
+                    <div class="modal-body">
+                        <gvgeoportalfields:textarea cssClass="tinymce-geoPortal" disableFormBinding="true" field="ayudaBuscador" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_componentes_Ayuda_Buscador_text_area" showLabel="false" value="${textoAyuda}" z="user-managed"/>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" data-dismiss="modal" type="button">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </gvgeoportal-form:update>
+    <div id="dialogo_minimapa">&amp;nbsp;</div>
+    <div id="dialogo_cargar_tematicos">&amp;nbsp;</div>
+    <div id="dialogo_vistas_predefinidas">&amp;nbsp;</div>
+    <div id="dialogoAgrupadorCapas">&amp;nbsp;</div>
+
+    <script type="text/javascript"><![CDATA[
+
+		jQuery(document).ready(function() {
+			if (jQuery('#savedLogo').attr('src') != '') {
+				addRemoveImageIcon();
+			}
+
+			if (jQuery("#_selectedGroupLayersHidden_id").val()) {
+				jQuery("#anyadir_grupo_capas_image_id").show();
+			}
+			if (jQuery("#_ayudaBuscadorHidden_id").val()) {
+				jQuery("#ayuda_buscador_image_id").show();
+			}
+			if (jQuery("#cargar_tematicos_id input[type=checkbox]").prop('checked')) {
+				jQuery("#cargar_tematicos_image_id").show();
+			}
+			if (jQuery("#vistas_predefinidas_id input[type=checkbox]").prop('checked')) {
+				jQuery("#vistas_predefinidas_image_id").show();
+			}
+			if (jQuery("#minimapa_id input[type=checkbox]").prop('checked')) {
+				jQuery("#minimapa_image_id").show();
+			}
+
+      // Cada vez que se carga el formulario de edición se elimina la configuración de estado del mapa
+      // de edición del localStorage
+      var hashLocation = fnGetHashCode('${pageContext.request.contextPath}/mapaedicion/${geoPortal.id}');
+      localStorage.removeItem(hashLocation+'_ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_status');
+		});
+
+    /**
+     * Abre la pestaña de configuración del TOC, guardando previamente el geoportal.
+     */
+    function openConfigureToc(){
+      var form = jQuery('#geoPortal');
+      form.append('<input id="openConfigureTocRedirect" name="openConfigureTocRedirect" type="hidden" value="true" />');
+      form.submit();
+    }
+
+		function addRemoveImageIcon() {
+			if (jQuery('#removeImageIcon').length == 0) {
+				jQuery('#manageImage')
+						.append(
+								'<a alt="${removeImageMessage}" aria-hidden="true" class="glyphicon glyphicon-new-window icon delete_entity" id="removeImageIcon" onclick="clearImage();" title="${removeImageMessage}"/>');
+			}
+		}
+
+		function clearImage() {
+			jQuery('#logoImg').attr('src', '');
+			jQuery('#logoImg').attr('class', 'hide');
+			jQuery('#logoLoad').val('');
+			jQuery('#newLogo').val('');
+			jQuery('#removeImageIcon').remove();
+		}
+
+		function loadImage(input) {
+			if (input.files && input.files[0]) {
+			    var file = input.files[0];
+                if (file.size < 1048576) {
+                    jQuery('#logoGeoPortalError').hide();
+					var reader = new FileReader();
+					reader.onload = function(e) {
+						var image = e.target.result;
+						jQuery('#logoImg').attr('src', image);
+						jQuery('#logoImg').attr('class', 'logoGeoportal');
+						jQuery('#newLogo').val(image);
+						addRemoveImageIcon();
+					}
+					reader.readAsDataURL(input.files[0]);
+                }else {
+	              jQuery('#logoGeoPortalError').show();
+	            }
+			}
+		}
+
+		// Abre el dialogo de configuracion de anyadir capas desde la rueda de configuracion
+		function openLayoutsConfiguration() {
+			var url = "${pageContext.request.contextPath}/agrupadorcapas/componentes/addLayers"
+			var titulo = "${titleDialogAddLayers}";
+			showDialogAgrupadorCapas(url, titulo);
+			return false;
+		}
+
+		function abrirComponenteAyuda() {
+			jQuery('#dialogoComponentesAyuda').modal('show');
+		}
+		jQuery('#dialogoComponentesAyuda').on(
+				'hidden.bs.modal',
+				function(e) {
+					var content = tinyMCE.activeEditor.getContent();
+					if (content) {
+						jQuery("#ayuda_buscador_id input[type=checkbox]").prop(
+								'checked', true);
+						jQuery("#_ayudaBuscadorHidden_id").val(content);
+						jQuery("#ayuda_buscador_image_id").show();
+					} else {
+						jQuery("#ayuda_buscador_id input[type=checkbox]").prop(
+								'checked', false);
+						jQuery("#ayuda_buscador_image_id").hide();
+					}
+				})
+
+		function abrir_minimapa() {
+		    var geoPortal = ${geoPortal.id};
+		    var crs = ${geoPortal.coordenadas.id};
+		    var url = "${pageContext.request.contextPath}/confminimapas/componentes/cargarMiniMapa?geoPortal="+geoPortal+"&datatablesMappedProperty=coordenadas&datatablesMappedValue="+crs;
+
+			var titulo = "${titleConfiguracionComponente}";
+			var idDialogo = "dialogo_minimapa";
+			showDialog(url, titulo, idDialogo);
+			return false;
+		}
+
+		function abrir_cargar_tematicos() {
+		    var geoPortal = ${geoPortal.id};
+			var url = "${pageContext.request.contextPath}/confcapastematicases/componentes/cargarTematicas?geoPortal="+geoPortal+"&datatablesMappedProperty=geoPortal&datatablesMappedValue="+geoPortal;
+			var titulo = "${titleConfiguracionComponente}";
+			var idDialogo = "dialogo_cargar_tematicos";
+			showDialog(url, titulo, idDialogo);
+			return false;
+		}
+
+		function abrir_vistas_predefinidas() {
+		    var geoPortal = ${geoPortal.id};
+			var url = "${pageContext.request.contextPath}/confvistaspredefinidases/componentes/vistasPredefinidas?geoPortal="+geoPortal+"&datatablesMappedProperty=geoPortal&datatablesMappedValue="+geoPortal;
+			var titulo = "${titleConfiguracionComponente}";
+			var idDialogo = "dialogo_vistas_predefinidas";
+			showDialog(url, titulo, idDialogo);
+			return false;
+		}
+
+		//funciones llamadas desde el icono rueda de configuracion
+		$( "#cargar_tematicos_image_link_id" ).on( "click", function(event) {
+		      event.preventDefault();
+			  abrir_cargar_tematicos();
+		});
+		$( "#vistas_predefinidas_image_link_id" ).on( "click", function(event) {
+		      event.preventDefault();
+			  abrir_vistas_predefinidas();
+		});
+		$( "#minimapa_image_link_id" ).on( "click", function(event) {
+		      event.preventDefault();
+			  abrir_minimapa();
+		});
+		$( "#ayuda_buscador_image_link_id" ).on( "click", function(event) {
+		      event.preventDefault();
+			  abrirComponenteAyuda();
+		});
+		$( "#anyadir_grupo_capas_image_link_id" ).on( "click", function(event) {
+		      event.preventDefault();
+			  openLayoutsConfiguration();
+		});
+
+        //funcion que salta al cambiar el checkbox
+		jQuery('#panelComponentes input[type=checkbox]')
+				.change(
+						function() {
+							var componente = this.getAttribute("name");
+							var dialogId = "#dialogo_" + componente;
+
+							// Comportamiento general
+							if ($(dialogId).length) { // Si existe diálogo para este componente
+								if (this.checked) { // y está chequeado
+									$(dialogId).modal('show'); // mostramos el diálogo
+								} else { // si no está chequeado
+									jQuery("#" + componente + "_image_id")
+											.hide(); // ocultamos el botón de configuración
+								}
+							}
+
+							// Comportamiento para componente "Ayuda"
+							if (componente === "ayuda_buscador") {
+								if (this.checked) {
+									$('#dialogoComponentesAyuda').modal('show');
+								} else {
+
+									jQuery("#ayuda_buscador_image_id").hide();
+								}
+							}
+
+							// Comportamiento para "Anyadir agrupaciones de capas"
+							if (componente === "anyadir_grupo_capas") {
+								if (this.checked) {
+									openLayoutsConfiguration();
+								} else {
+									jQuery("#anyadir_grupo_capas_image_id")
+											.hide();
+								}
+							}
+							// Comportamiento para "minimapa"
+							if (componente === "minimapa") {
+								if (this.checked) {
+									abrir_minimapa();
+								} else {
+									jQuery("#minimapa_image_id")
+											.hide();
+								}
+							}
+
+							// Comportamiento para "capas tematicas"
+							if (componente === "cargar_tematicos") {
+								if (this.checked) {
+									abrir_cargar_tematicos();
+								} else {
+									jQuery("#cargar_tematicos_image_id")
+											.hide();
+								}
+							}
+							// Comportamiento para "capas tematicas"
+							if (componente === "vistas_predefinidas") {
+								if (this.checked) {
+									abrir_vistas_predefinidas();
+								} else {
+									jQuery("#vistas_predefinidas_image_id")
+											.hide();
+								}
+							}
+
+						});
+
+		// esta variable global se utiliza para el dialogo de capas
+		var selectedGroupLayersFromComponents = new Object();
+
+		// monta el dialog de agrupador capas
+		function showDialogAgrupadorCapas(url, title) {
+
+			var buttonsConfig = [ {
+				text : "Guardar",
+				"class" : "btn btn-primary btn-save-dialog-jquery",
+				click : function() {
+					$(this).dialog('destroy');
+					jQuery("#dialogoAgrupadorCapas").html("");
+					jQuery("#_selectedGroupLayersHidden_id").val(
+							JSON.stringify(selectedGroupLayersFromComponents));
+
+					//sino se ha seleccionado ningun elemento se descheckea elemento
+					if (jQuery("#_selectedGroupLayersHidden_id")
+							.val() === "{}") {
+						jQuery("#_selectedGroupLayersHidden_id")
+								.val("");
+						jQuery("#anyadir_grupo_capas_image_id")
+								.hide();
+						jQuery(
+								"#anyadir_grupo_capas_id input[type=checkbox]")
+								.prop('checked', false);
+
+					}else{
+						jQuery("#anyadir_grupo_capas_image_id").show();
+					}
+
+					//paramos todas las peticiones pendientes. Esto es por la carga de los preview.
+					try{
+						    window.stop();
+					  }catch(e){
+						    document.execCommand('Stop');
+					}
+				}
+			} ];
+
+			var selectorCapas = $("#dialogoAgrupadorCapas")
+					.dialog(
+							{
+								autoOpen : false,
+								title : title,
+								modal : true,
+								resizable : false,
+								position : {
+									my : 'top',
+									at : 'top'
+								},
+								width : 850,
+								buttons : buttonsConfig,
+								close : function(event, ui) {
+									$(this).dialog('destroy');
+									jQuery("#dialogoAgrupadorCapas").html("");
+									jQuery("#_selectedGroupLayersHidden_id")
+											.val(
+													JSON
+															.stringify(selectedGroupLayersFromComponents));
+
+									//sino se ha seleccionado ningun elemento se descheckea elemento
+									if (jQuery("#_selectedGroupLayersHidden_id")
+											.val() === "{}") {
+										jQuery("#_selectedGroupLayersHidden_id")
+												.val("");
+										jQuery("#anyadir_grupo_capas_image_id")
+												.hide();
+										jQuery(
+												"#anyadir_grupo_capas_id input[type=checkbox]")
+												.prop('checked', false);
+
+									}else{
+										jQuery("#anyadir_grupo_capas_image_id").show();
+									}
+									//paramos todas las peticiones pendientes. Esto es por la carga de los preview.
+									try{
+										    window.stop();
+									  }catch(e){
+										    document.execCommand('Stop');
+									}
+								}
+							});
+
+			selectorCapas.load(
+					url,
+					function() {
+						selectedGroupLayersFromComponents = new Object();
+						if (jQuery("#_selectedGroupLayersHidden_id").val()) {
+							var selectedGroupLayers = jQuery(
+									"#_selectedGroupLayersHidden_id").val();
+							selectedGroupLayersFromComponents = JSON
+									.parse(selectedGroupLayers);
+						}
+
+						//anyado clase bootstrap para el pie para que el boton se muestre igual.
+						jQuery(".btn-save-dialog-jquery").parent().attr(
+								"class", "modal-footer");
+						jQuery(".btn-save-dialog-jquery").parent().parent()
+								.attr("class", "");
+					}).dialog('open');
+		}
+
+		// monta el dialog de componentes con url
+		function showDialog(url, title, idDialogo) {
+		    var element = jQuery("#"+idDialogo);
+		    var buttonsConfig = [ {
+				text : "Guardar",
+				"class" : "btn btn-primary btn-save-dialog-jquery",
+				click : function() {
+					if(idDialogo === "dialogo_minimapa"){
+					  try{
+						    window.stop();
+					  }catch(e){
+						    document.execCommand('Stop');
+					  }
+						var idServicioWeb = jQuery("#servicioWeb_loupe_hidden").val();
+
+						//guardamos la configuracion de mini mapa
+						saveMiniMapa(idServicioWeb);
+
+						//borramos instancia de loupe creada al abrir dialogo
+						GvNIX_Loupe.fnRemoveInstance("_c_es_gva_dgti_gvgeoportal_domain_ServicioWeb_loupe_input_id");
+
+						//borramos instancia de leaflet creada al abrir dialogo
+						GvNIX_Map_Leaflet.fnRemoveInstance("ps_es_gva_dgti_gvgeoportal_web_Map_modal");
+
+						//mostramos o no el icono de configuracion y checkeamos o no el check de configuracion
+						jQuery("#_miniMapaHidden_id").val(idServicioWeb);
+						if(jQuery("#_miniMapaHidden_id").val()){
+							jQuery("#minimapa_image_id").show();
+						}else{
+							jQuery("#minimapa_image_id").hide();
+							jQuery("#minimapa_id input[type=checkbox]").prop('checked', false);
+						}
+					}
+					if(idDialogo === "dialogo_cargar_tematicos"){
+						var table = jQuery("#l_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas");
+						if(table.length > 0){
+						    var rows = table.DataTable().fnSettings()._iRecordsTotal;
+							if(rows > 0){
+							   jQuery("#cargar_tematicos_image_id").show();
+							   jQuery("#cargar_tematicos_id input[type=checkbox]").prop('checked', true);
+							}else{
+							   jQuery("#cargar_tematicos_image_id").hide();
+							   jQuery("#cargar_tematicos_id input[type=checkbox]").prop('checked', false);
+							}
+						}else{
+							   jQuery("#cargar_tematicos_image_id").hide();
+							   jQuery("#cargar_tematicos_id input[type=checkbox]").prop('checked', false);
+						}
+					}
+					if(idDialogo === "dialogo_vistas_predefinidas"){
+						var table = jQuery("#l_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas");
+						if(table.length > 0){
+							var rows = table.DataTable().fnSettings()._iRecordsTotal;
+							if(rows > 0){
+							   jQuery("#vistas_predefinidas_image_id").show();
+							   jQuery("#vistas_predefinidas_id input[type=checkbox]").prop('checked', true);
+							}else{
+							   jQuery("#vistas_predefinidas_image_id").hide();
+							   jQuery("#vistas_predefinidas_id input[type=checkbox]").prop('checked', false);
+							}
+						}else{
+							   jQuery("#vistas_predefinidas_image_id").hide();
+							   jQuery("#vistas_predefinidas_id input[type=checkbox]").prop('checked', false);
+						}
+					}
+					$(this).dialog('destroy');
+					element.html("");
+					jQuery(".modal-backdrop").remove();
+				}
+			} ];
+			var dialogComponent = element.dialog(
+							{
+								autoOpen : false,
+								title : title,
+								modal : true,
+								resizable : false,
+								position : {
+									my : 'top',
+									at : 'top'
+								},
+								width : 850,
+								buttons : buttonsConfig,
+								close : function(event, ui) {
+
+								if(idDialogo === "dialogo_minimapa"){
+									try{
+										window.stop();
+									}catch(e){
+										document.execCommand('Stop');
+									}
+									var idServicioWeb = jQuery("#servicioWeb_loupe_hidden").val();
+									jQuery("#_miniMapaHidden_id").val(idServicioWeb);
+
+									//borramos instancia de loupe creada al abrir dialogo
+									GvNIX_Loupe.fnRemoveInstance("_c_es_gva_dgti_gvgeoportal_domain_ServicioWeb_loupe_input_id");
+
+									//borramos instancia de leaflet creada al abrir dialogo
+									GvNIX_Map_Leaflet.fnRemoveInstance("ps_es_gva_dgti_gvgeoportal_web_Map_modal");
+
+									if(jQuery("#_miniMapaHidden_id").val()){
+											  jQuery("#minimapa_image_id").show();
+									}else{
+											  jQuery("#minimapa_image_id").hide();
+											  jQuery("#minimapa_id input[type=checkbox]").prop('checked', false);
+									}
+								}
+								if(idDialogo === "dialogo_cargar_tematicos"){
+								    var table = jQuery("#l_es_gva_dgti_gvgeoportal_domain_components_ConfCapasTematicas");
+								    if(table.length > 0){
+										var rows = table.DataTable().fnSettings()._iRecordsTotal;
+										if(rows > 0){
+										   jQuery("#cargar_tematicos_image_id").show();
+										   jQuery("#cargar_tematicos_id input[type=checkbox]").prop('checked', true);
+										}else{
+										   jQuery("#cargar_tematicos_image_id").hide();
+										   jQuery("#cargar_tematicos_id input[type=checkbox]").prop('checked', false);
+										}
+								    }else{
+										  jQuery("#cargar_tematicos_image_id").hide();
+										  jQuery("#cargar_tematicos_id input[type=checkbox]").prop('checked', false);
+									}
+								}
+								if(idDialogo === "dialogo_vistas_predefinidas"){
+									var table = jQuery("#l_es_gva_dgti_gvgeoportal_domain_components_ConfVistasPredefinidas");
+								    if(table.length > 0){
+								        var rows = table.DataTable().fnSettings()._iRecordsTotal;
+										if(rows > 0){
+										   jQuery("#vistas_predefinidas_image_id").show();
+										   jQuery("#vistas_predefinidas_id input[type=checkbox]").prop('checked', true);
+										}else{
+										   jQuery("#vistas_predefinidas_image_id").hide();
+										   jQuery("#vistas_predefinidas_id input[type=checkbox]").prop('checked', false);
+										}
+									}else{
+										   jQuery("#vistas_predefinidas_image_id").hide();
+										   jQuery("#vistas_predefinidas_id input[type=checkbox]").prop('checked', false);
+									}
+								}
+									$(this).dialog('destroy');
+									element.html("");
+									jQuery(".modal-backdrop").remove();
+								}
+							});
+
+			dialogComponent.load(
+					url,
+					function() {
+
+						//anyado clase bootstrap para el pie para que el boton se muestre igual.
+						jQuery(".btn-save-dialog-jquery").parent().attr("class", "modal-footer");
+						jQuery(".btn-save-dialog-jquery").parent().parent().attr("class", "");
+
+						//para el mini mapa cargamos el componente lupa
+						if(idDialogo === "dialogo_minimapa"){
+						    new GvNIX_Loupe(jQuery("#_c_es_gva_dgti_gvgeoportal_domain_ServicioWeb_loupe_input_id"));
+							new GvNIX_Map_Leaflet(jQuery("#ps_es_gva_dgti_gvgeoportal_web_Map_modal"));
+						}
+					}).dialog('open');
+		}
+
+		function saveMiniMapa(idServicioWeb){
+				var idGeoPortal = ${geoPortal.id};
+				var url = "${pageContext.request.contextPath}/confminimapas/componentes/guardarMiniMapa";
+				var params = {geoPortal: idGeoPortal, servicioWeb: idServicioWeb};
+				jQuery.ajax({
+					url : url,
+					data : params
+				});
+		}
+		]]></script>
+</div>

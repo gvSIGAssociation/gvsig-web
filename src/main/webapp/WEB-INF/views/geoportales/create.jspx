@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+gvGeoportal is sponsored by the General Directorate for Information
+Technologies (DGTI) of the Regional Ministry of Finance and Public
+Administration of the Generalitat Valenciana (Valencian Community,
+Spain), managed by gvSIG Association and led by DISID Corporation.
+
+Copyright (C) 2016 DGTI - Generalitat Valenciana
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+--><div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/jquery/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/datatables" xmlns:gvgeoportal-form="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/datatables" xmlns:gvgeoportalfields="urn:jsptagdir:/WEB-INF/tags/gvgeoportal/jquery/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <spring:message code="label_es_gva_dgti_gvgeoportal_domain_componentes" htmlEscape="false" var="tituloComponentes"/>
+    <spring:message code="label_es_gva_dgti_gvgeoportal_domain_componentes_listado" htmlEscape="false" var="labelListadoComponentes"/>
+    <spring:message code="message_help_url_geo_portal" htmlEscape="false" var="messageHelpUrlGeoPortal"/>
+    <spring:message code="message_help_components_geo_portal" htmlEscape="false" var="messageHelpComponentsGeoPortal"/>
+    <spring:message code="message_help_publicado_geo_portal" htmlEscape="false" var="messageHelpGeoportalPublicado"/>
+    <spring:message code="title_configuracion_componente" htmlEscape="false" var="titleConfiguracionComponente"/>
+    <spring:message code="message_remove_image" htmlEscape="false" var="removeImageMessage"/>
+    <spring:message code="label_es_gva_dgti_gvgeoportal_domain_geoportal_logo" htmlEscape="false" var="logoLabel"/>
+    <gvgeoportal-form:create id="fc_es_gva_dgti_gvgeoportal_domain_GeoPortal" modelAttribute="geoPortal" path="/geoportales" render="${empty dependencies}" z="user-managed">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <field:input field="titulo" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_titulo" required="true" z="VKVdWAmZXDf3wu36QOODqQxbi74="/>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <gvgeoportalfields:input field="url" helpBlockMessage="${messageHelpUrlGeoPortal}" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_url" required="true" validationMessageCode="error_invalid_format" validationRegex="[-a-zA-Z0-9_-]{1,255}" z="user-managed"/>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <gvgeoportalfields:select field="coordenadas" helpBlockMessage="${messageHelpComponentsGeoPortal}" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_coordenadas" itemValue="id" items="${sistemacoordenadasitems}" path="/sistemacoordenadases" z="user-managed"/>
+            </div>
+        </div>
+        <div class="row putMarginBottom">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <field:input field="subtitulo" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_subtitulo" z="ERzH9bEzaIrA4ZDRG0Y1wWTSayQ="/>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <field:input field="descripcion" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_descripcion" z="zj98EYVqrebPMXw39fspT9DjhNs="/>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-2 col-lg-2">
+                <div class="control-group form-group" id="_geoportal_publicado_id">
+                    <label class="control-label" for="_geoportal_publicado_select_id">
+                        <spring:message code="label_es_gva_dgti_gvgeoportal_domain_geoportal_publicado" htmlEscape="false"/>:
+                    </label>
+                    <select class="controls form-control" id="_geoportal_publicado_select_id" name="publicado">
+                        <c:choose>
+                            <c:when test="${geoPortal.publicado}">
+                                <option value="true">
+                                    <spring:message code="label_yes" htmlEscape="false"/>
+                                </option>
+                                <option value="false">
+                                    <spring:message code="label_no" htmlEscape="false"/>
+                                </option>
+                            </c:when>
+                            <c:otherwise>
+                                <option value="false">
+                                    <spring:message code="label_no" htmlEscape="false"/>
+                                </option>
+                                <option value="true">
+                                    <spring:message code="label_yes" htmlEscape="false"/>
+                                </option>
+                            </c:otherwise>
+                        </c:choose>
+                    </select>
+                </div>
+                <p class="help-block">${messageHelpGeoportalPublicado}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 putMarginBottom">
+                <label class="control-label" for="_logo_id">${logoLabel}:</label>
+                <div class="controls">
+                    <c:choose>
+                        <c:when test="${not empty geoPortal.logoString}">
+                            <img alt="${logoLabel}" class="logoGeoportal" id="logoImg" src="${geoPortal.logoString}"/>
+                        </c:when>
+                        <c:otherwise>
+                            <img alt="${logoLabel}" class="hide" id="logoImg" src="${geoPortal.logoString}"/>
+                        </c:otherwise>
+                    </c:choose>
+                    <div id="manageImage">
+                        <input accept="image/*" class="displayInlineBlock" id="logoLoad" onchange="loadImage(this)" type="file"/>
+                    </div>
+                    <span class="help-block">
+                        <spring:message code="label_image_help_box"/>
+                    </span>
+                    <span class="has-error errors alert alert-danger" id="logoGeoPortalError" style="display:none;">
+                        <spring:message code="label_image_error_size"/>
+                    </span>
+                    <input id="logo" name="logo" type="hidden" value="${geoPortal.logo}"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                <field:datetime dateTimePattern="${geoPortal_fechaalta_date_format}" field="fechaAlta" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_fechaAlta" render="false" z="user-managed"/>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                <field:datetime dateTimePattern="${geoPortal_fechabaja_date_format}" field="fechaBaja" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_fechaBaja" render="false" z="user-managed"/>
+            </div>
+        </div>
+        <field:select field="agrupadorCapa" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_agrupadorCapa" itemValue="id" items="${agrupadorcapas}" multiple="true" path="/agrupadorcapas" render="false" z="user-managed"/>
+        <field:datetime dateTimePattern="${geoPortal_auditcreation_date_format}" field="auditCreation" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_auditCreation" render="false" z="user-managed"/>
+        <field:input field="auditCreatedBy" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_auditCreatedBy" render="false" z="user-managed"/>
+        <field:datetime dateTimePattern="${geoPortal_auditlastupdate_date_format}" field="auditLastUpdate" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_auditLastUpdate" render="false" z="user-managed"/>
+        <field:input field="auditLastUpdatedBy" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_auditLastUpdatedBy" render="false" z="user-managed"/>
+        <field:input field="logo" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_logo" render="false" z="user-managed"/>
+        <field:input field="logoString" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_logoString" render="false" z="user-managed"/>
+        <field:input field="alias" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_alias" render="false" z="user-managed"/>
+        <field:checkbox field="publicado" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_publicado" render="false" z="user-managed"/>
+        <field:input field="servicioWebMinimapa" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_servicioWebMinimapa" render="false" z="user-managed"/>
+        <field:input field="centro" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_centro" render="false" validationMessageCode="field_invalid_number" z="user-managed"/>
+        <field:input field="zoom" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_zoom" render="false" validationMessageCode="field_invalid_integer" z="user-managed"/>
+        <field:simple field="serviciosToc" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_serviciosToc" messageCode="entity_reference_not_managed" messageCodeAttribute="Geoportal Servicio Web" render="false" z="user-managed"/>
+        <field:input field="urlCompleta" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_urlCompleta" render="false" z="user-managed"/>
+        <field:input field="minZoom" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_minZoom" validationMessageCode="field_invalid_integer" render="false" z="user-managed"/>
+        <field:input field="maxZoom" id="c_es_gva_dgti_gvgeoportal_domain_GeoPortal_maxZoom" validationMessageCode="field_invalid_integer" render="false" z="user-managed"/>
+    </gvgeoportal-form:create>
+    <form:dependency dependencies="${dependencies}" id="d_es_gva_dgti_gvgeoportal_domain_GeoPortal" render="${not empty dependencies}" z="zkxVquD8eXOVwgOZ/G1O5to65Bk="/>
+    <script type="text/javascript"><![CDATA[
+		function clearImage() {
+			jQuery('#logoImg').attr('src', '');
+			jQuery('#logoImg').attr('class', 'hide');
+			jQuery('#logoLoad').val('');
+			jQuery('#logo').val('');
+			jQuery('#removeImageIcon').remove();
+		}
+
+		function loadImage(input) {
+			if (input.files && input.files[0]) {
+				var file = input.files[0];
+				if (file.size < 1048576) {
+				 jQuery('#logoGeoPortalError').hide();
+					var reader = new FileReader();
+					reader.onload = function(e) {
+						var image = e.target.result;
+						jQuery('#logoImg').attr('src', image);
+						jQuery('#logoImg').attr('class', 'logoGeoportal');
+						jQuery('#logo').val(image);
+						if (jQuery('#removeImageIcon').length == 0) {
+							jQuery('#manageImage')
+									.append(
+											'<a alt="${removeImageMessage}" aria-hidden="true" class="glyphicon glyphicon-new-window icon delete_entity" id="removeImageIcon" onclick="clearImage();" title="${removeImageMessage}"/>');
+						}
+					}
+					reader.readAsDataURL(input.files[0]);
+			   }else {
+	              jQuery('#logoGeoPortalError').show();
+	              clearImage();
+            	}
+
+			}
+		}
+		]]></script>
+</div>

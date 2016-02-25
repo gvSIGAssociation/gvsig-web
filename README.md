@@ -1,2 +1,2 @@
-# gvsig-web Pages
-gvSIG web pages project
+# gvsig-web
+gvSIG web application

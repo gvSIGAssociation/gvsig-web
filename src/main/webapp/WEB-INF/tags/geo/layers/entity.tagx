@@ -1,0 +1,157 @@
+<!--
+gvGeoportal is sponsored by the General Directorate for Information
+Technologies (DGTI) of the Regional Ministry of Finance and Public
+Administration of the Generalitat Valenciana (Valencian Community,
+Spain), managed by gvSIG Association and led by DISID Corporation.
+
+Copyright (C) 2016 DGTI - Generalitat Valenciana
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<jsp:root xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:util="urn:jsptagdir:/WEB-INF/tags/jquery/util" xmlns:form="http://www.springframework.org/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" xmlns:tool="urn:jsptagdir:/WEB-INF/tags/geo/tools" version="2.0">
+  <jsp:output omit-xml-declaration="yes" />
+
+  <jsp:directive.attribute name="id" type="java.lang.String" required="true" rtexprvalue="true" description="The identifier for this tag (do not change!)" />
+  <jsp:directive.attribute name="label" type="java.lang.String" required="false" rtexprvalue="true" description="Label of layer" />
+  <jsp:directive.attribute name="labelCode" type="java.lang.String" required="false" description="Label code to display the layer name" />
+  <jsp:directive.attribute name="alwaysUseDttRequest" type="java.lang.Boolean" required="false" rtexprvalue="true" description="Alway use datatables request to get data(Only when filterType != 'none')" />
+  <jsp:directive.attribute name="minimunFields" type="java.lang.String" required="false" rtexprvalue="true" description="minimun fields (comma separated list) to request to server (dtt) (required if 'alwaysUseDttRequest')" />
+  <jsp:directive.attribute name="path" type="java.lang.String" required="true" rtexprvalue="true" description="The path to related entity controller" />
+  <jsp:directive.attribute name="pk" type="java.lang.String" required="true" rtexprvalue="true" description="Entity Primary Key or Identifier" />
+  <jsp:directive.attribute name="allowDisable" type="java.lang.Boolean" required="false" description="Use this to set current entity layer to allow Disable or not. DEFAULT true." />
+  <jsp:directive.attribute name="maxZoom" type="java.lang.Integer" required="false" description="Maximun zoom which layer is shown" />
+  <jsp:directive.attribute name="minZoom" type="java.lang.Integer" required="false" description="Minimun zoom wich layer is shown" />
+  <jsp:directive.attribute name="notVolatile" type="java.lang.Boolean" required="false" description="Configure layer as data not should change. If its TRUE layer request data just when it needed (not in every repaint). DEFAULT false." />
+  <jsp:directive.attribute name="z" type="java.lang.String" required="false" description="Used for checking if element has been modified (to recalculate simply provide empty string value)" />
+  <jsp:directive.attribute name="layerIcon" type="java.lang.String" required="false" description="Layer icon for showing in map's TOC." />
+  <jsp:directive.attribute name="visibleOnStart" type="java.lang.Boolean" required="false" description="Specify the visibility of layer the first time it is shown. DEFAULT false" />
+
+  <!-- Filtering and selection attributes -->
+  <jsp:directive.attribute name="selection" type="java.lang.Boolean" required="false" rtexprvalue="false" description="Set if current entity can be selected. Defautl: false" />
+  <jsp:directive.attribute name="filterType" type="java.lang.String" required="false" rtexprvalue="true" description="Set if current entity can be filtered and which mode has to use. (auto: Refresh data displayed automatically when filter on Datatables | manual: Needs to reload the page to refresh filter data \ none: Datatable filters not affect to current entity displayed data)| Defautl: 'none'" />
+  <jsp:directive.attribute name="showFilterOn" type="java.lang.String" required="false" description="Configure filter to appear on different views. 'window': Datatable filter appears on new tab or new window. 'dialog': Datatable filter appears on current map view using jQuery dialog. 'custom:' When press filter icon, execute your custom function declared on showFilterFunction property. DEFAULT: window." />
+  <jsp:directive.attribute name="showFilterFunction" type="java.lang.String" required="false" description="Javascript function that will be executen when press filter icon. Only available if showFilterOn is 'custom'." />
+  <jsp:directive.attribute name="customDttId" type="java.lang.String" required="false" description="Use this attribute to specify the Datatable Id that will be used on filter and selection. Ignored if 'filterStorageKey' or 'selectionStorageKey' is defined." />
+  <jsp:directive.attribute name="filterStorageKey" type="java.lang.String" required="false" rtexprvalue="true" description="Storeage key to get Datatbles filter (Only when filterType != 'none')" />
+  <jsp:directive.attribute name="selectionStorageKey" type="java.lang.String" required="false" rtexprvalue="true" description="Storeage key to get Datatbles selection (Only when filterType != 'none')" />
+  <!-- legend -->
+  <jsp:directive.attribute name="legendType" type="java.lang.String" required="false" description="Specify legend type returned by fnPrepareLegend function. Values can be 'URL', 'IMG' or 'STRING'(html)" />
+  <jsp:directive.attribute name="fnPrepareLegend" type="java.lang.String" required="false" description="Specify the name of function to prepare the data for draw layer legend" />
+  <jsp:directive.attribute name="enableLegend" type="java.lang.Boolean" required="false" description="Specify if layer legend is enabled. DEFAULT true" />
+  <jsp:directive.attribute name="metadataType" type="java.lang.String" required="false" description="Specify metadata type returned by fnPrepareMetadata function. Values can be 'URL', 'STRING'(html) or 'JSON'" />
+  <jsp:directive.attribute name="fnPrepareMetadata" type="java.lang.String" required="false" description="Specify the name of function to prepare the data for draw layer metadata" />
+
+    <c:set var="idChildlayers" value="${id}_mapviewer_childlayers"/>
+    <c:choose>
+      <c:when test="${empty mapview_in_overview or not mapview_in_overview}">
+
+        <c:if test="${empty label}">
+          <c:if test="${empty labelCode }">
+            <c:set var="labelCode" value="label_${fn:toLowerCase(fn:substringAfter(id,'_'))}"/>
+          </c:if>
+          <spring:message code="${labelCode}" var="label" htmlEscape="false" />
+        </c:if>
+
+        <!-- Changing id to prevent crashes with other gvNIX elements -->
+        <c:set var="id" value="${id}_layer" />
+
+
+        <c:if test="${empty allowDisable}">
+    	    <c:set var="allowDisable" value="true" />
+        </c:if>
+
+        <c:set var="spanId" value="${id}_span"/>
+
+        <c:if test="${empty layerIcon}">
+          <c:set var="layerIcon" value=".whhg icon-layerorderup" />
+        </c:if>
+
+        <c:if test="${empty showFilterOn}">
+        	<c:set var="showFilterOn" value="window" />
+        </c:if>
+
+        <c:if test="${empty filterType}">
+        	<c:set var="filterType" value="auto" />
+        </c:if>
+
+		<c:if test="${empty selection}">
+        	<c:set var="selection" value="false" />
+        </c:if>
+
+        <c:set var="spanId" value="${id}_span"/>
+
+      </c:when>
+      <c:otherwise>
+        <!-- configuration for overview layer -->
+        <c:set var="allowDisable" value="false" />
+        <c:set var="id" value="${id}_overview"/>
+        <c:set var="idChildlayers" value="${idChildlayers}_overview"/>
+      </c:otherwise>
+    </c:choose>
+
+    <spring:url var="loading_img" value="/resources/images/loading.gif" />
+    <spring:url var="path_location" value="${path}" />
+    <spring:message code="msg_legend_undefined" var="msgLegendUndefined"/>
+    <spring:message code="msg_metadata_undefined" var="msgMetadataUndefined"/>
+
+    <c:if test="${empty enableLegend}">
+      <c:set var="enableLegend" value="true" />
+    </c:if>
+
+     <c:if test="${empty visibleOnStart}">
+       <c:set var="visibleOnStart" value="false" />
+     </c:if>
+
+    <div class="mapviewer_layers_layer folder"
+        id="${id}"
+        data-layer_type="entity"
+        data-checkbox="${checkboxId}"
+        data-group="${mapview_group_stack.peek()}"
+        data-span="${spanId}"
+        data-allow_disable="${allowDisable}"
+        data-path="${path_location}"
+        data-not_volatile="${notVolatile}"
+        data-filter_type="${filterType}"
+        data-min_zoom="${minZoom}" data-max_zoom="${maxZoom}"
+        data-selection="${selection}"
+        data-pk="${pk}"
+        data-minimun_fields="${minimunFields}"
+        data-always_use_dtt_request="${alwaysUseDttRequest}"
+        data-node_icon="${layerIcon}"
+        data-title="${fn:escapeXml(label)}"
+        data-filter_on="${showFilterOn}"
+        data-show_filter_function="${showFilterFunction}"
+        data-custom_dtt_id="${customDttId}"
+        data-filter_storage_key="${filterStorageKey}"
+        data-selection_storage_key="${selectionStorageKey}"
+        data-loading_img_url="${loading_img}"
+        data-legend_type="${legendType}"
+        data-fn_prepare_legend="${fnPrepareLegend}"
+        data-msg_legend_undefined="${msgLegendUndefined}"
+        data-enable_legend="${enableLegend}"
+        data-metadata_type="${metadataType}"
+        data-fn_prepare_metadata="${fnPrepareMetadata}"
+        data-msg_metadata_undefined="${msgMetadataUndefined}"
+        data-visible_on_start="${visibleOnStart}"
+        >
+
+      <div id="layer-components" class="layer_components">
+        <c:set scope="request" value="${id}" var="mapview_current_entity"/>
+        <c:set scope="request" value="${id}" var="current_layer"/>
+           <jsp:doBody />
+        <c:set scope="request" value="" var="current_layer"/>
+        <c:set scope="request" value="" var="mapview_current_entity"/>
+      </div>
+    </div>
+</jsp:root>

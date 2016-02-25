@@ -1,0 +1,53 @@
+<!--
+gvGeoportal is sponsored by the General Directorate for Information
+Technologies (DGTI) of the Regional Ministry of Finance and Public
+Administration of the Generalitat Valenciana (Valencian Community,
+Spain), managed by gvSIG Association and led by DISID Corporation.
+
+Copyright (C) 2016 DGTI - Generalitat Valenciana
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<jsp:root xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:util="urn:jsptagdir:/WEB-INF/tags/jquery/util" xmlns:form="http://www.springframework.org/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+  <jsp:output omit-xml-declaration="yes" />
+
+  <jsp:directive.attribute name="id" type="java.lang.String" required="true" description="Use this id to identify measure clean" />
+  <jsp:directive.attribute name="crs" type="java.lang.String" required="false" description="Coordinate Reference System to use for the WMS requests, defaults to map CRS. Don't change this if you're not sure what it means." />
+  <jsp:directive.attribute name="title" type="java.lang.String" required="false" rtexprvalue="true" description="The label code to get text from I18N properties that will be used as title of the dialog. Default: 'Set Layers'." />
+  <jsp:directive.attribute name="z" type="java.lang.String" required="false" description="Used for checking if element has been modified (to recalculate simply provide empty string value)" />
+
+  <!-- Generating user layers tool -->
+  <c:choose>
+    <c:when test="${empty title}">
+     <spring:message code="dialog_layers_title" var="dialogTitle"/>
+    </c:when>
+    <c:otherwise>
+      <spring:message code="${title}" var="dialogTitle"/>
+    </c:otherwise>
+  </c:choose>
+
+  <spring:message code="server_label" var="serverLabel" htmlEscape="false"/>
+
+  <div id="${fn:escapeXml(id)}_web_services_layers_tabs" >
+    <jsp:doBody/>
+  </div>
+
+  <div class="row-fluid" id="${fn:escapeXml(id)}_web_services_layers_button_accept" >
+      <div class="col-xs-12 col-sm-6 col-sm-offset-6 col-md-4 col-md-offset-8 col-lg-3 col-lg-offset-9">
+          <spring:message code="button_accept" var="accept_button"/>
+          <input id="${fn:escapeXml(id)}_acceptbutton" type="button" class="btn btn-primary btn-block btn-proceed" value="${accept_button}"/>
+       </div>
+  </div>
+
+</jsp:root>

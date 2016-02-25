@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  gvGeoportal is sponsored by the General Directorate for Information
+  Technologies (DGTI) of the Regional Ministry of Finance and Public
+  Administration of the Generalitat Valenciana (Valencian Community,
+  Spain), managed by gvSIG Association and led by DISID Corporation.
+  
+  Copyright (C) 2016 DGTI - Generalitat Valenciana
+  
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU Affero General Public License as
+  published by the Free Software Foundation, either version 3 of the
+  License, or (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU Affero General Public License for more details.
+  
+  You should have received a copy of the GNU Affero General Public License
+   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+--><entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_0.xsd">
+
+
+<entity class="es.gva.dgti.gvgeoportal.domain.AgrupadorCapa">
+        <entity-listeners>
+            <entity-listener class="es.gva.dgti.gvgeoportal.domain.AgrupadorCapaAuditListener">
+                <description>MID:org.gvnix.addon.jpa.addon.audit.JpaAuditListenerMetadata</description>
+            </entity-listener>
+        </entity-listeners>
+    </entity>
+<entity class="es.gva.dgti.gvgeoportal.domain.ServicioWeb">
+        <entity-listeners>
+            <entity-listener class="es.gva.dgti.gvgeoportal.domain.ServicioWebAuditListener">
+                <description>MID:org.gvnix.addon.jpa.addon.audit.JpaAuditListenerMetadata</description>
+            </entity-listener>
+        </entity-listeners>
+    </entity>
+<entity class="es.gva.dgti.gvgeoportal.domain.SistemaCoordenadas">
+        <entity-listeners>
+            <entity-listener class="es.gva.dgti.gvgeoportal.domain.SistemaCoordenadasAuditListener">
+                <description>MID:org.gvnix.addon.jpa.addon.audit.JpaAuditListenerMetadata</description>
+            </entity-listener>
+        </entity-listeners>
+    </entity>
+<entity class="es.gva.dgti.gvgeoportal.domain.GestorCatalogo">
+        <entity-listeners>
+            <entity-listener class="es.gva.dgti.gvgeoportal.domain.GestorCatalogoAuditListener">
+                <description>MID:org.gvnix.addon.jpa.addon.audit.JpaAuditListenerMetadata</description>
+            </entity-listener>
+        </entity-listeners>
+    </entity>
+<entity class="es.gva.dgti.gvgeoportal.domain.GeoPortal">
+        <entity-listeners>
+            <entity-listener class="es.gva.dgti.gvgeoportal.domain.GeoPortalAuditListener">
+                <description>MID:org.gvnix.addon.jpa.addon.audit.JpaAuditListenerMetadata</description>
+            </entity-listener>
+        </entity-listeners>
+    </entity>
+<entity class="es.gva.dgti.gvgeoportal.domain.Componentes">
+        <entity-listeners>
+            <entity-listener class="es.gva.dgti.gvgeoportal.domain.ComponentesAuditListener">
+                <description>MID:org.gvnix.addon.jpa.addon.audit.JpaAuditListenerMetadata</description>
+            </entity-listener>
+        </entity-listeners>
+    </entity>
+<entity class="es.gva.dgti.gvgeoportal.domain.components.ConfAyudaBuscador">
+        <entity-listeners>
+            <entity-listener class="es.gva.dgti.gvgeoportal.domain.components.ConfAyudaBuscadorAuditListener">
+                <description>MID:org.gvnix.addon.jpa.addon.audit.JpaAuditListenerMetadata</description>
+            </entity-listener>
+        </entity-listeners>
+    </entity>
+<entity class="es.gva.dgti.gvgeoportal.domain.components.ConfVistasPredefinidas">
+        <entity-listeners>
+            <entity-listener class="es.gva.dgti.gvgeoportal.domain.components.ConfVistasPredefinidasAuditListener">
+                <description>MID:org.gvnix.addon.jpa.addon.audit.JpaAuditListenerMetadata</description>
+            </entity-listener>
+        </entity-listeners>
+    </entity>
+<entity class="es.gva.dgti.gvgeoportal.domain.components.ConfCapasTematicas">
+        <entity-listeners>
+            <entity-listener class="es.gva.dgti.gvgeoportal.domain.components.ConfCapasTematicasAuditListener">
+                <description>MID:org.gvnix.addon.jpa.addon.audit.JpaAuditListenerMetadata</description>
+            </entity-listener>
+        </entity-listeners>
+    </entity>
+<entity class="es.gva.dgti.gvgeoportal.domain.AgrupadorCapaServicioWeb">
+        <entity-listeners>
+            <entity-listener class="es.gva.dgti.gvgeoportal.domain.AgrupadorCapaServicioWebAuditListener">
+                <description>MID:org.gvnix.addon.jpa.addon.audit.JpaAuditListenerMetadata</description>
+            </entity-listener>
+        </entity-listeners>
+    </entity>
+<entity class="es.gva.dgti.gvgeoportal.domain.GeoportalServicioWeb">
+        <entity-listeners>
+            <entity-listener class="es.gva.dgti.gvgeoportal.domain.GeoportalServicioWebAuditListener">
+                <description>MID:org.gvnix.addon.jpa.addon.audit.JpaAuditListenerMetadata</description>
+            </entity-listener>
+        </entity-listeners>
+    </entity>
+<entity class="es.gva.dgti.gvgeoportal.domain.components.ConfMiniMapa">
+        <entity-listeners>
+            <entity-listener class="es.gva.dgti.gvgeoportal.domain.components.ConfMiniMapaAuditListener">
+                <description>MID:org.gvnix.addon.jpa.addon.audit.JpaAuditListenerMetadata</description>
+            </entity-listener>
+        </entity-listeners>
+    </entity>
+<entity class="es.gva.dgti.gvgeoportal.domain.CapasServicioWeb">
+        <entity-listeners>
+            <entity-listener class="es.gva.dgti.gvgeoportal.domain.CapasServicioWebAuditListener">
+                <description>MID:org.gvnix.addon.jpa.addon.audit.JpaAuditListenerMetadata</description>
+            </entity-listener>
+        </entity-listeners>
+    </entity>
+</entity-mappings>

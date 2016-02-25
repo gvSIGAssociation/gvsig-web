@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+gvGeoportal is sponsored by the General Directorate for Information
+Technologies (DGTI) of the Regional Ministry of Finance and Public
+Administration of the Generalitat Valenciana (Valencian Community,
+Spain), managed by gvSIG Association and led by DISID Corporation.
+
+Copyright (C) 2016 DGTI - Generalitat Valenciana
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+--><div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/jquery/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/jquery/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_es_gva_dgti_gvgeoportal_domain_Componentes" items="${componenteses}" z="JU56WtqNHDUjnmDfqRi61PQHcYE=">
+        <table:table data="${componenteses}" id="l_es_gva_dgti_gvgeoportal_domain_Componentes" path="/componenteses" z="mgIX4oLE7vtx14VgcySFxN6tU3Y=">
+            <table:column id="c_es_gva_dgti_gvgeoportal_domain_Componentes_geoPortal" property="geoPortal" z="r/IBxweVa93yRu4liaai2+BPtqg="/>
+            <table:column id="c_es_gva_dgti_gvgeoportal_domain_Componentes_tipo" property="tipo" z="rYs26SgPca92Ge9toBu5EW0RzYk="/>
+            <table:column calendar="true" dateTimePattern="${componentes_auditcreation_date_format}" id="c_es_gva_dgti_gvgeoportal_domain_Componentes_auditCreation" property="auditCreation" z="U3gJ015CYLEicCAlPAWrMXOBYRQ="/>
+            <table:column id="c_es_gva_dgti_gvgeoportal_domain_Componentes_auditCreatedBy" property="auditCreatedBy" z="V85N5ZCxIaZS9bI5QW1q186wkGc="/>
+            <table:column calendar="true" dateTimePattern="${componentes_auditlastupdate_date_format}" id="c_es_gva_dgti_gvgeoportal_domain_Componentes_auditLastUpdate" property="auditLastUpdate" z="N/bpSQ+KrguNko/wQgR9WnhvSwM="/>
+            <table:column id="c_es_gva_dgti_gvgeoportal_domain_Componentes_auditLastUpdatedBy" property="auditLastUpdatedBy" z="nvI3xU0IsnHK7O2SYZJdT43Dnnw="/>
+        </table:table>
+    </page:list>
+</div>

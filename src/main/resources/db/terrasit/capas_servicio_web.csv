@@ -1,0 +1,1011 @@
+id%servicio_web%nombre_capa%estilo_capa%titulo_capa
+1%1%isohipsas%%Mapa de sombras
+2%2%siose_2011_cv_nivel4%default%Usos del suelo 2011 Nivel 4
+3%2%siose_2011_cv_nivel1%default%Usos del suelo 2011 Nivel 1
+4%3%siose_2009_cv_nivel4%default%Usos del suelo 2009 Nivel 4
+5%3%siose_2009_cv_nivel1%default%Usos del suelo 2009 Nivel 1
+6%4%siose_2005_cv_nivel1%default%Usos del suelo 2005 Nivel 1
+7%4%siose_2005_cv_nivel4%default%Usos del suelo 2005 Nivel 4
+8%5%wms_puntuales%default%Picos principales
+9%5%carreteras%default%Red de carreteras
+10%5%toponimia_wms%default%Toponimia mayor
+11%5%toponimia%default%Toponimia menor
+12%5%toponimiamc%%Toponimia
+13%5%wms_poligonales%default%Zona urbana, embalses
+14%5%wms_lineales%default%Ríos principales, ferrocarril
+15%6%topografico%%Topografico
+16%7%Webcams%default%Webcams de la Comunidad Valenciana
+17%7%OCMA%default%OCMA
+18%7%territoriales%default%Servicios Territoriales
+19%7%oficinasregistro%default%Oficinas de Registro
+20%7%RED_AFIC_vilareal%default%Red AFIC (Vilareal)
+21%7%ocre%default%OCRE
+22%7%instalaciones_residuos%default%Instalaciones de recogida de residuos
+23%7%oficinasliquidadoras%default%Oficinas liquidadoras
+24%7%Consellerias_de_la_Generalitat_Valenciana%default%Consellerias de la GVA
+25%7%ocapa%default%OCAPA
+26%7%Centros_Turismo%default%Red Centros Turismo (CdT)
+27%7%servefformacion%default%Centres Servef d´Informació
+28%7%servefempleo%default%Centres Servef d´Ocupació
+29%7%touristinfo%default%Tourist Info
+30%7%otrosorganismos%default%Otros organismos de la GVA.
+31%7%Gasolineras%default%Gasolineras y Estaciones de Servicio
+32%7%RED_AFIC%default%Red AFIC
+33%7%FAVIDE%default%FAVIDE
+34%7%Agencias_AMICS%default%Agencias AMICS
+35%8%bienestar_social%default%Centros Asistencia Conselleria Benestar Social
+36%9%Comunicaciones%default%Comunicaciones CV
+37%9%municipios_cv200%default%Municipios
+38%9%public.cc_autonomico_idvial%default%Nivel autonomico
+39%9%public.cc_comarcal_idvial%default%Nivel comarcal
+40%9%Vial_urbano%default%Etiquetas viales urbanos CV Fondo vectorial
+41%9%v_viales_geom_wms%default%Vias urbanas CV
+42%9%Vial_urbano_image%default%Etiquetas viales urbanos CV Fondo imagen
+43%9%entidades_cv200%default%Entidad
+44%9%Plazas%default%Plazas
+45%9%urbanizacion_cv200%default%Urbanizacion
+46%9%v_portal_pk%default%Portales y Puntos Kilometricos
+47%9%public.cc_provincial_idvial%default%Nivel provincial
+48%9%public.cc_fondo_urbano%default%Fondo Urbano
+49%10%vconfianza%default%Confianza
+50%11%gnss%default%Estación GNSS
+51%12%public.vert_4o%default%Vértice 4o orden
+52%13%hojas1km%default%UTM 1 km.
+53%13%hojas10%default%Hojas CV10
+54%13%hojas05%default%Hojas CV05
+55%14%AU.AdministrativeUnit%UnidadesAdministrativas%Unidad administrativa
+56%14%AU.AdministrativeBoundary%LimitesAdministrativos%Límite administrativo
+57%15%MDT_CV_5m%Default%MDT CV 5m
+58%16%MDT_EDIFICIOS_CV_5m%Default%MDT EDIFICIOS CV 5m
+59%17%MDT_1m_CV%Default%MDT 1m CV
+60%18%icv%Default%icv
+61%19%odcv05_etrs89h30_1996%default%Ortofoto 50cm. RGB
+62%19%distribucion_descargas%%Distribucion Descargas
+63%20%distribucion_descargas%%Distribucion Descargas
+64%20%odcv05_etrs89h30_1997%default%Ortofoto 50cm. RGB
+65%21%distribucion_descargas%%Distribucion Descargas
+66%21%odcv05_etrs89h30_2000%default%Ortofoto 50cm. RGB
+67%22%distribucion_descargas%%Distribucion Descargas
+68%22%odcv05_etrs89h30_2002%default%Ortofoto 50cm. RGB
+69%23%odcv05_etrs89h30_2003%default%Ortofoto 50cm. RGB
+70%23%distribucion_descargas%%Distribucion Descargas
+71%24%odcv05_etrs89h30_2004%default%Ortofoto 50cm. RGB
+72%24%distribucion_descargas%%Distribucion Descargas
+73%25%odcv10_etrs89h30_2005_RGB%default%Ortofoto 50cm. RGB
+74%25%distribucion_descargas%%Distribucion Descargas
+75%25%odcv10_etrs89h30_2005_IRG%default%Ortofoto 50cm. IRG Castellón
+76%26%distribucion_descargas%%Distribucion Descargas
+77%26%odcv10_etrs89h30_2006_RGB%default%Ortofoto 50cm. RGB
+78%26%odcv10_etrs89h30_2006_IRG%default%Ortofoto 50cm. IRG
+79%27%distribucion_descargas%%Distribucion Descargas
+80%27%odcv10_etrs89h30_2007_IRG%default%Ortofoto 50cm. IRG
+81%27%odcv10_etrs89h30_2007_RGB%default%Ortofoto 50cm. RGB
+82%28%odcv10_etrs89h30_2008_RGB%default%Ortofoto 50cm. RGB
+83%28%distribucion_descargas%%Distribucion Descargas
+84%28%odcv10_etrs89h30_2008_IRG%default%Ortofoto 50cm. IRG
+85%29%distribucion_descargas%%Distribucion Descargas
+86%29%odcv05_etrs89h30_2009_irg%default%Ortofoto 25cm. IRG Castellón
+87%29%odcv05_etrs89h30_2009_rgb%default%Ortofoto 25cm. RGB
+88%30%odcv05_etrs89h30_2010%default%Ortofoto 35cm. RGB
+89%30%distribucion_descargas%%Distribucion Descargas
+90%31%distribucion_descargas%%Distribucion Descargas
+91%31%odcv10_etrs89h30_2012_RGB%default%Ortofoto 50cm. RGB
+92%32%agua_playas_costa_playas%default%Línea de costa
+93%32%agua_playas_muestreo_playas%default%Puntos de muestreo
+94%33%webservice_plan_calificacion_vig%default%Calificación
+95%33%webservice_plan_clasificacion_vig%default%Clasificación
+96%34%fore_patfor_peligrosidad_completa%default%Peligrosidad - completa
+97%34%fore_patfor_intensidad_claras%default%Intensidad de claras
+98%34%fore_patfor_recursos_apicolas%default%Recursos apícolas
+99%34%fore_patfor_recarga_acuiferos%default%Recarga de acuíferos
+100%34%fore_patfor_riesgo_incendio_grav_pe%default%Riesgo incendio grave por peligrosidad
+101%34%fore_patfor_reduccion_riesgo_inunda%default%Reducción riesgo inundación
+102%34%fore_patfor_demanda_proteccion%default%Demanda de protección
+103%34%fore_patfor_diversidad_fitoclimatic%default%Diversidad fitoclimática de Shannon
+104%34%fore_patfor_productividad_competen%default%Productividad Competencia
+105%34%fore_patfor_capac_presion_otr_usos_capacidad%default%Capacidad del suelo forestal de absorber usos no forestales
+106%34%fore_patfor_terreno_forest_estr_pro%default%Terreno Forestal Estratégico Factores por provincias
+107%34%fore_patfor_carbono_suelo_cam_clim%default%Carbono en suelo con escenarios de cambio climático
+108%34%fore_patfor_indice_aptitud_trufera%default%Indice de aptitud Trufera
+109%34%fore_patfor_vulnerabilidad%default%Vulnerabilidad
+110%34%fore_patfor_cabeceras_cuenca%default%Cabeceras de cuenca
+111%34%fore_patfor_terreno_fores_no_fores%default%Terreno Forestal y No Forestal
+112%34%fore_patfor_arbolado_desarbolado%default%Terreno Arbolado y Desarbolado
+113%34%fore_patfor_terreno_forest%default%Terreno Forestal
+114%34%fore_patfor_control_muerdago%default%Control Muérdago
+115%34%fore_patfor_productividad_diversida%default%Productividad y Diversidad
+116%34%fore_patfor_renta_cinegetica_menor%default%Renta Cinegética - Caza Menor
+117%34%fore_patfor_explotaciones%default%Explotaciones
+118%34%fore_patfor_selec_especie_bioclima%default%Selección especies bioclima
+119%34%fore_patfor_interfaz_urb_for%default%Interfaz Urbano - Forestal
+120%34%fore_patfor_carga_ganadera_compat%default%Potencialidad productiva del pastizal. Carga Ganadera
+121%34%fore_patfor_muni_afect_expl_miner%default%Municipios afectados Explotaciones Mineras
+122%34%fore_patfor_recurrencia%default%Recurrencia
+123%34%fore_patfor_erosion_actual%default%Erosión actual
+124%34%fore_patfor_capac_presion_otr_usos_presion_historica%default%Presión histórica de los usos no forestales sobre el suelo forestal
+125%34%fore_patfor_zonif_servic_ambiental%default%Zonificación servicios ambientales
+126%34%fore_patfor_esparcimiento%default%Esparcimiento
+127%34%fore_patfor_zonas_pot_bioclimatica%default%Zonas de Potencialidad Bioclimática
+128%34%fore_patfor_zonas_climaticas%default%Zonas climáticas
+129%34%fore_patfor_zonas_actuacion_numero_servicios%default%Número Servicios Ambientales coincidentes
+130%34%fore_patfor_terreno_forest_estrateg%default%Terreno Forestal Estratégico
+131%34%fore_patfor_erosion_potencial%default%Erosión potencial
+132%34%fore_patfor_coeficiente_competencia%default%Coeficiente de competencia
+133%34%fore_patfor_ind_pot_truf_sueloclima%default%Aptitud del territorio (clima y suelo) para la realización de plantaciones truferas
+134%34%fore_patfor_carbono_suelo%default%Carbono en suelo
+135%34%fore_patfor_posibilidad_madera%default%Posibilidad de aprovechamiento de madera
+136%34%fore_patfor_act_mejora_selvicol_inc%default%Actuaciones mejora selvícola incendios
+137%34%fore_patfor_zonas_gestion_biomasa%default%Zonas gestión biomasa
+138%34%fore_patfor_diversificacio_masas_ph%default%Diversificación masas Pinus halepensis
+139%34%fore_patfor_preparacion_suelo%default%Caracterización bioclimática para preparación del suelo
+140%34%fore_patfor_modelo_combustible%default%Modelo de combustible
+141%34%fore_patfor_subtipos_fitoclimaticos%default%Subtipos Fitoclimáticos
+142%34%fore_patfor_reduccion_riesgo_desert%default%Reducción Riesgo Desertificación
+143%34%fore_patfor_existencias_corcho%default%Existencias de Corcho aprovechable
+144%34%fore_patfor_co2_fijado_veg%default%Carbono fijado por la vegetación
+145%34%fore_patfor_calidad_suelo%default%Calidad del suelo para la conservación
+146%34%fore_patfor_ecosistemas_forest_com%default%Ecosistemas forestales - completa
+147%34%fore_patfor_riesgo_desert_su_fores%default%Riesgo de desertificación actual en suelo forestal
+148%34%fore_patfor_conservacion_suelo%default%Zonas prioritarias conservación suelo según criterios bioclimáticos
+149%34%fore_patfor_idoneidad_fitoclimatica%default%Idoneidades fitoclimáticas
+150%34%fore_patfor_posibilidad_biomasa%default%Posibilidad de aprovechamiento de biomasa
+151%34%fore_patfor_import_recarg_acuif_for%default%Zona forestal mayor importancia para recarga acuíferos
+152%34%fore_patfor_vulnerabilidad_completa%default%Vulnerabilidad - completa
+153%34%fore_patfor_monte_publico_exp_miner%default%Montes Públicos con mayor presencia de Explotaciones Mineras Abandonadas
+154%34%fore_patfor_demarcaciones_forest%default%Demarcaciones forestales
+155%34%fore_patfor_nofor_incen_plagas%default%Terreno no forestal con afecciones de incendios y plagas
+156%34%fore_patfor_terreno_forest_estr_con%default%Terreno Forestal Estratégico Contorno por Provincias
+157%34%fore_patfor_co2_captura_veg%default%Carbono capturado por la vegetación
+158%34%fore_patfor_riesgo_incendio%default%Riesgo de incendios
+159%34%fore_patfor_densidad_cazadores%default%Densidad cazadores
+160%34%fore_patfor_ecosistemas_forest%default%Ecosistemas forestales
+161%34%fore_patfor_aptitud_nogal%default%Aptitud del territorio para la producción óptima de Nogal
+162%34%fore_patfor_capac_presion_otr_usos_presion_futura%default%Presión futura de los usos no forestales sobre el suelo forestal
+163%34%fore_patfor_renta_cinegetica_mayor%default%Renta Cinegética - Caza Mayor
+164%34%fore_patfor_peligrosidad%default%Peligrosidad
+165%34%fore_patfor_explotaciones_uso_prin%default%Explotaciones por uso principal
+166%34%fore_patfor_zonas_actuacion_gestion%default%Zonas Actuación en base a escenarios de gestión
+167%34%fore_patfor_produccion_lactarius%default%Potencialidad productiva de Lactarius
+168%35%banc_fuentes_s_pinus_pinea%default%Fuentes semilleras - Pinus pinea L.
+169%35%send_via_augusta%default%Sendero sobre la Vía Augusta
+170%35%banc_fuentes_s_juniperus_oxycedrus%default%Fuentes semilleras - Juniperus oxycedrus L. subsp. oxycedrus
+171%35%banc_mb_rodales_pinus_halepensis%default%Rodales selectos - Pinus halepensis Mill.
+172%35%preven_planes_parquesnaturales%default%Planes de Parques Naturales
+173%35%banc_fuentes_s_juniperus_thurifera%default%Fuentes semilleras - Juniperus thurifera L.
+174%35%banc_fuentes_s_quercus_coccifera%default%Fuentes semilleras - Quercus coccifera L.
+175%35%banc_fuentes_s_pinus_sylvestris%default%Fuentes semilleras - Pinus sylvestris L.
+176%35%banc_fuentes_s_pinus_pinaster%default%Fuentes semilleras - Pinus pinaster Ait.
+177%35%banc_mb_rodales_pinus_sylvestris%default%Rodales selectos - Pinus sylvestris L.
+178%35%send_instala_recreativas%default%Instalaciones recreativas
+179%35%banc_procedencias_subrptaxaribera%default%Subregiones de procedencia - Especies de Ribera
+180%35%banc_procedencias_rpdivisivo%default%Regiones de procedencia - Método divisivo
+181%35%banc_fuentes_s_pinus_nigra%default%Fuentes semilleras - Pinus nigra subsp. salzmannii -Dunal- Franco
+182%35%fore_mfe50%default%Mapa Forestal de España a escala 1:50.000
+183%35%banc_fuentes_s_juniperus_phoenicea%default%Fuentes semilleras - Juniperus phoenicea L. subsp. phoenicea
+184%35%preven_planes_demarcacion%default%Planes de demarcación
+185%35%fore_arboles_mon%default%Árboles monumentales
+186%35%banc_fuentes_s_ilex_aquifolium%default%Fuentes semilleras - Ilex aquifolium L.
+187%35%banc_fuentes_s_quercus_suber%default%Fuentes semilleras - Quercus suber L.
+188%35%fore_g1_vias_pecuarias_ext%default%Vías pecuarias
+189%35%banc_fuentes_s_populus_alba%default%Fuentes semilleras - Populus alba L.
+190%35%send_senderos%default%Senderos
+191%35%banc_fuentes_s_fraxinus_angustifolia%default%Fuentes semilleras - Fraxinus angustifolia Vahl.
+192%35%banc_mb_rodales_pinus_pinaster%default%Rodales selectos - Pinus pinaster Ait.
+193%35%banc_fuentes_s_ulmus_minor%default%Fuentes semilleras - Ulmus minor Mill.
+194%35%banc_fuentes_s_juglans_regia%default%Fuentes semilleras - Juglans regia L.
+195%35%banc_fuentes_s_sorbus_aria%default%Fuentes semilleras - Sorbus aria -L.- Crantz.
+196%35%banc_fuentes_s_tilia_platyphyllos%default%Fuentes semilleras - Tilia platyphyllos Scop.
+197%35%banc_fuentes_s_juniperus_communis%default%Fuentes semilleras - Juniperus communis L.
+198%35%banc_fuentes_s_arbutus_unedo%default%Fuentes semilleras - Arbutus unedo L.
+199%35%fore_g1_montes_util_publica%default%Montes gestionados por la Conselleria
+200%35%banc_fuentes_s_quercus_faginea%default%Fuentes semilleras - Quercus faginea Lam. subsp. faginea
+201%35%fore_ifn3%default%Inventario Forestal Nacional número 3
+202%35%preven_planes_locales%default%Planes locales
+203%35%fore_g1_elem_comu_valen_ext%default%Elementos pecuarios
+204%35%banc_fuentes_s_taxus_baccata%default%Fuentes semilleras - Taxus baccata L.
+205%35%banc_fuentes_s_quercus_ilex%default%Fuentes semilleras - Quercus ilex L.
+206%35%banc_fuentes_s_pinus_halepensis%default%Fuentes semilleras - Pinus halepensis Mill.
+207%35%banc_procedencias_subrpdivisivo%default%Subregiones de procedencia - Método divisivo
+208%35%banc_mb_rodales_pinus_nigra%default%Rodales selectos - Pinus nigra subsp. salzmannii -Dunal- Franco
+209%36%eepp_centros_informacion%default%Centros de información
+210%36%eepp_porn_espada%default%P.O.R.N. - Espadà
+211%36%parq_benifassa_porn_zonificacion%default%Zonificación P.O.R.N. - Benifassà
+212%36%eepp_parques_naturales_porn_pego_oliva%default%Límite Parque Natural - Pego-Oliva
+213%36%eepp_limite_prug_santa_pola%default%Límite P.R.U.G. - Santa Pola
+214%36%eepp_parques_naturales_porn_espada%default%Límite Parque Natural - Espadà
+215%36%eepp_parques_naturales_porn_turia%default%Límite Parque Natural - Turia
+216%36%parq_espadan_prug_acondicionamiento_uso_publico%default%Acondicionamiento de zonas de uso público: AP-c - Espadà
+217%36%parq_hoces_cabriel_prug_ordenacion_pol%default%Zonificación P.R.U.G. - Hoces del Cabriel
+218%36%parq_calderona_porn_zonificacion%default%Zonificación P.O.R.N. - Calderona
+219%36%parq_calderona_prug_otras_areas_recreat%default%Otras áreas recreativas - Calderona
+220%36%parq_irta_prug_enclavados%default%Enclavados de protección integral - Irta
+221%36%parq_font_roja_porn_microrreservas_flora%default%Microrreservas de flora - Font Roja
+222%36%parq_calderona_prug_cantera_parque%default%Canteras - Calderona
+223%36%eepp_porn_font_roja%default%P.O.R.N. - Font Roja
+224%36%eepp_parques_naturales_porn_mariola%default%Límite Parque Natural - Mariola
+225%36%parq_calderona_prug_vias_pecuarias_calderona%default%Vías pecuarias - Calderona
+226%36%eepp_parques_naturales_prug_cabanes%default%Límite del Parque Natural - Cabanes-Torreblanca
+227%36%parq_montgo_porn_zonificacion_porn%default%Zonificación P.O.R.N. - Montgó
+228%36%parq_ifac_prug_puntos_observacion_y_encuentros%default%Servicios asistenciales - Observación y encuentros - Ifac
+229%36%eepp_parques_naturales_prug_hoces_cabriel%default%Límite del Parque Natural - Hoces del Cabriel
+230%36%eepp_parques_naturales_porn_chera%default%Límite Parque Natural - Chera-Sot de Chera
+231%36%eepp_zonas_humedas%default%Zonas Húmedas
+232%36%parq_ifac_prug_caminos_accesos_entorno_aula%default%Rehabilitación accesos entorno aula - Ifac
+233%36%parq_prat_cabanes_porn_zonificacion%default%Zonificación P.O.R.N. - Cabanes-Torreblanca
+234%36%parq_prat_cabanes_porn_centro_informacion%default%Centro de información - Cabanes-Torreblanca
+235%36%eepp_limite_prug_hoces_cabriel%default%Límite P.R.U.G. - Hoces del Cabriel
+236%36%paisaje_ombria_benicadell_prug_zonificacion%default%Zonificación P.R.U.G. - Ombria del Benicadell
+237%36%eepp_parajes_municipales%default%Parajes Naturales Municipales
+238%36%eepp_zecs%default%ZECs
+239%36%parq_calderona_prug_micros%default%Microrreservas - Calderona
+240%36%eepp_parques_naturales%default%Parques Naturales
+241%36%parq_ifac_prug_educacion_entorno_aula%default%Rehabilitación entorno aula - Ifac
+242%36%eepp_parques_naturales_limite_porn_irta%default%Límite Parque Natural - Irta
+243%36%eepp_zecs_zonificacion%default%Zonificación ZECs
+244%36%parq_penyagolosa_porn_zonificacion%default%Zonificación P.O.R.N. - Penyagolosa
+245%36%eepp_parques_naturales_prug_mariola%default%Límite Parque Natural - Mariola
+246%36%eepp_limite_prug_calderona%default%Límite P.R.U.G. - Calderona
+247%36%parq_font_roja_porn_vedado_caza%default%Vedado de caza - Font Roja
+248%36%eepp_marca_parcs%default%Marca Parcs Naturals
+249%36%parq_espadan_prug_interes_paisajistico_y_cultural%default%Áreas de interés paisajístico y cultural: AP-dII - Espadà
+250%36%parq_columbretes_prug_zonificacion_y_construcciones_zonificacion%default%Zonificación - Illes Columbretes
+251%36%parq_espadan_prug_zonificacion_urbanas%default%Áreas urbanas: UE - Espadà
+252%36%eepp_limite_prug_cabanes%default%Límite P.R.U.G. - Cabanes-Torreblanca
+253%36%parq_espadan_prug_areas_de_reserva_puntual%default%Áreas de reserva: RE - Puntos - Espadà
+254%36%parq_prat_cabanes_prug_zonificacion%default%Zonificación P.R.U.G. - Cabanes-Torreblanca
+255%36%eepp_parques_naturales_prug_montgo%default%Límite Parque Natural - Montgó
+256%36%parq_espadan_prug_uso_publico%default%Áreas de equipamiento. Uso público: EP - Espadà
+257%36%eepp_parques_naturales_prug_calderona%default%Límite Parque Natural - Calderona
+258%36%parq_font_roja_prug_puntos_ordenacion%default%Ordenación puntos - Font Roja
+259%36%parq_espadan_prug_perimetro_proteccion_zonas_humedas%default%Perímetro de protección de las zonas húmedas catalogadas: AP-e - Espadà
+260%36%parq_ifac_prug_educacion_poligonos%default%Polígonos - Ifac
+261%36%eepp_limite_porn_prug_font_roja%default%Límite P.O.R.N. - Font Roja
+262%36%eepp_limite_prug_benicadell%default%Límite P.R.U.G. - Ombria del Benicadell
+263%36%parq_font_roja_prug_itinerarios%default%Itinerarios - Font Roja
+264%36%parq_prat_cabanes_porn_aparcamientos%default%Aparcamientos - Cabanes-Torreblanca
+265%36%parq_font_roja_porn_puntos_ordenacion%default%Ordenación - Font Roja
+266%36%parq_hoces_cabriel_prug_ordenacion_ptos%default%Zonificación P.R.U.G. puntual - Hoces del Cabriel
+267%36%sist_hume_sur_ali_porn_limite_parque_mata%default%Zonificación PORN P.E. Lagunas de la Mata-Torrevieja
+268%36%parq_columbretes_prug_zonificacion_y_construcciones_construcciones%default%Construcciones - Illes Columbretes
+269%36%parq_mata_torrevieja_prug_zonificacion%default%Zonificación P.R.U.G. - Mata-Torrevieja
+270%36%eepp_lics%default%LICs
+271%36%eepp_limite_prug_mata%default%Límite P.R.U.G. - Mata-Torrevieja
+272%36%eepp_parques_naturales_porn_gelada%default%Límite Parque Natural - Serra Gelada
+273%36%eepp_zonas_humedas_influencia%default%Zona de Protección Zonas Húmedas
+274%36%parq_espadan_prug_zonificacion_agricola%default%Áreas de uso agrícola: AG - Espadà
+275%36%eepp_porn_irta%default%P.O.R.N. - Irta
+276%36%eepp_parques_naturales_prug_fondo%default%Límite Parque Natural - El Fondo
+277%36%sist_hume_sur_ali_porn_limite_parque_santa_pola%default%Zonificación PORN P.E. Les Salines de Santa Pola
+278%36%eepp_parques_naturales_porn_cabanes%default%Límite Parque Natural - Cabanes-Torreblanca
+279%36%eepp_monumentos_naturales%default%Monumentos Naturales
+280%36%parq_calderona_prug_yacimientos_parque%default%Yacimientos - Calderona
+281%36%parq_font_roja_porn_via_verde%default%Vía Verde Alcoi-Ibi - Font Roja
+282%36%parq_columbretes_prug_itinerarios_y_zona_acceso_restringido%default%Itinerarios y Zona de acceso restringido - Illes Columbretes
+283%36%parq_font_roja_prug_zonificacion%default%Zonificación P.R.U.G. - Font Roja
+284%36%eepp_porn_hoces_cabriel%default%P.O.R.N. - Hoces del Cabriel
+285%36%eepp_porn_chera%default%P.O.R.N. - Chera-Sot de Chera
+286%36%eepp_limite_prug_espada%default%Límite P.R.U.G. - Espadà
+287%36%parq_calderona_prug_areas_actuacion_parque%default%Áreas de actuación - Calderona
+288%36%parq_pego_oliva_porn_zonificacion%default%Zonificación P.O.R.N. - Pego-Oliva
+289%36%eepp_reserva_marina_illes_columbretes_prug_columbretes%default%Límite Reserva Marina - Illes Columbretes
+290%36%eepp_cuevas%default%Catálogo de Cuevas
+291%36%eepp_parques_naturales_prug_ifac%default%Límite Parque Natural - Ifac
+292%36%eepp_parques_naturales_prug_santa_pola%default%Límite Parque Natural - Santa Pola
+293%36%eepp_reservas_naturales%default%Reservas Naturales
+294%36%eepp_porn_pego_oliva%default%P.O.R.N. - Pego-Oliva
+295%36%parq_chera_porn_zonificacion%default%Zonificación P.O.R.N. - Chera-Sot de Chera
+296%36%eepp_parques_naturales_prug_font_roja%default%Límite Parque Natural - Font Roja
+297%36%eepp_limite_prug_montgo%default%Límite P.R.U.G. - Montgó
+298%36%parq_espadan_prug_areas_de_proteccion_ecologica_puntual%default%Áreas de protección ecológica: PE - Puntos - Espadà
+299%36%parq_ifac_prug_puntos_aparcamiento%default%Zona de aparcamiento - Ifac
+300%36%eepp_parques_naturales_porn_montgo%default%Límite Parque Natural - Montgó
+301%36%eepp_limite_porn_prug_cabanes%default%Límite P.O.R.N. - Cabanes-Torreblanca
+302%36%parq_puebla_san_miguel_porn_zonificacion_porn%default%Zonificación P.O.R.N. - Puebla de San Miguel
+303%36%eepp_parques_naturales_porn_calderona%default%Límite Parque Natural - Calderona
+304%36%parq_irta_prug_zonas_proteccion_uso_publico%default%Zonas de protección y de uso público sostenible - Irta
+305%36%parq_espadan_prug_areas_actuacion_preferente%default%Áreas de actuación preferente: AP - Zonas de regeneración de hábitats naturales: AP-a - Espadà
+306%36%parq_calderona_prug_zonificacion_prug%default%Resto de zonificación - Calderona
+307%36%eepp_paradas_parques%default%Paradas de los Parques Naturales
+308%36%parq_hoces_cabriel_porn_zonificacion%default%Zonificación P.O.R.N. - Hoces del Cabriel
+309%36%eepp_limite_prug_mariola%default%Límite P.R.U.G. - Mariola
+310%36%parq_espadan_prug_interes_historico_y_cultural%default%Puntos de interés histórico y cultural: AP-dI - Espadà
+311%36%eepp_porn_benifassa%default%P.O.R.N. - Benifassà
+312%36%eepp_parajes_municipales_rutas%default%Rutas - Parajes Naturales Municipales
+313%36%eepp_porn_sistema_zonas_humedas%default%P.O.R.N. - Fondo Salines Mata-Torrevieja
+314%36%eepp_parajes_municipales_elementos%default%Elementos de interés - Parajes Naturales Municipales
+315%36%eepp_parques_naturales_prug_desert%default%Límite Parque Natural - Desert
+316%36%eepp_limite_prug_fondo%default%Límite P.R.U.G. - El Fondo
+317%36%parq_calderona_prug_equipamientos%default%Equipamientos - Calderona
+318%36%eepp_parques_naturales_porn_albufera%default%Límite Parque Natural - Albufera
+319%36%eepp_zepas%default%ZEPAs
+320%36%parq_ifac_prug_educacion_paisajistica%default%Rehabilitación paisajística del P.N. - Ifac
+321%36%eepp_reserva_marina_illes_columbretes%default%Reserva Marina Illes Columbretes
+322%36%parq_espadan_prug_zonificacion_ecologica%default%Áreas de protección ecológica: PE - Polígonos - Espadà
+323%36%parq_calderona_prug_oficina_parque%default%Oficina - Calderona
+324%36%eepp_parques_naturales_porn_benifassa%default%Límite Parque Natural - Benifassà
+325%36%parq_desert_prug_zonificacion%default%Zonificación P.R.U.G. - Desert
+326%36%sist_hume_sur_ali_porn_limite_parque_fondo%default%Zonificación PORN P.E. El Fondo
+327%36%parq_ifac_prug_zonas%default%Zonificación P.R.U.G. - Ifac
+328%36%parq_ifac_prug_puntos_puntos%default%Puntos - Ifac
+329%36%eepp_paisajes_protegidos_benicadell%default%Límite del Paisaje Protegido - Ombria del Benicadell
+330%36%eepp_parques_naturales_porn_font_roja%default%Límite Parque Natural - Font Roja
+331%36%eepp_limite_prug_columbretes%default%Límite P.R.U.G. - Illes Columbretes
+332%36%eepp_parques_naturales_prug_mata%default%Límite Parque Natural - Mata-Torrevieja
+333%36%parq_mariola_porn_zonificacion%default%Zonificación P.O.R.N. - Mariola
+334%36%parq_font_roja_porn_zonificacion%default%Zonificación P.O.R.N. - Font Roja
+335%36%eepp_porn_calderona%default%P.O.R.N. - Calderona
+336%36%parq_irta_porn_zonificacion_terrestre%default%Zonificación P.O.R.N. parte terrestre - Irta
+337%36%parq_mariola_prug_areas_plan_especial%default%Áreas sometidas a Plan Especial - Mariola
+338%36%eepp_porn_mariola%default%P.O.R.N. - Mariola
+339%36%eepp_limite_prug_irta%default%Límite P.R.U.G. - Irta
+340%36%eepp_mon_naturales_amortiguacion%default%Zona de Amortiguación de Monumentos Naturales
+341%36%eepp_porn_albufera%default%P.O.R.N. - Albufera
+342%36%parq_turia_porn_zonificacion_porn%default%Zonificación P.O.R.N. - Turia
+343%36%eepp_limite_prug_ifac%default%Límite P.R.U.G. - Ifac
+344%36%parq_santa_pola_prug_zonificacion%default%Zonificación P.R.U.G. - Santa Pola
+345%36%eepp_limite_porn_prug_calderona%default%Límite P.O.R.N. - Calderona
+346%36%parq_fondo_prug_zonificacion%default%Zonificación P.R.U.G. - El Fondo
+347%36%eepp_porn_puebla%default%P.O.R.N. - Puebla de San Miguel
+348%36%parq_prat_cabanes_prug_centro_informacion%default%Centro de información - Cabanes-Torreblanca
+349%36%eepp_parques_naturales_limite_porn_hoces_cabriel%default%Límite Parque Natural - Hoces del Cabriel
+350%36%parq_prat_cabanes_prug_aparcamientos%default%Aparcamientos - Cabanes-Torreblanca
+351%36%eepp_porn_gelada%default%P.O.R.N. - Serra Gelada
+352%36%eepp_parques_naturales_porn_puebla%default%Límite Parque Natural - Puebla de San Miguel
+353%36%eepp_porn_porn_cabanes%default%P.O.R.N. - Cabanes-Torreblanca
+354%36%parq_mariola_prug_zonificacion%default%Zonificación P.R.U.G. - Mariola
+355%36%parq_espadan_prug_zonificacion_reserva%default%Áreas de reserva: RE - Polígonos - Espadà
+356%36%eepp_porn_penyagolosa%default%P.O.R.N. - Penyagolosa
+357%36%eepp_limite_porn_turia%default%P.O.R.N. - Turia
+358%36%eepp_limite_prug_font_roja%default%Límite P.R.U.G. - Font Roja
+359%36%parq_calderona_prug_cuevas%default%Cuevas - Calderona
+360%36%eepp_limite_porn_prug_irta%default%Límite P.O.R.N. - Irta
+361%36%parq_font_roja_prug_telecomunicaciones%default%Telecomunicaciones - Font Roja
+362%36%parq_ifac_prug_caminos_red_caminos%default%Red de Caminos - Ifac
+363%36%parq_serra_gelada_porn_zonificacion%default%Zonificación P.O.R.N. - Serra Gelada
+364%36%eepp_limite_prug_desert%default%Límite P.R.U.G. - Desert
+365%36%eepp_parques_naturales_prug_irta%default%Límite del Parque Natural - Irta
+366%36%eepp_parques_naturales_prug_espada%default%Límite Parque Natural - Espadà
+367%36%parq_montgo_prug_zonificacion_prug%default%Zonificación P.R.U.G. - Montgó
+368%36%parq_calderona_prug_senderos%default%Senderos - Calderona
+369%36%eepp_paisajes_protegidos%default%Paisajes Protegidos
+370%36%parq_font_roja_porn_paraje_municipal%default%Paraje Natural Municipal Racó de Sant Bonaventura - Font Roja
+371%36%eepp_parques_naturales_sistema_zonas_humedas%default%Límite Parque Natural - Fondo Salines Mata-Torrevieja
+372%36%parq_espadan_porn_zonificacion%default%Zonificación P.O.R.N. - Espadà
+373%36%eepp_rutas_parques%default%Rutas de los Parques Naturales
+374%36%eepp_porn_montgo%default%P.O.R.N. - Montgó
+375%36%eepp_parques_naturales_porn_penyagolosa%default%Límite Parque Natural - Penyagolosa
+376%37%biod_habitats10000_recintos%default%Recintos vegetación
+377%37%biod_plan_recuperacion_malvasia%default%Plan de recuperación de la Malvasía
+378%37%biod_plan_recuperacion_gavina_corsa%default%Plan de recuperación de la Gaviota de Audouin
+379%37%biod_marcos_habitats_corine%default%Marcos cartografía Corine
+380%37%biod_habitats10000_comunitario%default%Hábitats interés comunitario
+381%37%biod_reservas_de_fauna%default%Reservas de fauna
+382%37%biod_areas_prioritarias%default%Áreas prioritarias
+383%37%eepp_habitats%default%Hábitats 1:50.000
+384%37%biod_habitats10000_corine%default%Hábitats Corine
+385%37%biod_plan_recuperacion_gavina_corsa_avifauna%default%Plan de recuperación de la Gaviota de Audouin
+386%37%biod_plan_recuperacion_recup_silene_cons%default%Áreas de conservación de la Silene de Ifac
+387%37%biod_areas_de_conservacion_fartet%default%Áreas de conservación del Plan de recuperación del Fartet
+388%37%eepp_microrreservas%default%Microrreservas
+389%37%eepp_zepas%default%ZEPAs
+390%37%biod_anfibios%default%LIFE - Anfibios
+391%37%biod_plan_recuperacion_samaruc%default%Plan de recuperación del Samaruc
+392%37%biod_marcos_habitats_comunitario%default%Marcos cartografía Interés comunitario
+393%37%biod_plan_recuperacion_malvasia_avifauna%default%Plan de recuperación de la Malvasía
+394%37%biod_plan_recuperacion_recup_cistus_cons%default%Áreas de conservación del Cistus heterophyllus
+395%37%biod_areas_de_recuperacion_fartet%default%Áreas de recuperación del Plan de recuperación del Fartet
+396%37%biod_marcos_habitats_recintos%default%Marcos cartografía Recintos vegetación
+397%37%biod_plan_recuperacion_murcielagos_areas_refugio%default%Áreas Refugio - Plan de recuperación Murciélago Ratonero Patudo y Murciélago Mediano de Herradura
+398%37%biod_plan_recuperacion_recup_limonium_cons%default%Áreas de conservación del Limonium perplexum
+399%37%biod_plan_recuperacion_murcielagos_boca_cavidad%default%Boca Cavidad - Plan de recuperación Murciélago Ratonero Patudo y Murciélago Mediano de Herradura
+400%38%orde_red_cauces%default%Red de Cauces
+401%38%orde_ET_areas_funcionales%default%Áreas funcionales
+402%38%orde_ET_area_urbana_integrada%default%Área urbana integrada
+403%38%orde_estudios_inun%default%Estudios de Inundabilidad
+404%38%orde_ET__municipios_tipo_nodo%default%Tipo de nodo
+405%38%orde_ET_municipios_SNR%default%Sistema nodal de referencia
+406%38%orde_riesgo_inun%default%Riesgo de Inundación
+407%38%orde_peligrosidad_inun_geomorfologica%default%Peligrosidad por Inundación Geomorfológica
+408%38%orde_envolvente_pel_inun%default%Envolvente de Peligrosidad por Inundación
+409%38%orde_peligrosidad_inun_2%default%Peligrosidad por Inundación - 2
+410%38%orde_ET_comarcas%default%Comarcas
+411%38%orde_peligrosidad_inun_1%default%Peligrosidad por Inundación - 1
+412%38%orde_peligrosidad_inun_6%default%Peligrosidad por Inundación - 6
+413%38%orde_peligrosidad_inun_4%default%Peligrosidad por Inundación - 4
+414%38%orde_ET_municipios_ambito%default%Ámbito
+415%38%orde_peligrosidad_inun_3%default%Peligrosidad por Inundación - 3
+416%38%orde_peligrosidad_inun_5%default%Peligrosidad por Inundación - 5
+417%39%atmo_calidad_municipios_cont_amb_mejora_calidad%default%Plan de mejora de calidad del aire
+418%39%atmo_centros_aut_ambiental_10_General_ETRS89%default%10 General - ETRS89
+419%39%atmo_centros_aut_ambiental_1_Detalle_ETRS89%default%1 Detalle - ETRS89
+420%39%atmo_ruido_municipios_cont_acus_MER_obligacion%default%Aglomeraciones con obligación de MER
+421%39%atmo_ruido_municipios_cont_acus_ZAS_declarada%default%ZAS declaradas
+422%39%atmo_calidad_zonas_cv%default%Zonas de calidad del aire
+423%39%atmo_centros_aut_ambiental_3_General_ETRS89%default%3 General - ETRS89
+424%39%atmo_centros_aut_ambiental_4_Detalle_ETRS89%default%4 Detalle - ETRS89
+425%39%atmo_centros_aut_ambiental_8_General_ED50%default%8 General - ED50
+426%39%atmo_centros_aut_ambiental_1_General_ED50%default%1 General - ED50
+427%39%atmo_calidad_estaciones%default%Red de vigilancia y control de la contaminación atmosférica
+428%39%atmo_centros_aut_ambiental_9_Detalle_ED50%default%9 Detalle -  ED50
+429%39%atmo_centros_aut_ambiental_9_General_ED50%default%9 General - ED50
+430%39%atmo_centros_aut_ambiental_8_General_ETRS89%default%8 General - ETRS89
+431%39%atmo_centros_aut_ambiental_7_General_ETRS89%default%7 General - ETRS89
+432%39%atmo_centros_aut_ambiental_5_General_ETRS89%default%5 General - ETRS89
+433%39%atmo_centros_aut_ambiental_10_Detalle_ED50%default%10 Detalle - ED50
+434%39%atmo_ruido_municipios_cont_acus_PAM_obligacion%default%Municipios con obligación declarar PAM
+435%39%atmo_ruido_municipios_cont_acus_plan_accion_obligacion%default%Aglomeraciones con obligación de Plan de Acción
+436%39%atmo_ruido_municipios_cont_acus_PAM_aprobado%default%Municipios con PAM aprobado
+437%39%atmo_centros_aut_ambiental_4_General_ED50%default%4 General - ED50
+438%39%atmo_centros_aut_ambiental_1_Detalle_ED50%default%1 Detalle - ED50
+439%39%atmo_centros_aut_ambiental_6_General_ETRS89%default%6 General - ETRS89
+440%39%atmo_centros_aut_ambiental_10_General_ED50%default%10 General - ED50
+441%39%atmo_centros_aut_ambiental_7_Detalle_ETRS89%default%7 Detalle - ETRS89
+442%39%atmo_calidad_estaciones_ozono%default%Estaciones de Ozono
+443%39%atmo_centros_aut_ambiental_6_Detalle_ED50%default%6 Detalle -ED50
+444%39%atmo_centros_aut_ambiental_2_Detalle_ETRS89%default%2 Detalle - ETRS89
+445%39%atmo_centros_aut_ambiental_3_General_ED50%default%3 General - ED50
+446%39%atmo_centros_aut_ambiental_6_General_ED50%default%6 General - ED50
+447%39%atmo_centros_aut_ambiental_5_Detalle_ETRS89%default%5 Detalle - ETRS89
+448%39%atmo_centros_aut_ambiental_11_Detalle_ED50%default%11 Detalle - ED50
+449%39%atmo_centros_aut_ambiental_3_Detalle_ETRS89%default%3 Detalle - ETRS89
+450%39%atmo_centros_aut_ambiental_4_General_ETRS89%default%4 General - ETRS89
+451%39%atmo_centros_aut_ambiental_11_General_ETRS89%default%11 General - ETRS89
+452%39%atmo_centros_aut_ambiental_7_General_ED50%default%7 General - ED50
+453%39%atmo_centros_aut_ambiental_5_Detalle_ED50%default%5 Detalle - ED50
+454%39%atmo_centros_aut_ambiental_11_General_ED50%default%11 General - ED50
+455%39%atmo_ruido_municipios_cont_acus_ZAS_remitida%default%Propuestas de ZAS remitidas a la Conselleria
+456%39%atmo_centros_aut_ambiental_6_Detalle_ETRS89%default%6 Detalle -ETRS89
+457%39%atmo_centros_aut_ambiental_8_Detalle_ETRS89%default%8 Detalle - ETRS89
+458%39%atmo_centros_aut_ambiental_5_General_ED50%default%5 General - ED50
+459%39%atmo_centros_aut_ambiental_2_General_ED50%default%2 General - ED50
+460%39%atmo_calidad_municipios_cont_amb_mejora_NO2%default%Plan de mejora para NO2
+461%39%atmo_centros_aut_ambiental_1_General_ETRS89%default%1 General - ETRS89
+462%39%atmo_centros_aut_ambiental_10_Detalle_ETRS89%default%10 Detalle - ETRS89
+463%39%atmo_calidad_municipios_cont_amb_mejora_PM10%default%Plan de mejora para PM10
+464%39%atmo_centros_aut_ambiental_2_Detalle_ED50%default%2 Detalle - ED50
+465%39%atmo_centros_aut_ambiental_4_Detalle_ED50%default%4 Detalle - ED50
+466%39%atmo_centros_aut_ambiental_9_General_ETRS89%default%9 General - ETRS89
+467%39%atmo_centros_aut_ambiental_8_Detalle_ED50%default%8 Detalle - ED50
+468%39%atmo_centros_aut_ambiental_11_Detalle_ETRS89%default%11 Detalle - ETRS89
+469%39%atmo_centros_aut_ambiental_9_Detalle_ETRS89%default%9 Detalle -  ETRS89
+470%39%atmo_ruido_municipios_cont_acus_PAM_remitido%default%Municipios con PAM remitido a la Conselleria
+471%39%atmo_centros_aut_ambiental_3_Detalle_ED50%default%3 Detalle - ED50
+472%39%atmo_centros_aut_ambiental_2_General_ETRS89%default%2 General - ETRS89
+473%39%atmo_centros_aut_ambiental_7_Detalle_ED50%default%7 Detalle - ED50
+474%40%coput_red_hidrografica%default%Red hidrográfica
+475%40%infra_calzadas_romanas_ramal_alicante%default%Ramal Alicante
+476%40%coput_accesibilidad_de_acuiferos_1995%default%Accesibilidad de acuíferos
+477%40%coput_riesgo_de_deslizamientos_puntuales_1991%default%Riesgo de deslizamientos y desprendimientos puntuales
+478%40%coput_afecciones_por_carreteras_del_estado%default%Afecciones por carreteras del estado
+479%40%coput_nucleos_urbanizados%default%Núcleos urbanizados
+480%40%coput_equipamiento_energetico%default%Equipamiento energético
+481%40%coput_litologia_1991%default%Litología
+482%40%coput_riesgo_de_erosion_potencial_1992%default%Riesgo de erosión potencial
+483%40%coput_riesgo_de_erosion_actual_1992%default%Riesgo de erosión actual
+484%40%coput_red_ferroviaria_renfe%default%Red ferroviaria RENFE
+485%40%coput_red_ferroviaria_fgv%default%Ferrocarrils de la Generalitat Valenciana
+486%40%coput_capacidad_de_uso_del_suelo_1992%default%Capacidad de uso del suelo
+487%40%coput_rios_y_ramblas%default%Ríos y ramblas
+488%40%coput_curvas_de_nivel_100%default%Curvas de nivel cada 100 metros
+489%40%coput_fisiografia_1992%default%Fisiografía
+490%40%coput_riesgo_de_deslizamientos_poligonos_1991%default%Riesgo de deslizamientos y desprendimientos
+491%40%infra_calzadas_romanas_via_augusta%default%Vía Augusta
+492%40%infra_calzadas_romanas_via_dianium%default%Vía Dianium
+493%40%coput_aprovechamiento_de_rocas_industriales_poligonos_1991%default%Aprovechamiento de rocas industriales
+494%40%coput_afecciones_por_carreteras_de_la_comunidad%default%Afecciones por carreteras de la comunidad
+495%40%coput_aprovechamiento_de_rocas_industriales_puntuales_1991%default%Aprovechamientos industriales puntuales
+496%40%coput_masas_de_agua%default%Masas de agua
+497%40%coput_yacimientos_arqueologicos%default%Yacimientos arqueológicos
+498%40%coput_vulnerabilidad_de_acuiferos_1995%default%Vulnerabilidad de acuíferos
+499%40%coput_riesgo_de_inundaciones_1993%default%Riesgo de inundaciones
+500%40%coput_curvas_de_nivel_20%default%Curvas de nivel 20 metros
+501%41%resi_areas_gestion%default%Áreas de Gestión
+502%41%resi_generacion_residuos_domesticos%default%Generación de residuos domésticos 2012 (Tn)
+503%41%resi_planes_zonales%default%Planes Zonales PIRCV
+504%41%resi_zonas_aptas_vertederos%default%Zonas aptas para vertederos
+505%41%resi_instalaciones_de_residuos_domesticos%default%Instalaciones de residuos domésticos
+506%42%caype_reserva_anguila_pol%default%Reserva anguila - Marjales
+507%42%caype_caza_danyos_conejo%default%Municipios afectados por daños de conejo
+508%42%caype_reserva_anguila_lin%default%Reserva anguila - Ríos y azarbes
+509%42%caype_caza_arrui%default%Zona de control del Arruí
+510%42%caype_pesca_calidad_rios_truch%default%Indice calidad ambiental ríos trucheros
+511%42%caype_invasoras_micropterus%default%Micropterus salmoides
+512%42%caype_caza_eencc_ext%default%Espacios no cinegéticos
+513%42%caype_invasoras_procambarus%default%Procambarus clarkii
+514%42%caype_pesca%default%Cotos de pesca
+515%42%caype_caza_danyos_conejo_afec%default%Area afección municipios afectados por daños de conejo
+516%42%caype_caza_eecc_ext%default%Espacios cinegéticos
+517%42%caype_invasoras_oncorhynchus%default%Oncorhynchus mykiss
+518%43%formasorigenmarino%default%Formas de origen marino
+519%43%riesgos_cttk%default%Terrenos kársticos
+520%43%otrasfof%default%Otras formas
+521%43%pendiente%default%Pendientes mayores y menores de 15º
+522%43%riesgos_ctc22%default%Arcillas medias y arenas
+523%43%riesgos_ctc8%default%Arcillas medias
+524%43%riesgos_ctt12%default%Materia orgánica inundable
+525%43%litomorfologia%default%Litomorfología
+526%43%litologia%default%Litología
+527%43%formasorigenestructural%default%Formas de origen estructural
+528%43%riesgos_ctc4%default%Gravas
+529%43%riesgos_ctc9%default%Arcillas blandas y muy blandas
+530%43%riesgos_entorno%default%Entorno del edificio
+531%43%paleocauces%default%Paleocauces
+532%43%riesgos_geomorf%default%Riesgos
+533%43%riesgos_ctc2%default%Calizas, dolomías
+534%43%escarpe%default%Escarpe
+535%43%riesgos_ctt14%default%Ladera inestable/deslizamiento
+536%43%hojas24%default%Hojas 24
+537%43%a_carr_trazado_cv%%Carreteras
+538%43%zonas_pluviometricas%%Zona pluviométrica
+539%43%zonas_clim%default%Zonas climáticas CTE
+540%43%isoyetas%default%Isoyetas
+541%43%zonas_intensidad_pluviometrica%default%Zonas intensidad pluviométrica CTE
+542%43%riesgos_ctc21%default%Arcillas medias, gravas y arenas
+543%43%riesgos_cttsusu%default%Suelos sueltos
+544%43%riesgos_cttfly%default%Flysch
+545%43%riesgos_ctc19%default%Arcillas duras, gravas y conglomerado
+546%43%riesgos_ctt16%default%Depresiones kársticas
+547%43%promociones_pdc%default%Viviendas Perfil de Calidad
+548%43%riesgos_ctt11%default%Zonas inundables
+549%43%formasorigencarstico%default%Formas de origen karstico
+550%43%riesgos_ctc20%default%Arcillas duras y arenas
+551%43%zonas_eolicas%default%Zonas eólicas CTE
+552%43%riesgos_ctc6%default%Arenas flojas y muy flojas
+553%43%viento%%Lluvia batiente
+554%43%riesgos_ctc18%default%Pizarras
+555%43%riesgos_cttsuex%default%Suelos expansivos
+556%43%riesgos_ctt17%default%Espesor conocido de suelos blandos
+557%43%glacis%default%Glacis
+558%43%riesgos_ctc5%default%Arenas medias, densas y muy densas
+559%43%zonas_eolica%%Zona eólica
+560%43%ficha_laboratorios%default%Fichas de laboratorios
+561%43%riesgos_ctt15%default%Nivel freático alto
+562%43%ruido%default%Ruido. Información acústica
+563%43%zonas_pluviometricas_promedio%default%Zonas pluviométricas promedio
+564%43%zonas_energia%''%Zona energía
+565%43%riesgos_ctt13%default%Yesos
+566%43%riesgos_ct8%default%Limos
+567%43%riesgos_ctc3%default%Areniscas, conglomerados, costras y otros
+568%43%riesgos_ctc1%default%Margas
+569%43%riesgos_ctc7%default%Arcillas duras
+570%43%riesgos_ctc10%default%Margas y calizas
+571%43%riesgos_cttsuco%default%Suelos colapsables
+572%43%aceleracion_sismica%default%Peligrosidad sísmica
+573%44%atlas_clima_PMM_noviembre%default%Prec. noviembre [mm]
+574%44%atlas_clima_TMMIN_febrero%default%Ta media de las mínimas febrero [C]
+575%44%atlas_clima_TMIN_diciembre%default%Ta mínima diciembre [C]
+576%44%atlas_clima_PMM_marzo%default%Prec. marzo [mm]
+577%44%atlas_clima_TMIN_julio%default%Ta mínima julio [C]
+578%44%atlas_clima_TMMIN_mayo%default%Ta media de las mínimas mayo [C]
+579%44%atlas_clima_TMMIN_septiembre%default%Ta media de las mínimas septiembre [C]
+580%44%atlas_clima_PMM_agosto%default%Prec. agosto [mm]
+581%44%atlas_clima_T_octubre%default%Ta media octubre [C]
+582%44%atlas_clima_PMM_septiembre%default%Prec. septiembre [mm]
+583%44%atlas_clima_TMMAX_marzo%default%Ta media de las máximas marzo [C]
+584%44%atlas_clima_T_diciembre%default%Ta media diciembre [C]
+585%44%atlas_clima_TMIN_agosto%default%Ta mínima agosto [C]
+586%44%atlas_clima_TMAX_abril%default%Ta máxima abril [C]
+587%44%atlas_clima_TMAX_primavera%default%Ta máxima primavera [C]
+588%44%atlas_clima_TMAX_julio%default%Ta máxima julio [C]
+589%44%atlas_clima_TMAX_anual%default%Temperatura máxima anual [C]
+590%44%atlas_clima_PMM_verano%default%Prec. verano [mm]
+591%44%atlas_clima_TMAX_diciembre%default%Ta máxima diciembre [C]
+592%44%atlas_clima_T_noviembre%default%Ta media noviembre [C]
+593%44%atlas_clima_T_marzo%default%Ta media marzo [C]
+594%44%atlas_clima_TMMIN_marzo%default%Ta media de las mínimas marzo [C]
+595%44%atlas_clima_TMMAX_otonyo%default%Ta media de las máximas otoño [C]
+596%44%atlas_clima_TMMAX_noviembre%default%Ta media de las máximas noviembre [C]
+597%44%atlas_clima_TMIN_invierno%default%Ta mínima invierno [C]
+598%44%atlas_clima_T_agosto%default%Ta media agosto [C]
+599%44%atlas_clima_TMAX_junio%default%Ta máxima junio [C]
+600%44%atlas_clima_TMMIN_invierno%default%Ta media de las mínimas invierno [C]
+601%44%atlas_clima_TMMAX_octubre%default%Ta media de las máximas octubre [C]
+602%44%atlas_clima_TMAX_septiembre%default%Ta máxima septiembre [C]
+603%44%atlas_clima_TMMAX_diciembre%default%Ta media de las máximas diciembre [C]
+604%44%atlas_clima_TMMAX_invierno%default%Ta media de las máximas invierno [C]
+605%44%atlas_clima_PMM_julio%default%Prec. julio [mm]
+606%44%atlas_clima_TMMIN_octubre%default%Ta media de las mínimas octubre [C]
+607%44%atlas_clima_TMMIN_otonyo%default%Ta media de las mínimas otoño [C]
+608%44%atlas_clima_TMIN_mayo%default%Ta mínima mayo [C]
+609%44%atlas_clima_PMM_febrero%default%Prec. febrero [mm]
+610%44%atlas_clima_TMMAX_septiembre%default%Ta media de las máximas septiembre [C]
+611%44%atlas_clima_TMIN_septiembre%default%Ta mínima septiembre [C]
+612%44%atlas_clima_TMIN_febrero%default%Ta mínima febrero [C]
+613%44%atlas_clima_T_invierno%default%Ta media invierno [C]
+614%44%atlas_clima_PMM_enero%default%Prec. enero [mm]
+615%44%atlas_clima_TMMIN_verano%default%Ta media de las mínimas verano [C]
+616%44%atlas_clima_TMAX_agosto%default%Ta máxima agosto [C]
+617%44%atlas_clima_TMAX_marzo%default%Ta máxima marzo [C]
+618%44%atlas_clima_PMM_abril%default%Prec. abril [mm]
+619%44%atlas_clima_T_junio%default%Ta media junio [C]
+620%44%atlas_clima_TMAX_mayo%default%Ta máxima mayo [C]
+621%44%atlas_clima_T_otonyo%default%Ta media otoño [C]
+622%44%atlas_clima_PMM_junio%default%Prec. junio [mm]
+623%44%atlas_clima_TMMAX_abril%default%Ta media de las máximas abril [C]
+624%44%atlas_clima_TMMAX_mayo%default%Ta media de las máximas mayo [C]
+625%44%atlas_clima_TMIN_enero%default%Ta mínima enero [C]
+626%44%atlas_clima_TMMIN_primavera%default%Ta media de las mínimas primavera [C]
+627%44%atlas_clima_TMMIN_diciembre%default%Ta media de las mínimas diciembre [C]
+628%44%atlas_clima_TMMIN_anual%default%Temperatura media de las mínimas anual [C]
+629%44%atlas_clima_T_septiembre%default%Ta media septiembre [C]
+630%44%atlas_clima_T_anual%default%Temperatura media anual [C]
+631%44%atlas_clima_T_febrero%default%Ta media febrero [C]
+632%44%atlas_clima_TMIN_primavera%default%Ta mínima primavera [C]
+633%44%atlas_clima_TMAX_noviembre%default%Ta máxima noviembre [C]
+634%44%atlas_clima_PMM_mayo%default%Prec. mayo [mm]
+635%44%atlas_clima_T_abril%default%Ta media abril [C]
+636%44%atlas_clima_TMAX_febrero%default%Ta máxima febrero [C]
+637%44%atlas_clima_TMMIN_julio%default%Ta media de las mínimas julio [C]
+638%44%atlas_clima_PMM_diciembre%default%Prec. diciembre [mm]
+639%44%atlas_clima_TMIN_verano%default%Ta mínima verano [C]
+640%44%atlas_clima_TMMAX_verano%default%Ta media de las máximas verano [C]
+641%44%atlas_clima_T_primavera%default%Ta media primavera [C]
+642%44%atlas_clima_TMMAX_febrero%default%Ta media de las máximas febrero [C]
+643%44%atlas_clima_TMIN_abril%default%Ta mínima abril [C]
+644%44%atlas_clima_TMMAX_anual%default%Temperatura media de las máximas anual [C]
+645%44%atlas_clima_TMIN_marzo%default%Ta mínima marzo [C]
+646%44%atlas_clima_PMM_octubre%default%Prec. octubre [mm]
+647%44%atlas_clima_TMMIN_agosto%default%Ta media de las mínimas agosto [C]
+648%44%atlas_clima_TMAX_verano%default%Ta máxima verano [C]
+649%44%atlas_clima_TMIN_junio%default%Ta mínima junio [C]
+650%44%atlas_clima_TMMAX_junio%default%Ta media de las máximas junio [C]
+651%44%atlas_clima_TMMIN_enero%default%Ta media de las mínimas enero [C]
+652%44%atlas_clima_TMMAX_julio%default%Ta media de las máximas julio [C]
+653%44%atlas_clima_TMMAX_agosto%default%Ta media de las máximas agosto [C]
+654%44%atlas_clima_TMAX_otonyo%default%Ta máxima otoño [C]
+655%44%atlas_clima_TMAX_enero%default%Ta máxima enero [C]
+656%44%atlas_clima_T_verano%default%Ta media verano [C]
+657%44%atlas_clima_PMM_primavera%default%Prec. primavera [mm]
+658%44%atlas_clima_PMM_otonyo%default%Prec. otoño [mm]
+659%44%atlas_clima_TMAX_octubre%default%Ta máxima octubre [C]
+660%44%atlas_clima_T_julio%default%Ta media julio [C]
+661%44%atlas_clima_TMMIN_junio%default%Ta media de las mínimas junio [C]
+662%44%atlas_clima_TMIN_anual%default%Temperatura mínima anual [C]
+663%44%atlas_clima_PMM_invierno%default%Prec. invierno [mm]
+664%44%atlas_clima_estaciones_meteo_validadas_cv%default%Estaciones de referencia
+665%44%atlas_clima_PMM_anual%default%Precipitación acumulada anual [mm]
+666%44%atlas_clima_datosclima%default%Cuadrícula de referencia
+667%44%atlas_clima_TMIN_otonyo%default%Ta mínima otoño [C]
+668%44%atlas_clima_TMMIN_noviembre%default%Ta media de las mínimas noviembre [C]
+669%44%atlas_clima_TMIN_octubre%default%Ta mínima octubre [C]
+670%44%atlas_clima_TMAX_invierno%default%Ta máxima invierno [C]
+671%44%atlas_clima_TMIN_noviembre%default%Ta mínima noviembre [C]
+672%44%atlas_clima_T_enero%default%Ta media enero [C]
+673%44%atlas_clima_TMMAX_enero%default%Ta media de las máximas enero [C]
+674%44%atlas_clima_T_mayo%default%Ta media mayo [C]
+675%44%atlas_clima_TMMAX_primavera%default%Ta media de las máximas primavera [C]
+676%44%atlas_clima_TMMIN_abril%default%Ta media de las mínimas abril [C]
+677%45%DICS%%DICS cruzados con catastro con exito ETRS89HU30
+678%46%CONSTRU%Default%CONSTRU
+679%46%SUBPARCE%Default%SUBPARCE
+680%46%TEXTOS%Default%TEXTOS
+681%46%PARCELA%Default%PARCELA
+682%46%LIMITES%Default%LIMITES
+683%46%EJES%Default%EJES
+684%46%TXTCONSTRU%Default%TXTCONSTRU
+685%46%TXTPARCELA%Default%TXTPARCELA
+686%46%Catastro%Default%Catastro
+687%46%MASA%Default%MASA
+688%46%TXTSUBPARCE%Default%TXTSUBPARCE
+689%46%TXTMASA%Default%TXTMASA
+690%46%ELEMLIN%Default%ELEMLIN
+691%47%instalaciones_epsar_label%default%Instalaciones EPSAR etiquetas
+692%47%instalaciones_epsar_f%default%Instalaciones EPSAR
+693%48%edu_centres%%Centres Educatius
+694%49%centros_polivalente%default%Centros Polivalentes
+695%49%otro_centro_asistencia%default%Otros Proveedores de Asistencia Sanitaria sin internamiento
+696%49%centros_transfusion%default%Centros de Transfusión
+697%49%ortopedias%default%Ortopedias
+698%49%consultorio_auxiliar%default%Consultorio auxiliar de temporada
+699%49%cirugia_mayor_ambulatoria%default%Centros de Cirugia Mayor Ambulatoria
+700%49%cen_investigacion%default%Centros de Investigación Sanitaria
+701%49%centros_diagnostico_imagen%default%Centros de Diagnóstico (Diagnóstico por la imagen)
+702%49%consultorio_atencion%default%Consultorio de Atención Primaria
+703%49%centros_salud%default%Centros de Salud
+704%49%Farmacias%default%Farmacias y botiquines
+705%49%hospital_especial%default%Hospital Especial
+706%49%otro_centro_integrado%default%Servicios Sanitarios Integrados en una organización no Sanitaria
+707%49%centros_analisis_clinicos%default%Centros de Diagnóstico - (Laboratorio Análisis Clínicos)
+708%49%centros_salud_mental%default%Centros de Salud Mental
+709%49%hospital_mental%default%Hospital de Salud Mental y Tratamiento de Toxicomanias
+710%49%centros_dialisis%default%Centros de Diálisis
+711%49%Desfibriladores%default%Desfibriladores
+712%49%SAIP%default%SAIP Servicio de atención e información al paciente
+713%49%centros_reconocimiento%default%Centros de Reconocimiento
+714%49%otros_profesionales%default%Consulta de Otros Profesionales Sanitarios
+715%49%hospital_general%default%Hospital General
+716%49%centros_interrupcion%default%Centro de Interrupción Voluntaria de Embarazo
+717%49%otro_especial%default%Otros Centros Especializados
+718%49%optica%default%Óptica
+719%49%Clinica_Dental%default%Clínica Dental
+720%49%centros_reproduccion%default%Centros de Reproducción Humana Asistida
+721%49%centros_periferico_muestras%default%Centros de Diagnóstico (Centro periférico de toma de muestras)
+722%49%asociaciones%default%Asociaciones
+723%49%consulta_medica%default%Consulta Médica
+724%49%hospital_media%default%Hospital de Media y Larga Estancia
+725%49%otro_internaminento%default%Otros Centros con internamiento
+726%49%audiproptesis%default%Establecimientos de audioprótesis
+727%49%centro_diagnostico%default%Centros de Diagnóstico
+728%50%imd2013%default%Intensidad media 2013
+729%50%fites%default%Puntos kilométricos
+730%50%imd2012%default%Intensidad media 2012
+731%50%imd2014%default%Intensidad media 2014
+732%50%tramos_carreteras%default%Carreteras
+733%51%historico1956%default%Red de carreteras 1956
+734%51%historico1976%default%Red de carreteras 1976
+735%51%Actual%default%Red de carreteras actual
+736%51%casillas%default%Casillas de peones camineros
+737%51%historico1909%default%Red de carreteras 1909
+738%52%78%default%Estado. Masas de agua superf. transición. Estado químico
+739%52%41%default%Punto control calidad sup. programa zonas protegidas
+740%52%216%default%PATRICAL. 40-08. Pérdidas del río hacia los acuíferos -hm3-año-
+741%52%47%default%Piezómetros todas las redes
+742%52%43%default%Punto control calidad sup. programa operativo
+743%52%63%default%Objetivos medioamb. Masas de agua subt. Horizonte global
+744%52%30%default%Medidas PHJ09. 01-Contaminación puntual -EDAR- -Inv. mill. eur.-
+745%52%208%default%PATRICAL. 80-08. Aportación acumulada a la red fluvial principal -hm3-año-
+746%52%227%default%Masas de agua superficial poligono Río
+747%52%96%default%Estado. Masas de agua superf. lago muy mod. Estado global
+748%52%230%default%Canales Principales
+749%52%9%default%Medidas PHJ09. 15-Otras med.: medidas estruct. defensa inund. -Ríos- -Inv. mill. eur.-
+750%52%130%default%Zonas afectadas por nitratos. Aguas superficiales lineales - Art.5
+751%52%174%default%Presiones. Evaluación masas agua sup. lago. Presión global puntual
+752%52%27%default%Medidas PHJ09. 06-Hidromorf: mejora otras cond. hidromorf. -Lagos y Embalses- -Inv. mill. eur.-
+753%52%207%default%PATRICAL. 80-08. Pérdidas del río hacia los acuíferos -hm3-año-
+754%52%214%default%PATRICAL. 40-08. Evapotranspiración real total anual -ETR- -mm-año-
+755%52%172%default%Presiones. Evaluación masas agua sup. transición. Presión global otras
+756%52%215%default%PATRICAL. 40-08. Evapotranspiración potencial total anual -ETP- -mm-año-
+757%52%224%default%Masas de agua superficial Costera
+758%52%53%default%Hidrometría red Albufera
+759%52%183%default%Presiones. Evaluación masas agua sup. río. Presión global morfológica
+760%52%13%default%Medidas PHJ09. 12-Otras med.: invest. y mejora conocimiento -Lagos y embalses- -Inv. mill. eur.-
+761%52%124%default%Estado. Masas de agua superf. río natural. Estado químico
+762%52%25%default%Medidas PHJ09. 07-Hidromorf: mejora regimen caudales -Ríos- -Inv. mill. eur.-
+763%52%182%default%Presiones. Evaluación masas agua sup. río. Presión global hidrológica
+764%52%140%default%Zonas protegidas. U. rec. continental embalse
+765%52%18%default%Medidas PHJ09. 08.3-Cant. agua: increm. recursos conv. -Otros-líneas- -Inv. mill. eur.-
+766%52%126%default%Estado. Masas de agua superf. río natural. Ind. físico-químicos
+767%52%139%default%Zonas protegidas. Zonas húmedas
+768%52%211%default%PATRICAL. 40-08. Escorrentía total anual -mm-año-
+769%52%136%default%Zonas protegidas. Dir. aves ZEPA
+770%52%72%default%Estado. Masas de agua subterránea. Estado químico
+771%52%205%default%PATRICAL. 80-08. Evapotranspiración real total anual -ETR- -mm-año-
+772%52%87%default%Estado. Masas de agua superf. costera muy mod. Ind. físico-químicos
+773%52%102%default%Estado. Masas de agua superf. lago natural. Estado global
+774%52%52%default%Hidrometría todas las redes
+775%52%180%default%Presiones. Evaluación masas agua sup. río. Presión global puntual
+776%52%97%default%Estado. Masas de agua superf. lago muy mod. Estado ecológico
+777%52%119%default%Estado. Masas de agua superf. río muy mod.-artif. Ind. biológicos
+778%52%36%default%Punto control intrusión red operativa
+779%52%163%default%Presiones. Evaluación masas agua subt. Presión global difusa
+780%52%134%default%Zonas protegidas. Zonas sensibles río
+781%52%77%default%Estado. Masas de agua superf. transición. Estado ecológico
+782%52%15%default%Medidas PHJ09. 11-Otras med.: medidas protección agua potable -ETAP- -Inv. mill. eur.-
+783%52%68%default%Objetivos medioamb. Masas de agua sup. río. Horizonte global
+784%52%168%default%Presiones. Evaluación masas agua sup. transición. Presión global puntual
+785%52%148%default%Zonas protegidas. Abastecimiento azud
+786%52%89%default%Estado. Masas de agua superf. costera natural. Estado global
+787%52%132%default%Zonas protegidas. Zonas vulnerables
+788%52%129%default%Zonas afectadas por nitratos. Aguas superficiales poligonales - Art.5
+789%52%228%default%Masas de agua superficial red Río
+790%52%65%default%Objetivos medioamb. Masas de agua sup. costera. Horizonte global
+791%52%190%default%Unidades de demanda industrial
+792%52%178%default%Presiones. Evaluación masas agua sup. lago. Presión global otras
+793%52%112%default%Estado. Masas de agua superf. embalse. Estado químico
+794%52%85%default%Estado. Masas de agua superf. costera muy mod. Estado químico
+795%52%73%default%Estado. Masas de agua subterránea. Estado cuantitativo
+796%52%7%default%Medidas PHJ09. 15-Otras med.: medidas estruct. defensa inund. -Otros-barrancos- -Inv. mill. eur.-
+797%52%11%default%Medidas PHJ09. 14-Otras med.: medidas tratam. aguas resid. industriales -EDAR- -Inv. mill. eur.-
+798%52%192%default%Unidades de demanda agrícola PHJ 2009. Origen agua
+799%52%42%default%Punto control calidad sup. programa vigilancia
+800%52%210%default%PATRICAL. 40-08. Infiltración total anual -mm-año-
+801%52%57%default%Estación aforo ROEA actual canales
+802%52%111%default%Estado. Masas de agua superf. embalse. Estado ecológico
+803%52%120%default%Estado. Masas de agua superf. río muy mod.-artif. Ind. físico-químicos
+804%52%79%default%Estado. Masas de agua superf. transición. Ind. biológicos
+805%52%231%default%Embalses
+806%52%17%default%Medidas PHJ09. 08.4-Cant. agua: increm. recursos no conv. reutilización -EDAR- -Inv. mill. eur.-
+807%52%71%default%Estado. Masas de agua subterránea. Estado global
+808%52%162%default%Presiones. Evaluación masas agua subt. Presión global extracción
+809%52%170%default%Presiones. Evaluación masas agua sup. transición. Presión global hidrológica
+810%52%137%default%Zonas protegidas. Dir. hábitat LIC
+811%52%26%default%Medidas PHJ09. 06-Hidromorf: mejora otras cond. hidromorf. -Otros-puntos- -Inv. mill. eur.-
+812%52%161%default%Presiones. Evaluación masas agua subt. Presión global intrusión
+813%52%196%default%Unidades de demanda urbana
+814%52%10%default%Medidas PHJ09. 15-Otras med.: medidas estruct. defensa inund. -Canales- -Inv. mill. eur.-
+815%52%202%default%PATRICAL. 80-08. Escorrentía total anual -mm-año-
+816%52%14%default%Medidas PHJ09. 12-Otras med.: invest. y mejora conocimiento -M. A. Subt.- -Inv. mill. eur.-
+817%52%151%default%Zonas protegidas. Abastecimiento desaladora
+818%52%150%default%Zonas protegidas. Abastecimiento manantial
+819%52%242%default%Costa
+820%52%144%default%Zonas protegidas. R. naturales fluviales
+821%52%49%default%Piezómetros red básica
+822%52%59%default%Estación aforo ROEA actual
+823%52%226%default%Masas de agua superficial Transición
+824%52%19%default%Medidas PHJ09. 08.3-Cant. agua: increm. recursos conv. -Otros-puntos- -Inv. mill. eur.-
+825%52%241%default%Límite CHJ
+826%52%38%default%Punto control calidad subt. programa vigilancia
+827%52%184%default%Presiones. Evaluación masas agua sup. río. Presión global otras
+828%52%142%default%Zonas protegidas. U. rec. marítimo
+829%52%24%default%Medidas PHJ09. 07-Hidromorf: mejora regimen caudales -Lagos y embalses- -Inv. mill. eur.-
+830%52%193%default%Unidades de demanda agrícola PHJ 2009
+831%52%238%default%Provincias
+832%52%113%default%Estado. Masas de agua superf. embalse. Ind. biológicos
+833%52%2%default%Navegación. Restricciones en embalses
+834%52%157%default%Vertidos. Censo de vertidos con autorización
+835%52%83%default%Estado. Masas de agua superf. costera muy mod. Estado global
+836%52%164%default%Presiones. Evaluación masas agua subt. Presión global puntual
+837%52%201%default%PATRICAL. 80-08. Infiltración total anual -mm-año-
+838%52%123%default%Estado. Masas de agua superf. río natural. Estado ecológico
+839%52%187%default%Zonas agrarias
+840%52%55%default%Estación aforo Albufera
+841%52%203%default%PATRICAL. 80-08. Temperatura media anual
+842%52%153%default%Punto control caudales ecológicos
+843%52%22%default%Medidas PHJ09. 08.2-Cant. agua: mejora eficiencia abast. urbano e ind. -UDU- -Inv. mill. eur.-
+844%52%171%default%Presiones. Evaluación masas agua sup. transición. Presión global morfológica
+845%52%106%default%Estado. Masas de agua superf. lago natural. Ind. físico-químicos
+846%52%204%default%PATRICAL. 80-08. Precipitación total anual -mm-año-
+847%52%143%default%Zonas protegidas. Zonas protección especial
+848%52%114%default%Estado. Masas de agua superf. embalse. Ind. físico-químicos
+849%52%217%default%PATRICAL. 40-08. Aportación acumulada a la red fluvial principal -hm3-año-
+850%52%160%default%Presiones. Evaluación masas agua subt. Presión global recarga artif.
+851%52%12%default%Medidas PHJ09. 12-Otras med.: invest. y mejora conocimiento -Otros-puntos- -Inv. mill. eur.-
+852%52%100%default%Estado. Masas de agua superf. lago muy mod. Ind. físico-químicos
+853%52%93%default%Estado. Masas de agua superf. costera natural. Ind. físico-químicos
+854%52%131%default%Zonas afectadas por nitratos. Aguas subterráneas - Art.5
+855%52%29%default%Medidas PHJ09. 05-Hidromorf: mejora continuidad longitudinal -Ríos- -Inv. mill. eur.-
+856%52%141%default%Zonas protegidas. U. rec. continental río
+857%52%177%default%Presiones. Evaluación masas agua sup. lago. Presión global morfológica
+858%52%176%default%Presiones. Evaluación masas agua sup. lago. Presión global hidrológica
+859%52%147%default%Zonas protegidas. Abastecimiento embalse
+860%52%91%default%Estado. Masas de agua superf. costera natural. Estado químico
+861%52%23%default%Medidas PHJ09. 08.1-Cant. agua: mejora eficiencia regadío -UDA- -Inv. mill. eur.-
+862%52%175%default%Presiones. Evaluación masas agua sup. lago. Presión global difusa
+863%52%86%default%Estado. Masas de agua superf. costera muy mod. Ind. biológicos
+864%52%110%default%Estado. Masas de agua superf. embalse. Estado global
+865%52%39%default%Punto control calidad subt. programa operativo
+866%52%92%default%Estado. Masas de agua superf. costera natural. Ind. biológicos
+867%52%122%default%Estado. Masas de agua superf. río natural. Estado global
+868%52%149%default%Zonas protegidas. Abastecimiento pozo
+869%52%219%default%Sistemas de explotación
+870%52%145%default%Zonas protegidas. E. acuáticas moluscos
+871%52%240%default%Demarcación hidrográfica
+872%52%16%default%Medidas PHJ09. 08.5-Cant. agua: increm. recursos no conv. desalación -Desaladoras- -Inv. mill. eur.-
+873%52%67%default%Objetivos medioamb. Masas de agua sup. lago. Horizonte global
+874%52%232%default%Presas
+875%52%8%default%Medidas PHJ09. 15-Otras med.: medidas estruct. defensa inund. -Otros-puntos- -Inv. mill. eur.-
+876%52%76%default%Estado. Masas de agua superf. transición. Estado global
+877%52%118%default%Estado. Masas de agua superf. río muy mod.-artif. Estado químico
+878%52%84%default%Estado. Masas de agua superf. costera muy mod. Estado ecológico
+879%52%54%default%Hidrometría red operativa
+880%52%58%default%Estación aforo ROEA actual ríos
+881%52%206%default%PATRICAL. 80-08. Evapotranspiración potencial total anual -ETP- -mm-año-
+882%52%169%default%Presiones. Evaluación masas agua sup. transición. Presión global difusa
+883%52%4%default%Navegación. Obstáculos y singularidades
+884%52%20%default%Medidas PHJ09. 08.3-Cant. agua: increm. recursos conv. -Canales- -Inv. mill. eur.-
+885%52%133%default%Zonas protegidas. Zonas sensibles poligono
+886%52%37%default%Punto control calidad subt. programa zonas protegidas
+887%52%48%default%Piezómetros red operativa
+888%52%66%default%Objetivos medioamb. Masas de agua sup. transición. Horizonte global
+889%52%195%default%Unidades de demanda urbana. Tipo
+890%52%239%default%Comunidades autónomas
+891%52%222%default%Masas de agua subterránea
+892%52%235%default%Subcuencas hidrográficas clasificadas
+893%52%138%default%Zonas protegidas. Zonas húmedas Ramsar
+894%52%98%default%Estado. Masas de agua superf. lago muy mod. Estado químico
+895%52%213%default%PATRICAL. 40-08. Precipitación total anual -mm-año-
+896%52%60%default%Estación aforo ROEA
+897%52%225%default%Masas de agua superficial Lago
+898%52%237%default%Municipios
+899%52%125%default%Estado. Masas de agua superf. río natural. Ind. biológicos
+900%52%90%default%Estado. Masas de agua superf. costera natural. Estado ecológico
+901%52%103%default%Estado. Masas de agua superf. lago natural. Estado ecológico
+902%52%105%default%Estado. Masas de agua superf. lago natural. Ind. biológicos
+903%52%181%default%Presiones. Evaluación masas agua sup. río. Presión global difusa
+904%52%135%default%Zonas protegidas. Aguas minerales termales
+905%52%104%default%Estado. Masas de agua superf. lago natural. Estado químico
+906%52%21%default%Medidas PHJ09. 08.3-Cant. agua: increm. recursos conv. -ETAP- -Inv. mill. eur.-
+907%52%35%default%Punto control intrusión todas las redes
+908%52%3%default%Navegación. Restricciones en ríos
+909%52%80%default%Estado. Masas de agua superf. transición. Ind. físico-químicos
+910%52%117%default%Estado. Masas de agua superf. río muy mod.-artif. Estado ecológico
+911%52%116%default%Estado. Masas de agua superf. río muy mod.-artif. Estado global
+912%52%146%default%Zonas protegidas. E. acuáticas peces
+913%52%28%default%Medidas PHJ09. 06-Hidromorf: mejora otras cond. hidromorf. -Ríos- -Inv. mill. eur.-
+914%52%212%default%PATRICAL. 40-08. Temperatura media anual
+915%52%99%default%Estado. Masas de agua superf. lago muy mod. Ind. biológicos
+916%53%0%default%Riqueza de especies
+917%54%0%default%Inventario Nacional Espacios Naturales Protegidos
+918%55%0%default%Humedales
+919%56%0%default%Lugar de Importancia Comunitaria (LIC) y Zona de Especial Protección para las Aves (ZEPA)
+920%57%0%default%Erosión Eólica
+921%58%0%default%Erosión Laminar (raster)  tm/ha/año
+922%59%0%default%Erosión Potencial
+923%60%0%default%Humedales Ramsar
+924%61%0%default%OSPAR
+925%62%0%default%Reservas de la Biosfera
+926%63%0%default%ZEPIM
+927%64%0%default%Mapa Forestal de España
+928%65%0%default%Vías Pecuarias
+929%66%0%default%Abrevaderos
+930%67%0%default%Descansaderos
+931%68%0%default%Titularidad de los montes
+932%69%0%default%Inventario Nacional Espacios Naturales Protegidos
+933%70%0%Inventario Nacional de Paisaje%Inventario Nacional de Paisaje
+934%71%0%default%Región de procedencia
+935%72%ORTOFOTOS_2010%Default%Ortofotos 2010
+936%72%RECINTO%Default%Recintos
+937%72%ORTOFOTOS_2012%Default%Ortofotos 2012
+938%72%ARBOLES%Default%Arboles
+939%72%ORTOFOTOS_2014%Default%Ortofotos 2014
+940%72%PARCELA%Default%Parcelas
+941%72%ORTOFOTOS%Default%Ortofotos
+942%72%ORTOFOTOS_2013%Default%Ortofotos 2013
+943%72%ORTOFOTOS_2011%Default%Ortofotos 2011
+944%73%2%default%Contactos y Fallas Comunidad Valenciana
+945%73%0%default%Litologias color Comunidad Valenciana
+946%73%1%default%Litologias tramas Comunidad Valenciana
+947%73%3%default%Estructuras de plegamiento Comunidad Valenciana
+948%74%1%default%QAFI v.2.0 traces 21-12-2011
+949%74%0%default%Faults from the Neotectonic Map of Spain
+950%75%0%default%Permeabilidad
+951%76%0%default%Hidrogeología
+952%77%1%default%Contactos y fracturas
+953%77%0%default%Litoestratigrafía
+954%77%2%default%Estructuras
+955%78%2010%default%2010
+956%78%2009_1%default%2009 1
+957%78%wfs_all%default%wfs all
+958%79%2008%default%2008
+959%79%2009%default%2009
+960%80%2002%default%2002
+961%80%1997%default%1997
+962%80%2000%default%2000
+963%80%1996%default%1996
+964%81%1996%default%1996
+965%81%1997%default%1997
+966%81%2002%default%2002
+967%81%2000%default%2000
+968%82%eepp_reservas_naturales%default%Reservas Naturales
+969%82%eepp_patrimonio_mundial_unesco_palmeral%default%Palmeral de Elche
+970%82%eepp_mon_naturales_amortiguacion%default%Zona de Amortiguación de impactos en los Monumentos Naturales
+971%82%eepp_zepim%default%Zonas Especialmente Protegidas de Importancia para el Mediterráneo
+972%82%eepp_ramsar%default%Zonas Húmedas de Importancia Internacional
+973%82%incorpora_accion_territorial%default%Incorporaciones - Planes de Acción Territorial
+974%82%incorpora_planes_sectoriales%default%Incorporaciones - Planes Sectoriales
+975%82%eepp_zonas_humedas%default%Zonas Húmedas Catalogadas
+976%82%incorpora_planes_urbanisticos%default%Incorporaciones - Planes Urbanísticos
+977%82%eepp_monumentos_naturales%default%Monumentos Naturales
+978%82%fore_patfor_terreno_forest_estrateg%default%Terreno forestal Estratégico - PATFOR
+979%82%eepp_paisajes_protegidos%default%Paisajes Protegidos
+980%82%eepp_parajes_municipales%default%Parajes Naturales Municipales
+981%82%eepp_parques_naturales%default%Parques Naturales
+982%82%eepp_patrimonio_mundial_unesco_lonja%default%Lonja de la Seda de Valencia
+983%82%eepp_zepas%default%Zonas de Especial Protección para las Aves
+984%82%eepp_zonas_humedas_influencia%default%Zona de Protección Zonas Húmedas
+985%82%eepp_patrimonio_mundial_unesco_rupestre%default%Arte Rupestre del Arco Mediterráneo de la Península Ibérica
+986%82%eepp_cuevas_municipios%default%Cavidades subterráneas catalogadas - Municipios
+987%82%fore_g1_montes_catalogados%default%Montes Catalogados
+988%82%eepp_lics%default%Lugares de Interés Comunitario
+989%83%AU.AdministrativeBoundary%LimitesAdministrativos%Límite administrativo
+990%84%ortoactualidad%%Ortofoto actual 2012
+991%85%ComuRedCV05%default%Red de comunicaciones - Xarxa de comunicacions
+992%85%ConsPuntualesCV05%default%Construcciones puntuales - Construccions puntuals
+993%85%ConsPoligonalesCV05%default%Construcciones - Construccions 
+994%85%CallesCartociudad%default%CallesCartociudad
+995%85%UsosHidrografiaCV05%default%Hidrografía - Hidrografia
+996%85%LimitesAdministrativos%default%Límite municipal - Límit municipal
+997%85%LimitesUrbanosCV05%default%Entornos urbanos - Entorns urbans
+998%85%OrogcurvasCV05%default%Curvas de nivel - Corbes de nivell
+999%85%UsosServiciosInstalacionesCV05%default%Servicios e Instalaciones - Serveis i Instal·lacions
+1000%85%HidrolinealCV05%default%Hidrografía lineal - Hidrografia lineal
+1001%85%OrogpuntosCV05%default%Puntos de cota - Punts de cota
+1002%85%OroglineasCV05%default%Orografía líneas - Orografia línies
+1003%85%UsosCarreterasCV05%default%Infraestructuras viarias - Infraestructures viàries
+1004%85%ZonasArboladasCV05%default%Zonas arboladas - Zones amb arbres
+1005%85%UsosCultivosCV05%default%Cultivos - Cultius
+1006%85%ConsEdifCV05%default%Edificaciones - Edificacions
+1007%85%ConsServinstCV05%default%Servicios e instalaciones - Serveis i instal·lacions 
+1008%85%ConsLinealesCV05%default%Construcciones lineales - Construccions lineals
+1009%85%PortalesCartociudad%default%PortalesCartociudad
+1010%85%HidropuntualCV05%default%Hidrografía lineal - Hidrografia lineal
