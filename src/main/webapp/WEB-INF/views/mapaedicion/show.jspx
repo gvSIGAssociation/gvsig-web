@@ -271,8 +271,9 @@ You should have received a copy of the GNU Affero General Public License
       };
       $.post('${pageContext.request.contextPath}/mapaedicion/obtenerinformacionservicioweb', params, function (data) {
         log("Information of service web OK. Add Layer.");
+
         // Se registra la capa en el TOC, pero no se guarda.
-         var idLayer="ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_predefined_layer_"+data.id;
+         var idLayer="ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_toc_"+data.id;
         // obtenemos en primer lugar del localStorage si el id esta anayadido como remove
          var hashLocation = fnGetHashCode(window.location.pathname);
          var jsonMapStatus = localStorage.getItem(hashLocation+"_ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_status");
@@ -282,7 +283,7 @@ You should have received a copy of the GNU Affero General Public License
 
         var options = {};
         options.layer_type=data.type;
-        options.span="ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_predefined_layer_"+data.id+"_span";
+        options.span="ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_toc_"+data.id+"_span";
          //sobreescrimios idLayer y span si es remove el idCapa de localstorage
          if(status === "remove"){
           idLayer="ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_toc_"+idServicioWeb;
@@ -327,7 +328,10 @@ You should have received a copy of the GNU Affero General Public License
         options.feature_info_eror_msg="";
         options.controller_url="/gvgeoportal/ogcinfo";
         options.visible_on_start="false";
-        map.fnRegisterLayer(idLayer, options, null, true);
+        var newLayer = map.fnRegisterLayer(idLayer, options, null, true);
+        var idLayerToc = "ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_toc_"+data.id;
+        addToolsToLayer(newLayer, idLayer, idLayerToc);
+
       }).fail( function (data) {
          log("Do not add layer.");
          // No se registra la capa en el TOC.

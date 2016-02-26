@@ -39,27 +39,10 @@ jQuery(document).ready(function() {
 	jQuery(".leaflet-control-layers-toolbar").addClass("collapse");
 	jQuery(".leaflet-control-layers-toolbar").attr("id","toc-tools");
 	// added button to show opacity
-	jQuery(".fancytree-node .col-xs-3").prepend("<a class='btn-toc-tools' data-original-title='Control de opacidad de la capa' title='Control de opacidad de la capa'><span aria-hidden='true' class='toc-tools glyphicon glyphicon-cog'></span></a>");
+	jQuery(".fancytree-node .col-xs-3").prepend("<a onclick='javascript:openConfigurationAction(event);' class='btn-toc-tools' data-original-title='Control de opacidad de la capa' title='Control de opacidad de la capa'><span aria-hidden='true' class='toc-tools glyphicon glyphicon-cog'></span></a>");
 
 	// Ubicamos capa
 	//init toggle
-	$('.btn-toc-tools').click(function(){
-		var $boton = jQuery(this);
-		var $parent = $boton.closest("span");
-		var $opacityTool = jQuery(".tool-opacity");
-		//comprobamos si la capa ya tiene la opacidad anyadida
-		if($parent.find(".tool-opacity").length == 0){
-			//sino la tiene anyadimos opacidad a la capa
-			$parent.append($opacityTool);
-			$opacityTool.show();
-		}else{
-			//si la tiene la quitamos y ocultamos
-			$opacityTool.hide();
-			jQuery('.fancytree-container').prepend($opacityTool);
-
-		}
-	});
-
 
 	//Images Toc
 	jQuery("div[id^='ps_es_gva_dgti_gvgeoportal_web_'] img").addClass("img-responsive");

@@ -132,20 +132,6 @@ public class GeoportalServicioWebServiceImpl implements
                     }
 
                     GeoportalServicioWeb geoportalServicioWeb = null;
-                    if (key.contains("predefined_layer")
-                            && !entry.getValue().toString().equals("remove")) {
-                        if (entry.getValue().toString().equals("remove")) {
-                            remove = true;
-                        }
-                        else {
-                            // Añade nuevas capas al TOC
-                            create = true;
-                            geoportalServicioWeb = new GeoportalServicioWeb();
-                            geoportalServicioWeb.setGeoportal(geoportal);
-                            geoportalServicioWeb.setServicioWeb(servicioWeb);
-                        }
-                    }
-                    else {
                         List<GeoportalServicioWeb> geoportalesServiciosWeb = findGeoportalServicioWebByGeoportalAndServicioWeb(
                                 geoportal, servicioWeb).getResultList();
                         if (!geoportalesServiciosWeb.isEmpty()) {
@@ -159,10 +145,18 @@ public class GeoportalServicioWebServiceImpl implements
                                 confVistasPredefinidasService.deleteConfVistasPredefinidasServicioWebByGeoPortal(geoportalServicioWeb);
                             }
                         }else {
-                            LOGGER.debug("No se hace nada.");
-                            continue;
+                        	if (entry.getValue().toString().equals("remove")) {
+                                remove = true;
+                            }
+                            else {
+                                // Añade nuevas capas al TOC
+                                create = true;
+                                geoportalServicioWeb = new GeoportalServicioWeb();
+                                geoportalServicioWeb.setGeoportal(geoportal);
+                                geoportalServicioWeb.setServicioWeb(servicioWeb);
+                            }
                         }
-                    }
+//                    }
                     if (!remove) {
                         boolean activo = Boolean.parseBoolean((String) entry
                                 .getValue());
