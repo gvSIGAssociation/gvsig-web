@@ -50,7 +50,7 @@
 	</changeSet>
 	<changeSet author="omorro" id="schema-seq-6">
 		<createSequence sequenceName="capas_servicio_web_id_seq"
-			startValue="300" />
+			startValue="1500" />
 	</changeSet>
 
 	<!-- Inicio creacion tablas -->
