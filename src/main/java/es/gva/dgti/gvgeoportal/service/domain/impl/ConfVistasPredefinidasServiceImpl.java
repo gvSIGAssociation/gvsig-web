@@ -55,20 +55,22 @@ public class ConfVistasPredefinidasServiceImpl implements ConfVistasPredefinidas
       ServicioWeb servicioWebToDelete = geoPortalServicioWeb.getServicioWeb();
 
       List<ConfVistasPredefinidas> listConfVistasPredefinidas = findConfVistasPredefinidasesByGeoPortal(geoPortalServicioWeb.getGeoportal());
-      for(ConfVistasPredefinidas confVistasPredefinidas : listConfVistasPredefinidas){
-        Set<ServicioWeb> serviciosWeb = confVistasPredefinidas.getServiciosWeb();
-        if(serviciosWeb.contains(servicioWebToDelete)){
-          serviciosWeb.remove(servicioWebToDelete);
-          //if webservices from predefinied view is empty, delete the view
-          if(serviciosWeb.isEmpty()){
-            deleteConfVistasPredefinidas(confVistasPredefinidas);
-          }
-          else{
-            //is not empty, delete only the web service
-            confVistasPredefinidas.setServiciosWeb(serviciosWeb);
-            saveConfVistasPredefinidas(confVistasPredefinidas);
-          }
-        }
+      if(listConfVistasPredefinidas != null && listConfVistasPredefinidas.size() > 0){
+    	  for(ConfVistasPredefinidas confVistasPredefinidas : listConfVistasPredefinidas){
+    		  Set<ServicioWeb> serviciosWeb = confVistasPredefinidas.getServiciosWeb();
+    		  if(serviciosWeb.contains(servicioWebToDelete)){
+    			  serviciosWeb.remove(servicioWebToDelete);
+    			  //if webservices from predefinied view is empty, delete the view
+    			  if(serviciosWeb.isEmpty()){
+    				  deleteConfVistasPredefinidas(confVistasPredefinidas);
+    			  }
+    			  else{
+    				  //is not empty, delete only the web service
+    				  confVistasPredefinidas.setServiciosWeb(serviciosWeb);
+    				  saveConfVistasPredefinidas(confVistasPredefinidas);
+    			  }
+    		  }
+    	  }
       }
 
     }
