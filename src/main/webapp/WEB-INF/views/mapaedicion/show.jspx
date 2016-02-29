@@ -278,7 +278,6 @@ You should have received a copy of the GNU Affero General Public License
          var hashLocation = fnGetHashCode(window.location.pathname);
          var jsonMapStatus = localStorage.getItem(hashLocation+"_ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_status");
          var status;
-         debugger;
          if(jsonMapStatus != null){
 	         var mapStatus =  JSON.parse(jsonMapStatus);
 	         var servicioWebLayer = "ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_toc_"+idServicioWeb+ "_layer";
@@ -346,7 +345,6 @@ You should have received a copy of the GNU Affero General Public License
      * Elimina una capa del TOC.
      */
     function removeLayer(e) {
-    	debugger;
     	var $spanTarget = jQuery(e.target);
     	var spanPadre = $spanTarget.parent().parent().parent();
     	if(!spanPadre.hasClass("ui-tabs-active")){
