@@ -277,9 +277,13 @@ You should have received a copy of the GNU Affero General Public License
         // obtenemos en primer lugar del localStorage si el id esta anayadido como remove
          var hashLocation = fnGetHashCode(window.location.pathname);
          var jsonMapStatus = localStorage.getItem(hashLocation+"_ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_status");
-         var mapStatus =  JSON.parse(jsonMapStatus);
-         var servicioWebLayer = "ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_toc_"+idServicioWeb+ "_layer";
-         var status = mapStatus[servicioWebLayer];
+         var status;
+         debugger;
+         if(jsonMapStatus != null){
+	         var mapStatus =  JSON.parse(jsonMapStatus);
+	         var servicioWebLayer = "ps_es_gva_dgti_gvgeoportal_web_Mapaedicion_toc_"+idServicioWeb+ "_layer";
+	         status = mapStatus[servicioWebLayer];
+         }
 
         var options = {};
         options.layer_type=data.type;
@@ -342,6 +346,7 @@ You should have received a copy of the GNU Affero General Public License
      * Elimina una capa del TOC.
      */
     function removeLayer(e) {
+    	debugger;
     	var $spanTarget = jQuery(e.target);
     	var spanPadre = $spanTarget.parent().parent().parent();
     	if(!spanPadre.hasClass("ui-tabs-active")){
