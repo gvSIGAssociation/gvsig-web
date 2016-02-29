@@ -96,13 +96,14 @@ public class ServicioWebServiceImpl implements ServicioWebService {
      */
     public Set<CapasServicioWeb> getSelectedLayersAndStyles(
             String capasSeleccionadas, String tituloCapasSeleccionadas,
-            String estiloCapasSeleccionadas, String tipo) {
+            String estiloCapasSeleccionadas, String tipo, ServicioWeb servicioWeb) {
         Set<CapasServicioWeb> listaCapasServicioWeb = new HashSet<CapasServicioWeb>();
         if (tipo.equals(TipoServicio.WMTS.name())) {
             CapasServicioWeb capasServicioWeb = new CapasServicioWeb();
             // capasServicioWeb.setEstiloCapa(estiloCapasSeleccionadas);
             capasServicioWeb.setNombreCapa(capasSeleccionadas);
             capasServicioWeb.setTituloCapa(tituloCapasSeleccionadas);
+            capasServicioWeb.setServicioWeb(servicioWeb);
             listaCapasServicioWeb.add(capasServicioWeb);
 
         }
@@ -142,6 +143,7 @@ public class ServicioWebServiceImpl implements ServicioWebService {
                     capasServicioWeb.setEstiloCapa(nombreEstilo);
                     capasServicioWeb.setTituloCapa(tituloCapa);
                     capasServicioWeb.setNombreCapa(nombreCapa);
+                    capasServicioWeb.setServicioWeb(servicioWeb);
                     listaCapasServicioWeb.add(capasServicioWeb);
                 }
             }

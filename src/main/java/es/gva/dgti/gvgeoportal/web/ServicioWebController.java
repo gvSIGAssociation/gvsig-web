@@ -452,7 +452,7 @@ public class ServicioWebController {
             // seleccionadas
             Set<CapasServicioWeb> capasServicioWeb = servicioWebService
                     .getSelectedLayersAndStyles(capasSeleccionadas, tituloCapasSeleccionadas,
-                            estiloCapasSeleccionadas, tipo);
+                            estiloCapasSeleccionadas, tipo, servicioWeb);
             // seteamos servicio web con las coordenadas
             if (capasServicioWeb != null && capasServicioWeb.size() > 0) {
                 servicioWeb.getCapasServicioWeb().addAll(capasServicioWeb);
@@ -674,7 +674,7 @@ public class ServicioWebController {
             // seleccionadas
             Set<CapasServicioWeb> capasServicioWeb = servicioWebService
                     .getSelectedLayersAndStyles(capasSeleccionadas, tituloCapasSeleccionadas,
-                            estiloCapasSeleccionadas, tipo);
+                            estiloCapasSeleccionadas, tipo, servicioWeb);
 
             // seteamos servicio web con las coordenadas
             if (capasServicioWeb != null && capasServicioWeb.size() > 0) {

@@ -75,11 +75,12 @@ public interface ServicioWebService {
      * @param capasSeleccionadas
      * @param tituloCapasSeleccionadas
      * @param estiloCapasSeleccionadas
+     * @param servicioWeb
      * @return
      */
     public Set<CapasServicioWeb> getSelectedLayersAndStyles(
             String capasSeleccionadas, String tituloCapasSeleccionadas, String estiloCapasSeleccionadas,
-            String tipo);
+            String tipo, ServicioWeb servicioWeb);
 
 
     /**
