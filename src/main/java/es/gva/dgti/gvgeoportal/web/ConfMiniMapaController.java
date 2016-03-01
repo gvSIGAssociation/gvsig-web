@@ -154,15 +154,19 @@ public class ConfMiniMapaController {
         String layersSelected = "";
         String stylesSelected = "";
 
-        List <CapasServicioWeb> listCapasServicioWeb = capasServicioWebService.findCapasServicioWebsByServicioWeb(servicioWeb);
+        if(servicioWeb != null){
 
-        // obtenemos informacion sobre las capas y estilos
-        if (servicioWeb != null && listCapasServicioWeb != null
-                && listCapasServicioWeb.size() > 0) {
-            layersSelected = servicioWebService.getSelectedInfoLayersNames(
-                    listCapasServicioWeb, true);
-            stylesSelected = servicioWebService.getStylesNames(listCapasServicioWeb);
+        	List <CapasServicioWeb> listCapasServicioWeb = capasServicioWebService.findCapasServicioWebsByServicioWeb(servicioWeb);
+
+        	// obtenemos informacion sobre las capas y estilos
+        	if (servicioWeb != null && listCapasServicioWeb != null
+        			&& listCapasServicioWeb.size() > 0) {
+        		layersSelected = servicioWebService.getSelectedInfoLayersNames(
+        				listCapasServicioWeb, true);
+        		stylesSelected = servicioWebService.getStylesNames(listCapasServicioWeb);
+        	}
         }
+
         // String con las capas seleccionadas
         uiModel.addAttribute("layersSelected", layersSelected);
         // String con los estilos seleccionadas
