@@ -26,7 +26,7 @@
   <groupId>es.gva.dgti.gvgeoportal</groupId>
   <artifactId>gvgeoportal</artifactId>
   <packaging>war</packaging>
-  <version>01.00.03</version>
+  <version>01.00.04</version>
   <name>gvGeoportal</name>
   <description>Aplicación para la administración y mantenimiento de los geoportales que ofrece la GVA.</description>
   <properties>
